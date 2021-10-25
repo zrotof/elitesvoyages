@@ -1,0 +1,92 @@
+$colorBlue: #115F98;
+$fontColor: #525252;
+
+ul{
+    list-style: none;
+    color: white;
+    padding: 0;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .footer-top{
+        background-color: rgb(8, 8, 8);
+        padding: 30px 7% ;
+        width: 100%;
+
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        
+        .company{
+            img{
+                width: 150px;
+                height: 50px;
+                margin-bottom: 10px;
+            }
+        }
+
+        .services{
+            display: flex;
+            flex-direction: column;
+
+            span{
+                color: $colorBlue;
+                margin-top: 10px;
+                margin-bottom: 22px;
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+        }
+
+        .follow{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            span{
+                color: $colorBlue;
+                margin-top: 10px;
+                margin-bottom: 22px;
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+
+            img{
+                width: 30px;
+                height: 30px;
+                margin-bottom: 10px;
+            }
+        }
+        
+
+        
+
+    }
+
+    .footer-bottom{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: black;
+        padding: 20px 7%;
+        width: 100%;
+
+        span{
+            padding: 5px 0;
+            color: white;
+        }
+
+        > span:nth-child(1){
+            border-bottom: 1px solid white;
+            color: $colorBlue;
+        }
+    }
+
+    
+}

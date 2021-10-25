@@ -3,14 +3,44 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { AboutComponent } from './components/about/about.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { FooterComponent } from './components/footer/footer.component';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FlightComponent } from './components/flight/flight.component';
+import { HotelComponent } from './components/hotel/hotel.component';
+import { CarComponent } from './components/car/car.component';
+import { TourismComponent } from './components/tourism/tourism.component';
+import { VisaComponent } from './components/visa/visa.component';
+import { FretDhlComponent } from './components/fret-dhl/fret-dhl.component';
+import { GoodDealComponent } from './components/good-deal/good-deal.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    ContactComponent,
+    AboutComponent,
+    NotFoundComponent,
+    FooterComponent,
+    FlightComponent,
+    HotelComponent,
+    CarComponent,
+    TourismComponent,
+    VisaComponent,
+    FretDhlComponent,
+    GoodDealComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

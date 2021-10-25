@@ -1,0 +1,38 @@
+.conteneur-perso{
+    padding: 5em 7% 0 7%;
+}
+
+.fret-dhl{
+    display: flex;
+    flex-direction:column;
+    width: 100%;
+
+    .fret-dhl-top-bloc{
+
+        background-image: url("../../../assets/img/fret-dhl.jpeg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        width: 100%;
+        height: 65vh;
+
+        .fret-dhl-top-title{
+            position: absolute;
+            top: 50%;
+            left:50%;
+            color: white;
+            transform: translate(-50%,-50%);
+        }
+    }
+
+    .fret-dhl-top-bloc::before{
+        content: "";
+        top: 0;
+        left:0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(180deg, rgba(2,22,47,0.7133228291316527) 0%, rgba(0,0,0,0.23713235294117652) 25%, rgba(0,0,0,0.20632002801120453) 100%);
+    }
+}

@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face{
+    font-family: 'Exo';
+    src: url('/src/assets/fonts/exo/Exo2-VariableFont_wght.ttf') format("truetype");
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Exo';
+
+}
+
+input,
+a,
+button,
+div{
+    -webkit-tap-highlight-color: transparent;
+}
+
+

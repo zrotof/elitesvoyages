@@ -1,0 +1,48 @@
+<header (scroll)="onWindowScroll()">
+    <img src="../../../assets/img/logo.png" alt="Logo of Elites Voyages">
+
+    
+    <div class="header-right">
+        <nav>
+            <ul>
+                <li><a routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" routerLink="/home">Home</a></li>
+                <li class="services">
+                        <span (click)="chooseService()">Services <fa-icon [icon]="faCaretDown"></fa-icon></span>
+                        <ul>
+                            <li><a routerLinkActive="active-link" routerLink="/flight">Billet d'avion</a></li>
+                            <li><a routerLinkActive="active-link" routerLink="/hotel">Hébergement hôtel</a></li>
+                            <li><a routerLinkActive="active-link" routerLink="/rent-car">Location voiture</a></li>
+                            <li><a routerLinkActive="active-link" routerLink="/tourism">Tourisme</a></li>
+                            <li><a routerLinkActive="active-link" routerLink="/fret-dhl">Fret et DHL</a></li>
+                            <li><a routerLinkActive="active-link" routerLink="/visa-dubaî">Visa Dubaî</a></li>
+                        </ul>
+                </li>
+                <li><a routerLinkActive="active-link" routerLink="/about">About</a></li>
+                <li><a routerLinkActive="active-link" routerLink="/good-deal">Good Deals</a></li>
+                <li><a routerLinkActive="active-link" routerLink="/contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="languages">
+           <div class="languages-top" (click)="chooseLanguage()">
+                <fa-icon [icon]="faGlobe"></fa-icon>
+                <span>{{selectedLanguage}}</span>
+                <fa-icon [icon]="faCaretDown"></fa-icon>
+            </div>
+            <div class="languages-bottom">
+
+                <div (click)="chooseEnglish()">
+                    <input class="en" type="checkbox" checked>
+                    <span>English <img src="../../../assets/img/en.png" alt="Drapeau Anglais"></span>
+                </div>
+
+                <div (click)="chooseFrench()">
+                    <input class="fr" type="checkbox">
+                    <span>French <img src="../../../assets/img/fr.jpeg" alt="Drapeau Français"></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</header>

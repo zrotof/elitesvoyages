@@ -1,0 +1,296 @@
+<div class="home">
+    <div class="slider">
+
+
+        <div class="mySlide fadeHeader slider-one">
+            <div class="slider-text">
+                <h1>Voyagez en toute sérénité</h1>
+                <span>Nous vous garantissons un accompagnement sur mesure dès la planification jusqu'au jour de votre voyage</span>
+                <span>Achetez un billet</span>
+            </div>
+        </div>
+
+        <div class="mySlide fadeHeader slider-two">
+            <div class="slider-text">
+                <h1>Voyagez en toute sérénité 2</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+             </div>
+        </div>
+
+        <div class="mySlide fadeHeader slider-three">
+            <div class="slider-text">
+                <h1>Louer un Véhicule</h1>
+                <span>Nous mettons à votre disposition un large choix de véhicules pour tous les goûts</span>
+                <span>Voir catalogue</span>
+            </div>
+        </div>
+
+        <div class="mySlide fadeHeader slider-four">
+            <div class="slider-text">
+                <h1>Disponible pour vous 7j/7</h1>
+                <span>Nos experts répondent à toutes vos préoccupations, n'hésitez donc pas si vous ressentez le besoin de nous joindre</span>
+                <span>Nous contacter</span>
+            </div>
+        </div>
+
+        <span class="prev" (click)="clickOnArrow(-1)"><fa-icon [icon]="faChevronLeft"></fa-icon></span>
+        <span class="next" (click)="clickOnArrow(1)"><fa-icon [icon]="faChevronRight"></fa-icon></span>
+
+        <div class="dots">
+            <span class="dot" (click)="currentSlide(1)"></span>
+            <span class="dot" (click)="currentSlide(2)"></span>
+            <span class="dot" (click)="currentSlide(3)"></span>
+            <span class="dot" (click)="currentSlide(4)"></span>
+        </div>
+    </div>
+
+    <div class="conteneur-perso about">
+        <h1 class="about-title" >À PROPOS</h1>
+        <div class="about-text-image">
+            <div class="about-text">
+                <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis pariatur illum, laudantium autem earum distinctio veritatis dolore ut porro a itaque sequi tempora beatae Lorem ipsum dolor sit, 
+                    amet consectetur adipisicing elit. Eaque, recusandae odio nulla enim laboriosam, laborum natus ullam velit earum ab amet, reprehenderit maiores iure quae unde consequatur beatae tempore corporis ...</span>
+                <div class="about-button">
+                    <span>En Savoir Plus</span>
+                    <span>Nous Contacter</span>
+                </div>
+            </div>
+
+            <img src="../../../assets/img/semi-accueil.png" alt="image of plane illustration">
+        </div>
+    </div>
+
+    <div class="conteneur-perso services-bloc">
+        <h1>NOS SERVICES</h1>
+        <div class="services">
+
+            <div class="service">
+                <span><fa-icon [icon]="faPlane"></fa-icon></span>
+                <div class="service-text">
+                    <h3>Billet d'Avion</h3>
+                    <p>Vente de billets d'avion pour toutes vos destinations</p>
+                    <span>En Savoir Plus</span>
+                </div>
+            </div>
+
+            <div class="service">
+                <span><fa-icon [icon]="faBed"></fa-icon></span>
+                <div class="service-text">
+                    <h3>Hôtel & appartement meublé</h3>
+                    <p>Vente de billets d'avion pour toutes vos destinations</p>
+                    <span>En Savoir Plus</span>
+                </div>
+            </div>
+
+            <div class="service">
+                <span><fa-icon [icon]="faCarSide"></fa-icon></span>
+                <div class="service-text">
+                    <h3>Location de Voiture</h3>
+                    <p>Vente de billets d'avion pour toutes vos destinations</p>
+                    <span>En Savoir Plus</span>
+                </div>
+            </div>
+
+            <div class="service">
+                <span><fa-icon [icon]="faGlobeAfrica"></fa-icon></span>
+                <div class="service-text">
+                    <h3>Tourisme</h3>
+                    <p>Vente de billets d'avion pour toutes vos destinations</p>
+                    <span>En Savoir Plus</span>
+                </div>
+            </div>
+
+            <div class="service">
+                <span><fa-icon [icon]="faCubes"></fa-icon></span>
+                <div class="service-text">
+                    <h3>Fret et DHL</h3>
+                    <p>Vente de billets d'avion pour toutes vos destinations</p>
+                    <span>En Savoir Plus</span>
+                </div>
+            </div>
+
+            <div class="service">
+                <span><fa-icon [icon]="faPlane"></fa-icon></span>
+                <div class="service-text">
+                    <h3>Visa Dubaî</h3>
+                    <p>Vente de billets d'avion pour toutes vos destinations</p>
+                    <span>En Savoir Plus</span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="conteneur-perso flights-bloc">
+        <img class="flights-bloc-background" src="../../../assets/img/home-bg-flight.jpg">
+        <h1>NOS DESTINATIONS POPULAIRES</h1>
+
+        <div class="flight-caroussel">
+
+            <div class="flight-caroussel-hidder">
+
+                <div class="flight-caroussel-container">
+
+                    <div class="flight-element" *ngFor="let flight of popularFlights" >
+                
+                            <div class="flight-element-bloc-image-text">
+                                <img class="flight-element-bloc-image" src="{{flight.img}}">
+                                <span class="flight-element-bloc-text"> {{flight.villeArr}} </span>
+                            </div>
+
+                            <div class="flight-element-text">
+                                    
+                                <span class="flight-element-text-first-child"> {{flight.villeDep}} - {{flight.villeArr}}</span>
+                                
+                                <span class="flight-element-text-second-child">à partir de</span>
+                                <span class="flight-element-text-third-bloc"> 
+                                    <span class="flight-element-text-third-bloc-first-child"> {{flight.codeAirportDep}} <img class="icon-two-ways" src="../../../assets/img/icon-two-ways.png"> {{flight.codeAirportArr}} </span>
+                                            
+                                    <span class="flight-element-text-third-bloc-second-child">{{flight.price}}{{flight.currency}}</span>
+                                </span>
+                            </div>
+                    </div>
+                </div>
+
+                <span class="flight-prev" (click)="flightClickPrev()"><fa-icon [icon]="faChevronLeft"></fa-icon></span>
+                <span class="flight-next" (click)="flightClickNext()"><fa-icon [icon]="faChevronRight"></fa-icon></span>
+
+            </div>
+        </div>
+
+        <div class="flight-call-to-action">
+            <span>Réservez vos vols dès maintenant</span>
+            <span>Réserver</span>
+        </div>
+
+    </div>
+
+    <div class="conteneur-perso hotel-appaterment-bloc">
+
+        <div class="hotel-bloc">
+            <div class="hotel-bloc-text"> 
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat illo quis aliquid, corrupti vero cupiditate! Perspiciatis, laudantium? Illum earum animi, libero et expedita sunt error blanditiis.</p>
+                <span>Voir Hôtels</span>
+            </div>
+            <div class="hotel-bloc-image">
+                <div>
+                    <fa-icon [icon]="faBed"></fa-icon>
+                    <h1>Hôtels</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="appartement-bloc">
+            <div class="appartement-bloc-image">
+                <div>
+                    <fa-icon [icon]="faHome"></fa-icon>
+                    <h1>Appartements Meublés</h1>
+                </div>
+            </div>
+            <div class="appartement-bloc-text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat illo quis aliquid, corrupti vero cupiditate! Perspiciatis, laudantium? Illum earum animi, libero et expedita sunt error blanditiis.</p>
+                <span>Voir Appartements</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="conteneur-perso cars-bloc">
+
+        <h1 class="cars-title">NOS VOITURES</h1>
+
+        <div class="car-caroussel">
+
+            <div class="car-caroussel-hidder">
+
+                <div class="car-caroussel-container">
+
+                    <div class="car-element" *ngFor="let car of popularCars" >
+            
+                        <div class="car-element-bloc-image-text">
+                            <img class="car-element-bloc-image" src="{{car.imageVoit}}">
+                            <span class="car-element-bloc-text"> {{car.villeVoit}} </span>
+                        </div>
+
+                        <div class="car-element-text">
+                                
+                            <span class="car-element-text-first-child"> {{car.nomVoit}}</span>
+                            
+                            <div class="car-element-text-second-child-bloc">
+                                
+                                <div>
+                                    <span>Portes</span>
+                                    <span> {{car.nombrePorteVoit}}</span>
+                                </div>
+
+                                <div>
+                                    <span>Places</span>
+                                    <span>{{car.nombrePlaceVoit}}</span>
+                                </div>
+
+                                <div>
+                                    <span>Climatisée</span>
+                                    <span>{{car.climVoit}}</span>
+                                </div>
+
+                            </div>
+
+                            <div class="car-element-text-third-child-bloc">
+                                <div>
+                                    <span>Dans la ville</span>
+                                    <span> {{car.prixLocationDansVilleVoit}} XAF</span>
+                                </div>
+                                <div>
+                                    <span>Hors de la ville</span>
+                                    <span> {{car.prixLocationHorsVilleVoit}} XAF</span>
+                                </div>
+                                <div>
+                                    <span>Trajet Aéroport</span>
+                                    <span> {{car.prixTrajetAeroportVoit}} XAF</span>
+                                </div>
+                            </div>
+
+                            <div class="car-element-text-fourth-child-bloc">
+                                <div>
+                                    <span>Avec chauffeur</span>
+                                    <span> {{car.avecChauffeurVoit}} </span>
+                                </div>
+                                <fa-icon [icon]="faEllipsisV"></fa-icon>
+                                <div>
+                                    <span>Sans chauffeur</span>
+                                    <span> {{car.sansChauffeurVoit}} </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+            </div>
+
+            <span class="car-prev" (click)="carClickPrev()"><fa-icon [icon]="faChevronLeft"></fa-icon></span>
+            <span class="car-next" (click)="carClickNext()"><fa-icon [icon]="faChevronRight"></fa-icon></span>
+
+        </div>
+
+    </div>
+        <div class="car-call-to-action">
+            <span>Découvrez notre large choix de véhicules</span>
+            <span>Découvrir</span>
+        </div>
+    </div>
+
+    <div class="conteneur-perso tourism">
+        <h1 class="tourism-title" >NOS CIRCUITS TOURISTIQUES</h1>
+        <div class="tourism-bloc-elements">
+            <div class="tourism-text">
+                <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis pariatur illum, laudantium autem earum distinctio veritatis dolore ut porro a itaque sequi tempora beatae Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, recusandae odio nulla enim laboriosam, laborum natus ullam velit earum ab amet, reprehenderit maiores iure quae unde consequatur beatae tempore corporis.</span>
+                <div class="about-button">
+                    <span>En Savoir Plus</span>
+                    <span>Nous Contacter</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
