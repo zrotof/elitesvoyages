@@ -300,14 +300,14 @@ $fontColor: #525252;
                 align-items: center;
                 border-radius: 5px;
                 margin: 10px 10px;
-                width: 200px;
-                background-color: #afafaf2f;
+                width: 180px;
+                padding-bottom: 10px;
+                background-color: #c9c9c9;
 
 
                 & img{
-                    height:230px;
-                    width: 100%;
-                    border-radius: 10px;
+                    height:150px;
+                    width: 140px;
                 }
 
                 & span:nth-child(2){
