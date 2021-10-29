@@ -193,4 +193,193 @@ $fontColor: #525252;
             background: rgba(0, 0, 0, 0.432);
         }
     }
+
+
+
+    .form-bloc{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+        padding: 40px 7%;
+
+    form{
+        background-color: #1160984b;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 800px;
+        padding: 30px 40px;
+
+        .name-bloc, .objet-bloc{
+            width: 100%;
+            height: 40px;
+            position: relative;
+            margin: 10px 0;
+
+            #name-input, #objet-input{
+                height: 100%;
+                width: 100%;
+                border: none;
+                border-radius: 5px;
+                padding: 0 20px;
+                outline: none;
+            }
+
+        
+
+            #name-input:not(:placeholder-shown) + .label-id,
+            #objet-input:not(:placeholder-shown) + .label-id
+            {
+                transform: translate(0, -50%);
+                opacity: 1;
+                color: $colorBlue;
+            }
+
+            .label-id{
+                left: 20px;
+                position: absolute;
+                top: 0;
+                opacity: 0;
+                transition: all 0.2s;
+                font-weight: 540;
+            }
+        }
+
+
+        .email-phone{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 40px;
+            width: 100%;
+            margin: 10px 0;
+
+            .email-bloc,.phone-bloc{
+                width: 45%;
+                position: relative;
+                height: 100%;
+
+                #email-input, #phone-input{
+                    height: 100%;
+                    width: 100%;
+                    border: none;
+                    border-radius: 5px;
+                    padding: 0 20px;
+                    
+                    outline: none;
+                }
+
+                #phone-input:not(:placeholder-shown) + .label-id,
+                #email-input:not(:placeholder-shown) + .label-id
+                {
+                    transform: translate(0, -50%);
+                    opacity: 1;
+                    color: $colorBlue;
+                }
+
+                .label-id{
+                    left: 20px;
+                    position: absolute;
+                    top: 0;
+                    opacity: 0;
+                    transition: all 0.2s;
+                }
+            }
+
+        }
+
+        .contact-prefere{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            > div{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .radio{
+                    display: flex;
+                    justify-content: baseline;
+                    align-items: center;
+                    margin: 5px 10px;
+                }
+
+                .radio:nth-child(1){
+
+                    #email{
+                        margin-left: 10px;
+                    }
+                }
+
+                .radio:nth-child(2){
+                    #phone{
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+
+        .message-bloc{
+            width: 100%;
+            height: 300px;
+            position: relative;
+            margin: 10px 0;
+
+            #message-area{
+                height: 100%;
+                min-height: 300px;
+                max-height: 300px;
+                width: 100%;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 20px;
+                outline: none;
+            }
+
+            #message-area:not(:placeholder-shown) + .label-id
+
+            {
+                transform: translate(0, -50%);
+                opacity: 1;
+                color: $colorBlue;
+            }
+
+            .label-id{
+                left: 20px;
+                position: absolute;
+                top: 0;
+                opacity: 0;
+                transition: all 0.2s;
+                font-weight: 540;
+            }
+        }
+
+
+        }
+
+
+    
+
+    button{
+        padding: 3px 15px;
+        border-radius: 100px;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        background-color: white
+
+    }
+
+    button:hover{
+        color: white;
+        background-color: #363636 ;
+        transition: all 0.5s ease 0s;
+
+    }
+}
 }

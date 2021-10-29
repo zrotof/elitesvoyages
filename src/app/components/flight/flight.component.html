@@ -4,4 +4,150 @@
         <h1 class="vol-top-title">Billet d'Avion</h1>
     </div>
 
+    <div class="vol-content">
+
+  
+
+        <div class="book-flight-form conteneur-perso">
+            <span>Indiquez-nous vos paramètres de voyage et nous reviendrons vers vous rapidement</span>
+            <span>Les champs marqués d'un <span class="red-star">*</span> sont obligatoires</span>
+        
+            <form [formGroup]="bookingForm" (ngSubmit)="onBookingFormSubmit()">
+
+                <div class="trajet-classe">
+                    <div class="trajet">
+                        <span>Type De Trajet <span class="red-star">*</span></span>
+                        <select class="custom-select" (change)="changeTypeVoyage($event)" formControlName="typeTrajet">
+                            <option *ngFor="let trajet of trajets" [ngValue]="trajet">{{trajet}}</option>
+                        </select>
+                    </div>
+
+                    <div class="classe">
+                        <span>Choix De Cabine <span class="red-star">*</span></span>
+                        <select class="custom-select" (change)="changeTypeCabine($event)" formControlName="typeCabine">
+                            <option value="">ECONOMIQUE</option>
+                            <option *ngFor="let cabine of cabines" [ngValue]="cabine">{{cabine}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="info-bloc">
+                    <div class="info">
+                        <fa-icon [icon]="faPlaneDeparture"></fa-icon>
+                        <input id="depart-input" type="text" placeholder="Départ *">
+                        <label for="depart-input">Départ <span class="red-star">*</span></label>
+                    </div>
+
+                    <div class="info">
+                        <fa-icon [icon]="faPlaneArrival"></fa-icon>
+                        <input id="aller-input" type="text" placeholder="Arrivée *">
+                        <label for="aller-input">Arrivée <span class="red-star">*</span></label>
+                    </div>
+
+                    <div class="info passenger">
+                        <span>Passager(s)
+                            <span> 0{{nombrePassagerTotal}} </span>
+                        </span>
+                        <fa-icon id="clickPassenger" [icon]="faPlusCircle" (click)="onEditPassenger()"></fa-icon>
+
+                        <div class="passenger-info-bloc-reveal" *ngIf="showEditPassengerView">
+                            <div class="passenger-info">
+                                <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditAdultPassenger(-1)"></fa-icon>
+                                <span> {{nombrePassagerAdulte}} </span>
+                                <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditAdultPassenger(1)"></fa-icon>
+                                <span> Age supérieur à 12 ans</span>
+                            </div>
+
+                            <div class="passenger-info">
+                                <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditChildPassenger(-1)"></fa-icon>
+                                <span> {{nombrePassagerEnfant}} </span>
+                                <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditChildPassenger(1)"></fa-icon>
+                                <span> Age compris entre 2 ans et 12 ans</span>
+                            </div>
+
+                            <div class="passenger-info">
+                                <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditBabyPassenger(-1)"></fa-icon>
+                                <span> {{nombrePassagerBebe}} </span>
+                                <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditBabyPassenger(1)"></fa-icon>
+                                <span>Age inférieur à 2 ans</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info">
+                        <fa-icon [icon]="faCalendarDay"></fa-icon>
+                        <input id="date-depart-input" type="text" placeholder="Date aller *">
+                        <label for="date-depart-input">Date aller <span class="red-star">*</span></label>
+                    </div>
+
+                    <div class="info">
+                        <fa-icon [icon]="faCalendarDay"></fa-icon>
+                        <input id="date-retour-input" type="text" placeholder="Date retour">
+                        <label for="date-retour-input">Date retour</label>
+                    </div>
+
+         
+                    
+                    <div class="info">
+                        <fa-icon [icon]="faUser"></fa-icon>
+                        <input id="name-input" type="text" placeholder="Entrez votre nom *">
+                        <label for="name-input">Entrez votre nom <span class="red-star">*</span></label>
+                    </div>
+
+                    <div class="info">
+                        <fa-icon [icon]="faEnvelope"></fa-icon>
+                        <input id="email-input" type="text" placeholder="Adresse mail *">
+                        <label for="email-input">Adresse mail <span class="red-star">*</span></label>
+                    </div>
+
+                    <div class="info">
+                        <fa-icon [icon]="faPhoneAlt"></fa-icon>
+                        <input id="phone-input" type="text" placeholder="Téléphone">
+                        <label for="phone-input">Téléphone</label>
+                    </div>
+
+                </div>
+
+                <div class="message-bloc">
+                    <textarea id="message-area" type="text" placeholder="Entrez votre message ici, soyez le plus explicite possible ..."></textarea>
+                    <label class="label-id" for="message-area">Message</label>
+                </div>
+              
+                <button type="submit" [disabled]="!flightForm.valid">Envoyer <fa-icon [icon]="faPaperPlane"></fa-icon></button>
+                
+            </form>
+        </div>
+
+        <div class="procedure conteneur-perso">
+            <h1>Comment ça marche ?</h1>
+
+            <div class="process-bloc">
+                <div class="process">
+                    <span>1</span>
+                    <span>Renseignez et envoyez-nous le formulaire ci-dessous</span>
+                </div>
+
+
+                <div class="process">
+                    <span>2</span>
+                    <span>Nous revenons vers vous en vous indiquant les prix et possibilités qui s'offrent à vous</span>
+                </div>
+
+                <div class="process">
+                    <span>3</span>
+                    <span>Vous nous indiquez votre choix parmis ceux proposés</span>
+                </div>
+
+                <div class="process">
+                    <span>4</span>
+                    <span>Vous decidez de :</span>
+                    <ul>
+                        <li>Soit acheter le billet directement</li>
+                        <li>Soit effectuer une réservation pour un paiement ultéieur, ce qui vous assure de conserver le prix indiqué</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

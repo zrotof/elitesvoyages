@@ -31,7 +31,7 @@
 
     <div class="horaires-reseaux">
 
-      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam nemo voluptatibus ab blanditiis minus vero error quo praesentium temporibus, natus soluta ex mollitia facere sequi nihil eum id. Ab, similique.</span>
+      <span>Vous pouvez nous joindre parle moyen qui vous sied le mieux ou passez directement nous rencontrer dans nos agences à Yaoundé ou à Douala</span>
 
       <div>
         <div class="horaires">
@@ -55,6 +55,73 @@
       </div>
     </div>
   </div>
+
+  <div class="form-bloc">
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmitcontactForm()">
+
+    <div class="name-bloc">
+      <input id="name-input" type="text" formControlName="userName" placeholder="Entrez votre nom *">
+      <label class="label-id" for="name-input">Entrez votre nom </label>
+    </div>
+
+    <div class="email-phone">
+      <div class="email-bloc">
+        <input id="email-input" type="text" formControlName="userEmail" placeholder="Entrez votre Email *">
+        <label class="label-id" for="email-input">Email</label>
+
+      </div>
+      <div class="phone-bloc">
+        <input id="phone-input" type="text" formControlName="userPhone" placeholder="Entrez votre numéro de téléphone">
+        <label class="label-id" for="phone-input">Téléphone</label>
+      </div>
+    </div>
+
+
+
+    <div class="objet-bloc">
+      <input id="objet-input" type="text" formControlName="userObject" placeholder="Entrez l'objet du message">
+      <label class="label-id" for="objet-input">Objet</label>
+    </div>
+
+
+  <div class="contact-prefere">
+    <span>Vous souhaitez être recontacté(e) par</span>
+
+    <div>
+      <div class="radio">
+        <label  for="email">Email</label>
+          <input id="email" type="radio" class="custom-control-input" name="userContact" formControlName="userContact" value="email"
+            checked>
+      </div>
+
+      <div class="radio">
+          <input id="phone" type="radio" class="custom-control-input" name="userContact" formControlName="userContact" value="phone">
+          <label class="custom-control-label" for="phone">Téléphone</label>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+    <div class="message-bloc" formControlName="userMessage">
+      <textarea id="message-area" type="text" placeholder="Entrez votre message ici, soyez le plus explicite possible ..."></textarea>
+      <label class="label-id" for="message-area">Message</label>
+    </div>
+
+    <button type="submit" [disabled]="!contactForm.valid">Envoyer <fa-icon [icon]="faPaperPlane"></fa-icon></button>
+  </form>
+
+</div>
+
+
+
+
+
+
+
 
 
 

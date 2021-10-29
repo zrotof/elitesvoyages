@@ -160,7 +160,6 @@ export class HomeComponent implements OnInit {
   getPopularCars(){
 
     this.popularCars = this.carService.getCarsForCarrousel();
-    console.log(this.popularCars);
   }
 
   //handling click on left arrow of popular flights

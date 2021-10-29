@@ -393,8 +393,6 @@ $fontColor: #525252;
             z-index: -1;
             top: 0;
             left: 0;
-            -webkit-filter: blur(3px); /* Safari 6.0 - 9.0 */
-            filter: blur(3px);
         }
 
 
@@ -428,8 +426,8 @@ $fontColor: #525252;
 
                         .flight-element, .car-element{
 
-                            background: white;
-                            color: $colorBlue;
+                            background: rgb(19, 19, 19);
+                            color: white;
                             display: flex;
                             flex-direction: column;
                             border-radius: 5px;
@@ -484,7 +482,7 @@ $fontColor: #525252;
 
                                 .flight-element-text-first-child{
                                     font-size: 1.1em;
-                                    font-weight: 550;
+                                    font-weight: 540;
                                     text-align: center;
                                 }
 
@@ -522,10 +520,9 @@ $fontColor: #525252;
                         }
 
                         .flight-element:hover{
-                            box-shadow: 0px 0px 9px 5px rgba(17,95,152,0.74);
-                            -webkit-box-shadow: 0px 0px 9px 5px rgba(17,95,152,0.74);
-                            -moz-box-shadow: 0px 0px 9px 5px rgba(17,95,152,0.74);
-                            background-color: rgb(196, 196, 196);
+                            background-color: white;
+                            color: $colorBlue;
+                            transition: all 0.3s ease-in-out;
 
                             .flight-element-bloc-image{
                                 transform: scale(1.2,1.2);
