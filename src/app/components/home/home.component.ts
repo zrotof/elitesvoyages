@@ -7,7 +7,7 @@ import { FlightService } from '../../services/flights/flight.service';
 import { CarService } from '../../services/cars/car.service';
 
 
-import { faPlane, faBed, faCarSide, faHome, faEllipsisV, faCubes, faChevronLeft, faChevronRight, faGlobeAfrica } from '@fortawesome/free-solid-svg-icons'
+import { faPlane, faBed, faCarSide, faHome, faEllipsisV, faCubes, faChevronLeft, faChevronRight, faGlobeAfrica } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({

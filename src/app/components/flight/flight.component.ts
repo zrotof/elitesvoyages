@@ -95,7 +95,7 @@ export class FlightComponent implements OnInit {
       this.nombrePassagerTotal +=param;
     }
 
-    if(param == -1 && this.nombrePassagerTotal > 1 && this.nombrePassagerAdulte > 2 && this.nombrePassagerBebe < this.nombrePassagerAdulte){
+    if(param == -1 && this.nombrePassagerTotal > 1 && this.nombrePassagerAdulte > 1 && this.nombrePassagerBebe < this.nombrePassagerAdulte){
       this.nombrePassagerAdulte += param;
       this.nombrePassagerTotal +=param;
     }

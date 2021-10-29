@@ -1,3 +1,7 @@
+$colorBlue: #115F98;
+$fontColor: #525252;
+
+
 .conteneur-perso{
     padding: 5em 7% 0 7%;
 }
@@ -35,4 +39,87 @@
         width: 100%;
         background: linear-gradient(180deg, rgba(2,22,47,0.7133228291316527) 0%, rgba(0,0,0,0.23713235294117652) 25%, rgba(0,0,0,0.20632002801120453) 100%);
     }
+
+    .car-content{
+        padding: 5em 1em;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        .filter{
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            background-color: #11609827;
+            border-radius: 5px;
+            padding: 30px;
+
+            
+
+            
+            .fourchette{
+                display: flex;
+                flex-direction: column;
+                border-bottom: 2px solid rgb(180, 180, 180);
+
+                span:nth-child(1){
+                    margin-bottom: 10px;
+                }
+
+                ::ng-deep {
+
+                    ngx-slider {
+                        .ngx-slider-bar {
+                            background: rgb(180, 180, 180);
+                            height: 3px;
+                            bottom: 20px;
+                        }
+                        
+                        .ngx-slider-selection{
+                            background: $colorBlue;
+                        }
+
+                        .ngx-slider-pointer {
+                            width: 15px;
+                            height: 15px; 
+                            background-color: $colorBlue;
+                            position: absolute;
+                            bottom: -10px;
+                        }
+
+                        .ngx-slider-pointer:after {
+                            display: none;
+                        }
+
+                        .ngx-slider-bubble {
+                            bottom:20px;
+                            font-size: 0.95em;
+                          }
+                    }
+                }
+            }
+
+            .ville, .couleur, .marque {
+                
+                flex-direction: column;
+                padding: 10px 0 15px;
+                border-bottom: 2px solid rgb(180, 180, 180);
+
+
+                div {
+                    display: flex;
+                    align-items: center;
+                    margin: 5px 0 0 0;
+                    
+                    input{
+                    height: 17px;
+                    width: 17px;
+                    margin-right: 10px;
+                    border-radius: 50%;
+                }
+            }
+            }
+        }
+    }
+
 }

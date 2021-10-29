@@ -76,14 +76,14 @@
 
                     <div class="info">
                         <fa-icon [icon]="faCalendarDay"></fa-icon>
-                        <input id="date-depart-input" type="text" placeholder="Date aller *">
+                        <input id="date-depart-input" type="text" placeholder="Date aller *" (click)="d1.toggle()" ngbDatepicker #d1="ngbDatepicker" readonly>
                         <label for="date-depart-input">Date aller <span class="red-star">*</span></label>
                     </div>
 
-                    <div class="info">
+                    <div class="info" >
                         <fa-icon [icon]="faCalendarDay"></fa-icon>
-                        <input id="date-retour-input" type="text" placeholder="Date retour">
-                        <label for="date-retour-input">Date retour</label>
+                        <input id="date-retour-input"  type="text" placeholder="Date retour" (click)="d2.toggle()" ngbDatepicker #d2="ngbDatepicker" readonly>
+                        <label for="date-retour-input" >Date retour</label>
                     </div>
 
          

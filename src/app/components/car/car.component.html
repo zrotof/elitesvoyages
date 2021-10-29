@@ -4,6 +4,89 @@
         <h1 class="car-top-title">LOCATION DE VOITURE</h1>
     </div>
 
-    
+    <div class="car-content">
 
+        <div class="filter">
+            <div class="fourchette">
+                <span>Fourchette de prix </span>
+                <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
+            </div>
+
+            <div class="ville">
+                <span>Villes </span>
+                    
+                    <div>
+                        <input type="checkbox" id="yaounde" name="yaounde">
+                        <label for="yaounde">Yaoundé</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="douala" name="douala">
+                        <label for="douala">Douala</label>
+                    </div>
+            </div>
+
+            <div class="couleur">
+                <span>Couleur(s) </span>
+                <div>
+                    <input type="checkbox" id="noir" name="noir">
+                    <label for="noir">Noir</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="argent" name="argent">
+                    <label for="argent">Argent</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="bleu" name="bleu">
+                    <label for="bleu">Bleu</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="jaune" name="jaune">
+                    <label for="jaune">Jaune</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="blanc" name="blanc">
+                    <label for="blanc">Blanc</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="rouge" name="rouge">
+                    <label for="rouge">Rouge</label>
+                </div>
+                    
+            </div>
+
+            <div class="marque">
+                <span>Marques</span>
+
+                <div>
+                    <input type="checkbox" id="peugeot" name="peugeot">
+                    <label for="peugeot">Peugeot</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="toyota" name="toyota">
+                    <label for="toyota">Toyota</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="mercedez" name="mercedez">
+                    <label for="mercedez">Mercedez</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="renault" name="renault">
+                    <label for="renault">Renault</label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="car-list">
+
+        </div>
+
+    </div>
 </div>
