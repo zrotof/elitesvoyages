@@ -47,7 +47,7 @@ $fontColor: #525252;
         justify-content: flex-start;
 
         .filter{
-            width: 350px;
+            width: 320px;
             display: flex;
             flex-direction: column;
             background-color: #11609827;
@@ -99,25 +99,50 @@ $fontColor: #525252;
                 }
             }
 
-            .ville, .couleur, .marque {
+            .ville, .chauffeur, .couleur, .marque, .boite-vitesse {
                 
                 flex-direction: column;
-                padding: 10px 0 15px;
-                border-bottom: 2px solid rgb(180, 180, 180);
+                padding: 15px 0 10px;
+                border-top: 2px solid rgb(180, 180, 180);
 
-
-                div {
+                span{
+                    color: $colorBlue;
+                    font-weight: 540;
+                }
+                > div {
                     display: flex;
                     align-items: center;
                     margin: 5px 0 0 0;
+                    width: fit-content;
                     
                     input{
                     height: 17px;
                     width: 17px;
                     margin-right: 10px;
                     border-radius: 50%;
+                    }
+                }
+
+                 > div:hover {
+                    font-weight: bold;
+                    color: $colorBlue;
                 }
             }
+            
+        }
+
+        .car-list{
+            width: calc(100% - 320px);
+
+            height:70vh;
+            background-color: $colorBlue;
+
+            display: flex;
+            flex-direction:column;
+
+            .list{
+                display: flex;
+                flex-wrap: wrap;
             }
         }
     }

@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'rent-car', component : CarComponent},
   {path: 'flight', component : FlightComponent},
   {path: 'fret-dhl', component : FretDhlComponent},
-  {path: 'hotel', component : HotelComponent},
+  {path: 'hostel-apartment', component : HotelComponent},
   {path: 'tourism', component : TourismComponent},
   {path: 'visa-dubaî', component : VisaComponent},
   {path: 'good-deal', component : GoodDealComponent},
@@ -31,7 +31,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    scrollPositionRestoration: 'top'
+    //scrollPositionRestoration: 'top'
   })],
   exports: [RouterModule]
 })

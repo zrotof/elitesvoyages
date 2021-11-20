@@ -1,34 +1,40 @@
 <footer>
     <div class="footer-top">
         <div class="company">
-            <img src="../../../assets/img/logo.png" alt="logo d'élite voyage">
+            <img routerLink="/home" src="../../../assets/img/logo.png" alt="logo d'élite voyage">
+
+            <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat, numquam accusamus. Ad officia sunt, labore similique est voluptates explicabo officiis quibusdam non corporis quaerat nesciunt magnam</span>
+            <div>                    
+                <img src="../../../assets/img/facebook-icon.png" alt="Join Elites Voyages on Facebook">
+                <img src="../../../assets/img/Instagram-icon.png" alt="Join Elites Voyages on Instagram">
+            </div>
+        </div>
+
+        <div class="services">
+            <span>Lien rapides</span>
             <ul>
-                <li>A propos de nous</li>
-                <li>Recrutements</li>
-                <li>Conactez-nous</li>
-                <li>Conditions de confidentialité</li>
-                <li>CGU</li>
-            </ul>
+                <li routerLink="/about">A propos de nous</li>
+                <li routerLink="/about">Recrutements</li>
+                <li routerLink="/contact">Conacter-nous</li>
+                <li routerLink="/about">Conditions de confidentialité</li>
+                <li routerLink="/about">CGU</li>
+              </ul>
         </div>
 
         <div class="services">
             <span>Nos services</span>
             <ul>
-                <li>Billets d'avions</li>
-                <li>Hébergement hôtel</li>
-                <li>Appartement meublés</li>
-                <li>Voiture de location</li>
-                <li>Tourisme</li>
-                <li>Fret et DHL</li>
-              </ul>
+                <li routerLink="/flight">Billets d'avions</li>
+                <li (click)="redirectWithData('hotel')">Hébergement hôtel</li>
+                <li (click)="redirectWithData('appartement')">Appartements meublés</li>
+                <li routerLink="/rent-car">Voiture de location</li>
+                <li routerLink="/tourism">Tourisme</li>
+                <li routerLink="/fret-dhl">Fret et DHL</li>
+                <li routerLink="/about">Visa Dubaî</li>
+                <li routerLink="/about">Assistance Visa</li>
+            </ul>
         </div>
 
-        <div class="follow">
-            <span>Suivez-nous</span>
-            
-            <img src="../../../assets/img/facebook-icon.png" alt="Join Elites Voyages on Facebook">
-            <img src="../../../assets/img/Instagram-icon.png" alt="Join Elites Voyages on Instagram">
-        </div>
     </div>
     <div class="footer-bottom">
         <span>Copyright © 2021, Elites Voyages, tous droits réservés</span>

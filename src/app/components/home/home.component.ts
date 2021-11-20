@@ -24,6 +24,8 @@ export class HomeComponent implements OnInit {
 
   //variables for popular fights caroussel
   popularFlights: Flight[] = [];
+  popularFlightsDotsNumber : number = 0;
+
   //variables for popular fights caroussel
   popularCars: Car[] = [];
 
@@ -139,8 +141,46 @@ export class HomeComponent implements OnInit {
   //handling click on left arrow of popular flights
   flightClickPrev(){
     var flightCarousselContainer = <HTMLElement>document.querySelector(".flight-caroussel-container");
+    var allFlightElement = <NodeListOf<HTMLElement>>document.querySelectorAll(".flight-element > div");
     var allCarousselElements = <NodeListOf<HTMLElement>>document.querySelectorAll(".flight-element");
-    flightCarousselContainer.prepend(allCarousselElements[allCarousselElements.length-1]);
+
+    var allCarousselDots = <NodeListOf<HTMLElement>>document.querySelectorAll(".flight-dot");
+
+    //Setting the active popularFlight and active dots
+
+
+    //getting the right positionof the current element when clicked
+    if(this.popularFlightsDotsNumber == 0 ){
+
+      this.popularFlightsDotsNumber = allCarousselDots.length - 1;
+
+    }
+
+    else{
+      this.popularFlightsDotsNumber -= 1;
+    }
+
+
+    //removing active on flights
+    allFlightElement.forEach(element =>{
+      element.classList.remove("active-flight");
+    })
+
+    //removing active on dots
+    allCarousselDots.forEach(elem =>{
+      elem.classList.remove('flight-active-dot');
+    }
+    );
+
+    //setting active dot and flight
+    allCarousselDots[this.popularFlightsDotsNumber].classList.add("flight-active-dot");
+    //allFlightElement[this.popularFlightsDotsNumber].classList.add("active-flight");
+
+    setTimeout(()=>{
+      flightCarousselContainer.prepend(allCarousselElements[allCarousselElements.length-1]) ;
+
+    }, 1000)
+    
    
   }
 
@@ -148,6 +188,23 @@ export class HomeComponent implements OnInit {
   flightClickNext(){
     var flightCarousselContainer = <HTMLElement>document.querySelector(".flight-caroussel-container");
     var allCarousselElements = <NodeListOf<HTMLElement>>document.querySelectorAll(".flight-element");
+    var allCarousselDots = <NodeListOf<HTMLElement>>document.querySelectorAll(".flight-dot");
+
+    allCarousselDots.forEach(elem =>{
+      elem.classList.remove('flight-active-dot');
+    });
+
+    if(this.popularFlightsDotsNumber < allCarousselDots.length - 1 ){
+
+      this.popularFlightsDotsNumber += 1;
+    }
+
+    else{
+      this.popularFlightsDotsNumber = 0;
+    }
+
+    allCarousselDots[this.popularFlightsDotsNumber].classList.add("flight-active-dot");
+
     flightCarousselContainer.append(allCarousselElements[0]);  
   }
 
@@ -167,7 +224,6 @@ export class HomeComponent implements OnInit {
     var carCarousselContainer = <HTMLElement>document.querySelector(".car-caroussel-container");
     var allCarCarousselElements = <NodeListOf<HTMLElement>>document.querySelectorAll(".car-element");
     carCarousselContainer.prepend(allCarCarousselElements[allCarCarousselElements.length-1]);
-   
   }
 
   //handling click on right arrow of popular flights
@@ -175,7 +231,6 @@ export class HomeComponent implements OnInit {
     var carCarousselContainer = <HTMLElement>document.querySelector(".car-caroussel-container");
     var allCarCarousselElements = <NodeListOf<HTMLElement>>document.querySelectorAll(".car-element");
     carCarousselContainer.append(allCarCarousselElements[0]);
-   
   }
 
 

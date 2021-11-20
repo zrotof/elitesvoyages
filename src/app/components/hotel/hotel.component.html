@@ -4,4 +4,66 @@
         <h1 class="hotel-top-title">Trouvez un hôtel</h1>
     </div>
 
+    <div class="hotel-appartement">
+
+        <div class="hotel-appartement-tabs">
+
+            <div class="hotel-appartement-headers">
+                <span (click)="chooseTab(1,'hotel')" class="tab-menu active-tab-menu" data-aos="fade-right">
+                    <fa-icon [icon]="faBed"></fa-icon>
+                    <span>Hôtels</span>
+                </span>
+                <span (click)="chooseTab(2,'appartement')" class="tab-menu" data-aos="fade-right">
+                    <fa-icon [icon]="faHome"></fa-icon>
+
+                    <span>
+                        <span>Appartements</span>
+                        <span>Meublés</span>
+                    </span>
+                </span>
+            </div>
+
+            <div class="tabs-pages">
+            
+                <div class="tabs-pages-conteneur">
+                    <div class="tab-page  active-tab-page">
+
+                        <div class="logement" *ngFor="let item of hostelList | slice: (page-1) * pageSize : page * pageSize">
+                            <div class="item-image">
+                                <img src={{item.imgLogement}} alt="{{item.nomLogement}} {{item.villeLogement}}">
+                                <span>{{item.villeLogement}}</span>
+                            </div>
+                            <div class="item-info">
+                                <div>
+                                    <div>
+                                        <span>{{item.nomLogement}}</span>
+                                        <span><fa-icon [icon]=faBed></fa-icon> Hôtel {{item.nbrEtoileLogement}} étoiles</span>
+                                    </div>
+                                    <div>
+                                        <span>à partir de</span>
+                                        <span>{{item.priceLogement}} {{item.currencyLogement}} </span>
+                                    </div>
+                                </div>
+                                <div >
+                                   <div *ngFor="let option of item.optionLogement">
+                                        <span> {{option.libelleOption}} </span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+
+
+                    <ngb-pagination [pageSize] = "pageSize" [collectionSize]="logementSize" [(page)]="page"></ngb-pagination>   
+                    </div>
+                    <div class="tab-page ">
+                        <span>yes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 </div>

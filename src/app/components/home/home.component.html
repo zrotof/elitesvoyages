@@ -77,9 +77,9 @@
             <div class="service">
                 <span><fa-icon [icon]="faBed"></fa-icon></span>
                 <div class="service-text">
-                    <h3>Hôtel & appartement meublé</h3>
+                    <h3>Hôtel & Appartement Meublé</h3>
                     <p>Vente de billets d'avion pour toutes vos destinations</p>
-                    <span routerLink="/hotel">En Savoir Plus</span>
+                    <span routerLink="/hostel-apartment">En Savoir Plus</span>
                 </div>
             </div>
 
@@ -133,23 +133,46 @@
 
                 <div class="flight-caroussel-container">
 
-                    <div class="flight-element" *ngFor="let flight of popularFlights" >
-                
-                            <div class="flight-element-bloc-image-text">
-                                <img class="flight-element-bloc-image" src="{{flight.img}}">
-                                <span class="flight-element-bloc-text"> {{flight.villeArr}} </span>
+                    <div class="flight-element" *ngFor="let flight of popularFlights ; let isFirst = first;" >
+<!-- class="active-flight" -->
+                            <div *ngIf="isFirst" >
+                                <div class="flight-element-bloc-image-text">
+                                    <img class="flight-element-bloc-image" src="{{flight.img}}">
+                                    <span class="flight-element-bloc-text"> {{flight.villeArr}} </span>
+                                </div>
+
+                                <div class="flight-element-text">
+                                        
+                                    <span class="flight-element-text-first-child"> {{flight.villeDep}} - {{flight.villeArr}}</span>
+                                    
+                                    <span class="flight-element-text-second-child">à partir de</span>
+                                    <span class="flight-element-text-third-bloc"> 
+                                        <span class="flight-element-text-third-bloc-first-child"> {{flight.codeAirportDep}} <img class="icon-two-ways" src="../../../assets/img/icon-two-ways.png"> {{flight.codeAirportArr}} </span>
+                                                
+                                        <span class="flight-element-text-third-bloc-second-child">{{flight.price}}{{flight.currency}}</span>
+                                    </span>
+                                </div>
+
                             </div>
 
-                            <div class="flight-element-text">
+                            <div *ngIf="!isFirst" >
+                                <div class="flight-element-bloc-image-text">
+                                    <img class="flight-element-bloc-image" src="{{flight.img}}">
+                                    <span class="flight-element-bloc-text"> {{flight.villeArr}} </span>
+                                </div>
+
+                                <div class="flight-element-text">
+                                        
+                                    <span class="flight-element-text-first-child"> {{flight.villeDep}} - {{flight.villeArr}}</span>
                                     
-                                <span class="flight-element-text-first-child"> {{flight.villeDep}} - {{flight.villeArr}}</span>
-                                
-                                <span class="flight-element-text-second-child">à partir de</span>
-                                <span class="flight-element-text-third-bloc"> 
-                                    <span class="flight-element-text-third-bloc-first-child"> {{flight.codeAirportDep}} <img class="icon-two-ways" src="../../../assets/img/icon-two-ways.png"> {{flight.codeAirportArr}} </span>
-                                            
-                                    <span class="flight-element-text-third-bloc-second-child">{{flight.price}}{{flight.currency}}</span>
-                                </span>
+                                    <span class="flight-element-text-second-child">à partir de</span>
+                                    <span class="flight-element-text-third-bloc"> 
+                                        <span class="flight-element-text-third-bloc-first-child"> {{flight.codeAirportDep}} <img class="icon-two-ways" src="../../../assets/img/icon-two-ways.png"> {{flight.codeAirportArr}} </span>
+                                                
+                                        <span class="flight-element-text-third-bloc-second-child">{{flight.price}}{{flight.currency}}</span>
+                                    </span>
+                                </div>
+
                             </div>
                     </div>
                 </div>
@@ -158,6 +181,20 @@
                 <span class="flight-next" (click)="flightClickNext()"><fa-icon [icon]="faChevronRight"></fa-icon></span>
 
             </div>
+
+        </div>
+
+        <div class="flight-dots">
+            
+            <div class="flight-dot flight-active-dot"></div>
+            <div class="flight-dot"></div>
+            <div class="flight-dot"></div>
+            <div class="flight-dot"></div>
+            <div class="flight-dot"></div>
+            <div class="flight-dot"></div>
+            <div class="flight-dot"></div>
+            <div class="flight-dot"></div>
+
         </div>
 
         <div class="flight-call-to-action">
@@ -282,13 +319,16 @@
 
     <div class="conteneur-perso tourism">
         <h1 class="tourism-title" >NOS CIRCUITS TOURISTIQUES</h1>
-        <div class="tourism-bloc-elements">
-            <div class="tourism-text">
-                <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis pariatur illum, laudantium autem earum distinctio veritatis dolore ut porro a itaque sequi tempora beatae Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, recusandae odio nulla enim laboriosam, laborum natus ullam velit earum ab amet, reprehenderit maiores iure quae unde consequatur beatae tempore corporis.</span>
-                <div class="about-button">
-                    <span routerLink="/tourism">En Savoir Plus</span>
-                </div>
-            </div>
+        <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis pariatur illum, laudantium autem earum distinctio veritatis dolore ut porro a itaque sequi tempora beatae Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, recusandae odio nulla enim laboriosam, laborum natus ullam velit earum ab amet, reprehenderit maiores iure quae unde consequatur beatae tempore corporis.</span>
+                
+        <div class="circuits">
+            <div class="circuit"></div>
+            <div class="circuit"></div>
+        </div>
+                    
+        <div class="tourism-call-to-action">
+            <span>Découvrez nos circuits</span>
+            <span routerLink="/tourism">Découvrir</span>
         </div>
     </div>
 

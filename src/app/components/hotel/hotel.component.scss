@@ -1,3 +1,7 @@
+$colorRed : red;
+$colorGreen: green;
+$colorGlod: yellow;
+
 .conteneur-perso{
     padding: 5em 7% 0 7%;
 }
@@ -34,5 +38,208 @@
         height: 100%;
         width: 100%;
         background: linear-gradient(180deg, rgba(2,22,47,0.7133228291316527) 0%, rgba(0,0,0,0.23713235294117652) 25%, rgba(0,0,0,0.20632002801120453) 100%);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .hotel-appartement{
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 80px 7%;
+
+        .hotel-appartement-tabs{
+
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            .hotel-appartement-headers{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .tab-menu{
+                    height: 60px;
+                    width: fit-content;
+                    padding: 0 15px;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    margin: 0 5px;
+                    background-color: #d4e2e7;
+                    color: #001f34;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    fa-icon{
+                        font-size: 2em;
+                        margin-right: 10px;
+                    }
+
+                    >span{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+                
+                .active-tab-menu{
+                    background-color: #0A0034;
+                    color: white;
+                    border-radius: 0;
+                    padding: 35px 15px;
+
+                }
+
+            }
+
+            .tabs-pages{
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 80px 10px 40px 10px;
+                border: 2px solid #0A0034;
+                width: 100%;
+                border-radius: 7px;
+
+                .tabs-pages-conteneur{
+
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .tab-page{
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        flex-direction: column;
+                        display: none;
+
+                        .logement{
+                            display: flex;
+                            align-items: flex-start;
+                            justify-content: center;
+                            margin: 20px 0;
+                            border-radius: 10px;
+                            overflow: hidden;
+                            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+                            height: 200px;
+
+                            .item-image{
+                                position: relative;
+
+                                height: 100%;
+                                width: 220px;
+
+                                img{
+                                    height: 100%;
+                                    width: 100%;
+                                }
+                                
+                                span{
+                                    position: absolute;
+                                    left: 5%;
+                                    bottom: 5%;
+                                }
+                            }
+
+                            .item-info{
+                                display: flex;
+                                flex-direction: column;
+                                margin: 0 20px;
+                                width: 500px;
+
+                                div:nth-child(1){
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+
+
+
+                                    div:nth-child(1){
+                                        display: flex;
+                                        flex-direction: column;
+
+                                        span:nth-child(1){
+                                            font-size: 1.5em;
+                                            font-weight: 545;
+                                        }
+
+                                        span:nth-child(2){
+                                            font-size: 0.9em;
+
+                                            fa-icon{
+                                                margin-right: 10px;
+                                            }
+                                        }
+                                    }
+
+                                    div:nth-child(2){
+                                        display: flex;
+                                        flex-direction: column;
+
+                                        span:nth-child(1){
+                                            font-size: 0.8em;
+                                        }
+
+                                        span:nth-child(2){
+                                            font-size: 1.3em;
+                                            font-weight: bold;
+                                        }
+                                    }
+                                }
+
+
+                                > div:nth-child(2){
+                                    display: flex;
+                                    justify-content: space-between;
+                                    flex-wrap: wrap;
+                                    width: 300px;
+                                    margin-top: 15px;
+
+                                    div {
+                                        width: 150px;
+
+                                        span{
+                                            line-height: 0;
+                                            font-size: 0.9em;
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+
+                    }
+
+                    .active-tab-page{
+                        display: flex;
+
+                    }
+                }
+            }
+        }
     }
 }

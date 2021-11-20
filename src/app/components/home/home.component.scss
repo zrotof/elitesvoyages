@@ -436,6 +436,7 @@ $fontColor: #525252;
                             margin: 15px 0;
 
                             
+                            
 
                             .flight-element-bloc-image-text, .car-element-bloc-image-text{
 
@@ -517,8 +518,13 @@ $fontColor: #525252;
                                 }
                                 
                             }
+
                         }
 
+                        .active-flight{
+                            border: 1em solid red;
+
+                        }
                         .flight-element:hover{
                             background-color: white;
                             color: $colorBlue;
@@ -537,6 +543,7 @@ $fontColor: #525252;
                         }
 
                     }
+
                 }
 
                 .flight-prev,.flight-next{
@@ -578,18 +585,20 @@ $fontColor: #525252;
 
         .flight-dots{
             display: flex;
-            margin: 30px 0 60px 0;
+            margin: 10px 0 60px 0;
             
             .flight-dot{
                 display: inline-block;
                 width: 20px;
                 height: 20px;
                 margin: 0 10px;
-                background-color: #707070;
+                background-color: #ffffffad;
                 border-radius: 50%;
                 cursor: pointer;
 
             }
+
+
 
             .flight-active-dot, .flight-dot:hover{
                 background-color: $colorBlue;
@@ -640,12 +649,12 @@ $fontColor: #525252;
         .hotel-bloc{
             width: 100%;
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;  
 
             .hotel-bloc-text{
-                width: 50%;
                 display: flex;
+                width: 70%;
                 flex-direction: column;
                 align-items: center;
                 justify-content:center;
@@ -653,13 +662,13 @@ $fontColor: #525252;
                 letter-spacing: 2px;
 
                  p{
-                    font-size: 1.1em;
+                    font-size: 1.05em;
                     text-align: justify;
                 }
 
                  span{
                     font-size: 1.1em;
-                    margin-top: 30px;
+                    margin-top: 10px;
                     padding: 5px 20px;
                     background: $fontColor;
                     color: white;
@@ -673,13 +682,15 @@ $fontColor: #525252;
                 background-repeat: no-repeat ;
                 background-size: cover;
                 background-position: center;
-                width: 50%;
-                height: 30em;
+                width: 22em;
+                height: 17em;
                 position: relative;
+                border-radius: 5px;
 
                 & div{
                     display: flex;
                     flex-direction: column;
+                    align-items: center;
                     position: absolute;
                     top:50%;
                     left:50%;
@@ -688,7 +699,7 @@ $fontColor: #525252;
         
         
                     & fa-icon{
-                        font-size: 5em;
+                        font-size: 4em;
                     }
         
                     & h1{
@@ -701,17 +712,19 @@ $fontColor: #525252;
 
         .appartement-bloc{
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
             width: 100%;
+            margin-top: 70px;
+
 
             .appartement-bloc-image{
                 background-image: url("../../../assets/img/home-appartement.jpg");
                 background-repeat: no-repeat ;
                 background-size: cover;
                 background-position: center;
-                width: 50%;
-                height: 30em;
+                width: 22em;
+                height: 17em;
                 position:relative;
                 text-align: center;
                 
@@ -729,7 +742,7 @@ $fontColor: #525252;
                     
 
                     & fa-icon{
-                        font-size: 5em;
+                        font-size: 4em;
                     }
     
                     & h1{
@@ -739,7 +752,7 @@ $fontColor: #525252;
             }
 
             .appartement-bloc-text{
-                width: 50%;
+                width: 70%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -748,13 +761,13 @@ $fontColor: #525252;
                 letter-spacing: 2px;
 
                 & p{
-                    font-size: 1.1em;
+                    font-size: 1.05em;
                     text-align: justify;
                 }
 
                 & span{
                     font-size: 1.1em;
-                    margin-top: 30px;
+                    margin-top: 10px;
                     padding: 5px 20px;
                     background: $fontColor;
                     color: white;
@@ -772,6 +785,7 @@ $fontColor: #525252;
             background: rgba(0, 0, 0, 0.295);
             top: 0;
             left: 0;
+            border-radius: 5px;
         }
     }
 
@@ -1004,6 +1018,50 @@ $fontColor: #525252;
 
     .tourism{
         background: $colorBlue;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        > span:nth-child(2){
+            margin: 5em 0 3em 0;
+            font-size: 1.05em;
+        }
+
+        .circuits{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+
+            .circuit{
+                margin: 0 10px;
+                height: 20em;
+                width: 30em;
+                position: relative;
+                cursor: pointer;
+                background-color: white;
+                border-radius: 10px;
+            }
+        }
+
+        .tourism-call-to-action{
+            display:flex;
+            margin: 50px 0;
+            justify-content: center;
+            align-items: center;
+
+            span:nth-child(2){
+                background-color: white;
+                color: $colorBlue;
+                margin-left: 20px;
+                border-radius: 100px;
+                padding: 2px 20px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+        }
     }
 
 }

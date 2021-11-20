@@ -22,9 +22,6 @@ export class ContactComponent implements OnInit {
   faPaperPlane = faPaperPlane;
 
 
-
-
-
   //contact form declaration
   contactForm = this.fb.group({
     userName: ["", Validators.required],
