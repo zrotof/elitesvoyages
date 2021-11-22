@@ -9,6 +9,7 @@ export class Logement {
     priceLogement?: number;
     currencyLogement?: string;
     imgLogement?: string;
+    locationLogement?: string;
     optionLogement?: Option[];
 }
 

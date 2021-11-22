@@ -43,8 +43,10 @@ $fontColor: #525252;
     .car-content{
         padding: 5em 1em;
         display: flex;
-        align-items: center;
-        justify-content: flex-start;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 80px 7%;
+
 
         .filter{
             width: 320px;
@@ -132,9 +134,9 @@ $fontColor: #525252;
         }
 
         .car-list{
-            width: calc(100% - 320px);
+            width: 800px;
 
-            height:70vh;
+            height:100vh;
             background-color: $colorBlue;
 
             display: flex;

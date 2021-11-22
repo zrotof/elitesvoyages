@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { LogementsService } from './../../services/logements/logements.service';
 
-import { faBed, faHome, faSwimmer,faWifi, faSmokingBan, faCar, faDumbbell, faCoffee, faUtensils, faConciergeBell } from '@fortawesome/free-solid-svg-icons';
+import { faBed, faHome, faMapMarkerAlt, faSwimmer,faWifi, faSmokingBan, faCar, faDumbbell, faCoffee, faUtensils, faConciergeBell } from '@fortawesome/free-solid-svg-icons';
 import { Logement } from '../../models/logement';
+
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-hotel',
   templateUrl: './hotel.component.html',
-  styleUrls: ['./hotel.component.scss']
+  styleUrls: ['./hotel.component.scss'],
+  providers: [NgbRatingConfig]
 })
 export class HotelComponent implements OnInit {
 
@@ -16,6 +19,7 @@ export class HotelComponent implements OnInit {
 
   faBed = faBed;
   faHome = faHome;
+  faMapMarkerAlt = faMapMarkerAlt;
   faSwimmer = faSwimmer;
   faWifi = faWifi;
   faSmokingBan = faSmokingBan;
@@ -25,8 +29,9 @@ export class HotelComponent implements OnInit {
   faUtensils = faUtensils;
   faConciergeBell = faConciergeBell;
 
+
   //params for pngbpagination
-  pageSize = 4;
+  pageSize = 3;
   page = 1;
   logementSize = 1;
 
@@ -36,7 +41,11 @@ export class HotelComponent implements OnInit {
   apartmentList : Logement[] | undefined ;
   isAppartementTabAlreadyClicked: boolean = false;
 
-  constructor(private getLogementService : LogementsService) { }
+  constructor(private getLogementService : LogementsService, config: NgbRatingConfig) { 
+    // customize default values of ratings used by this component tree
+    config.max = 5;
+    config.readonly = true;
+  }
 
   ngOnInit(): void {
 

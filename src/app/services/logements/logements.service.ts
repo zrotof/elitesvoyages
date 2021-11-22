@@ -29,6 +29,7 @@ export class LogementsService {
           "priceLogement": 35000,
           "currencyLogement": "XAF",
           "imgLogement": "../../../assets/img/hotels/hilton.jpeg",
+          "locationLogement":"Boulevard du 20 mai, 11852, Yaoundé, Cameroun",
           "optionLogement": [
             {
               "id": "ev-h-0-001",
@@ -59,11 +60,12 @@ export class LogementsService {
         {
           "id": "ev-h-001",
           "villeLogement": "Yaounde",
-          "nomLogement": "Hilton Hôtel",
-          "nbrEtoileLogement": 5,
-          "priceLogement": 35000,
+          "nomLogement": "Boun's Hôtel",
+          "nbrEtoileLogement": 4,
+          "priceLogement": 34000,
           "currencyLogement": "XAF",
-          "imgLogement": "../../../assets/img/hotels/hilton.jpeg",
+          "imgLogement": "../../../assets/img/hotels/bouns.jpeg",
+          "locationLogement":"Centre-ville _Rue De Narvick- Carrefour S. H.O Mitoyen au magasin Bricolux, Yaoundé, Cameroun",
           "optionLogement": [
             {
               "id": "ev-h-0-001",
@@ -85,12 +87,13 @@ export class LogementsService {
         },
         {
           "id": "ev-h-001",
-          "villeLogement": "Yaounde",
-          "nomLogement": "Hilton Hôtel",
-          "nbrEtoileLogement": 5,
-          "priceLogement": 35000,
+          "villeLogement": "Douala",
+          "nomLogement": "Makepe Palace",
+          "nbrEtoileLogement": 3,
+          "priceLogement": 28000,
           "currencyLogement": "XAF",
-          "imgLogement": "../../../assets/img/hotels/hilton.jpeg",
+          "imgLogement": "../../../assets/img/hotels/makepe.jpeg",
+          "locationLogement":"Makepe Rhône Poulenc, Douala, Cameroun",
           "optionLogement": [
             {
               "id": "ev-h-0-001",
@@ -117,11 +120,12 @@ export class LogementsService {
         {
           "id": "ev-h-001",
           "villeLogement": "Yaounde",
-          "nomLogement": "Hilton Hôtel",
-          "nbrEtoileLogement": 5,
-          "priceLogement": 35000,
+          "nomLogement": "Hôtel La Falaise",
+          "nbrEtoileLogement": 3,
+          "priceLogement": 25000,
           "currencyLogement": "XAF",
-          "imgLogement": "../../../assets/img/hotels/hilton.jpeg",
+          "locationLogement":"Avenue Marechal Foch, Warda, Yaoundé, Cameroun",
+          "imgLogement": "../../../assets/img/hotels/falaise.jpeg",
           "optionLogement": [
             {
               "id": "ev-h-0-001",
@@ -216,97 +220,6 @@ export class LogementsService {
             {
               "id": "ev-h-0-003",
               "libelleOption": "Non-Fumeur"
-            },
-  
-            {
-              "id": "ev-h-0-006",
-              "libelleOption": "parking Gratuit"
-            },
-  
-            {
-              "id": "ev-h-0-007",
-              "libelleOption": "Meeting Room"
-            },
-  
-            {
-              "id": "ev-h-0-008",
-              "libelleOption": "Salle de sport"
-            }
-          ]
-        },
-        {
-          "id": "ev-h-001",
-          "villeLogement": "Yaounde",
-          "nomLogement": "Hilton Hôtel",
-          "nbrEtoileLogement": 5,
-          "priceLogement": 35000,
-          "currencyLogement": "XAF",
-          "imgLogement": "../../../assets/img/hotels/hilton.jpeg",
-          "optionLogement": [
-            {
-              "id": "ev-h-0-001",
-              "libelleOption": "Piscine"
-            },
-  
-            {
-              "id": "ev-h-0-002",
-              "libelleOption": "Free Wifi"
-            },
-  
-            {
-              "id": "ev-h-0-003",
-              "libelleOption": "Non-Fumeur"
-            },
-
-  
-            {
-              "id": "ev-h-0-006",
-              "libelleOption": "parking Gratuit"
-            },
-  
-            {
-              "id": "ev-h-0-007",
-              "libelleOption": "Meeting Room"
-            },
-  
-            {
-              "id": "ev-h-0-008",
-              "libelleOption": "Salle de sport"
-            }
-          ]
-        },
-        {
-          "id": "ev-h-001",
-          "villeLogement": "Yaounde",
-          "nomLogement": "Hilton Hôtel",
-          "nbrEtoileLogement": 5,
-          "priceLogement": 35000,
-          "currencyLogement": "XAF",
-          "imgLogement": "../../../assets/img/hotels/hilton.jpeg",
-          "optionLogement": [
-            {
-              "id": "ev-h-0-001",
-              "libelleOption": "Piscine"
-            },
-  
-            {
-              "id": "ev-h-0-002",
-              "libelleOption": "Free Wifi"
-            },
-  
-            {
-              "id": "ev-h-0-003",
-              "libelleOption": "Non-Fumeur"
-            },
-  
-            {
-              "id": "ev-h-0-004",
-              "libelleOption": "Animaux interdits"
-            },
-  
-            {
-              "id": "ev-h-0-005",
-              "libelleOption": "Room Service"
             },
   
             {
