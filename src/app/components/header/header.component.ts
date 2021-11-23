@@ -23,14 +23,14 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  chooseService(): void{
+  showHideServices(): void{
 
     var serviceBottom = <HTMLElement>document.querySelector(".services ul");
 
     serviceBottom.classList.toggle("show-service-bottom");
   }
 
-  chooseLanguage(): void{
+  showHideLanguages(): void{
 
     var languageBottom= <HTMLElement>document.querySelector(".languages-bottom");
 
@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit {
       this.isEnglishChoose = true;
       this.isFrenchChoose = false;
       this.selectedLanguage= "En"
-      this.chooseLanguage();
+      this.showHideLanguages();
 
     }
     else{
@@ -69,7 +69,7 @@ export class HeaderComponent implements OnInit {
       this.isFrenchChoose = true;
       this.isEnglishChoose = false;
       this.selectedLanguage= "Fr"
-      this.chooseLanguage();
+      this.showHideLanguages();
 
     }
     else{
@@ -89,5 +89,4 @@ onWindowScroll() {
       header.classList.remove('navbar-background-on-scroll');
     }
   }
-
 }

@@ -124,6 +124,7 @@ $colorGold: #EEC66C;
                         
                         width: 100%;
                         display: none;
+
                     }
 
                     .tab-page-hotel{
@@ -133,37 +134,38 @@ $colorGold: #EEC66C;
                         align-items: flex-start;
                         justify-content: space-between;
 
+
                         .hotel-filter-bloc{
+
                             width: 300px;
                             background-color: #ffffff;
                             border-radius: 5px;
-
                             display: flex;
                             flex-direction: column;
                             padding: 10px;
 
                             .search{
                                 flex-direction: column;
-                padding: 15px 0 10px;
-                border-top: 2px solid rgb(180, 180, 180);
+                                    padding: 15px 0 10px 0;
+                                    border-top: 2px solid rgb(180, 180, 180);
 
-                span{
-                    color: $colorBlue;
-                    font-weight: 540;
-                }
-                > div {
-                    display: flex;
-                    align-items: center;
-                    margin: 5px 0 0 0;
-                    width: fit-content;
-                    
-                    input{
-                    height: 17px;
-                    width: 17px;
-                    margin-right: 10px;
-                    border-radius: 50%;
-                    }
-                }
+                                span{
+                                    color: $colorBlue;
+                                    font-weight: 540;
+                                }
+                                > div {
+                                    display: flex;
+                                    align-items: center;
+                                    margin: 5px 0 0 0;
+                                    width: fit-content;
+                                    
+                                    input{
+                                    height: 17px;
+                                    width: 17px;
+                                    margin-right: 10px;
+                                    border-radius: 50%;
+                                    }
+                                }
 
                  > div:hover {
                     font-weight: bold;
@@ -181,13 +183,13 @@ $colorGold: #EEC66C;
                             align-items: center;
                             height: 100vh;
 
-                            .logement-bloc{
+                            .logement-hotel-bloc{
 
                                 display: flex;
                                 flex-direction: column;
                                 
     
-                                .logement{
+                                .logement-hotel{
                                     display: flex;
                                     align-items: flex-start;
                                     justify-content: center;
@@ -342,15 +344,189 @@ $colorGold: #EEC66C;
                                     }
                                 }
 
-                                .logement:hover{
+                                .logement-hotel:hover{
 
                                     box-shadow: $colorBlue 0px 0px 15px;
+
                                 }
+
                             }
 
                         }
 
-                        
+                    }
+
+                    .tab-page-appart{
+
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+
+                        .logement-pagination-bloc{
+
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+
+                            .logement-appart-bloc{
+
+                                display: flex;
+                                flex-wrap: wrap;
+                                justify-content: space-between;
+                                align-items: flex-start;
+                                width: 100%;
+
+                                .logement-appart{
+
+                                    background: white;
+                                    width: 250px;
+                                    margin: 10px;
+                                    border-radius: 10px;
+                                    overflow: hidden;
+                                    box-shadow: rgba(61, 61, 61, 0.555) 0px 2px 8px 0px;
+                                    cursor: pointer;
+
+
+                                    .item-image{
+
+                                        width:100%;
+                                        height: 200px;
+                                        position: relative;
+
+                                        img{
+                                            height: 100%;
+                                            width:100%;
+                                        }
+
+                                        span{
+                                            position: absolute;
+                                            left: 5%;
+                                            bottom: 5%;
+                                            color: white;
+                                            font-weight: bold;
+                                            z-index: 1;
+                                            position: absolute;
+                                        }
+                                    
+                                    }
+
+                                    .item-image::after{
+                                        position: absolute;
+                                        content: "";
+                                        top: 0;
+                                        left:0;
+                                        width: 100%;
+                                        height: 100%;
+                                        background-color: rgba(22, 5, 172, 0.158);
+                                    }
+
+                                    .item-info{
+
+                                        display: flex;
+                                        flex-direction: column;
+                                        padding: 10px;
+
+                                        .item-summary{
+
+                                            display: flex;
+                                            flex-direction: column;
+                                            font-size: 0.9em;
+
+                                            .item-name{
+
+                                                font-size: 1.5em;
+                                                font-weight: 545;
+
+                                            }
+
+                                            .item-type{
+
+                                                margin: 5px 0;
+
+                                                span:nth-child(1){
+
+                                                    margin-right: 5px;
+
+                                                }
+
+                                                span:nth-child(2){
+
+                                                    font-size: 0.85em;
+
+                                                }
+
+                                            }
+
+                                        }
+
+
+                                        .options-top{
+
+                                            display: flex;
+                                            flex-direction: column;
+                                            width: 100%;
+                                            margin: 10px 0;
+    
+                                            span:nth-child(1){
+
+                                                font-size: 0.8em;
+                                                
+                                            }
+    
+                                            span:nth-child(2){
+
+                                                font-size: 1.1em;
+                                                font-weight: bold;
+
+                                                span{
+
+                                                    font-weight: normal;
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                        .options-bottom{
+
+                                            background-color: $colorBlue;
+                                            color: white;
+                                            border-radius: 5px;
+                                            text-align: center;
+                                            width: fit-content;
+                                            transform: all 3s ease-in;
+                                            cursor: pointer;
+                                            font-size: 0.9em;
+                                            margin: 0 auto;
+                                            width: 100%;
+                                            padding: 2px 0;
+                                        }
+    
+                                        .options-bottom:hover{
+    
+                                            border: 2px solid $colorBlue;
+                                            background: none;
+                                            color: $colorBlue;
+                                            font-weight: bold;
+                                            padding:0;
+                                        }
+
+                                    }
+
+                                }
+
+                                .logement-appart:hover{
+                                    box-shadow: $colorBlue 0px 0px 15px;
+
+                                }
+
+                            }
+                            
+                        }
+                    
                     }
 
                     .active-tab-page{

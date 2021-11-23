@@ -228,7 +228,7 @@ $fontColor: #525252;
             justify-content: space-between;
 
             .about-text{
-                width: 60%;
+                width: 70%;
                 margin-right: 3em;
                 font-size: 1.1em;
                 text-align: justify;
@@ -250,6 +250,7 @@ $fontColor: #525252;
                         border-radius: 100px;
                         margin:0 10px;
                         text-align: center;
+                        font-size: 0.95em;
                     }
 
                     span:first-child{
@@ -257,18 +258,56 @@ $fontColor: #525252;
                         color: $colorBlue;
                         
                     }
+                    span:first-child:hover{
+                        background-color: $colorBlue;
+                        color: white;
+                        transition: all 0.3s ease-in-out;
+
+                        
+                    }
 
                     span:last-child{
                         background-color: $colorBlue;
                         color: white;
+                        border: 2px solid $colorBlue;
+
+                    }
+
+                    span:last-child:hover{
+                        background: none;
+                        border: 2px solid $colorBlue;
+                        color: $colorBlue;
+                        transition: all 0.3s ease-in-out;
+
                     }
                 }
                 
             }
 
-            img{
-                width: 22em;
-                border-radius: 5px;
+            .about-image{
+                width: 16.5em;
+                display: flex;
+                justify-content: space-between;
+                height: 12em;
+
+                .about-image-1{
+                    background-image: url("../../../assets/img/home-plane-1.jpeg");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    width: 8em;
+                    height: 100%;
+                }
+
+                .about-image-2{
+                    background-image: url("../../../assets/img/about-sea-1.jpeg");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    width: 8em;
+                    height: 100%;
+                }
+
             }
 
 
@@ -297,7 +336,7 @@ $fontColor: #525252;
                 padding: 40px 20px 20px 20px;
                 position: relative;
                 width: 280px;
-                background-color: #F5F5F5;
+                background-color: #dfdfdf;
                 border-radius:10px;
                 cursor: pointer;
                 margin: 4em 1em 2em 1em;
@@ -1017,16 +1056,38 @@ $fontColor: #525252;
 
 
     .tourism{
-        background: $colorBlue;
+
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-color: rgb(216, 216, 216);
 
-        > span:nth-child(2){
-            margin: 5em 0 3em 0;
-            font-size: 1.05em;
+        .tourism-header{
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 35px 0;
+            padding: 20px;
+            background: #11609834;
+            border-radius: 10px;
+
+            img{
+                width: 150px;
+                height: 150px;
+                margin: 0 20px;
+            }
+
+            span{
+                font-size: 1.05em;
+                width: 700px;
+                margin: 0 20px;
+
+            }
         }
+        
 
         .circuits{
             display: flex;

@@ -3,18 +3,19 @@
 
     
     <div class="header-right">
+
         <nav>
             <ul>
                 <li><a routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" routerLink="/home">Home</a></li>
-                <li class="services">
-                        <span (click)="chooseService()">Services <fa-icon [icon]="faCaretDown"></fa-icon></span>
+                <li class="services" (mouseover)="showHideServices()" (mouseout)="showHideServices()">
+                        <span>Services <fa-icon [icon]="faCaretDown"></fa-icon></span>
                         <ul>
                             <li><a routerLinkActive="active-link" routerLink="/flight">Billet d'avion</a></li>
                             <li><a routerLinkActive="active-link" routerLink="/hostel-apartment">Hôtel et Appartement meublé</a></li>
                             <li><a routerLinkActive="active-link" routerLink="/rent-car">Location voiture</a></li>
                             <li><a routerLinkActive="active-link" routerLink="/tourism">Tourisme</a></li>
                             <li><a routerLinkActive="active-link" routerLink="/fret-dhl">Fret et DHL</a></li>
-                            <li><a routerLinkActive="active-link" routerLink="/visa-dubaî">Visa Dubaî</a></li>
+                            <li><a routerLinkActive="active-link" routerLink="/visa-dubaî">Visa Dubaî et Assistance Visa</a></li>
                         </ul>
                 </li>
                 <li><a routerLinkActive="active-link" routerLink="/about">About</a></li>
@@ -23,8 +24,8 @@
             </ul>
         </nav>
 
-        <div class="languages">
-           <div class="languages-top" (click)="chooseLanguage()">
+        <div class="languages" (mouseover)="showHideLanguages()" (mouseout)="showHideLanguages()">
+           <div class="languages-top">
                 <fa-icon [icon]="faGlobe"></fa-icon>
                 <span>{{selectedLanguage}}</span>
                 <fa-icon [icon]="faCaretDown"></fa-icon>

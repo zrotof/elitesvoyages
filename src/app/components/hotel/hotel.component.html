@@ -133,10 +133,10 @@
 
                             <div class="logement-pagination-bloc">
 
-                                <div class="logement-bloc">
+                                <div class="logement-hotel-bloc">
 
 
-                                    <div class="logement" *ngFor="let item of hostelList | slice: (page-1) * pageSize : page * pageSize">
+                                    <div class="logement-hotel" *ngFor="let item of hostelList | slice: (page-1) * pageSize : page * pageSize">
 
                                         <div class="item-image">
                                             <img src={{item.imgLogement}} alt="{{item.nomLogement}} {{item.villeLogement}}">
@@ -188,8 +188,64 @@
                         
                     </div>
 
+
+
+
+
+
+
+
+
+
+
+
                     <div class="tab-page">
-                        <span>piou</span>
+                        <div class="tab-page-appart">
+
+                            <div class="logement-pagination-bloc">
+
+                                <div class="logement-appart-bloc">
+
+
+                                    <div class="logement-appart" *ngFor="let item of apartmentList">
+
+                                        <div class="item-image">
+                                            <img src={{item.imgLogement}} alt="{{item.nomLogement}} {{item.villeLogement}}">
+                                            <span>{{item.villeLogement}}</span>
+                                        </div>
+
+                                        <div class="item-info">
+
+                                            <div class="item-summary">
+
+                                                    <span class="item-name">{{item.nomLogement}}</span>
+                                                    <span class="item-type"><span>Type de chambre:</span>  <span>T1, T2</span></span>
+                                            
+                                            </div>
+
+                                            <div class="options-top">
+                                                <span>à partir de</span>
+                                                <span>{{item.priceLogement}} {{item.currencyLogement}} <span> / nuit</span></span>
+                                            </div>
+<!--
+                                                <div class="options-middle">
+                                                    <div class="options" *ngFor="let option of item.optionLogement">
+                                                        <span> <fa-icon [icon]="faBed"></fa-icon> {{option.libelleOption}} </span>
+                                                    </div>
+                                                </div>
+-->
+                                            <span class="options-bottom">
+                                                    Voir plus
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
 
                 </div>

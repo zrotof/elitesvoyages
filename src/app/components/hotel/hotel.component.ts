@@ -38,6 +38,11 @@ export class HotelComponent implements OnInit {
   hostelList : Logement[] | undefined ;
   isHotelTabAlreadyClicked: boolean = false;
 
+
+  pageSizeApp = 3;
+  pageApp = 1;
+  logementSizeApp = 1;
+
   apartmentList : Logement[] | undefined ;
   isAppartementTabAlreadyClicked: boolean = false;
 
