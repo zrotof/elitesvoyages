@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { FieldsetModule, } from 'primeng/fieldset';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,11 +46,13 @@ import { GoodDealComponent } from './components/good-deal/good-deal.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     FontAwesomeModule,
     ReactiveFormsModule,
     NgbModule,
     NgxSliderModule,
-    HttpClientModule
+    HttpClientModule,
+    FieldsetModule
   ],
   providers: [],
   bootstrap: [AppComponent]

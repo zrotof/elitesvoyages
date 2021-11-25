@@ -261,24 +261,10 @@ $fontColor: #525252;
                     span:first-child:hover{
                         background-color: $colorBlue;
                         color: white;
+                        font-weight: bold;
                         transition: all 0.3s ease-in-out;
 
                         
-                    }
-
-                    span:last-child{
-                        background-color: $colorBlue;
-                        color: white;
-                        border: 2px solid $colorBlue;
-
-                    }
-
-                    span:last-child:hover{
-                        background: none;
-                        border: 2px solid $colorBlue;
-                        color: $colorBlue;
-                        transition: all 0.3s ease-in-out;
-
                     }
                 }
                 
@@ -672,6 +658,113 @@ $fontColor: #525252;
             }
         }
     }
+
+
+
+    .visas{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .visas-bloc{
+            display: flex;
+            align-items: center;
+            width:100%;
+            margin: 3em 0 5em 0;
+            flex-direction: column;
+            
+
+            .visas-content-bloc{
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+                width: 100%;
+                margin-bottom: 50px;
+
+
+                .visas-dubai-bloc{
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 400px;
+    
+                    span:nth-child(1){
+                        color: $colorBlue;
+                        font-weight: bold;
+                        font-size: 1.5em;
+                    }
+
+                    .visas-image{
+                        background-image: url("../../../assets/img/home-dubai.jpeg");
+                        background-position: center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        border-radius: 50%;
+                        width: 120px;
+                        height: 120px;
+                        margin: 20px 0;
+                        box-shadow: rgba(0, 0, 0, 0.712) 0px 5px 15px;
+
+                    }
+
+
+    
+                }
+
+                .visas-assistance-bloc{
+
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 400px;
+
+                    span:nth-child(1){
+                        color: $colorBlue;
+                        font-weight: bold;
+                        font-size: 1.5em;
+                        
+
+                    }
+
+                    span:nth-child(2){
+                        margin: 20px 0;
+                        height: 120px;
+                    }
+                }
+            }
+
+            .visas-button{
+                padding: 4px 20px;
+                cursor: pointer;
+                border-radius: 100px;
+                margin:0 10px;
+                text-align: center;
+                font-size: 0.95em;
+                border: 2px solid $colorBlue;                        
+                color: $colorBlue;
+                cursor: pointer;
+                font-weight: bold;
+                
+            }
+
+            .visas-button:hover{
+                background-color: $colorBlue;
+                color: white;
+                font-weight: bold;
+                transition: all 0.3s ease-in-out;
+
+            }
+                
+            
+
+
+        }
+    }
+
 
 
 
