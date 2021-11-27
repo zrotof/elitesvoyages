@@ -86,7 +86,7 @@ $fontColor: #525252;
         }
 
         .slider-one{
-            background-image: url("../../../assets/img/familly.jpeg");
+            background-image: url("../../../assets/img/home/sliders/familly.jpeg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -96,7 +96,7 @@ $fontColor: #525252;
         }
 
         .slider-two{
-            background-image: url("../../../assets/img/plane_grey_slide.jpg");
+            background-image: url("../../../assets/img/home/sliders/hotel.jpeg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -106,7 +106,7 @@ $fontColor: #525252;
         }
 
         .slider-three{
-            background-image: url("../../../assets/img/car-slide.jpeg");
+            background-image: url("../../../assets/img/home/sliders/car-slide.jpeg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -116,7 +116,7 @@ $fontColor: #525252;
         }
 
         .slider-four{
-            background-image: url("../../../assets/img/contact-slide.jpeg");
+            background-image: url("../../../assets/img/home/sliders/contact-slide.jpeg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -213,6 +213,7 @@ $fontColor: #525252;
         }   
     }
 
+
     .about{
         width: 100%;
         display: flex;
@@ -277,7 +278,7 @@ $fontColor: #525252;
                 height: 12em;
 
                 .about-image-1{
-                    background-image: url("../../../assets/img/home-plane-1.jpeg");
+                    background-image: url("../../../assets/img/home/about/home-plane-1.jpg");
                     background-repeat: no-repeat;
                     background-size: cover;
                     background-position: center;
@@ -286,7 +287,7 @@ $fontColor: #525252;
                 }
 
                 .about-image-2{
-                    background-image: url("../../../assets/img/about-sea-1.jpeg");
+                    background-image: url("../../../assets/img/home/about/about-sea-1.jpeg");
                     background-repeat: no-repeat;
                     background-size: cover;
                     background-position: center;
@@ -299,6 +300,7 @@ $fontColor: #525252;
 
         }
     }
+
 
     .services-bloc{
         width: 100%;
@@ -508,12 +510,11 @@ $fontColor: #525252;
 
                                 .flight-element-text-first-child{
                                     font-size: 1.1em;
-                                    font-weight: 540;
                                     text-align: center;
                                 }
 
                                 .flight-element-text-second-child{
-                                    font-size: 0.9em;
+                                    font-size: 0.8em;
                                     text-align: right;
                                     margin-top: 15px;
 
@@ -522,17 +523,18 @@ $fontColor: #525252;
                                 .flight-element-text-third-bloc{
                                     display: flex;
                                     justify-content: space-between;
-                                    align-items: center;
+                                    align-items: baseline;
                                     width: 100%;
 
                                     .flight-element-text-third-bloc-first-child{
                                         display: flex;
-                                        align-items: flex-start;
+                                        align-items: center;
+                                        font-size: 0.8em;
         
                                         .icon-two-ways{
                                             height: 15px;
                                             width: 15px;
-                                            margin: 0 5px;
+                                            margin: 0 10px;
                                         }
                                     }
                                     .flight-element-text-third-bloc-second-child{
@@ -546,15 +548,8 @@ $fontColor: #525252;
 
                         }
 
-                        .active-flight{
-                            border: 1em solid red;
-
-                        }
+     
                         .flight-element:hover{
-                            background-color: white;
-                            color: $colorBlue;
-                            transition: all 0.3s ease-in-out;
-
                             .flight-element-bloc-image{
                                 transform: scale(1.2,1.2);
                                 transition: all 0.3s ease-in-out;
@@ -625,7 +620,7 @@ $fontColor: #525252;
 
 
 
-            .flight-active-dot, .flight-dot:hover{
+            .flight-active-dot{
                 background-color: $colorBlue;
 
             } 
@@ -644,21 +639,175 @@ $fontColor: #525252;
                 color: white;
                 background-color: $colorBlue;
                 border-radius: 100px;
+                border: 2px solid $colorBlue;
                 font-size: 0.8em;
                 cursor: pointer;
             }
 
             span:nth-child(2):hover{
                 margin-left: 15px;
-                padding: 3px 13px;
-                border: 2px solid $colorBlue;
                 color: $colorBlue;
-                background-color: white
+                background-color: white;
+                transition: all 0.3s ease-in;
+                font-weight: bold;
                 
             }
         }
     }
 
+
+    .hotel-appaterment-bloc{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding-bottom: 5em;
+
+        .hotel-bloc, .appartement-bloc{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center; 
+            margin: 40px 0; 
+
+            .hotel-bloc-text{
+                display: flex;
+                width: 50%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding-right: 50px;
+
+                .hotel-title{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: $colorBlue;
+
+                    fa-icon{
+                        font-size: 1.5em;
+                        margin-right: 10px ;
+                    }
+                }
+
+                 
+
+                .hotel-call-to-action{
+                    font-size: 1.1em;
+                    margin-top: 10px;
+                    padding: 3px 20px;
+                    width: fit-content;
+                    color: white;
+                    border-radius:100px;
+                    background-color: $colorBlue;
+                    border: solid $colorBlue;
+                    cursor: pointer;
+                    transition: all 0.3s ease-in;
+                }
+
+                .hotel-call-to-action:hover{
+                    
+                    color: $colorBlue;
+                    font-weight: bold;
+                    background-color: white;
+                }
+            }
+
+
+            .appartement-bloc-text{
+                display: flex;
+                width: 50%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding-left: 50px;
+
+                .appartement-title{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: $colorBlue;
+
+                    fa-icon{
+                        font-size: 1.5em;
+                        margin-right: 10px ;
+                    }
+                }
+
+                 
+
+                .appartement-call-to-action{
+                    font-size: 1.1em;
+                    margin-top: 10px;
+                    padding: 3px 20px;
+                    width: fit-content;
+                    color: white;
+                    border-radius:100px;
+                    background-color: $colorBlue;
+                    border: solid $colorBlue;
+                    cursor: pointer;
+                    transition: all 0.3s ease-in;
+                }
+
+                .appartement-call-to-action:hover{
+                    
+                    color: $colorBlue;
+                    font-weight: bold;
+                    background-color: white;
+                }
+            }
+
+
+            .hotel-image{
+                background-image: url("../../../assets/img/home/hotel-app/home-hotel.jpg");
+                background-repeat: no-repeat ;
+                background-size: cover;
+                background-position: center;
+                width: 28em;
+                height: 25em;
+                border-radius: 5px;
+                box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
+                cursor: pointer;
+            }
+
+            .appartement-image{
+                background-image: url("../../../assets/img/home/hotel-app/home-appartement.jpg");
+                background-repeat: no-repeat ;
+                background-size: cover;
+                background-position: center;
+                width: 28em;
+                height: 25em;
+                border-radius: 5px;
+                box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
+                cursor: pointer;
+            }
+
+
+            .hotel-image:hover{
+                box-shadow: $colorBlue 0px 5px 15px;
+            }
+
+            .appartement-image:hover{
+                box-shadow: $colorBlue 0px 5px 15px;
+            }
+
+
+
+        }
+
+
+        .appartement-bloc-image:before, .hotel-bloc-image:before{
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.295);
+            top: 0;
+            left: 0;
+            border-radius: 5px;
+        }
+    }
 
 
     .visas{
@@ -667,6 +816,8 @@ $fontColor: #525252;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-color: #dfdfdf;
+
 
         .visas-bloc{
             display: flex;
@@ -698,7 +849,7 @@ $fontColor: #525252;
                     }
 
                     .visas-image{
-                        background-image: url("../../../assets/img/home-dubai.jpeg");
+                        background-image: url("../../../assets/img/home/visas/home-dubai.jpeg");
                         background-position: center;
                         background-size: cover;
                         background-repeat: no-repeat;
@@ -743,11 +894,12 @@ $fontColor: #525252;
                 border-radius: 100px;
                 margin:0 10px;
                 text-align: center;
-                font-size: 0.95em;
                 border: 2px solid $colorBlue;                        
                 color: $colorBlue;
                 cursor: pointer;
                 font-weight: bold;
+                background-color: white;
+                transition: all 0.3s ease;
                 
             }
 
@@ -764,164 +916,6 @@ $fontColor: #525252;
 
         }
     }
-
-
-
-
-    .hotel-appaterment-bloc{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        background-color: rgb(211, 211, 211);
-        padding-bottom: 5em;
-        color: $fontColor;
-
-        .hotel-bloc{
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;  
-
-            .hotel-bloc-text{
-                display: flex;
-                width: 70%;
-                flex-direction: column;
-                align-items: center;
-                justify-content:center;
-                padding: 0 50px 0 0;
-                letter-spacing: 2px;
-
-                 p{
-                    font-size: 1.05em;
-                    text-align: justify;
-                }
-
-                 span{
-                    font-size: 1.1em;
-                    margin-top: 10px;
-                    padding: 5px 20px;
-                    background: $fontColor;
-                    color: white;
-                    border-radius:100px;
-                    cursor: pointer;
-                }
-            }
-
-            .hotel-bloc-image{
-                background-image: url("../../../assets/img/home-hotel.jpg");
-                background-repeat: no-repeat ;
-                background-size: cover;
-                background-position: center;
-                width: 22em;
-                height: 17em;
-                position: relative;
-                border-radius: 5px;
-
-                & div{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    position: absolute;
-                    top:50%;
-                    left:50%;
-                    transform: translate(-50%, -50%);
-                    color:white;
-        
-        
-                    & fa-icon{
-                        font-size: 4em;
-                    }
-        
-                    & h1{
-                        margin: 0 0 30px 0;
-                    }
-                }
-            }
-        }
-
-
-        .appartement-bloc{
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            width: 100%;
-            margin-top: 70px;
-
-
-            .appartement-bloc-image{
-                background-image: url("../../../assets/img/home-appartement.jpg");
-                background-repeat: no-repeat ;
-                background-size: cover;
-                background-position: center;
-                width: 22em;
-                height: 17em;
-                position:relative;
-                text-align: center;
-                
-
-                & div{
-                    position: absolute;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    top:50%;
-                    left:50%;
-                    transform: translate(-50%, -50%);
-                    color:white;
-                    
-
-                    & fa-icon{
-                        font-size: 4em;
-                    }
-    
-                    & h1{
-                        margin: 0 0 30px 0;
-                    }
-                }
-            }
-
-            .appartement-bloc-text{
-                width: 70%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content:center;
-                padding: 0 0 0 50px;
-                letter-spacing: 2px;
-
-                & p{
-                    font-size: 1.05em;
-                    text-align: justify;
-                }
-
-                & span{
-                    font-size: 1.1em;
-                    margin-top: 10px;
-                    padding: 5px 20px;
-                    background: $fontColor;
-                    color: white;
-                    border-radius:100px;
-                    cursor: pointer;
-                }
-            }
-        }
-
-        .appartement-bloc-image:before, .hotel-bloc-image:before{
-            content: "";
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            background: rgba(0, 0, 0, 0.295);
-            top: 0;
-            left: 0;
-            border-radius: 5px;
-        }
-    }
-
-
 
 
 
@@ -1084,7 +1078,21 @@ $fontColor: #525252;
                                     }
                                 }
 
-               
+                                .reserver{
+                                    padding: 2px 15px;
+                                    border: 2px solid $colorBlue;
+                                    margin: auto;
+                                    width: fit-content;
+                                    border-radius: 50px;
+                                    transition: all 0.3s ease-in;
+                                    font-size: 0.85em;
+                                    color: $colorBlue;
+                                }
+
+                                .reserver:hover{
+                                    background-color: $colorBlue;
+                                    color: white;
+                                }
                                 
                             }
                         }

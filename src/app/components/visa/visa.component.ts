@@ -86,6 +86,7 @@ export class VisaComponent implements OnInit {
       if(this.iscliked2){
         this.setValueToFalse();
       }
+      
       else{
         this.setValueToFalse();
         this.iscliked2 = ! this.iscliked2;

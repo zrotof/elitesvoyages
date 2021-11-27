@@ -1,5 +1,5 @@
 <header (scroll)="onWindowScroll()">
-    <img src="../../../assets/img/logo.png" alt="Logo of Elites Voyages">
+    <img routerLink="/home" src="../../../assets/img/header/logo.png" alt="Logo of Elites Voyages">
 
     
     <div class="header-right">
@@ -34,12 +34,12 @@
 
                 <div (click)="chooseEnglish()">
                     <input class="en" type="checkbox" checked>
-                    <span>English <img src="../../../assets/img/en.png" alt="Drapeau Anglais"></span>
+                    <span>English <img src="../../../assets/img/header/en.png" alt="Drapeau Anglais"></span>
                 </div>
 
                 <div (click)="chooseFrench()">
                     <input class="fr" type="checkbox">
-                    <span>French <img src="../../../assets/img/fr.jpeg" alt="Drapeau Français"></span>
+                    <span>French <img src="../../../assets/img/header/fr.jpeg" alt="Drapeau Français"></span>
                 </div>
 
             </div>

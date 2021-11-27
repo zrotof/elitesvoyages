@@ -24,7 +24,7 @@ export class FlightService {
         "codeAirportArr": "PAR",
         "price": 600000,
         "currency": "XAF",
-        "img": "../../../assets/img/home-popular-paris.jpg",
+        "img": "../../../assets/img/home/flights/paris.jpeg",
         "typeTrajet": "Aller-Retour",
         "countryArr": "France"
       },
@@ -36,7 +36,7 @@ export class FlightService {
         "codeAirportArr": "BRX",
         "price": 450000,
         "currency": "XAF",
-        "img": "../../../assets/img/home-popular-bruxelles.jpg",
+        "img": "../../../assets/img/home/flights/bruxelles.jpg",
         "typeTrajet": "Aller-Retour",
         "countryArr": "Belgique"
       },
@@ -48,7 +48,7 @@ export class FlightService {
         "codeAirportArr": "DUB",
         "price": 300000,
         "currency": "XAF",
-        "img": "../../../assets/img/home-popular-dubai.jpg",
+        "img": "../../../assets/img/home/flights/dubai.jpeg",
         "typeTrajet": "Aller-Retour",
         "countryArr": "Emyrates"
       },
@@ -60,7 +60,7 @@ export class FlightService {
         "codeAirportArr": "RIJ",
         "price": 750000,
         "currency": "XAF",
-        "img": "../../../assets/img/home-popular-rio-de-janeiro.jpg",
+        "img": "../../../assets/img/home/flights/rio.jpg",
         "typeTrajet": "Aller-Retour",
         "countryArr": "Brésil"
       },
@@ -72,7 +72,7 @@ export class FlightService {
         "codeAirportArr": "CTN",
         "price": 60000,
         "currency": "XAF",
-        "img": "../../../assets/img/home-popular-cotonou.jpeg",
+        "img": "../../../assets/img/home/flights/cotonou.jpeg",
         "typeTrajet": "Aller-Retour",
         "countryArr": "Bénin"
       },
@@ -84,7 +84,7 @@ export class FlightService {
         "codeAirportArr": "AAN",
         "price": 70500,
         "currency": "XAF",
-        "img": "../../../assets/img/home-popular-abidjan.jpeg",
+        "img": "../../../assets/img/home/flights/abidjan.jpeg",
         "typeTrajet": "Aller-Retour",
         "countryArr": "Côte d'Ivoire"
       },
@@ -96,7 +96,7 @@ export class FlightService {
         "codeAirportArr": "DLA",
         "price": 30000,
         "currency": "XAF",
-        "img": "../../../assets/img/home-popular-douala.jpeg",
+        "img": "../../../assets/img/home/flights/douala.jpeg",
         "typeTrajet": "Aller-Retour",
         "countryArr": "Cameroun"
       },
@@ -108,7 +108,7 @@ export class FlightService {
         "codeAirportArr": "NYK",
         "price": 1450000,
         "currency": "XAF",
-        "img": "../../../assets/img/home-popular-new-york.jpg",
+        "img": "../../../assets/img/home/flights/new-york.jpeg",
         "typeTrajet": "Aller-Retour",
         "countryArr": "France"
       }

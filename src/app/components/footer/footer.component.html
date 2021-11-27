@@ -1,12 +1,12 @@
 <footer>
     <div class="footer-top">
         <div class="company">
-            <img routerLink="/home" src="../../../assets/img/logo.png" alt="logo d'élite voyage">
+            <img routerLink="/home" src="../../../assets/img/header/logo.png" alt="logo d'élite voyage">
 
             <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat, numquam accusamus. Ad officia sunt, labore similique est voluptates explicabo officiis quibusdam non corporis quaerat nesciunt magnam</span>
             <div>                    
-                <img src="../../../assets/img/facebook-icon.png" alt="Join Elites Voyages on Facebook">
-                <img src="../../../assets/img/Instagram-icon.png" alt="Join Elites Voyages on Instagram">
+                <img src="../../../assets/img/contact/facebook-icon.png" alt="Join Elites Voyages on Facebook">
+                <img src="../../../assets/img/contact/Instagram-icon.png" alt="Join Elites Voyages on Instagram">
             </div>
         </div>
 
@@ -25,8 +25,8 @@
             <span>Nos services</span>
             <ul>
                 <li routerLink="/flight">Billets d'avions</li>
-                <li (click)="redirectWithData('hotel')">Hébergement hôtel</li>
-                <li (click)="redirectWithData('appartement')">Appartements meublés</li>
+                <li (click)="routeToHotelAppartement('hotel')">Hébergement hôtel</li>
+                <li (click)="routeToHotelAppartement('appartement')">Appartements meublés</li>
                 <li routerLink="/rent-car">Voiture de location</li>
                 <li routerLink="/tourism">Tourisme</li>
                 <li routerLink="/fret-dhl">Fret et DHL</li>

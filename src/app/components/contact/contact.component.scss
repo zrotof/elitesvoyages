@@ -12,7 +12,7 @@ $fontColor: #525252;
 
     .contact-top-bloc{
 
-        background-image: url("../../../assets/img/contact-us.png"), url("../../../assets/img/contact-us-icons.png"), url("../../../assets/img/contact-us-bg.jpeg");
+        background-image: url("../../../assets/img/contact/contact-us.png"), url("../../../assets/img/contact/contact-us-icons.png"), url("../../../assets/img/contact/contact-us-bg.jpeg");
         background-position: bottom right, center left, center;
         background-repeat: no-repeat, no-repeat, no-repeat;
         background-size: 45em, 25em, cover;
@@ -119,7 +119,7 @@ $fontColor: #525252;
             margin: 2em 0;
             align-items: center;
             border-radius: 5px;
-            background-image: url("../../../assets/img/sky-contact.jpeg");
+            background-image: url("../../../assets/img/contact/sky-contact.jpeg");
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
@@ -171,6 +171,7 @@ $fontColor: #525252;
                     }
     
                     .reseau{
+                        
                         img{
                             height: 30px;
                             width: 30px;

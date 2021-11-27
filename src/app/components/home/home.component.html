@@ -1,7 +1,7 @@
 <div class="home">
     <div class="slider">
 
-
+ 
         <div class="mySlide fadeHeader slider-one">
             <div class="slider-text">
                 <h1>Voyagez en toute sérénité</h1>
@@ -12,10 +12,10 @@
 
         <div class="mySlide fadeHeader slider-two">
             <div class="slider-text">
-                <h1>Voyagez en toute sérénité 2</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-             </div>
+                <h1>bla bla bla bla</h1>
+                <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae nulla facilis quia sapiente voluptas</span>
+                <span routerLink="/hostel-apartment">Voir logements</span>
+            </div>
         </div>
 
         <div class="mySlide fadeHeader slider-three">
@@ -28,7 +28,7 @@
 
         <div class="mySlide fadeHeader slider-four">
             <div class="slider-text">
-                <h1>Disponible pour vous 7j/7</h1>
+                <h1>À votre écoute 7j/7</h1>
                 <span>Nos experts répondent à toutes vos préoccupations, n'hésitez donc pas si vous ressentez le besoin de nous joindre</span>
                 <span routerLink="/contact">Nous contacter</span>
             </div>
@@ -127,7 +127,7 @@
     </div>
 
     <div class="conteneur-perso flights-bloc">
-        <img class="flights-bloc-background" src="../../../assets/img/vol.jpeg">
+        <img class="flights-bloc-background" src="../../../assets/img/home/flights/vol.jpg">
         <h1>NOS DESTINATIONS POPULAIRES</h1>
 
         <div class="flight-caroussel">
@@ -137,8 +137,7 @@
                 <div class="flight-caroussel-container">
 
                     <div class="flight-element" *ngFor="let flight of popularFlights ; let isFirst = first;" >
-<!-- class="active-flight" -->
-                            <div *ngIf="isFirst" >
+
                                 <div class="flight-element-bloc-image-text">
                                     <img class="flight-element-bloc-image" src="{{flight.img}}">
                                     <span class="flight-element-bloc-text"> {{flight.villeArr}} </span>
@@ -150,38 +149,18 @@
                                     
                                     <span class="flight-element-text-second-child">à partir de</span>
                                     <span class="flight-element-text-third-bloc"> 
-                                        <span class="flight-element-text-third-bloc-first-child"> {{flight.codeAirportDep}} <img class="icon-two-ways" src="../../../assets/img/icon-two-ways.png"> {{flight.codeAirportArr}} </span>
+                                        <span class="flight-element-text-third-bloc-first-child"> {{flight.codeAirportDep}} <img class="icon-two-ways" src="../../../assets/img/home/flights/icon-two-ways.png"> {{flight.codeAirportArr}} </span>
                                                 
                                         <span class="flight-element-text-third-bloc-second-child">{{flight.price}}{{flight.currency}}</span>
                                     </span>
                                 </div>
 
-                            </div>
-
-                            <div *ngIf="!isFirst" >
-                                <div class="flight-element-bloc-image-text">
-                                    <img class="flight-element-bloc-image" src="{{flight.img}}">
-                                    <span class="flight-element-bloc-text"> {{flight.villeArr}} </span>
-                                </div>
-
-                                <div class="flight-element-text">
-                                        
-                                    <span class="flight-element-text-first-child"> {{flight.villeDep}} - {{flight.villeArr}}</span>
-                                    
-                                    <span class="flight-element-text-second-child">à partir de</span>
-                                    <span class="flight-element-text-third-bloc"> 
-                                        <span class="flight-element-text-third-bloc-first-child"> {{flight.codeAirportDep}} <img class="icon-two-ways" src="../../../assets/img/icon-two-ways.png"> {{flight.codeAirportArr}} </span>
-                                                
-                                        <span class="flight-element-text-third-bloc-second-child">{{flight.price}}{{flight.currency}}</span>
-                                    </span>
-                                </div>
-
-                            </div>
+                            
                     </div>
                 </div>
 
-                <span class="flight-prev" (click)="flightClickPrev()"><fa-icon [icon]="faChevronLeft"></fa-icon></span>
-                <span class="flight-next" (click)="flightClickNext()"><fa-icon [icon]="faChevronRight"></fa-icon></span>
+                <span class="flight-prev" (click)="clickOnFlightArrow(-1)"><fa-icon [icon]="faChevronLeft"></fa-icon></span>
+                <span class="flight-next" (click)="clickOnFlightArrow(1)"><fa-icon [icon]="faChevronRight"></fa-icon></span>
 
             </div>
 
@@ -210,6 +189,46 @@
 
 
 
+    <div class="conteneur-perso hotel-appaterment-bloc">
+
+        <div class="hotel-bloc">
+            <div class="hotel-bloc-text">
+                <span class="hotel-title">
+                    <fa-icon [icon]="faBed"></fa-icon>
+                    <h1>Hôtels</h1>
+                </span> 
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat illo quis aliquid, corrupti vero cupiditate! Perspiciatis, laudantium? Illum earum animi, libero et expedita sunt error blanditiis.</p>
+                <span class="hotel-call-to-action" (click)="routeToHotelAppartement('hotel')">Voir Hôtels</span>
+            </div>
+            <div class="hotel-image">
+                
+            </div>
+        </div>
+
+        <div class="appartement-bloc">
+        
+            <div class="appartement-image">
+                
+            </div>
+        
+            <div class="appartement-bloc-text">
+                <span class="appartement-title">
+                    <fa-icon [icon]="faHome"></fa-icon>
+                    <h1>Appartements Meublés</h1>
+                </span>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat illo quis aliquid, corrupti vero cupiditate! Perspiciatis, laudantium? Illum earum animi, libero et expedita sunt error blanditiis.</p>
+                <span class="appartement-call-to-action" (click)="routeToHotelAppartement('appartement')">Voir Appartements</span>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
     <div class="conteneur-perso visas">
         <h1 class="visas-title" >VISA DUBAÎ ET ASSISTANCE VISA</h1>
         
@@ -219,7 +238,7 @@
                 <div class="visas-dubai-bloc">
                     <span>Visa Dubaî</span>
                     <div class="visas-image"></div>
-                    <span>Obtenez votre visa pour dubai en 4Bh</span>
+                    <span>Obtenez votre visa pour dubai en 48h</span>
                 </div>
                 <div class="visas-assistance-bloc">
                     <span>Assistance Visa</span>
@@ -239,35 +258,7 @@
 
 
 
-    <div class="conteneur-perso hotel-appaterment-bloc">
-
-        <div class="hotel-bloc">
-            <div class="hotel-bloc-text"> 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat illo quis aliquid, corrupti vero cupiditate! Perspiciatis, laudantium? Illum earum animi, libero et expedita sunt error blanditiis.</p>
-                <span routerLink="/hotel">Voir Hôtels</span>
-            </div>
-            <div class="hotel-bloc-image">
-                <div>
-                    <fa-icon [icon]="faBed"></fa-icon>
-                    <h1>Hôtels</h1>
-                </div>
-            </div>
-        </div>
-
-        <div class="appartement-bloc">
-            <div class="appartement-bloc-image">
-                <div>
-                    <fa-icon [icon]="faHome"></fa-icon>
-                    <h1>Appartements Meublés</h1>
-                </div>
-            </div>
-            <div class="appartement-bloc-text">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat illo quis aliquid, corrupti vero cupiditate! Perspiciatis, laudantium? Illum earum animi, libero et expedita sunt error blanditiis.</p>
-                <span routerLink="/hotel">Voir Appartements</span>
-            </div>
-        </div>
-
-    </div>
+  
 
     <div class="conteneur-perso cars-bloc">
 
@@ -336,12 +327,16 @@
                                 </div>
                             </div>
 
+                            <span class="reserver">Réserver</span>
+
+
                         </div>
+
                     </div>
             </div>
 
-            <span class="car-prev" (click)="carClickPrev()"><fa-icon [icon]="faChevronLeft"></fa-icon></span>
-            <span class="car-next" (click)="carClickNext()"><fa-icon [icon]="faChevronRight"></fa-icon></span>
+            <span class="car-prev" (click)="clickOnCarArrow(-1)"><fa-icon [icon]="faChevronLeft"></fa-icon></span>
+            <span class="car-next" (click)="clickOnCarArrow(1)"><fa-icon [icon]="faChevronRight"></fa-icon></span>
 
         </div>
 
@@ -352,11 +347,15 @@
         </div>
     </div>
 
+
+
+
+
     <div class="conteneur-perso tourism">
         <h1 class="tourism-title" >NOS CIRCUITS TOURISTIQUES</h1>
         
         <div class="tourism-header">
-            <img src="../../../assets/img/home-tourism.png" alt="tourisme illustration">
+            <img src="../../../assets/img/home/tourism/home-tourism.png" alt="tourisme illustration">
             <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis pariatur illum, laudantium autem earum distinctio veritatis dolore ut porro a itaque sequi tempora beatae Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, recusandae odio nulla enim laboriosam, laborum natus ullam velit earum ab amet, reprehenderit maiores iure quae unde consequatur beatae tempore corporis.</span>
 
         </div>
