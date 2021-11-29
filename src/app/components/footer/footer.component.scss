@@ -94,15 +94,30 @@ footer{
         background-color: black;
         padding: 20px 7%;
         width: 100%;
+        font-size: 0.9em;
 
-        span{
-            padding: 5px 0;
-            color: white;
-        }
 
-        > span:nth-child(1){
+        .copyright{
             border-bottom: 1px solid white;
             color: $colorBlue;
+            margin: 5px 0;
+        }
+
+        .developper{
+            color: white;
+
+            a{
+                margin-left: 0.3em;
+                cursor: pointer;
+                text-decoration: none;
+                color: white;
+
+            }
+
+            a:hover{
+                color: $colorBlue;
+
+            }
         }
     }
 

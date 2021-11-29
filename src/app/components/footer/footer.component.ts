@@ -9,7 +9,7 @@ import { RoutesService } from '../../services/routes/routes.service';
 })
 export class FooterComponent implements OnInit {
 
-  constructor(private routing: RoutesService) {  }
+  constructor(private routing: RoutesService, private router : Router) {  }
 
   ngOnInit(): void {
   }
