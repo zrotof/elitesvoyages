@@ -24,8 +24,8 @@ export class FlightComponent implements OnInit {
   faMinusCircle = faMinusCircle;
 
   // City Names
-  trajets: any = ['ALLER - RETOUR', 'ALLER SIMPLE']
-  cabines: any = ['ECONOMY', 'FIRST CLASS', 'PREMIUM' ]
+  trajets: any = ['ALLER - RETOUR', 'ALLER SIMPLE'];
+  cabines: any = ['ECONOMY', 'PREMIUM', 'BUSINESS CLASS', 'FIRST CLASS',];
 
   bookingForm = this.fb.group({
     typeTrajet: [this.trajets[0],[Validators.required]],
