@@ -68,7 +68,7 @@ $fontColor: #525252;
                     height: 25px;
                 }
 
-                span:nth-child(2){
+                span{
                     margin: 0 5px 0 10px;
                     font-weight: normal;
                 }
@@ -88,6 +88,11 @@ $fontColor: #525252;
 
                 font-weight: 545;
                 font-size: 1.2em;
+
+                fa-icon,span{
+                    margin: 0 5px 0 10px;
+                    font-weight: normal;
+                }
             }
 
             .active-accordion-header{
