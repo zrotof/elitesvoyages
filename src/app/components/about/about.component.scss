@@ -315,7 +315,6 @@ $fontColor: #525252;
 
                 .employee-image{
                     position: relative;
-                    background-color: $colorBlue;
                     background: linear-gradient(0deg, rgb(223, 223, 223) 0%, rgba(17,95,152,1) 67%);
 
                     width: 100%;
@@ -337,7 +336,7 @@ $fontColor: #525252;
 
                 .employee-name{
                     font-weight: bold;
-                    margin: 10px 0  0;
+                    margin: 10px 0 0;
                 }
 
                 .employee-role{
@@ -353,12 +352,11 @@ $fontColor: #525252;
                     font-size: 0.85em;
                     border: 1px solid $colorBlue;
                     width: fit-content;
-
                 }
+
                 .equipe-button:hover{
                     background: whitesmoke;
                     color: $colorBlue;
-                    
                 }
 
             }

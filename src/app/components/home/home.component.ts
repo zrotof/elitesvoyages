@@ -27,6 +27,16 @@ export class HomeComponent implements OnInit {
   popularFlightsDotsNumber : number = 0;
 
   //variables for popular fights caroussel
+
+  flightsResponsiveOptions : any;
+
+
+
+
+
+
+
+
   popularCars: Car[] = [];
 
   faPlane = faPlane;
@@ -49,8 +59,26 @@ export class HomeComponent implements OnInit {
 
 
   constructor(private flightService: FlightService, private carService: CarService, private routing: RoutesService) {
-
-   }
+    
+    this.flightsResponsiveOptions = [
+      {
+          breakpoint: '1024px',
+          numVisible: 3,
+          numScroll: 3
+      },
+      {
+          breakpoint: '768px',
+          numVisible: 2,
+          numScroll: 2
+      },
+      {
+          breakpoint: '560px',
+          numVisible: 1,
+          numScroll: 1
+      }
+  ];
+   
+}
 
 
   ngOnInit(): void {

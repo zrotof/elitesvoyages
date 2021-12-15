@@ -1,4 +1,5 @@
 <div class="home">
+
     <div class="slider">
 
  
@@ -126,57 +127,36 @@
     </div>
 
     <div class="conteneur-perso flights-bloc">
-        <img class="flights-bloc-background" src="../../../assets/img/home/flights/vol.jpg">
+
         <h1>NOS DESTINATIONS POPULAIRES</h1>
 
-        <div class="flight-caroussel">
-
-            <div class="flight-caroussel-hidder">
-
-                <div class="flight-caroussel-container">
-
-                    <div class="flight-element" *ngFor="let flight of popularFlights ; let isFirst = first;" >
-
-                                <div class="flight-element-bloc-image-text">
-                                    <img class="flight-element-bloc-image" src="{{flight.img}}">
-                                    <span class="flight-element-bloc-text"> {{flight.villeArr}} </span>
-                                </div>
-
-                                <div class="flight-element-text">
-                                        
-                                    <span class="flight-element-text-first-child"> {{flight.villeDep}} - {{flight.villeArr}}</span>
-                                    
-                                    <span class="flight-element-text-second-child">à partir de</span>
-                                    <span class="flight-element-text-third-bloc"> 
-                                        <span class="flight-element-text-third-bloc-first-child"> {{flight.codeAirportDep}} <img class="icon-two-ways" src="../../../assets/img/home/flights/icon-two-ways.png"> {{flight.codeAirportArr}} </span>
-                                                
-                                        <span class="flight-element-text-third-bloc-second-child">{{flight.price}}{{flight.currency}}</span>
-                                    </span>
-                                </div>
-
+        <p-carousel [value]="popularFlights" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true" [responsiveOptions]="flightsResponsiveOptions">
+            
+            <ng-template let-flight pTemplate="item">
+                <div class="flight-item">
+                    <div class="flight-item-content">
                             
+                            <div class="flight-item-bloc-image-text">
+                                <img class="flight-item-image" src="{{flight.img}}">
+                                <span class="flight-item-text"> {{flight.villeArr}} </span>
+                            </div>
+
+                            <div class="flight-element-text">
+                                    
+                                <span class="flight-element-text-first-child"> {{flight.villeDep}} - {{flight.villeArr}}</span>
+                                
+                                <span class="flight-element-text-second-child">à partir de</span>
+                                <span class="flight-element-text-third-bloc"> 
+                                    <span class="flight-element-text-third-bloc-first-child"> {{flight.codeAirportDep}} <img class="icon-two-ways" src="../../../assets/img/home/flights/icon-two-ways.png"> {{flight.codeAirportArr}} </span>
+                                            
+                                    <span class="flight-element-text-third-bloc-second-child">{{flight.price}}{{flight.currency}}</span>
+                                </span>
+                            </div>
+
                     </div>
                 </div>
-
-                <span class="flight-prev" (click)="clickOnFlightArrow(-1)"><fa-icon [icon]="faChevronLeft"></fa-icon></span>
-                <span class="flight-next" (click)="clickOnFlightArrow(1)"><fa-icon [icon]="faChevronRight"></fa-icon></span>
-
-            </div>
-
-        </div>
-
-        <div class="flight-dots">
-            
-            <div class="flight-dot flight-active-dot"></div>
-            <div class="flight-dot"></div>
-            <div class="flight-dot"></div>
-            <div class="flight-dot"></div>
-            <div class="flight-dot"></div>
-            <div class="flight-dot"></div>
-            <div class="flight-dot"></div>
-            <div class="flight-dot"></div>
-
-        </div>
+            </ng-template>
+        </p-carousel>
 
         <div class="flight-call-to-action">
             <span>Réservez vos vols dès maintenant</span>
@@ -184,9 +164,6 @@
         </div>
 
     </div>
-
-
-
 
     <div class="conteneur-perso hotel-appaterment-bloc">
 
@@ -223,12 +200,8 @@
     </div>
 
 
-
-
-
-
-
     <div class="conteneur-perso visas">
+
         <h1 class="visas-title" >VISA DUBAÎ ET ASSISTANCE VISA</h1>
         
         <div class="visas-bloc">
@@ -251,95 +224,89 @@
         </div>
     </div>
 
-
-
-
-
-
-
-  
-
     <div class="conteneur-perso cars-bloc">
 
         <h1 class="cars-title">NOS VOITURES</h1>
 
-        <div class="car-caroussel">
 
-            <div class="car-caroussel-hidder">
 
-                <div class="car-caroussel-container">
 
-                    <div class="car-element" *ngFor="let car of popularCars" >
+
+
+        <p-carousel [value]="popularCars" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true" [responsiveOptions]="flightsResponsiveOptions">
             
-                        <div class="car-element-bloc-image-text">
-                            <img class="car-element-bloc-image" src="{{car.imageVoit}}">
-                            <span class="car-element-bloc-text"> {{car.villeVoit}} </span>
-                        </div>
+            <ng-template let-car pTemplate="item">
+                <div class="car-item">
+                    <div class="car-item-content">
+                        <div class="car-item-contener">
+                            <div class="car-item-bloc-image-text">
+                                <img class="car-item-image" src="{{car.imageVoit}}">
+                                <span class="car-item-text"> {{car.villeVoit}} </span>
+                            </div>
 
-                        <div class="car-element-text">
+                            <div class="car-item-text">
+                                    
+                                <span class="car-item-name"> {{car.nomVoit}}</span>
                                 
-                            <span class="car-element-text-first-child"> {{car.nomVoit}}</span>
-                            
-                            <div class="car-element-text-second-child-bloc">
-                                
-                                <div>
-                                    <span>Portes</span>
-                                    <span> {{car.nombrePorteVoit}}</span>
+                                <div class="car-item-tools">
+                                    
+                                    <div>
+                                        <span>Portes</span>
+                                        <span> {{car.nombrePorteVoit}}</span>
+                                    </div>
+
+
+                                    <div>
+                                        <span>Climatisée</span>
+                                        <span>{{car.climVoit}}</span>
+                                    </div>
+
+                                    <div>
+                                        <span>Places</span>
+                                        <span>{{car.nombrePlaceVoit}}</span>
+                                    </div>
+
+                                    
+
                                 </div>
 
-                                <div>
-                                    <span>Places</span>
-                                    <span>{{car.nombrePlaceVoit}}</span>
+                                <div class="car-item-prices">
+                                    <div>
+                                        <span>Dans la ville</span>
+                                        <span> {{car.prixLocationDansVilleVoit}} XAF</span>
+                                    </div>
+                                    <div>
+                                        <span>Hors de la ville</span>
+                                        <span> {{car.prixLocationHorsVilleVoit}} XAF</span>
+                                    </div>
+                                    <div>
+                                        <span>Trajet Aéroport</span>
+                                        <span> {{car.prixTrajetAeroportVoit}} XAF</span>
+                                    </div>
                                 </div>
 
-                                <div>
-                                    <span>Climatisée</span>
-                                    <span>{{car.climVoit}}</span>
+                                <div class="car-item-driver">
+                                    <div>
+                                        <span>Avec chauffeur</span>
+                                        <span> {{car.avecChauffeurVoit}} </span>
+                                    </div>
+                                    <fa-icon [icon]="faEllipsisV"></fa-icon>
+                                    <div>
+                                        <span>Sans chauffeur</span>
+                                        <span> {{car.sansChauffeurVoit}} </span>
+                                    </div>
                                 </div>
+
+                                <span class="reserver">Réserver</span>
+
 
                             </div>
-
-                            <div class="car-element-text-third-child-bloc">
-                                <div>
-                                    <span>Dans la ville</span>
-                                    <span> {{car.prixLocationDansVilleVoit}} XAF</span>
-                                </div>
-                                <div>
-                                    <span>Hors de la ville</span>
-                                    <span> {{car.prixLocationHorsVilleVoit}} XAF</span>
-                                </div>
-                                <div>
-                                    <span>Trajet Aéroport</span>
-                                    <span> {{car.prixTrajetAeroportVoit}} XAF</span>
-                                </div>
-                            </div>
-
-                            <div class="car-element-text-fourth-child-bloc">
-                                <div>
-                                    <span>Avec chauffeur</span>
-                                    <span> {{car.avecChauffeurVoit}} </span>
-                                </div>
-                                <fa-icon [icon]="faEllipsisV"></fa-icon>
-                                <div>
-                                    <span>Sans chauffeur</span>
-                                    <span> {{car.sansChauffeurVoit}} </span>
-                                </div>
-                            </div>
-
-                            <span class="reserver">Réserver</span>
-
-
-                        </div>
-
+                        </div>  
                     </div>
-            </div>
+                </div>
+            </ng-template>
+        </p-carousel>
 
-            <span class="car-prev" (click)="clickOnCarArrow(-1)"><fa-icon [icon]="faChevronLeft"></fa-icon></span>
-            <span class="car-next" (click)="clickOnCarArrow(1)"><fa-icon [icon]="faChevronRight"></fa-icon></span>
-
-        </div>
-
-    </div>
         <div class="car-call-to-action">
             <span>Découvrez notre large choix de véhicules</span>
             <span routerLink="/rent-car">Découvrir</span>

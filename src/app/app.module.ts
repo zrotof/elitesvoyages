@@ -5,7 +5,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+
+
 import { FieldsetModule, } from 'primeng/fieldset';
+import {CarouselModule} from 'primeng/carousel';
+import {ButtonModule} from 'primeng/button';
+import {ToastModule} from 'primeng/toast';
+
+
+
+
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -52,7 +63,10 @@ import { GoodDealComponent } from './components/good-deal/good-deal.component';
     NgbModule,
     NgxSliderModule,
     HttpClientModule,
-    FieldsetModule
+    FieldsetModule,
+    CarouselModule,
+    ButtonModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

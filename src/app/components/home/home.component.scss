@@ -400,236 +400,198 @@ $fontColor: #525252;
         }
     }
 
+    ::ng-deep .p-carousel .p-carousel-content .p-carousel-prev,
+    ::ng-deep .p-carousel .p-carousel-content .p-carousel-next  {
+        color: white;
+        user-select: none;
+        background-color: rgba(0, 0, 0, 0.699);
+        z-index: 2;
+        cursor: pointer;
+        box-shadow: none;
+        font-weight: bold;
 
-    .flights-bloc, .cars-bloc{
+
+    }
+
+    ::ng-deep .p-carousel .p-carousel-content .p-carousel-prev:hover,
+    ::ng-deep .p-carousel .p-carousel-content .p-carousel-next:hover {
+        background-color: $colorBlue;
+        z-index: 2;
+        user-select: none;
+
+    }
+
+    ::ng-deep .p-carousel-indicator .p-link  {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin: 0 5px;
+        box-shadow: none;
+        user-select: none;
+        background-color: rgba(0, 0, 0, 0.699);
+
+
+    }
+
+    ::ng-deep .p-carousel-indicator .p-link:hover  {
+       background-color: $colorBlue;
+       user-select: none;
+       box-shadow: none;
+
+
+    }
+
+
+
+    .flights-bloc{
         width: 100%;
         padding-bottom: 2.5em;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        justify-content: center;
         color: white;
         position: relative;
-        background: #02162f46;
+        background-image: url("../../../assets/img/home/flights/vol.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 0;
 
-        .flights-bloc-background{
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            z-index: -1;
-            top: 0;
-            left: 0;
+        h1{
+            text-align: center;
+            z-index: 2;
         }
 
 
+        .flight-item {
 
+            margin: 80px 0 50px 0;
+            z-index: 2;
 
-
-
-
-
-        .flight-caroussel, .car-caroussel{
-
-            margin: 80px 0 80px 0;
-            display: flex;
-            align-items: center;
-            padding: 0 100px;
-            width: 100%;
-            position: relative;
-            
-                .flight-caroussel-hidder, .car-caroussel-hidder{
-                    display: flex;
-                    overflow: hidden;
-
+                .flight-item-content{
                     
-                    .flight-caroussel-container, .car-caroussel-container{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    cursor: pointer;
+                    margin: 0.3rem;
+                    z-index: 2;
 
-                        display: flex;
-                        align-items: center;
+                    .flight-item-bloc-image-text{
+                        color: white;
+                        height: 200px;
+                        width: 250px;
                         position: relative;
-                        transition: all 0.5s ease;
+                        overflow: hidden;
+                        z-index: 2;
 
-
-                        .flight-element, .car-element{
-
-                            background: rgb(19, 19, 19);
-                            color: white;
-                            display: flex;
-                            flex-direction: column;
-                            border-radius: 5px;
-                            position: relative;
-                            cursor: pointer;
-                            margin: 15px 0;
-
-                            
-                            
-
-                            .flight-element-bloc-image-text, .car-element-bloc-image-text{
-
-                                height: 200px;
-                                width: 250px;
-                                position: relative;
-                                overflow: hidden;
-
-
-
-                                .flight-element-bloc-image, .car-element-bloc-image{
-                                    height: 100%;
-                                    width: 100%;
-
-                                }
-
-                                .flight-element-bloc-text{
-
-                                    position: absolute;
-                                    top: 50%;
-                                    left: 50%;
-                                    transform: translate(-50%, -50%);
-                                    color:rgba(255, 255, 255, 0.863);
-                                    font-size: 2em;
-                                    text-align: center;
-                                }
-
-
-                            }
-
-                            .flight-element-bloc-image-text:before, .car-element-bloc-image-text:before{
-                                content: "";
-                                width: 100%;
-                                height: 100%;
-                                position: absolute;
-                                background: rgba(0, 0, 0, 0.295);
-                            }
-
-                            .flight-element-text{
-                                display: flex;
-                                flex-direction: column;
-                                padding: 10px 10px;
-                                width: 100%;
-
-                                .flight-element-text-first-child{
-                                    font-size: 1.1em;
-                                    text-align: center;
-                                }
-
-                                .flight-element-text-second-child{
-                                    font-size: 0.8em;
-                                    text-align: right;
-                                    margin-top: 15px;
-
-                                }
-
-                                .flight-element-text-third-bloc{
-                                    display: flex;
-                                    justify-content: space-between;
-                                    align-items: baseline;
-                                    width: 100%;
-
-                                    .flight-element-text-third-bloc-first-child{
-                                        display: flex;
-                                        align-items: center;
-                                        font-size: 0.8em;
-        
-                                        .icon-two-ways{
-                                            height: 15px;
-                                            width: 15px;
-                                            margin: 0 10px;
-                                        }
-                                    }
-                                    .flight-element-text-third-bloc-second-child{
-                                        text-align: right;
-                                        font-weight: bolder;
-                                        font-size: 1.2em;
-                                    }
-                                }
-                                
-                            }
-
+                        .flight-item-image{
+                            height: 100%;
+                            width: 100%;
+                            z-index: 2;
                         }
 
-     
-                        .flight-element:hover{
-                            .flight-element-bloc-image{
-                                transform: scale(1.2,1.2);
-                                transition: all 0.3s ease-in-out;
-                                
-                            }
+                        .flight-item-text{
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            color:rgba(255, 255, 255, 0.863);
+                            font-size: 2em;
+                            text-align: center;
+                            z-index: 2;
                         }
+                    }
 
-                        .flight-element ~ .flight-element{
-                            margin-left:40px;
-
-                        }
+                    .flight-item-bloc-image-text:before{
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        background: rgba(0, 0, 0, 0.295);
+                        z-index: 2;
 
                     }
 
+                    .flight-element-text{
+                        background: rgb(19, 19, 19);
+                        display: flex;
+                        flex-direction: column;
+                        padding: 10px 10px;
+                        width: 250px;
+                        z-index: 2;
+
+                        .flight-element-text-first-child{
+                            font-size: 1.1em;
+                            text-align: center;
+                            z-index: 2;
+
+                        }
+
+                        .flight-element-text-second-child{
+                            font-size: 0.8em;
+                            text-align: right;
+                            margin-top: 15px;
+                            z-index: 2;
+
+                        }
+
+                        .flight-element-text-third-bloc{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: baseline;
+                            width: 100%;
+                            z-index: 2;
+
+                            .flight-element-text-third-bloc-first-child{
+                                display: flex;
+                                align-items: center;
+                                font-size: 0.8em;
+                                z-index: 2;
+
+                                .icon-two-ways{
+                                    height: 15px;
+                                    width: 15px;
+                                    margin: 0 10px;
+                                    z-index: 2;
+
+                                }
+                            }
+                            .flight-element-text-third-bloc-second-child{
+                                text-align: right;
+                                font-weight: bolder;
+                                font-size: 1.2em;
+                                z-index: 2;
+
+                            }
+                        }
+                        
+                    }
                 }
 
-                .flight-prev,.flight-next{
-                    position: absolute;
-                    top: 50%;
-                    transform: translate(0, -50%);
-                    font-size: 30px;
-                    padding: 3px 14px 0 14px;
-                    margin: 0 20px;
-                    cursor: pointer;
-                    transition: 0.1s;
-                    user-select: none;
-                    color: white;
-                    background-color: #02162f9c;
-                    border-radius: 50%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
+                .flight-item-content:hover{
+                    z-index: 2;
 
-                    & fa-icon{
-                        font-weight: 100;
-            }
-                }
-        
-                .flight-prev:hover, .flight-next:hover{
-                   
-                    background-color: $colorBlue;
-                }
+                        .flight-item-image{
+                            transform: scale(1.4,1.4);
+                            transition: all 0.3s ease-in-out;
+                            z-index: 2;
 
-                .flight-prev{
-                    left: 0;
-                }
-        
-                .flight-next{
-                    right: 0;
+                        }
+
+                    
+                    
                 }
 
         }
 
-        .flight-dots{
-            display: flex;
-            margin: 10px 0 60px 0;
-            
-            .flight-dot{
-                display: inline-block;
-                width: 20px;
-                height: 20px;
-                margin: 0 10px;
-                background-color: #ffffffad;
-                border-radius: 50%;
-                cursor: pointer;
-
-            }
 
 
-
-            .flight-active-dot{
-                background-color: $colorBlue;
-
-            } 
-        }
-  
-
-
-        .flight-call-to-action, .car-call-to-action {
+        .flight-call-to-action{
             display: flex;
             font-size: 1.3em;
             justify-content: center;
+            margin: 20px 0;
 
             span:nth-child(2){
                 margin-left: 15px;
@@ -653,159 +615,174 @@ $fontColor: #525252;
         }
     }
 
+    .flights-bloc::after{
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.295);
+        z-index: -1;
+    }
 
-    .hotel-appaterment-bloc{
+
+
+
+
+.hotel-appaterment-bloc{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+width: 100%;
+padding-bottom: 5em;
+
+.hotel-bloc, .appartement-bloc{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    margin: 40px 0; 
+
+    .hotel-bloc-text{
         display: flex;
+        width: 50%;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 100%;
-        padding-bottom: 5em;
+        padding-right: 50px;
 
-        .hotel-bloc, .appartement-bloc{
-            width: 100%;
+        .hotel-title{
             display: flex;
-            justify-content: space-around;
-            align-items: center; 
-            margin: 40px 0; 
+            align-items: center;
+            justify-content: center;
+            color: $colorBlue;
 
-            .hotel-bloc-text{
-                display: flex;
-                width: 50%;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding-right: 50px;
-
-                .hotel-title{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: $colorBlue;
-
-                    fa-icon{
-                        font-size: 1.5em;
-                        margin-right: 10px ;
-                    }
-                }
-
-                 
-
-                .hotel-call-to-action{
-                    font-size: 1.1em;
-                    margin-top: 10px;
-                    padding: 3px 20px;
-                    width: fit-content;
-                    color: white;
-                    border-radius:100px;
-                    background-color: $colorBlue;
-                    border: solid $colorBlue;
-                    cursor: pointer;
-                    transition: all 0.3s ease-in;
-                }
-
-                .hotel-call-to-action:hover{
-                    
-                    color: $colorBlue;
-                    font-weight: bold;
-                    background-color: white;
-                }
+            fa-icon{
+                font-size: 1.5em;
+                margin-right: 10px ;
             }
-
-
-            .appartement-bloc-text{
-                display: flex;
-                width: 50%;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding-left: 50px;
-
-                .appartement-title{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: $colorBlue;
-
-                    fa-icon{
-                        font-size: 1.5em;
-                        margin-right: 10px ;
-                    }
-                }
-
-                 
-
-                .appartement-call-to-action{
-                    font-size: 1.1em;
-                    margin-top: 10px;
-                    padding: 3px 20px;
-                    width: fit-content;
-                    color: white;
-                    border-radius:100px;
-                    background-color: $colorBlue;
-                    border: solid $colorBlue;
-                    cursor: pointer;
-                    transition: all 0.3s ease-in;
-                }
-
-                .appartement-call-to-action:hover{
-                    
-                    color: $colorBlue;
-                    font-weight: bold;
-                    background-color: white;
-                }
-            }
-
-
-            .hotel-image{
-                background-image: url("../../../assets/img/home/hotel-app/home-hotel.jpg");
-                background-repeat: no-repeat ;
-                background-size: cover;
-                background-position: center;
-                width: 28em;
-                height: 25em;
-                border-radius: 5px;
-                box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
-                cursor: pointer;
-            }
-
-            .appartement-image{
-                background-image: url("../../../assets/img/home/hotel-app/home-appartement.jpg");
-                background-repeat: no-repeat ;
-                background-size: cover;
-                background-position: center;
-                width: 28em;
-                height: 25em;
-                border-radius: 5px;
-                box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
-                cursor: pointer;
-            }
-
-
-            .hotel-image:hover{
-                box-shadow: $colorBlue 0px 5px 15px;
-            }
-
-            .appartement-image:hover{
-                box-shadow: $colorBlue 0px 5px 15px;
-            }
-
-
-
         }
 
+         
 
-        .appartement-bloc-image:before, .hotel-bloc-image:before{
-            content: "";
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            background: rgba(0, 0, 0, 0.295);
-            top: 0;
-            left: 0;
-            border-radius: 5px;
+        .hotel-call-to-action{
+            font-size: 1.1em;
+            margin-top: 10px;
+            padding: 3px 20px;
+            width: fit-content;
+            color: white;
+            border-radius:100px;
+            background-color: $colorBlue;
+            border: solid $colorBlue;
+            cursor: pointer;
+            transition: all 0.3s ease-in;
+        }
+
+        .hotel-call-to-action:hover{
+            
+            color: $colorBlue;
+            font-weight: bold;
+            background-color: white;
         }
     }
+
+
+    .appartement-bloc-text{
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-left: 50px;
+
+        .appartement-title{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $colorBlue;
+
+            fa-icon{
+                font-size: 1.5em;
+                margin-right: 10px ;
+            }
+        }
+
+         
+
+        .appartement-call-to-action{
+            font-size: 1.1em;
+            margin-top: 10px;
+            padding: 3px 20px;
+            width: fit-content;
+            color: white;
+            border-radius:100px;
+            background-color: $colorBlue;
+            border: solid $colorBlue;
+            cursor: pointer;
+            transition: all 0.3s ease-in;
+        }
+
+        .appartement-call-to-action:hover{
+            
+            color: $colorBlue;
+            font-weight: bold;
+            background-color: white;
+        }
+    }
+
+
+    .hotel-image{
+        background-image: url("../../../assets/img/home/hotel-app/home-hotel.jpg");
+        background-repeat: no-repeat ;
+        background-size: cover;
+        background-position: center;
+        width: 28em;
+        height: 25em;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
+        cursor: pointer;
+    }
+
+    .appartement-image{
+        background-image: url("../../../assets/img/home/hotel-app/home-appartement.jpg");
+        background-repeat: no-repeat ;
+        background-size: cover;
+        background-position: center;
+        width: 28em;
+        height: 25em;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
+        cursor: pointer;
+    }
+
+
+    .hotel-image:hover{
+        box-shadow: $colorBlue 0px 5px 15px;
+    }
+
+    .appartement-image:hover{
+        box-shadow: $colorBlue 0px 5px 15px;
+    }
+
+
+
+}
+
+
+.appartement-bloc-image:before, .hotel-bloc-image:before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.295);
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+}
+}
+
 
 
     .visas{
@@ -814,9 +791,10 @@ $fontColor: #525252;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #dfdfdf;
+        background-color: $colorBlue;
+        color: white;
 
-
+       
         .visas-bloc{
             display: flex;
             align-items: center;
@@ -920,67 +898,64 @@ $fontColor: #525252;
 
 
     .cars-bloc{
-
+        width: 100%;
+        padding-bottom: 2.5em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         color: $fontColor;
         background: white;
 
-        .car-caroussel{
-            
-                .car-caroussel-hidder{
+
+        h1{
+            text-align: center;
+        }
+
+
+        .car-item {
+
+            margin: 80px 0 50px 0;
+
+                .car-item-content{
                     
-                    .car-caroussel-container{
-
-                        display: flex;
-                        align-items: center;
-                        position: relative;
-                        transition: all 0.5s ease;
-
-
-                        .car-element{
-
-                            background: white;
-                            color: $colorBlue;
-                            display: flex;
-                            flex-direction: column;
-                            border-radius: 10px;
-                            position: relative;
-                            cursor: pointer;
-
-                            box-shadow: 5px 6px 11px 0px rgba(0,0,0,0.68);
-                            -webkit-box-shadow: 5px 6px 11px 0px rgba(0,0,0,0.68);
-                            -moz-box-shadow: 5px 6px 11px 0px rgba(0,0,0,0.68);
-                            
-
-                            .car-element-bloc-image-text{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    cursor: pointer;
+                    margin: 0.3rem;
+       
+                    .car-item-contener{
+                        border-radius: 10px;
+                        overflow: hidden;
+                        //box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+                        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                            .car-item-bloc-image-text{
 
                                 height: 180px;
                                 width: 250px;
                                 position: relative;
                                 overflow: hidden;
 
-
-
-                                .car-element-bloc-image{
+                                .car-item-image{
                                     height: 100%;
                                     width: 100%;
 
                                 }
 
-                                .car-element-bloc-text{
+                                .car-item-text{
 
                                     position: absolute;
-                                    right: 15px;
-                                    bottom: 13px;
+                                    right: -70%;
+                                    bottom: 5%;
                                     color:rgba(255, 255, 255, 0.863);
                                     font-size: 1em;
-                                    text-align: center;
                                     font-weight: bold;
                                 }
 
 
                             }
 
-                            .car-element-bloc-image-text:before{
+                            .car-item-bloc-image-text:before{
                                 content: "";
                                 width: 100%;
                                 height: 100%;
@@ -988,22 +963,22 @@ $fontColor: #525252;
                                 background: rgba(0, 0, 0, 0.295);
                             }
 
-                            .car-element-text{
+                            .car-item-text{
                                 display: flex;
                                 flex-direction: column;
                                 padding: 10px 0;
-                                width: 100%;
+                                width: 250px;
                                 color: $fontColor;
 
 
 
-                                .car-element-text-first-child{
+                                .car-item-name{
                                     font-size: 1.1em;
                                     font-weight: 580;
                                     text-align: center;
                                 }
 
-                                .car-element-text-second-child-bloc{
+                                .car-item-tools{
                                     margin: 15px 0 10px 0;
                                     display: flex;
                                     
@@ -1031,7 +1006,7 @@ $fontColor: #525252;
 
                                 }
 
-                                .car-element-text-third-child-bloc{
+                                .car-item-prices{
 
                                     display: flex;
                                     flex-direction: column;
@@ -1052,7 +1027,7 @@ $fontColor: #525252;
 
                                 }
 
-                                .car-element-text-fourth-child-bloc{
+                                .car-item-driver{
 
                                     display: flex;
                                     margin: 10px 0;
@@ -1093,62 +1068,49 @@ $fontColor: #525252;
                                 }
                                 
                             }
-                        }
+                    }
+                    .car-item-contener:hover{
+                        box-shadow: 0px 5px 15px $colorBlue;
+                        -webkit-box-shadow: 0px 5px 15px $colorBlue;
+                        -moz-box-shadow: 0px 5px 15px $colorBlue;
 
-                        .car-element:hover{
-                            box-shadow: 5px 6px 11px 0px $colorBlue;
-                            -webkit-box-shadow: 5px 6px 11px 0px $colorBlue;
-                            -moz-box-shadow: 5px 6px 11px 0px $colorBlue;
-                            .car-element-bloc-image{
-                                transform: scale(1.2,1.2);
-                                transition: all 0.3s ease-in-out;
-                                
+                        .car-item-bloc-image-text{
+
+                            .car-item-image{
+                            transform: scale(1.2,1.2);
+                            transition: all 0.3s ease-in-out;
                             }
                         }
-
-                        .car-element ~ .car-element{
-                            margin-left:40px;
-
-                        }
-
-                    }
+                    }   
+                    
                 }
+        }
 
-                .car-prev,.car-next{
-                    position: absolute;
-                    top: 50%;
-                    transform: translate(0, -50%);
-                    font-size: 30px;
-                    padding: 3px 14px 0 14px;
-                    margin: 0 20px;
-                    cursor: pointer;
-                    transition: 0.1s;
-                    user-select: none;
-                    color: white;
-                    background-color: #02162f9c;
-                    border-radius: 50%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
+        .car-call-to-action {
+            display: flex;
+            font-size: 1.3em;
+            justify-content: center;
+            margin: 20px 0;
 
-                    & fa-icon{
-                        font-weight: 100;
-                    }
-                }
-        
-                .car-prev:hover, .car-next:hover{
-                   
-                    background-color: $colorBlue;
-                }
+            span:nth-child(2){
+                margin-left: 15px;
+                padding: 5px 15px;
+                color: white;
+                background-color: $colorBlue;
+                border-radius: 100px;
+                border: 2px solid $colorBlue;
+                font-size: 0.8em;
+                cursor: pointer;
+            }
 
-                .car-prev{
-                    left: 0;
-                }
-        
-                .car-next{
-                    right: 0;
-                }
-
+            span:nth-child(2):hover{
+                margin-left: 15px;
+                color: $colorBlue;
+                background-color: white;
+                transition: all 0.3s ease-in;
+                font-weight: bold;
+                
+            }
         }
 
     }
