@@ -1,16 +1,52 @@
 $colorBlue: #115F98;
 $fontColor: #525252;
 
-.conteneur-perso{
-    padding: 5em 7% 0 7%;
+::ng-deep .p-carousel .p-carousel-content .p-carousel-prev,
+::ng-deep .p-carousel .p-carousel-content .p-carousel-next  {
+    color: white;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.699);
+    z-index: 2;
+    cursor: pointer;
+    box-shadow: none;
+    font-weight: bold;
+}
+
+::ng-deep .p-carousel .p-carousel-content .p-carousel-prev:hover,
+::ng-deep .p-carousel .p-carousel-content .p-carousel-next:hover {
+    background-color: $colorBlue;
+    z-index: 2;
+    user-select: none;
+}
+
+::ng-deep .p-carousel-indicator .p-link  {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 0 5px;
+    box-shadow: none;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.699);
+}
+
+::ng-deep .p-carousel-indicator .p-link:hover  {
+   background-color: $colorBlue;
+   user-select: none;
+   box-shadow: none;
 }
 
 .home{
 
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+
 
     .slider{
+
         position: relative;
+        width: 100%;
 
         .mySlide{
 
@@ -125,7 +161,6 @@ $fontColor: #525252;
             height: 100vh;
         }
 
-
         .prev, .next{
             position: absolute;
             top: 50%;
@@ -213,92 +248,95 @@ $fontColor: #525252;
         }   
     }
 
-
     .about{
-        width: 100%;
+
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin: 80px 0 0 0;
 
-        .about-text-image{
+        .content{
+
             display: flex;
+            flex-direction: column;
             align-items: center;
-            width:100%;
-            margin: 3em 0 0 0;
-            justify-content: space-between;
+            justify-content: center;
 
-            .about-text{
-                width: 70%;
-                margin-right: 3em;
-                font-size: 1.05em;
-                text-align: justify;
-
-
-                .about-button{
-                    display: flex;
-                    width: 100%;
-                    margin-top: 30px;
-                    justify-content: center;
-
-                    span{
-                        padding: 4px 20px;
-                        cursor: pointer;
-                        border-radius: 100px;
-                        margin:0 10px;
-                        text-align: center;
-                        font-size: 0.95em;
-                        font-weight: bold;
-                    }
-
-                    span:first-child{
-                        border: 2px solid $colorBlue;
-                        color: $colorBlue;
-                        
-                    }
-                    span:first-child:hover{
-                        background-color: $colorBlue;
-                        color: white;
-                        font-weight: bold;
-                        transition: all 0.3s ease-in-out;
-
-                        
-                    }
-                }
-                
-            }
-
-            .about-image{
-                width: 17em;
+            .about-text-image{
+            
                 display: flex;
-                height: 12em;
+                align-items: center;
+                width:100%;
+                margin: 3em 0 0 0;
+                justify-content: space-between;
+    
+                .about-text{
+                    width: 100%;
+                    font-size: 1.05em;
 
-                .about-image-1{
-                    background-image: url("../../../assets/img/home/about/home-plane-1.jpg");
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    background-position: center;
-                    width: 8em;
-                    height: 100%;
-                    margin: 0 0.25em;
+
+    
+                    .about-button{
+                        display: flex;
+                        width: 100%;
+                        margin-top: 30px;
+                        justify-content: center;
+    
+                        span{
+                            padding: 4px 20px;
+                            cursor: pointer;
+                            border-radius: 100px;
+                            margin:0 10px;
+                            text-align: center;
+                            font-size: 0.95em;
+                            font-weight: bold;
+                        }
+    
+                        span:first-child{
+                            border: 2px solid $colorBlue;
+                            color: $colorBlue;
+                            
+                        }
+
+                        span:first-child:hover{
+                            background-color: $colorBlue;
+                            color: white;
+                            font-weight: bold;
+                            transition: all 0.3s ease-in-out;
+                        }
+                    }
                 }
 
-                .about-image-2{
-                    background-image: url("../../../assets/img/home/about/about-sea-1.jpeg");
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    background-position: center;
-                    width: 8em;
-                    height: 100%;
-                    margin: 0 0.25em;
+                .about-image{
+                    width: 17em;
+                    display: flex;
+                    height: 12em;
+    
+                    .about-image-1{
+                        background-image: url("../../../assets/img/home/about/home-plane-1.jpg");
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                        width: 8em;
+                        height: 100%;
+                        margin: 0 0.25em;
+                    }
+    
+                    .about-image-2{
+                        background-image: url("../../../assets/img/home/about/about-sea-1.jpeg");
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                        width: 8em;
+                        height: 100%;
+                        margin: 0 0.25em;
+                    }
+    
                 }
-
             }
-
-
         }
     }
-
 
     .services-bloc{
         width: 100%;
@@ -306,142 +344,112 @@ $fontColor: #525252;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin: 100px 0 0 0;
 
-        .services{
+        .content{
             display: flex;
-            margin: 3em 0;
-            flex-wrap: wrap;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            width: 100%;
 
-
-            .service{
+            .services{
                 display: flex;
-                flex-direction: column;
+                width: 100%;
+                flex-wrap: wrap;
                 justify-content: center;
-                padding: 40px 20px 20px 20px;
-                position: relative;
-                width: 280px;
-                background-color: #dfdfdf;
-                border-radius:10px;
-                cursor: pointer;
-                margin: 4em 1em 2em 1em;
+                align-items: center;
+                margin-top: 3em;
 
-                span:nth-child(1){
-                    position: absolute;
-                    padding: 15px 20px ;
-                    border-radius: 50%;
-                    background-color: $colorBlue;
-                    border: 7px solid white;
-                    color: white;
-                    font-size: 2em;
-                    width: fit-content;
-                    top: -45px;
-                    left: 50%;
-                    transform: translate(-50%);
-                }
-
-                .service-text{
-
+                .service{
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    align-items: center;
-                    h3{
-                        font-size: 1em;
-                        margin: 15px 0 10px 0;
-                        color: $colorBlue;
-                        text-align: center;
-                        font-weight: 540;
-                    }
+                    padding: 40px 20px 20px 20px;
+                    position: relative;
+                    width: 280px;
+                    background-color: #dfdfdf;
+                    border-radius:10px;
+                    cursor: pointer;
+                    margin: 4em 1em 2em 1em;
 
-                    p{
-                        color:#7a7a7a;
-                        font-size: 0.95em;
-                    }
-
-                    span{
-                        padding: 5.4px 20px;
+                    .service-icon{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        position: absolute;
+                        padding: 15px 20px ;
+                        border-radius: 50%;
                         background-color: $colorBlue;
+                        border: 7px solid white;
                         color: white;
-                        border-radius: 100px;
-                        width: fit-content;
-                        font-size: 0.8em;
+                        font-size: 2em;
+                        width: 90px;
+                        height: 90px;
+                        top: -45px;
+                        left: 50%;
+                        transform: translate(-50%);
                     }
 
-                    span:hover{
-                        padding: 3.4px 20px;
-                        border: 2px solid $colorBlue;
-                        background-color: white;
+                    .service-text{
+
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        h3{
+                            font-size: 1em;
+                            margin: 15px 0 10px 0;
+                            color: $colorBlue;
+                            text-align: center;
+                            font-weight: 540;
+                        }
+
+                        p{
+                            color:#7a7a7a;
+                            font-size: 0.95em;
+                        }
+
+                        span{
+                            padding: 5.4px 20px;
+                            background-color: $colorBlue;
+                            color: white;
+                            border-radius: 100px;
+                            width: fit-content;
+                            font-size: 0.8em;
+                        }
+
+                        span:hover{
+                            padding: 3.4px 20px;
+                            border: 2px solid $colorBlue;
+                            background-color: white;
+                            color: $colorBlue;
+                            transition: background-color 0.3s ease-in-out;
+                        
+                        }
+                    }
+                }
+
+                .service:hover{
+
+                    box-shadow: 0px 0px 9px 5px rgba(17,95,152,0.74);
+                    -webkit-box-shadow: 0px 0px 9px 5px rgba(17,95,152,0.74);
+                    -moz-box-shadow: 0px 0px 9px 5px rgba(17,95,152,0.74);
+
+
+                    span:nth-child(1){
                         color: $colorBlue;
-                        transition: background-color 0.3s ease-in-out;
-                       
+                        background-color: white;
+                        border: 5px solid $colorBlue;
+                        
+
                     }
-                }
-            }
 
-            .service:hover{
-
-                box-shadow: 0px 0px 9px 5px rgba(17,95,152,0.74);
-                -webkit-box-shadow: 0px 0px 9px 5px rgba(17,95,152,0.74);
-                -moz-box-shadow: 0px 0px 9px 5px rgba(17,95,152,0.74);
-
-
-                span:nth-child(1){
-                    color: $colorBlue;
-                    background-color: white;
-                    border: 5px solid $colorBlue;
-                    
 
                 }
-
-
-            }
+            }    
         }
     }
-
-    ::ng-deep .p-carousel .p-carousel-content .p-carousel-prev,
-    ::ng-deep .p-carousel .p-carousel-content .p-carousel-next  {
-        color: white;
-        user-select: none;
-        background-color: rgba(0, 0, 0, 0.699);
-        z-index: 2;
-        cursor: pointer;
-        box-shadow: none;
-        font-weight: bold;
-
-
-    }
-
-    ::ng-deep .p-carousel .p-carousel-content .p-carousel-prev:hover,
-    ::ng-deep .p-carousel .p-carousel-content .p-carousel-next:hover {
-        background-color: $colorBlue;
-        z-index: 2;
-        user-select: none;
-
-    }
-
-    ::ng-deep .p-carousel-indicator .p-link  {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        margin: 0 5px;
-        box-shadow: none;
-        user-select: none;
-        background-color: rgba(0, 0, 0, 0.699);
-
-
-    }
-
-    ::ng-deep .p-carousel-indicator .p-link:hover  {
-       background-color: $colorBlue;
-       user-select: none;
-       box-shadow: none;
-
-
-    }
-
-
 
     .flights-bloc{
         width: 100%;
@@ -449,6 +457,7 @@ $fontColor: #525252;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         color: white;
         position: relative;
         background-image: url("../../../assets/img/home/flights/vol.jpg");
@@ -456,161 +465,165 @@ $fontColor: #525252;
         background-repeat: no-repeat;
         background-size: cover;
         z-index: 0;
+        margin-top: 60px;
 
-        h1{
-            text-align: center;
-            z-index: 2;
-        }
+        .content{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin-top: 4em;
 
+            .title{
+                text-align: center;
+            }
 
-        .flight-item {
+            .flight-item {
 
-            margin: 80px 0 50px 0;
-            z-index: 2;
+                margin: 80px 0 50px 0;
+                z-index: 2;
 
-                .flight-item-content{
-                    
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    cursor: pointer;
-                    margin: 0.3rem;
-                    z-index: 2;
-
-                    .flight-item-bloc-image-text{
-                        color: white;
-                        height: 200px;
-                        width: 250px;
-                        position: relative;
-                        overflow: hidden;
-                        z-index: 2;
-
-                        .flight-item-image{
-                            height: 100%;
-                            width: 100%;
-                            z-index: 2;
-                        }
-
-                        .flight-item-text{
-                            position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
-                            color:rgba(255, 255, 255, 0.863);
-                            font-size: 2em;
-                            text-align: center;
-                            z-index: 2;
-                        }
-                    }
-
-                    .flight-item-bloc-image-text:before{
-                        content: "";
-                        width: 100%;
-                        height: 100%;
-                        position: absolute;
-                        background: rgba(0, 0, 0, 0.295);
-                        z-index: 2;
-
-                    }
-
-                    .flight-element-text{
-                        background: rgb(19, 19, 19);
+                    .flight-item-content{
+                        
                         display: flex;
                         flex-direction: column;
-                        padding: 10px 10px;
-                        width: 250px;
+                        align-items: center;
+                        cursor: pointer;
+                        margin: 0.3rem;
                         z-index: 2;
 
-                        .flight-element-text-first-child{
-                            font-size: 1.1em;
-                            text-align: center;
+                        .flight-item-bloc-image-text{
+                            color: white;
+                            height: 200px;
+                            width: 250px;
+                            position: relative;
+                            overflow: hidden;
                             z-index: 2;
 
+                            .flight-item-image{
+                                height: 100%;
+                                width: 100%;
+                                z-index: 2;
+                            }
+
+                            .flight-item-text{
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                color:rgba(255, 255, 255, 0.863);
+                                font-size: 2em;
+                                text-align: center;
+                                z-index: 2;
+                            }
                         }
 
-                        .flight-element-text-second-child{
-                            font-size: 0.8em;
-                            text-align: right;
-                            margin-top: 15px;
-                            z-index: 2;
-
-                        }
-
-                        .flight-element-text-third-bloc{
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: baseline;
+                        .flight-item-bloc-image-text:before{
+                            content: "";
                             width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            background: rgba(0, 0, 0, 0.295);
                             z-index: 2;
 
-                            .flight-element-text-third-bloc-first-child{
-                                display: flex;
-                                align-items: center;
-                                font-size: 0.8em;
+                        }
+
+                        .flight-element-text{
+                            background: rgb(19, 19, 19);
+                            display: flex;
+                            flex-direction: column;
+                            padding: 10px 10px;
+                            width: 250px;
+                            z-index: 2;
+
+                            .flight-element-text-first-child{
+                                font-size: 1.1em;
+                                text-align: center;
                                 z-index: 2;
 
-                                .icon-two-ways{
-                                    height: 15px;
-                                    width: 15px;
-                                    margin: 0 10px;
+                            }
+
+                            .flight-element-text-second-child{
+                                font-size: 0.8em;
+                                text-align: right;
+                                margin-top: 15px;
+                                z-index: 2;
+
+                            }
+
+                            .flight-element-text-third-bloc{
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: baseline;
+                                width: 100%;
+                                z-index: 2;
+
+                                .flight-element-text-third-bloc-first-child{
+                                    display: flex;
+                                    align-items: center;
+                                    font-size: 0.8em;
+                                    z-index: 2;
+
+                                    .icon-two-ways{
+                                        height: 15px;
+                                        width: 15px;
+                                        margin: 0 10px;
+                                        z-index: 2;
+
+                                    }
+                                }
+                                .flight-element-text-third-bloc-second-child{
+                                    text-align: right;
+                                    font-weight: bolder;
+                                    font-size: 1.2em;
                                     z-index: 2;
 
                                 }
                             }
-                            .flight-element-text-third-bloc-second-child{
-                                text-align: right;
-                                font-weight: bolder;
-                                font-size: 1.2em;
+                            
+                        }
+                    }
+
+                    .flight-item-content:hover{
+                        z-index: 2;
+
+                            .flight-item-image{
+                                transform: scale(1.4,1.4);
+                                transition: all 0.3s ease-in-out;
                                 z-index: 2;
 
                             }
-                        }
+
+                        
                         
                     }
-                }
 
-                .flight-item-content:hover{
-                    z-index: 2;
-
-                        .flight-item-image{
-                            transform: scale(1.4,1.4);
-                            transition: all 0.3s ease-in-out;
-                            z-index: 2;
-
-                        }
-
-                    
-                    
-                }
-
-        }
-
-
-
-        .flight-call-to-action{
-            display: flex;
-            font-size: 1.3em;
-            justify-content: center;
-            margin: 20px 0;
-
-            span:nth-child(2){
-                margin-left: 15px;
-                padding: 5px 15px;
-                color: white;
-                background-color: $colorBlue;
-                border-radius: 100px;
-                border: 2px solid $colorBlue;
-                font-size: 0.8em;
-                cursor: pointer;
             }
 
-            span:nth-child(2):hover{
-                margin-left: 15px;
-                color: $colorBlue;
-                background-color: white;
-                transition: all 0.3s ease-in;
-                font-weight: bold;
-                
+            .flight-call-to-action{
+                display: flex;
+                font-size: 1.3em;
+                justify-content: center;
+                margin: 20px 0;
+
+                span:nth-child(2){
+                    margin-left: 15px;
+                    padding: 5px 15px;
+                    color: white;
+                    background-color: $colorBlue;
+                    border-radius: 100px;
+                    border: 2px solid $colorBlue;
+                    font-size: 0.8em;
+                    cursor: pointer;
+                }
+
+                span:nth-child(2):hover{
+                    margin-left: 15px;
+                    color: $colorBlue;
+                    background-color: white;
+                    transition: all 0.3s ease-in;
+                    font-weight: bold;
+                    
+                }
             }
         }
     }
@@ -626,166 +639,166 @@ $fontColor: #525252;
         z-index: -1;
     }
 
-
-
-
-
-.hotel-appaterment-bloc{
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-width: 100%;
-padding-bottom: 5em;
-
-.hotel-bloc, .appartement-bloc{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center; 
-    margin: 40px 0; 
-
-    .hotel-bloc-text{
+    .hotel-appaterment-bloc{
         display: flex;
-        width: 50%;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding-right: 50px;
+        width: 100%;
 
-        .hotel-title{
+
+        .content{
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: $colorBlue;
+            flex-direction: column;
+            margin-top: 100px;
 
-            fa-icon{
-                font-size: 1.5em;
-                margin-right: 10px ;
+            .hotel-bloc, .appartement-bloc{
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center; 
+                margin: 40px 0; 
+            
+
+            .hotel-bloc-text{
+                display: flex;
+                width: 50%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding-right: 50px;
+
+                .hotel-title{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: $colorBlue;
+
+                    fa-icon{
+                        font-size: 1.5em;
+                        margin-right: 10px ;
+                    }
+                }
+
+                
+
+                .hotel-call-to-action{
+                    font-size: 1.1em;
+                    margin-top: 10px;
+                    padding: 3px 20px;
+                    width: fit-content;
+                    color: white;
+                    border-radius:100px;
+                    background-color: $colorBlue;
+                    border: solid $colorBlue;
+                    cursor: pointer;
+                    transition: all 0.3s ease-in;
+                }
+
+                .hotel-call-to-action:hover{
+                    
+                    color: $colorBlue;
+                    font-weight: bold;
+                    background-color: white;
+                }
+            }
+
+
+            .appartement-bloc-text{
+                display: flex;
+                width: 50%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding-left: 50px;
+
+                .appartement-title{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: $colorBlue;
+
+                    fa-icon{
+                        font-size: 1.5em;
+                        margin-right: 10px ;
+                    }
+                }
+
+                
+
+                .appartement-call-to-action{
+                    font-size: 1.1em;
+                    margin-top: 10px;
+                    padding: 3px 20px;
+                    width: fit-content;
+                    color: white;
+                    border-radius:100px;
+                    background-color: $colorBlue;
+                    border: solid $colorBlue;
+                    cursor: pointer;
+                    transition: all 0.3s ease-in;
+                }
+
+                .appartement-call-to-action:hover{
+                    
+                    color: $colorBlue;
+                    font-weight: bold;
+                    background-color: white;
+                }
             }
         }
 
-         
-
-        .hotel-call-to-action{
-            font-size: 1.1em;
-            margin-top: 10px;
-            padding: 3px 20px;
-            width: fit-content;
-            color: white;
-            border-radius:100px;
-            background-color: $colorBlue;
-            border: solid $colorBlue;
+        .hotel-image{
+            background-image: url("../../../assets/img/home/hotel-app/home-hotel.jpg");
+            background-repeat: no-repeat ;
+            background-size: cover;
+            background-position: center;
+            width: 28em;
+            height: 25em;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
             cursor: pointer;
-            transition: all 0.3s ease-in;
         }
 
-        .hotel-call-to-action:hover{
-            
-            color: $colorBlue;
-            font-weight: bold;
-            background-color: white;
-        }
-    }
-
-
-    .appartement-bloc-text{
-        display: flex;
-        width: 50%;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding-left: 50px;
-
-        .appartement-title{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: $colorBlue;
-
-            fa-icon{
-                font-size: 1.5em;
-                margin-right: 10px ;
-            }
-        }
-
-         
-
-        .appartement-call-to-action{
-            font-size: 1.1em;
-            margin-top: 10px;
-            padding: 3px 20px;
-            width: fit-content;
-            color: white;
-            border-radius:100px;
-            background-color: $colorBlue;
-            border: solid $colorBlue;
+        .appartement-image{
+            background-image: url("../../../assets/img/home/hotel-app/home-appartement.jpg");
+            background-repeat: no-repeat ;
+            background-size: cover;
+            background-position: center;
+            width: 28em;
+            height: 25em;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
             cursor: pointer;
-            transition: all 0.3s ease-in;
         }
 
-        .appartement-call-to-action:hover{
-            
-            color: $colorBlue;
-            font-weight: bold;
-            background-color: white;
+
+        .hotel-image:hover{
+            box-shadow: $colorBlue 0px 5px 15px;
         }
+
+        .appartement-image:hover{
+            box-shadow: $colorBlue 0px 5px 15px;
+        }
+
+
+
     }
 
-
-    .hotel-image{
-        background-image: url("../../../assets/img/home/hotel-app/home-hotel.jpg");
-        background-repeat: no-repeat ;
-        background-size: cover;
-        background-position: center;
-        width: 28em;
-        height: 25em;
+    .appartement-bloc-image:before, .hotel-bloc-image:before{
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.295);
+        top: 0;
+        left: 0;
         border-radius: 5px;
-        box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
-        cursor: pointer;
     }
 
-    .appartement-image{
-        background-image: url("../../../assets/img/home/hotel-app/home-appartement.jpg");
-        background-repeat: no-repeat ;
-        background-size: cover;
-        background-position: center;
-        width: 28em;
-        height: 25em;
-        border-radius: 5px;
-        box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
-        cursor: pointer;
     }
 
-
-    .hotel-image:hover{
-        box-shadow: $colorBlue 0px 5px 15px;
-    }
-
-    .appartement-image:hover{
-        box-shadow: $colorBlue 0px 5px 15px;
-    }
-
-
-
-}
-
-
-.appartement-bloc-image:before, .hotel-bloc-image:before{
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.295);
-    top: 0;
-    left: 0;
-    border-radius: 5px;
-}
-}
-
-
-
-    .visas{
+    .visas-bloc{
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -793,109 +806,67 @@ padding-bottom: 5em;
         align-items: center;
         background-color: $colorBlue;
         color: white;
+        margin-top: 100px;
 
-       
-        .visas-bloc{
+        .content{
+
             display: flex;
+            flex-direction: column ;
+            margin: 7em 0 2em 0;
             align-items: center;
-            width:100%;
-            margin: 3em 0 5em 0;
-            flex-direction: column;
-            
+            justify-content: center;
 
-            .visas-content-bloc{
+            .visas{
                 display: flex;
-                justify-content: space-around;
-                align-items: flex-start;
-                width: 100%;
-                margin-bottom: 50px;
+                align-items: center;
+                width:100%;
+                flex-direction: column;
 
-
-                .visas-dubai-bloc{
+                .visas-content-bloc{
                     display: flex;
-                    justify-content: center;
-                    flex-direction: column;
+                    justify-content: space-around;
                     align-items: center;
-                    width: 400px;
-    
-                    span:nth-child(1){
-                        color: $colorBlue;
-                        font-weight: bold;
-                        font-size: 1.5em;
-                    }
-
-                    .visas-image{
-                        background-image: url("../../../assets/img/home/visas/home-dubai.jpeg");
-                        background-position: center;
-                        background-size: cover;
-                        background-repeat: no-repeat;
-                        border-radius: 50%;
-                        width: 120px;
-                        height: 120px;
-                        margin: 20px 0;
-                        box-shadow: rgba(0, 0, 0, 0.712) 0px 5px 15px;
-
-                    }
+                    width: 100%;
+                    margin-bottom: 50px;
 
 
-    
-                }
+                    .visas-text{
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                        align-items: center;
+                        width: 60%;
 
-                .visas-assistance-bloc{
+                        .visas-button{
+                            padding: 4px 20px;
+                            cursor: pointer;
+                            border-radius: 100px;
+                            text-align: center;
+                            color: $colorBlue;
+                            background-color: white;
+                            font-weight: bold;
+                            transition: all 0.3s ease;
+                            margin-top: 30px;
+                            border: 2px solid white;                        
 
-                    display: flex;
-                    justify-content: center;
-                    flex-direction: column;
-                    align-items: center;
-                    width: 400px;
-
-                    span:nth-child(1){
-                        color: $colorBlue;
-                        font-weight: bold;
-                        font-size: 1.5em;
+                        }
+        
+                        .visas-button:hover{
+                            color: white;
+                            background-color: $colorBlue;
                         
-
+                        }
                     }
 
-                    span:nth-child(2){
-                        margin: 20px 0;
-                        height: 120px;
+                    .visa-image{
+                        width: 300px;
+
                     }
                 }
-            }
-
-            .visas-button{
-                padding: 4px 20px;
-                cursor: pointer;
-                border-radius: 100px;
-                margin:0 10px;
-                text-align: center;
-                border: 2px solid $colorBlue;                        
-                color: $colorBlue;
-                cursor: pointer;
-                font-weight: bold;
-                background-color: white;
-                transition: all 0.3s ease;
-                
-            }
-
-            .visas-button:hover{
-                background-color: $colorBlue;
-                color: white;
-                font-weight: bold;
-                transition: all 0.3s ease-in-out;
 
             }
-                
-            
-
-
         }
     }
-
-
-
-
 
     .cars-bloc{
         width: 100%;
@@ -903,286 +874,312 @@ padding-bottom: 5em;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         color: $fontColor;
         background: white;
 
+        .content{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin-top: 4em;
 
-        h1{
-            text-align: center;
-        }
+            .title{
+                text-align: center;
+            }
 
 
-        .car-item {
+            .car-item {
 
-            margin: 80px 0 50px 0;
+                margin: 80px 0 50px 0;
 
-                .car-item-content{
-                    
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    cursor: pointer;
-                    margin: 0.3rem;
-       
-                    .car-item-contener{
-                        border-radius: 10px;
-                        overflow: hidden;
-                        //box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-                        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-                            .car-item-bloc-image-text{
+                    .car-item-content{
+                        
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        cursor: pointer;
+                        margin: 0.3rem;
+        
+                        .car-item-contener{
+                            border-radius: 10px;
+                            overflow: hidden;
+                            //box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+                            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                                .car-item-bloc-image-text{
 
-                                height: 180px;
-                                width: 250px;
-                                position: relative;
-                                overflow: hidden;
+                                    height: 180px;
+                                    width: 250px;
+                                    position: relative;
+                                    overflow: hidden;
 
-                                .car-item-image{
-                                    height: 100%;
+                                    .car-item-image{
+                                        height: 100%;
+                                        width: 100%;
+
+                                    }
+
+                                    .car-item-text{
+
+                                        position: absolute;
+                                        right: -70%;
+                                        bottom: 5%;
+                                        color:rgba(255, 255, 255, 0.863);
+                                        font-size: 1em;
+                                        font-weight: bold;
+                                    }
+
+
+                                }
+
+                                .car-item-bloc-image-text:before{
+                                    content: "";
                                     width: 100%;
-
+                                    height: 100%;
+                                    position: absolute;
+                                    background: rgba(0, 0, 0, 0.295);
                                 }
 
                                 .car-item-text{
-
-                                    position: absolute;
-                                    right: -70%;
-                                    bottom: 5%;
-                                    color:rgba(255, 255, 255, 0.863);
-                                    font-size: 1em;
-                                    font-weight: bold;
-                                }
-
-
-                            }
-
-                            .car-item-bloc-image-text:before{
-                                content: "";
-                                width: 100%;
-                                height: 100%;
-                                position: absolute;
-                                background: rgba(0, 0, 0, 0.295);
-                            }
-
-                            .car-item-text{
-                                display: flex;
-                                flex-direction: column;
-                                padding: 10px 0;
-                                width: 250px;
-                                color: $fontColor;
-
-
-
-                                .car-item-name{
-                                    font-size: 1.1em;
-                                    font-weight: 580;
-                                    text-align: center;
-                                }
-
-                                .car-item-tools{
-                                    margin: 15px 0 10px 0;
-                                    display: flex;
-                                    
-                                    justify-content: space-between;
-                                    font-size: 0.9em;
-                                    padding: 0 10px;
-
-                                    & div{
-                                        display: flex;
-                                        flex-direction: column-reverse;
-                                        justify-content: center;
-                                        align-items: center;
-
-                                        & span:nth-child(2){
-                                            border-radius: 50%;
-                                            background-color: #11609827;
-                                            color: $colorBlue;
-                                            width: 30px;
-                                            height: 30px;
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center;
-                                        }
-                                    }
-
-                                }
-
-                                .car-item-prices{
-
                                     display: flex;
                                     flex-direction: column;
-                                    width: 100%;
-                                    background: #11609827;
+                                    padding: 10px 0;
+                                    width: 250px;
+                                    color: $fontColor;
 
-                                    & div{
+
+
+                                    .car-item-name{
+                                        font-size: 1.1em;
+                                        font-weight: 580;
+                                        text-align: center;
+                                    }
+
+                                    .car-item-tools{
+                                        margin: 15px 0 10px 0;
                                         display: flex;
+                                        
                                         justify-content: space-between;
-                                        padding: 4px 10px;
-                                        color: $colorBlue;
-                                        font-size: 0.85em;
+                                        font-size: 0.9em;
+                                        padding: 0 10px;
+
+                                        & div{
+                                            display: flex;
+                                            flex-direction: column-reverse;
+                                            justify-content: center;
+                                            align-items: center;
+
+                                            & span:nth-child(2){
+                                                border-radius: 50%;
+                                                background-color: #11609827;
+                                                color: $colorBlue;
+                                                width: 30px;
+                                                height: 30px;
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: center;
+                                            }
+                                        }
+
                                     }
 
-                                    & div~div{
-                                        border-top: 1px solid #52525250;
-                                    }
+                                    .car-item-prices{
 
-                                }
-
-                                .car-item-driver{
-
-                                    display: flex;
-                                    margin: 10px 0;
-                                    justify-content: center;
-                                    align-items: center;
-
-                                    & div{
                                         display: flex;
                                         flex-direction: column;
-                                        align-items: center;
-                                        justify-content: center;
-                                        font-size: 0.85em;
+                                        width: 100%;
+                                        background: #11609827;
 
-                                        & span:nth-child(1){
-                                            font-weight: 530;
+                                        & div{
+                                            display: flex;
+                                            justify-content: space-between;
+                                            padding: 4px 10px;
+                                            color: $colorBlue;
+                                            font-size: 0.85em;
+                                        }
+
+                                        & div~div{
+                                            border-top: 1px solid #52525250;
+                                        }
+
+                                    }
+
+                                    .car-item-driver{
+
+                                        display: flex;
+                                        margin: 10px 0;
+                                        justify-content: center;
+                                        align-items: center;
+
+                                        & div{
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-items: center;
+                                            justify-content: center;
+                                            font-size: 0.85em;
+
+                                            & span:nth-child(1){
+                                                font-weight: 530;
+                                            }
+                                        }
+
+                                        & fa-icon{
+                                            margin: 0 10px;
                                         }
                                     }
 
-                                    & fa-icon{
-                                        margin: 0 10px;
+                                    .reserver{
+                                        padding: 2px 15px;
+                                        border: 2px solid $colorBlue;
+                                        margin: auto;
+                                        width: fit-content;
+                                        border-radius: 50px;
+                                        transition: all 0.3s ease-in;
+                                        font-size: 0.85em;
+                                        color: $colorBlue;
                                     }
+
+                                    .reserver:hover{
+                                        background-color: $colorBlue;
+                                        color: white;
+                                    }
+                                    
                                 }
-
-                                .reserver{
-                                    padding: 2px 15px;
-                                    border: 2px solid $colorBlue;
-                                    margin: auto;
-                                    width: fit-content;
-                                    border-radius: 50px;
-                                    transition: all 0.3s ease-in;
-                                    font-size: 0.85em;
-                                    color: $colorBlue;
-                                }
-
-                                .reserver:hover{
-                                    background-color: $colorBlue;
-                                    color: white;
-                                }
-                                
-                            }
-                    }
-                    .car-item-contener:hover{
-                        box-shadow: 0px 5px 15px $colorBlue;
-                        -webkit-box-shadow: 0px 5px 15px $colorBlue;
-                        -moz-box-shadow: 0px 5px 15px $colorBlue;
-
-                        .car-item-bloc-image-text{
-
-                            .car-item-image{
-                            transform: scale(1.2,1.2);
-                            transition: all 0.3s ease-in-out;
-                            }
                         }
-                    }   
+                        .car-item-contener:hover{
+                            box-shadow: 0px 5px 15px $colorBlue;
+                            -webkit-box-shadow: 0px 5px 15px $colorBlue;
+                            -moz-box-shadow: 0px 5px 15px $colorBlue;
+
+                            .car-item-bloc-image-text{
+
+                                .car-item-image{
+                                transform: scale(1.2,1.2);
+                                transition: all 0.3s ease-in-out;
+                                }
+                            }
+                        }   
+                        
+                    }
+            }
+
+            .car-call-to-action {
+                display: flex;
+                font-size: 1.3em;
+                justify-content: center;
+                margin: 20px 0;
+
+                span:nth-child(2){
+                    margin-left: 15px;
+                    padding: 5px 15px;
+                    color: white;
+                    background-color: $colorBlue;
+                    border-radius: 100px;
+                    border: 2px solid $colorBlue;
+                    font-size: 0.8em;
+                    cursor: pointer;
+                }
+
+                span:nth-child(2):hover{
+                    margin-left: 15px;
+                    color: $colorBlue;
+                    background-color: white;
+                    transition: all 0.3s ease-in;
+                    font-weight: bold;
                     
                 }
-        }
-
-        .car-call-to-action {
-            display: flex;
-            font-size: 1.3em;
-            justify-content: center;
-            margin: 20px 0;
-
-            span:nth-child(2){
-                margin-left: 15px;
-                padding: 5px 15px;
-                color: white;
-                background-color: $colorBlue;
-                border-radius: 100px;
-                border: 2px solid $colorBlue;
-                font-size: 0.8em;
-                cursor: pointer;
-            }
-
-            span:nth-child(2):hover{
-                margin-left: 15px;
-                color: $colorBlue;
-                background-color: white;
-                transition: all 0.3s ease-in;
-                font-weight: bold;
-                
             }
         }
-
     }
 
 
-    .tourism{
+    .tourism-bloc{
 
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         background-color: rgb(216, 216, 216);
+        margin-top: 80px;
+        width: 100%;
 
-        .tourism-header{
+        .content{
 
             display: flex;
+            flex-direction:column;
+            margin: 3em;
             justify-content: center;
             align-items: center;
             width: 100%;
-            margin: 35px 0;
-            padding: 20px;
-            background: #11609834;
-            border-radius: 10px;
 
-            img{
-                width: 150px;
-                height: 150px;
-                margin: 0 20px;
-            }
+            .tourism-header{
 
-            span{
-                font-size: 1.05em;
-                width: 700px;
-                margin: 0 20px;
-
-            }
-        }
-        
-
-        .circuits{
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            width: 100%;
-
-            .circuit{
-                margin: 0 10px;
-                height: 20em;
-                width: 30em;
-                position: relative;
-                cursor: pointer;
-                background-color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                margin: 35px 0;
+                background: #11609834;
                 border-radius: 10px;
+
+                img{
+                    width: 150px;
+                    height: 150px;
+                    margin: 0 20px;
+                }
+
+                span{
+                    font-size: 1.05em;
+                    width: 700px;
+                    margin: 0 20px;
+
+                }
             }
-        }
+            
 
-        .tourism-call-to-action{
-            display:flex;
-            margin: 50px 0;
-            justify-content: center;
-            align-items: center;
+            .circuits{
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
 
-            span:nth-child(2){
-                background-color: white;
-                color: $colorBlue;
-                margin-left: 20px;
-                border-radius: 100px;
-                padding: 2px 20px;
-                font-weight: bold;
-                cursor: pointer;
+                .circuit{
+                    margin: 0 10px;
+                    height: 20em;
+                    width: 30em;
+                    position: relative;
+                    cursor: pointer;
+                    background-color: white;
+                    border-radius: 10px;
+                }
             }
 
+            .tourism-call-to-action{
+                display:flex;
+                margin: 50px 0;
+                justify-content: center;
+                align-items: center;
+
+                span{
+                    margin-left: 15px;
+                    padding: 5px 15px;
+                    color: $colorBlue;
+                    background-color: white;
+                    border-radius: 100px;
+                    border: 2px solid white;
+                    font-size: 0.8em;
+                    cursor: pointer;
+                    font-weight: bold;
+                }
+
+                span:hover{
+                    color: $colorBlue;
+                    border-radius: 100px;
+                    background-color: rgb(216, 216, 216);
+
+                }
+
+            }
         }
     }
 

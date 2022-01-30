@@ -1,49 +1,67 @@
+
 <header (scroll)="onWindowScroll()">
-    <img routerLink="/home" src="../../../assets/img/header/logo.png" alt="Logo of Elites Voyages">
 
-    
-    <div class="header-right">
+    <div class="content my-container">
+        <img routerLink="/home" src="../../../assets/img/header/logo.png" alt="Logo of Elites Voyages">
 
-        <nav>
-            <ul>
-                <li><a routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" routerLink="/home">Home</a></li>
-                <li class="services" (mouseover)="showHideServices()" (mouseout)="showHideServices()">
-                        <span>Services <fa-icon [icon]="faCaretDown"></fa-icon></span>
-                        <ul>
-                            <li><a routerLinkActive="active-link" routerLink="/flight">Billet d'avion</a></li>
-                            <li><a routerLinkActive="active-link" routerLink="/hostel-apartment">Hôtel et Appartement meublé</a></li>
-                            <li><a routerLinkActive="active-link" routerLink="/rent-car">Location voiture</a></li>
-                            <li><a routerLinkActive="active-link" routerLink="/tourism">Tourisme</a></li>
-                            <li><a routerLinkActive="active-link" routerLink="/fret-dhl">Fret et DHL</a></li>
-                            <li><a routerLinkActive="active-link" routerLink="/visa-dubaî">Visa Dubaî et Assistance Visa</a></li>
-                        </ul>
-                </li>
-                <li><a routerLinkActive="active-link" routerLink="/about">About</a></li>
-                <li><a routerLinkActive="active-link" routerLink="/good-deal">Good Deals</a></li>
-                <li><a routerLinkActive="active-link" routerLink="/contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="header-right">
 
-        <div class="languages" (mouseover)="showHideLanguages()" (mouseout)="showHideLanguages()">
-           <div class="languages-top">
-                <fa-icon [icon]="faGlobe"></fa-icon>
-                <span>{{selectedLanguage}}</span>
-                <fa-icon [icon]="faCaretDown"></fa-icon>
-            </div>
-            <div class="languages-bottom">
+            <nav>
+                <ul>
+                    <li><a routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" routerLink="/home">Home</a></li>
+                    <li class="services-bloc" (mouseover)="showHideServices()" (mouseout)="showHideServices()">
+                            <div class="services">
+                                <span>Services</span> 
+                                <fa-icon [icon]="faCaretDown"></fa-icon>
+                            </div>
+                            <ul>
+                                <li><a routerLinkActive="active-link" routerLink="/flight">Billets d'Avion</a></li>
+                                <li><a routerLinkActive="active-link" routerLink="/hostel-apartment">Hôtels</a></li>
+                                <li><a routerLinkActive="active-link" routerLink="/hostel-apartment">Appartements Meublés</a></li>
+                                <li><a routerLinkActive="active-link" routerLink="/rent-car">Location Voitures</a></li>
+                                <li><a routerLinkActive="active-link" routerLink="/tourism">Tourisme</a></li>
+                                <li><a routerLinkActive="active-link" routerLink="/fret-dhl">Fret et DHL</a></li>
+                                <li><a routerLinkActive="active-link" routerLink="/visa-dubaî">Assistance Visas</a></li>
+                            </ul>
+                    </li>
+                    <li><a routerLinkActive="active-link" routerLink="/about">About</a></li>
+                    <li><a routerLinkActive="active-link" routerLink="/good-deal">Good Deals</a></li>
+                    <li><a routerLinkActive="active-link" routerLink="/contact">Contact</a></li>
+                </ul>
+            </nav>
 
-                <div (click)="chooseEnglish()">
-                    <input class="en" type="checkbox" checked>
-                    <span>English <img src="../../../assets/img/header/en.png" alt="Drapeau Anglais"></span>
+            <div class="languages" (mouseover)="showHideLanguages()" (mouseout)="showHideLanguages()">
+            <div class="languages-top">
+                    <fa-icon [icon]="faGlobe"></fa-icon>
+                    <span>{{selectedLanguage}}</span>
+                    <fa-icon [icon]="faCaretDown"></fa-icon>
                 </div>
+                <div class="languages-bottom">
 
-                <div (click)="chooseFrench()">
-                    <input class="fr" type="checkbox">
-                    <span>French <img src="../../../assets/img/header/fr.jpeg" alt="Drapeau Français"></span>
+                    <div (click)="chooseEnglish()">
+                        <input class="en" type="checkbox" checked>
+                        <span>English <img src="../../../assets/img/header/en.png" alt="Drapeau Anglais"></span>
+                    </div>
+
+                    <div (click)="chooseFrench()">
+                        <input class="fr" type="checkbox">
+                        <span>French <img src="../../../assets/img/header/fr.jpeg" alt="Drapeau Français"></span>
+                    </div>
+
                 </div>
-
             </div>
         </div>
+
+        
+        <div class="burger" (click)="onBurgerMenu()">
+            <input type="checkbox" />
+        
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+
     </div>
 
 </header>

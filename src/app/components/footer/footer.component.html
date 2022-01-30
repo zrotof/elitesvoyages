@@ -1,46 +1,56 @@
 <footer>
-    <div class="footer-top">
-        <div class="company">
-            <img routerLink="/home" src="../../../assets/img/header/logo.png" alt="logo d'élite voyage">
 
-            <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat, numquam accusamus. Ad officia sunt, labore similique est voluptates explicabo officiis quibusdam non corporis quaerat nesciunt magnam</span>
-            <div>                    
-                <img src="../../../assets/img/contact/facebook-icon.png" alt="Join Elites Voyages on Facebook">
-                <img src="../../../assets/img/contact/Instagram-icon.png" alt="Join Elites Voyages on Instagram">
+        <div class="footer-top">
+            <div class="content my-container">
+                <div class="company">
+                    <img routerLink="/home" src="../../../assets/img/header/logo.png" alt="logo d'élite voyage">
+    
+                    <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat, numquam accusamus. Ad officia sunt, labore similique est voluptates explicabo officiis quibusdam non corporis quaerat nesciunt magnam</span>
+                    <div>                    
+                        <img src="../../../assets/img/contact/facebook-icon.png" alt="Join Elites Voyages on Facebook">
+                        <img src="../../../assets/img/contact/Instagram-icon.png" alt="Join Elites Voyages on Instagram">
+                    </div>
+                </div>
+
+                <div class="services">
+                    <span>Lien rapides</span>
+                    <ul>
+                        <li routerLink="/about">A propos de nous</li>
+                        <li routerLink="/about">Recrutements</li>
+                        <li routerLink="/contact">Conacter-nous</li>
+                        <li routerLink="/about">Conditions de confidentialité</li>
+                        <li routerLink="/about">CGU</li>
+                    </ul>
+                </div>
+    
+                <div class="services">
+                    <span>Nos services</span>
+                    <ul>
+                        <li routerLink="/flight">Billets d'avions</li>
+                        <li (click)="routeToHotelAppartement('hotel')">Hébergement hôtel</li>
+                        <li (click)="routeToHotelAppartement('appartement')">Appartements meublés</li>
+                        <li routerLink="/rent-car">Voiture de location</li>
+                        <li routerLink="/tourism">Tourisme</li>
+                        <li routerLink="/fret-dhl">Fret et DHL</li>
+                        <li routerLink="/about">Visa Dubaî</li>
+                        <li routerLink="/about">Assistance Visa</li>
+                    </ul>
+                </div>
             </div>
-        </div>
+            
 
-        <div class="services">
-            <span>Lien rapides</span>
-            <ul>
-                <li routerLink="/about">A propos de nous</li>
-                <li routerLink="/about">Recrutements</li>
-                <li routerLink="/contact">Conacter-nous</li>
-                <li routerLink="/about">Conditions de confidentialité</li>
-                <li routerLink="/about">CGU</li>
-              </ul>
-        </div>
+            
 
-        <div class="services">
-            <span>Nos services</span>
-            <ul>
-                <li routerLink="/flight">Billets d'avions</li>
-                <li (click)="routeToHotelAppartement('hotel')">Hébergement hôtel</li>
-                <li (click)="routeToHotelAppartement('appartement')">Appartements meublés</li>
-                <li routerLink="/rent-car">Voiture de location</li>
-                <li routerLink="/tourism">Tourisme</li>
-                <li routerLink="/fret-dhl">Fret et DHL</li>
-                <li routerLink="/about">Visa Dubaî</li>
-                <li routerLink="/about">Assistance Visa</li>
-            </ul>
-        </div>
+        <div class="footer-bottom">
 
-    </div>
-    <div class="footer-bottom">
-        <span class="copyright">Copyright © 2021, Elites Voyages, tous droits réservés</span>
-        <span class="developper">
-            Développé par
-            <a href="https://sam-man-portfoio.herokuapp.com/accueil" aria-label="Portfolio" rel="noopener" target="_blank">Samuel M</a>
-        </span>
+            <div class="content my-container">
+                <span class="copyright">Copyright © 2021, Elites Voyages, tous droits réservés</span>
+                <span class="developper">
+                    Développé par
+                    <a href="https://sam-man-portfoio.herokuapp.com/accueil" aria-label="Portfolio" rel="noopener" target="_blank">Samuel M</a>
+                </span>
+            </div>
+            
+        </div>
     </div>
 </footer>

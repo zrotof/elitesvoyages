@@ -1,118 +1,153 @@
 <div class="contact">
 
-  <div class="contact-top-bloc">
-      <h1 class="contact-top-title">CONTACTEZ-NOUS</h1>
+  <div class="contact-header">
+    <div class="content-header my-container">
+
+      <h1 class="contact-title">CONTACTEZ-NOUS</h1>
+    </div>
   </div>
 
-  <div class="conteneur-perso contact-bloc">
-    <h1 class="title">Nos Agences</h1>
+  <div class="content my-container">
 
-    <div class="agences">
+    <div class="contact-bloc">
+      <h1 class="title">Nos Agences</h1>
 
-      
-        <div class="agence yaounde">
-          <fa-icon [icon]="faBuilding"></fa-icon>
-          <span>Agence de Yaoundé</span>
-          <span><fa-icon [icon]="faEnvelope"></fa-icon>sales-yaounde@elites-voyages.com</span>
-          <span><fa-icon [icon]="faPhoneAlt"></fa-icon>(+237) 650 63 66 26 - (+237) 697 32 00 65</span>
-          <span><fa-icon [icon]="faMapMarkerAlt"></fa-icon>Mobil Olezoa Po box: 1942 Yaounde 3rd Cameroon</span>
+      <div class="agences">
+
+          <div class="agence yaounde">
+
+            <div class="name">
+              <fa-icon [icon]="faBuilding"></fa-icon>
+              <span>Agence de Yaoundé</span>
+            </div>
+            
+            <div class="mail">
+              <fa-icon [icon]="faEnvelope"></fa-icon>
+              <span>sales-yaounde@elites-voyages.com</span>
+            </div>
+
+            <div class="phone">
+              <fa-icon [icon]="faPhoneAlt"></fa-icon>
+              <span>(+237) 650 63 66 26 - (+237) 697 32 00 65 </span>
+            </div>
+
+            <div class="adress">
+              <fa-icon [icon]="faMapMarkerAlt"></fa-icon>
+              <span>Mobil Olezoa Po box: 1942 Yaounde 3rd Cameroon</span>
+            </div>
+          </div>
+
+          <div class="agence douala">
+
+            <div class="name">
+              <span>Agence de Douala</span>
+              <fa-icon [icon]="faBuilding"></fa-icon>
+            </div>
+            
+            <div class="mail">
+              <span>sales-douala@elites-voyages.com</span>
+              <fa-icon [icon]="faEnvelope"></fa-icon>
+            </div>
+
+            <div class="phone">
+              <span>(+237) 672 42 98 49 - (+237) 690 13 10 11</span>
+              <fa-icon [icon]="faPhoneAlt"></fa-icon>
+            </div>
+
+            <div class="adress">
+              <span>Face SGB Bali Société Générale</span>
+              <fa-icon [icon]="faMapMarkerAlt"></fa-icon>
+            </div>
+
         </div>
 
-        <div class="agence douala">
-          <fa-icon [icon]="faBuilding"></fa-icon>
-          <span>Agence de Douala</span>
-          <span><fa-icon [icon]="faEnvelope"></fa-icon>sales-douala@elites-voyages.com</span>
-          <span><fa-icon [icon]="faPhoneAlt"></fa-icon>(+237) 672 42 98 49 - (+237) 690 13 10 11</span>
-          <span><fa-icon [icon]="faMapMarkerAlt"></fa-icon>Face SGB Bali Société Générale</span>
-        
       </div>
 
-    </div>
+      <div class="horaires-reseaux">
 
-    <div class="horaires-reseaux">
+        <span>Vous pouvez nous joindre par le moyen qui vous sied le mieux ou passer directement nous rencontrer dans nos agences à Yaoundé ou à Douala</span>
 
-      <span>Vous pouvez nous joindre par le moyen qui vous sied le mieux ou passer directement nous rencontrer dans nos agences à Yaoundé ou à Douala</span>
-
-      <div>
         <div class="horaires">
-          
-          <span>Horaires <fa-icon [icon]="faClock"></fa-icon></span>
-          <ul>
-            <li>Lundi à Mercredi: 08h30 - 17h00</li>
-            <li>Jeudi: 10h00 - 17h00</li>
-            <li>Vendredi: 08h30 - 17h00</li>
-            <li>Samedi: 09h00 - 12h00</li>
-          </ul>
-        </div>
 
-        <div class="reseaux">
-          
-          <span>Suivez-nous sur nos réseaux</span>
-          <div class="reseau">
-            <img src="../../../assets/img/contact/facebook-icon.png" alt="facebook icon to join Elites Voyages on facebook">
-            <img src="../../../assets/img/contact/Instagram-icon.png" alt="instagram icon to join Elites Voyages on instagram">
+          <div class="heures">
+            <span>Horaires <fa-icon [icon]="faClock"></fa-icon></span>
+            <ul>
+              <li>Lundi à Mercredi: 08h30 - 17h00</li>
+              <li>Jeudi: 10h00 - 17h00</li>
+              <li>Vendredi: 08h30 - 17h00</li>
+              <li>Samedi: 09h00 - 12h00</li>
+            </ul>
+          </div>
+
+          <div class="reseaux">
+            
+            <span>Suivez-nous sur nos réseaux</span>
+            <div class="reseau">
+              <img src="../../../assets/img/contact/facebook-icon.png" alt="facebook icon to join Elites Voyages on facebook">
+              <img src="../../../assets/img/contact/Instagram-icon.png" alt="instagram icon to join Elites Voyages on instagram">
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="form-bloc">
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmitcontactForm()">
+
+      <div class="name-bloc">
+        <input id="name-input" type="text" formControlName="userName" placeholder="Votre nom *">
+        <label class="label-id" for="name-input">Entrez votre nom </label>
+      </div>
+
+      <div class="email-phone">
+        <div class="email-bloc">
+          <input id="email-input" type="text" formControlName="userEmail" placeholder="Email *">
+          <label class="label-id" for="email-input">Email</label>
+
+        </div>
+        <div class="phone-bloc">
+          <input id="phone-input" type="text" formControlName="userPhone" placeholder="Numéro de téléphone">
+          <label class="label-id" for="phone-input">Téléphone</label>
+        </div>
+      </div>
+
+
+
+      <div class="objet-bloc">
+        <input id="objet-input" type="text" formControlName="userObject" placeholder="Objet du message">
+        <label class="label-id" for="objet-input">Objet</label>
+      </div>
+
+
+    <div class="contact-prefere">
+      <span>Vous souhaitez être recontacté(e) par</span>
+
+      <div>
+        <div class="radio">
+          <label  for="email">Email</label>
+            <input id="email" type="radio" class="custom-control-input" name="userContact" formControlName="userContact" value="email"
+              checked>
+        </div>
+
+        <div class="radio">
+            <input id="phone" type="radio" class="custom-control-input" name="userContact" formControlName="userContact" value="phone">
+            <label class="custom-control-label" for="phone">Téléphone</label>
+        </div>
+      </div>
+
+    </div>
+
+      <div class="message-bloc" >
+        <textarea id="message-area" formControlName="userMessage" type="text" placeholder="Entrez votre message ici, soyez le plus explicite possible ..."></textarea>
+        <label class="label-id" for="message-area">Message</label>
+      </div>
+
+      <button type="submit" [disabled]="!contactForm.valid">Envoyer <fa-icon [icon]="faPaperPlane"></fa-icon></button>
+    </form>
+
+    </div>
   </div>
-
-  <div class="form-bloc">
-
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmitcontactForm()">
-
-    <div class="name-bloc">
-      <input id="name-input" type="text" formControlName="userName" placeholder="Entrez votre nom *">
-      <label class="label-id" for="name-input">Entrez votre nom </label>
-    </div>
-
-    <div class="email-phone">
-      <div class="email-bloc">
-        <input id="email-input" type="text" formControlName="userEmail" placeholder="Entrez votre Email *">
-        <label class="label-id" for="email-input">Email</label>
-
-      </div>
-      <div class="phone-bloc">
-        <input id="phone-input" type="text" formControlName="userPhone" placeholder="Entrez votre numéro de téléphone">
-        <label class="label-id" for="phone-input">Téléphone</label>
-      </div>
-    </div>
-
-
-
-    <div class="objet-bloc">
-      <input id="objet-input" type="text" formControlName="userObject" placeholder="Entrez l'objet du message">
-      <label class="label-id" for="objet-input">Objet</label>
-    </div>
-
-
-  <div class="contact-prefere">
-    <span>Vous souhaitez être recontacté(e) par</span>
-
-    <div>
-      <div class="radio">
-        <label  for="email">Email</label>
-          <input id="email" type="radio" class="custom-control-input" name="userContact" formControlName="userContact" value="email"
-            checked>
-      </div>
-
-      <div class="radio">
-          <input id="phone" type="radio" class="custom-control-input" name="userContact" formControlName="userContact" value="phone">
-          <label class="custom-control-label" for="phone">Téléphone</label>
-      </div>
-    </div>
-
-  </div>
-
-    <div class="message-bloc" formControlName="userMessage">
-      <textarea id="message-area" type="text" placeholder="Entrez votre message ici, soyez le plus explicite possible ..."></textarea>
-      <label class="label-id" for="message-area">Message</label>
-    </div>
-
-    <button type="submit" [disabled]="!contactForm.valid">Envoyer <fa-icon [icon]="faPaperPlane"></fa-icon></button>
-  </form>
-
-</div>
 
 
 

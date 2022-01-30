@@ -1,14 +1,16 @@
 <div class="vol">
 
-    <div class="vol-top-bloc">
-        <h1 class="vol-top-title">Billet d'Avion</h1>
+
+    <div class="contact-header">
+        <div class="content-header my-container">
+    
+          <h1 class="vol-title">Billet d'Avion</h1>
+        </div>
     </div>
 
-    <div class="vol-content">
+    <div class="content my-container">
 
-  
-
-        <div class="book-flight-form conteneur-perso">
+        <div class="book-flight-form">
             <span>Indiquez-nous vos paramètres de voyage et nous reviendrons vers vous rapidement</span>
             <span>Les champs marqués d'un <span class="red-star">*</span> sont obligatoires</span>
         
@@ -25,7 +27,6 @@
                     <div class="classe">
                         <span>Choix De Cabine <span class="red-star">*</span></span>
                         <select class="custom-select" (change)="changeTypeCabine($event)" formControlName="typeCabine">
-                            <option value="">ECONOMIQUE</option>
                             <option *ngFor="let cabine of cabines" [ngValue]="cabine">{{cabine}}</option>
                         </select>
                     </div>
@@ -109,7 +110,7 @@
                 </div>
 
                 <div class="message-bloc">
-                    <textarea id="message-area" type="text" placeholder="Soyez le plus explicite possible. Indiquez le nom complet du/des voyageur(s) "></textarea>
+                    <textarea id="message-area" type="text" placeholder="Soyez le plus explicite possible, indiquez le nom complet du/des voyageur(s) "></textarea>
                     <label class="label-id" for="message-area">Message</label>
                 </div>
               

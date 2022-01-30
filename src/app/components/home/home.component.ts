@@ -6,8 +6,8 @@ import { Car } from '../../models/car';
 import { FlightService } from '../../services/flights/flight.service';
 import { CarService } from '../../services/cars/car.service';
 import { RoutesService } from '../../services/routes/routes.service';
-
-import { faPlane, faBed, faCarSide, faHome, faEllipsisV, faCubes, faChevronLeft, faChevronRight, faGlobeAfrica } from '@fortawesome/free-solid-svg-icons';
+import { Services } from '../../models/services';
+import { faPlane, faBed, faCarSide, faHome, faEllipsisV, faCubes, faChevronLeft, faChevronRight, faGlobeAfrica, faAddressCard } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -17,6 +17,8 @@ import { faPlane, faBed, faCarSide, faHome, faEllipsisV, faCubes, faChevronLeft,
 })
 export class HomeComponent implements OnInit {
 
+  //List of our services
+  servicesList: Services[] = [];
 
   //variables for home header slide
   counter: number = 1;
@@ -48,7 +50,7 @@ export class HomeComponent implements OnInit {
   faChevronLeft = faChevronLeft;
   faChevronRight = faChevronRight;
   faGlobeAfrica = faGlobeAfrica;
-
+  faAddressCard = faAddressCard;
   //This is the width to move, it eaquals to the width of an element plus the margin(left-margin);
   flightCarousselLeftValue = 0;
   flightWidthToMove = 250 + 40;
@@ -87,6 +89,7 @@ export class HomeComponent implements OnInit {
 
     this.getPopularFlights();
     this.getPopularCars();
+    this.retrieveListOfServices();
 
   }
 
@@ -274,5 +277,47 @@ export class HomeComponent implements OnInit {
     this.popularCars = this.carService.getCarsForCarrousel();
   }
 
+
+  retrieveListOfServices(){
+
+    this.servicesList = [
+      {
+        label: "Billet d'Avion",
+        icon: this.faPlane,
+        description: "Vente de billets d'avion pour toutes vos destinations"
+      },
+
+      {
+        label: "Hôtel & Appartement meublé",
+        icon: this.faBed,
+        description: "Vente de billets d'avion pour toutes vos destinations"
+      },
+
+      {
+        label: "Location de Voiture",
+        icon: this.faCarSide,
+        description: "Mise à disposition d'un large choix de véhicules selon vos besoins"
+      },
+
+      {
+        label: "Tourisme",
+        icon: this.faGlobeAfrica,
+        description: "Planification et organisation de circuits touristiques paradisiaques"
+      },
+
+      {
+        label: "Fret et DHL",
+        icon: this.faCubes,
+        description: "Expédition de colis et assistance dédouanement"
+      },
+
+      {
+        label: "Assistance Visa",
+        icon: this.faAddressCard,
+        description: "Vente de billets d'avion pour toutes vos destinations"
+      }
+
+    ]
+  }
 
 }

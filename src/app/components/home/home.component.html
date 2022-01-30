@@ -46,295 +46,252 @@
         </div>
     </div>
 
-    <div class="conteneur-perso about">
-        <h1 class="about-title" >À PROPOS</h1>
-        <div class="about-text-image">
-            <div class="about-text">
-                <span>Créée en 2009 dans un soucis de faire voyager différemment, Elites Voyages s'est donnée pour vocation de faire de nos clients, des Elites à travers un service à la carte selon les besoins ...</span>
-                <div class="about-button">
-                    <span routerLink="/about">En Savoir Plus</span>
-                </div>
-            </div>
-
-            <div class="about-image">
-                <div class="about-image-1"></div>
-                <div class="about-image-2"></div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="conteneur-perso services-bloc">
-        <h1>NOS SERVICES</h1>
-        <div class="services">
-
-            <div class="service">
-                <span><fa-icon [icon]="faPlane"></fa-icon></span>
-                <div class="service-text">
-                    <h3>Billet d'Avion</h3>
-                    <p>Vente de billets d'avion pour toutes vos destinations</p>
-                    <span routerLink="/flight">En Savoir Plus</span>
-                </div>
-            </div>
-
-            <div class="service">
-                <span><fa-icon [icon]="faBed"></fa-icon></span>
-                <div class="service-text">
-                    <h3>Hôtel & Appartement Meublé</h3>
-                    <p>Vente de billets d'avion pour toutes vos destinations</p>
-                    <span routerLink="/hostel-apartment">En Savoir Plus</span>
-                </div>
-            </div>
-
-            <div class="service">
-                <span><fa-icon [icon]="faCarSide"></fa-icon></span>
-                <div class="service-text">
-                    <h3>Location de Voiture</h3>
-                    <p>Mise à disposition d'un large choix de véhicules selon vos besoins</p>
-                    <span routerLink="/rent-car">En Savoir Plus</span>
-                </div>
-            </div>
-
-            <div class="service">
-                <span><fa-icon [icon]="faGlobeAfrica"></fa-icon></span>
-                <div class="service-text">
-                    <h3>Tourisme</h3>
-                    <p>Planification et organisation de circuits touristiques paradisiaques </p>
-                    <span routerLink="/tourism">En Savoir Plus</span>
-                </div>
-            </div>
-
-            <div class="service">
-                <span><fa-icon [icon]="faCubes"></fa-icon></span>
-                <div class="service-text">
-                    <h3>Fret et DHL</h3>
-                    <p>Expédition de colis et assistance dédouanement</p>
-                    <span routerLink="/fret-dhl">En Savoir Plus</span>
-                </div>
-            </div>
-
-            <div class="service">
-                <span><fa-icon [icon]="faPlane"></fa-icon></span>
-                <div class="service-text">
-                    <h3>Visa Dubaî & Assistance Visa</h3>
-                    <p>Vente de billets d'avion pour toutes vos destinations</p>
-                    <span routerLink="/visa-dubaî">En Savoir Plus</span>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-
-    <div class="conteneur-perso flights-bloc">
-
-        <h1>NOS DESTINATIONS POPULAIRES</h1>
-
-        <p-carousel [value]="popularFlights" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true" [responsiveOptions]="flightsResponsiveOptions">
-            
-            <ng-template let-flight pTemplate="item">
-                <div class="flight-item">
-                    <div class="flight-item-content">
-                            
-                            <div class="flight-item-bloc-image-text">
-                                <img class="flight-item-image" src="{{flight.img}}">
-                                <span class="flight-item-text"> {{flight.villeArr}} </span>
-                            </div>
-
-                            <div class="flight-element-text">
-                                    
-                                <span class="flight-element-text-first-child"> {{flight.villeDep}} - {{flight.villeArr}}</span>
-                                
-                                <span class="flight-element-text-second-child">à partir de</span>
-                                <span class="flight-element-text-third-bloc"> 
-                                    <span class="flight-element-text-third-bloc-first-child"> {{flight.codeAirportDep}} <img class="icon-two-ways" src="../../../assets/img/home/flights/icon-two-ways.png"> {{flight.codeAirportArr}} </span>
-                                            
-                                    <span class="flight-element-text-third-bloc-second-child">{{flight.price}}{{flight.currency}}</span>
-                                </span>
-                            </div>
-
+    <div class="about">
+        <div class="content my-container">
+            <h1 class="title" >À PROPOS</h1>
+            <div class="about-text-image">
+                <div class="about-text">
+                    <span>Créée en 2009 dans un soucis de faire voyager différemment, Elites Voyages s'est donnée pour vocation de faire de nos clients, des Elites à travers un service à la carte selon les besoins ...</span>
+                    <div class="about-button">
+                        <span routerLink="/about">En Savoir Plus</span>
                     </div>
                 </div>
-            </ng-template>
-        </p-carousel>
 
-        <div class="flight-call-to-action">
-            <span>Réservez vos vols dès maintenant</span>
-            <span routerLink="/flight">Réserver</span>
-        </div>
-
-    </div>
-
-    <div class="conteneur-perso hotel-appaterment-bloc">
-
-        <div class="hotel-bloc">
-            <div class="hotel-bloc-text">
-                <span class="hotel-title">
-                    <fa-icon [icon]="faBed"></fa-icon>
-                    <h1>Hôtels</h1>
-                </span> 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat illo quis aliquid, corrupti vero cupiditate! Perspiciatis, laudantium? Illum earum animi, libero et expedita sunt error blanditiis.</p>
-                <span class="hotel-call-to-action" (click)="routeToHotelAppartement('hotel')">Voir Hôtels</span>
-            </div>
-            <div class="hotel-image">
-                
-            </div>
-        </div>
-
-        <div class="appartement-bloc">
-        
-            <div class="appartement-image">
-                
-            </div>
-        
-            <div class="appartement-bloc-text">
-                <span class="appartement-title">
-                    <fa-icon [icon]="faHome"></fa-icon>
-                    <h1>Appartements Meublés</h1>
-                </span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat illo quis aliquid, corrupti vero cupiditate! Perspiciatis, laudantium? Illum earum animi, libero et expedita sunt error blanditiis.</p>
-                <span class="appartement-call-to-action" (click)="routeToHotelAppartement('appartement')">Voir Appartements</span>
-            </div>
-        </div>
-
-    </div>
-
-
-    <div class="conteneur-perso visas">
-
-        <h1 class="visas-title" >VISA DUBAÎ ET ASSISTANCE VISA</h1>
-        
-        <div class="visas-bloc">
-
-            <div class="visas-content-bloc">
-                <div class="visas-dubai-bloc">
-                    <span>Visa Dubaî</span>
-                    <div class="visas-image"></div>
-                    <span>Obtenez votre visa pour dubai en 48h</span>
-                </div>
-                <div class="visas-assistance-bloc">
-                    <span>Assistance Visa</span>
-                    <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos culpa blanditiis, maiores nam voluptatibus repudiandae accusamus. Commodi labore rem nulla veritatis obcaecati harum. Repudiandae id officia !</span>
-                    <span></span>
+                <div class="about-image">
+                    <div class="about-image-1"></div>
+                    <div class="about-image-2"></div>
                 </div>
             </div>
-
-            <span class="visas-button" routerLink="/visa-dubaî">En savoir plus</span>
-
         </div>
     </div>
 
-    <div class="conteneur-perso cars-bloc">
+    <div class="services-bloc">
 
-        <h1 class="cars-title">NOS VOITURES</h1>
+        <div class="content my-container">
+            <h1>NOS SERVICES</h1>
+            <div class="services">
 
-
-
-
-
-
-        <p-carousel [value]="popularCars" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true" [responsiveOptions]="flightsResponsiveOptions">
-            
-            <ng-template let-car pTemplate="item">
-                <div class="car-item">
-                    <div class="car-item-content">
-                        <div class="car-item-contener">
-                            <div class="car-item-bloc-image-text">
-                                <img class="car-item-image" src="{{car.imageVoit}}">
-                                <span class="car-item-text"> {{car.villeVoit}} </span>
-                            </div>
-
-                            <div class="car-item-text">
-                                    
-                                <span class="car-item-name"> {{car.nomVoit}}</span>
-                                
-                                <div class="car-item-tools">
-                                    
-                                    <div>
-                                        <span>Portes</span>
-                                        <span> {{car.nombrePorteVoit}}</span>
-                                    </div>
-
-
-                                    <div>
-                                        <span>Climatisée</span>
-                                        <span>{{car.climVoit}}</span>
-                                    </div>
-
-                                    <div>
-                                        <span>Places</span>
-                                        <span>{{car.nombrePlaceVoit}}</span>
-                                    </div>
-
-                                    
-
-                                </div>
-
-                                <div class="car-item-prices">
-                                    <div>
-                                        <span>Dans la ville</span>
-                                        <span> {{car.prixLocationDansVilleVoit}} XAF</span>
-                                    </div>
-                                    <div>
-                                        <span>Hors de la ville</span>
-                                        <span> {{car.prixLocationHorsVilleVoit}} XAF</span>
-                                    </div>
-                                    <div>
-                                        <span>Trajet Aéroport</span>
-                                        <span> {{car.prixTrajetAeroportVoit}} XAF</span>
-                                    </div>
-                                </div>
-
-                                <div class="car-item-driver">
-                                    <div>
-                                        <span>Avec chauffeur</span>
-                                        <span> {{car.avecChauffeurVoit}} </span>
-                                    </div>
-                                    <fa-icon [icon]="faEllipsisV"></fa-icon>
-                                    <div>
-                                        <span>Sans chauffeur</span>
-                                        <span> {{car.sansChauffeurVoit}} </span>
-                                    </div>
-                                </div>
-
-                                <span class="reserver">Réserver</span>
-
-
-                            </div>
-                        </div>  
+                <div class="service" *ngFor="let service of servicesList">
+                    <span class="service-icon">
+                        <fa-icon [icon]="service.icon"></fa-icon>
+                    </span>
+                    <div class="service-text">
+                        <h3>{{service.label}}</h3>
+                        <p>{{service.description}}</p>
+                        <span routerLink="/hostel-apartment">En Savoir Plus</span>
                     </div>
                 </div>
-            </ng-template>
-        </p-carousel>
 
-        <div class="car-call-to-action">
-            <span>Découvrez notre large choix de véhicules</span>
-            <span routerLink="/rent-car">Découvrir</span>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class=" flights-bloc">
+
+        <div class="content my-container">
+            <h1 class="title">NOS DESTINATIONS POPULAIRES</h1>
+
+            <p-carousel [value]="popularFlights" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true" [responsiveOptions]="flightsResponsiveOptions">
+                
+                <ng-template let-flight pTemplate="item">
+                    <div class="flight-item">
+                        <div class="flight-item-content">
+                                
+                                <div class="flight-item-bloc-image-text">
+                                    <img class="flight-item-image" src="{{flight.img}}">
+                                    <span class="flight-item-text"> {{flight.villeArr}} </span>
+                                </div>
+
+                                <div class="flight-element-text">
+                                        
+                                    <span class="flight-element-text-first-child"> {{flight.villeDep}} - {{flight.villeArr}}</span>
+                                    
+                                    <span class="flight-element-text-second-child">à partir de</span>
+                                    <span class="flight-element-text-third-bloc"> 
+                                        <span class="flight-element-text-third-bloc-first-child"> {{flight.codeAirportDep}} <img class="icon-two-ways" src="../../../assets/img/home/flights/icon-two-ways.png"> {{flight.codeAirportArr}} </span>
+                                                
+                                        <span class="flight-element-text-third-bloc-second-child">{{flight.price}}{{flight.currency}}</span>
+                                    </span>
+                                </div>
+
+                        </div>
+                    </div>
+                </ng-template>
+            </p-carousel>
+
+            <div class="flight-call-to-action">
+                <span>Réservez vos vols dès maintenant</span>
+                <span routerLink="/flight">Réserver</span>
+            </div>
         </div>
     </div>
 
+    <div class="hotel-appaterment-bloc">
 
-
-
-
-    <div class="conteneur-perso tourism">
-        <h1 class="tourism-title" >NOS CIRCUITS TOURISTIQUES</h1>
         
-        <div class="tourism-header">
-            <img src="../../../assets/img/home/tourism/home-tourism.png" alt="tourisme illustration">
-            <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis pariatur illum, laudantium autem earum distinctio veritatis dolore ut porro a itaque sequi tempora beatae Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, recusandae odio nulla enim laboriosam, laborum natus ullam velit earum ab amet, reprehenderit maiores iure quae unde consequatur beatae tempore corporis.</span>
+        <div class="content my-container">
 
-        </div>
-        
-                
-        <div class="circuits">
-            <div class="circuit"></div>
-            <div class="circuit"></div>
-        </div>
+            <div class="hotel-bloc">
+                <div class="hotel-bloc-text">
+                    <span class="hotel-title">
+                        <fa-icon [icon]="faBed"></fa-icon>
+                        <h1>Hôtels</h1>
+                    </span> 
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat illo quis aliquid, corrupti vero cupiditate! Perspiciatis, laudantium? Illum earum animi, libero et expedita sunt error blanditiis.</p>
+                    <span class="hotel-call-to-action" (click)="routeToHotelAppartement('hotel')">Voir Hôtels</span>
+                </div>
+                <div class="hotel-image">
                     
-        <div class="tourism-call-to-action">
-            <span>Découvrez nos circuits</span>
-            <span routerLink="/tourism">Découvrir</span>
+                </div>
+            </div>
+
+            <div class="appartement-bloc">
+            
+                <div class="appartement-image">
+                    
+                </div>
+            
+                <div class="appartement-bloc-text">
+                    <span class="appartement-title">
+                        <fa-icon [icon]="faHome"></fa-icon>
+                        <h1>Appartements Meublés</h1>
+                    </span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat illo quis aliquid, corrupti vero cupiditate! Perspiciatis, laudantium? Illum earum animi, libero et expedita sunt error blanditiis.</p>
+                    <span class="appartement-call-to-action" (click)="routeToHotelAppartement('appartement')">Voir Appartements</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="visas-bloc">
+
+        <div class="content my-container">
+
+            <h1 class="title" >ASSISTANCE VISAS</h1>
+            <div class="visas">
+
+                <div class="visas-content-bloc">
+                        
+                    <div class="visas-text">
+                        <p> Nous accompagnons nos clients dans le processus d’obtention de leur visa pour les Ambassades/Consulats qui acceptent l’intervention d’un tiers.</p>
+                        <p>Nous accompagnons également les clients qui viennent des pays qui n’ont pas une représentation diplomatique au Cameroun dans le processus d’application pour un visa entrée au Cameroun.</p>
+                        <span class="visas-button" routerLink="/visa-dubaî">En savoir plus</span>
+                    </div>
+
+                    <img class="visa-image" src="../../../assets/img/home/visas/globe-countries.png" alt="Round globe with countries flag">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="cars-bloc">
+
+        <div class="content my-container">
+            <h1 class="title">NOS VOITURES</h1>
+
+            <p-carousel [value]="popularCars" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true" [responsiveOptions]="flightsResponsiveOptions">
+                
+                <ng-template let-car pTemplate="item">
+                    <div class="car-item">
+                        <div class="car-item-content">
+                            <div class="car-item-contener">
+                                <div class="car-item-bloc-image-text">
+                                    <img class="car-item-image" src="{{car.imageVoit}}">
+                                    <span class="car-item-text"> {{car.villeVoit}} </span>
+                                </div>
+
+                                <div class="car-item-text">
+                                        
+                                    <span class="car-item-name"> {{car.nomVoit}}</span>
+                                    
+                                    <div class="car-item-tools">
+                                        
+                                        <div>
+                                            <span>Portes</span>
+                                            <span> {{car.nombrePorteVoit}}</span>
+                                        </div>
+
+
+                                        <div>
+                                            <span>Climatisée</span>
+                                            <span>{{car.climVoit}}</span>
+                                        </div>
+
+                                        <div>
+                                            <span>Places</span>
+                                            <span>{{car.nombrePlaceVoit}}</span>
+                                        </div>
+
+                                        
+
+                                    </div>
+
+                                    <div class="car-item-prices">
+                                        <div>
+                                            <span>Dans la ville</span>
+                                            <span> {{car.prixLocationDansVilleVoit}} XAF</span>
+                                        </div>
+                                        <div>
+                                            <span>Hors de la ville</span>
+                                            <span> {{car.prixLocationHorsVilleVoit}} XAF</span>
+                                        </div>
+                                        <div>
+                                            <span>Trajet Aéroport</span>
+                                            <span> {{car.prixTrajetAeroportVoit}} XAF</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="car-item-driver">
+                                        <div>
+                                            <span>Avec chauffeur</span>
+                                            <span> {{car.avecChauffeurVoit}} </span>
+                                        </div>
+                                        <fa-icon [icon]="faEllipsisV"></fa-icon>
+                                        <div>
+                                            <span>Sans chauffeur</span>
+                                            <span> {{car.sansChauffeurVoit}} </span>
+                                        </div>
+                                    </div>
+
+                                    <span class="reserver">Réserver</span>
+
+
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </ng-template>
+            </p-carousel>
+
+            <div class="car-call-to-action">
+                <span>Découvrez notre large choix de véhicules</span>
+                <span routerLink="/rent-car">Découvrir</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="tourism-bloc">
+        <div class="content my-container">
+            <h1 class="title" >NOS CIRCUITS TOURISTIQUES</h1>
+            
+            <div class="tourism-header">
+                <img src="../../../assets/img/home/tourism/home-tourism.png" alt="tourisme illustration">
+                <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis pariatur illum, laudantium autem earum distinctio veritatis dolore ut porro a itaque sequi tempora beatae Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, recusandae odio nulla enim laboriosam, laborum natus ullam velit earum ab amet, reprehenderit maiores iure quae unde consequatur beatae tempore corporis.</span>
+            </div>
+            
+                    
+            <div class="circuits">
+                <div class="circuit"></div>
+                <div class="circuit"></div>
+            </div>
+                        
+            <div class="tourism-call-to-action">
+                <span>Découvrez nos circuits</span>
+            </div>
         </div>
     </div>
 
