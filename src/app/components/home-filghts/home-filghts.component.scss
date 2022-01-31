@@ -1,0 +1,236 @@
+$colorBlue: #115F98;
+$fontColor: #525252;
+
+::ng-deep .p-carousel .p-carousel-content .p-carousel-prev,
+::ng-deep .p-carousel .p-carousel-content .p-carousel-next  {
+    color: white;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.699);
+    z-index: 2;
+    cursor: pointer;
+    box-shadow: none;
+    font-weight: bold;
+}
+
+::ng-deep .p-carousel .p-carousel-content .p-carousel-prev:hover,
+::ng-deep .p-carousel .p-carousel-content .p-carousel-next:hover {
+    background-color: $colorBlue;
+    z-index: 2;
+    user-select: none;
+}
+
+::ng-deep .p-carousel .p-carousel-indicators .p-carousel-indicator button  {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 0 5px;
+    box-shadow: none;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.699);
+}
+
+::ng-deep .p-carousel-indicator .p-link:hover  {
+   background-color: $colorBlue;
+   user-select: none;
+   box-shadow: none;
+}
+
+.flights-bloc{
+    width: 100%;
+    padding-bottom: 2.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    background-image: url("../../../assets/img/home/flights/vol.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+    margin-top: 60px;
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-top: 4em;
+        width: 100%;
+
+        .title{
+            text-align: center;
+        }
+
+        .flight-item {
+
+            margin: 80px 0 50px 0;
+            z-index: 2;
+            width: 100%;
+
+                .flight-item-content{
+                    
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    cursor: pointer;
+                    margin: 0.3rem;
+                    z-index: 2;
+
+                    .flight-item-bloc-image-text{
+                        color: white;
+                        height: 200px;
+                        width: 250px;
+                        position: relative;
+                        overflow: hidden;
+                        z-index: 2;
+
+                        .flight-item-image{
+                            height: 100%;
+                            width: 100%;
+                            z-index: 2;
+                        }
+
+                        .flight-item-text{
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            color:rgba(255, 255, 255, 0.863);
+                            font-size: 2em;
+                            text-align: center;
+                            z-index: 2;
+                        }
+                    }
+
+                    .flight-item-bloc-image-text:before{
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        background: rgba(0, 0, 0, 0.295);
+                        z-index: 2;
+
+                    }
+
+                    .flight-element-text{
+                        background: rgb(19, 19, 19);
+                        display: flex;
+                        flex-direction: column;
+                        padding: 10px 10px;
+                        width: 250px;
+                        z-index: 2;
+
+                        .flight-element-text-first-child{
+                            font-size: 1.1em;
+                            text-align: center;
+                            z-index: 2;
+
+                        }
+
+                        .flight-element-text-second-child{
+                            font-size: 0.8em;
+                            text-align: right;
+                            margin-top: 15px;
+                            z-index: 2;
+
+                        }
+
+                        .flight-element-text-third-bloc{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: baseline;
+                            width: 100%;
+                            z-index: 2;
+
+                            .flight-element-text-third-bloc-first-child{
+                                display: flex;
+                                align-items: center;
+                                font-size: 0.8em;
+                                z-index: 2;
+
+                                .icon-two-ways{
+                                    height: 15px;
+                                    width: 15px;
+                                    margin: 0 10px;
+                                    z-index: 2;
+
+                                }
+                            }
+                            .flight-element-text-third-bloc-second-child{
+                                text-align: right;
+                                font-weight: bolder;
+                                font-size: 1.2em;
+                                z-index: 2;
+
+                            }
+                        }
+                        
+                    }
+                }
+
+                .flight-item-content:hover{
+                    z-index: 2;
+
+                        .flight-item-image{
+                            transform: scale(1.4,1.4);
+                            transition: all 0.3s ease-in-out;
+                            z-index: 2;
+
+                        }
+
+                    
+                    
+                }
+
+        }
+
+        .flight-call-to-action{
+            display: flex;
+            font-size: 1.3em;
+            justify-content: center;
+            margin: 20px 0;
+
+            span:nth-child(2){
+                margin-left: 15px;
+                padding: 5px 15px;
+                color: white;
+                background-color: $colorBlue;
+                border-radius: 100px;
+                border: 2px solid $colorBlue;
+                font-size: 0.8em;
+                cursor: pointer;
+            }
+
+            span:nth-child(2):hover{
+                margin-left: 15px;
+                color: $colorBlue;
+                background-color: white;
+                transition: all 0.3s ease-in;
+                font-weight: bold;
+                
+            }
+        }
+    }
+}
+
+.flights-bloc::after{
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.295);
+    z-index: -1;
+}
+
+
+@media all and (max-width: 375px){
+
+    ::ng-deep .p-carousel .p-carousel-content .p-carousel-prev,
+    ::ng-deep .p-carousel .p-carousel-content .p-carousel-next  {
+        display: none;
+    }
+
+}

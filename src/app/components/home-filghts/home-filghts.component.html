@@ -1,0 +1,39 @@
+<div class=" flights-bloc">
+
+    <div class="content my-container">
+        <h1 class="title">NOS DESTINATIONS POPULAIRES</h1>
+
+        <p-carousel [value]="popularFlights" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true" [responsiveOptions]="flightsResponsiveOptions">
+            
+            <ng-template let-flight pTemplate="item">
+                <div class="flight-item">
+                    <div class="flight-item-content">
+                            
+                            <div class="flight-item-bloc-image-text">
+                                <img class="flight-item-image" src="{{flight.img}}">
+                                <span class="flight-item-text"> {{flight.villeArr}} </span>
+                            </div>
+
+                            <div class="flight-element-text">
+                                    
+                                <span class="flight-element-text-first-child"> {{flight.villeDep}} - {{flight.villeArr}}</span>
+                                
+                                <span class="flight-element-text-second-child">à partir de</span>
+                                <span class="flight-element-text-third-bloc"> 
+                                    <span class="flight-element-text-third-bloc-first-child"> {{flight.codeAirportDep}} <img class="icon-two-ways" src="../../../assets/img/home/flights/icon-two-ways.png"> {{flight.codeAirportArr}} </span>
+                                            
+                                    <span class="flight-element-text-third-bloc-second-child">{{flight.price}}{{flight.currency}}</span>
+                                </span>
+                            </div>
+
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+
+        <div class="flight-call-to-action">
+            <span>Réservez vos vols dès maintenant</span>
+            <span routerLink="/flight">Réserver</span>
+        </div>
+    </div>
+</div>

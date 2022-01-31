@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <div class="about">
+    <div class="about" style="display: none;">
         <div class="content my-container">
             <h1 class="title" >À PROPOS</h1>
             <div class="about-text-image">
@@ -88,47 +88,10 @@
 
     </div>
 
-    <div class=" flights-bloc">
+    <app-home-filghts></app-home-filghts>
 
-        <div class="content my-container">
-            <h1 class="title">NOS DESTINATIONS POPULAIRES</h1>
 
-            <p-carousel [value]="popularFlights" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true" [responsiveOptions]="flightsResponsiveOptions">
-                
-                <ng-template let-flight pTemplate="item">
-                    <div class="flight-item">
-                        <div class="flight-item-content">
-                                
-                                <div class="flight-item-bloc-image-text">
-                                    <img class="flight-item-image" src="{{flight.img}}">
-                                    <span class="flight-item-text"> {{flight.villeArr}} </span>
-                                </div>
-
-                                <div class="flight-element-text">
-                                        
-                                    <span class="flight-element-text-first-child"> {{flight.villeDep}} - {{flight.villeArr}}</span>
-                                    
-                                    <span class="flight-element-text-second-child">à partir de</span>
-                                    <span class="flight-element-text-third-bloc"> 
-                                        <span class="flight-element-text-third-bloc-first-child"> {{flight.codeAirportDep}} <img class="icon-two-ways" src="../../../assets/img/home/flights/icon-two-ways.png"> {{flight.codeAirportArr}} </span>
-                                                
-                                        <span class="flight-element-text-third-bloc-second-child">{{flight.price}}{{flight.currency}}</span>
-                                    </span>
-                                </div>
-
-                        </div>
-                    </div>
-                </ng-template>
-            </p-carousel>
-
-            <div class="flight-call-to-action">
-                <span>Réservez vos vols dès maintenant</span>
-                <span routerLink="/flight">Réserver</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="hotel-appaterment-bloc">
+    <div class="hotel-appaterment-bloc" style="display: none;">
 
         
         <div class="content my-container">
@@ -188,91 +151,7 @@
         </div>
     </div>
 
-    <div class="cars-bloc">
-
-        <div class="content my-container">
-            <h1 class="title">NOS VOITURES</h1>
-
-            <p-carousel [value]="popularCars" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true" [responsiveOptions]="flightsResponsiveOptions">
-                
-                <ng-template let-car pTemplate="item">
-                    <div class="car-item">
-                        <div class="car-item-content">
-                            <div class="car-item-contener">
-                                <div class="car-item-bloc-image-text">
-                                    <img class="car-item-image" src="{{car.imageVoit}}">
-                                    <span class="car-item-text"> {{car.villeVoit}} </span>
-                                </div>
-
-                                <div class="car-item-text">
-                                        
-                                    <span class="car-item-name"> {{car.nomVoit}}</span>
-                                    
-                                    <div class="car-item-tools">
-                                        
-                                        <div>
-                                            <span>Portes</span>
-                                            <span> {{car.nombrePorteVoit}}</span>
-                                        </div>
-
-
-                                        <div>
-                                            <span>Climatisée</span>
-                                            <span>{{car.climVoit}}</span>
-                                        </div>
-
-                                        <div>
-                                            <span>Places</span>
-                                            <span>{{car.nombrePlaceVoit}}</span>
-                                        </div>
-
-                                        
-
-                                    </div>
-
-                                    <div class="car-item-prices">
-                                        <div>
-                                            <span>Dans la ville</span>
-                                            <span> {{car.prixLocationDansVilleVoit}} XAF</span>
-                                        </div>
-                                        <div>
-                                            <span>Hors de la ville</span>
-                                            <span> {{car.prixLocationHorsVilleVoit}} XAF</span>
-                                        </div>
-                                        <div>
-                                            <span>Trajet Aéroport</span>
-                                            <span> {{car.prixTrajetAeroportVoit}} XAF</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="car-item-driver">
-                                        <div>
-                                            <span>Avec chauffeur</span>
-                                            <span> {{car.avecChauffeurVoit}} </span>
-                                        </div>
-                                        <fa-icon [icon]="faEllipsisV"></fa-icon>
-                                        <div>
-                                            <span>Sans chauffeur</span>
-                                            <span> {{car.sansChauffeurVoit}} </span>
-                                        </div>
-                                    </div>
-
-                                    <span class="reserver">Réserver</span>
-
-
-                                </div>
-                            </div>  
-                        </div>
-                    </div>
-                </ng-template>
-            </p-carousel>
-
-            <div class="car-call-to-action">
-                <span>Découvrez notre large choix de véhicules</span>
-                <span routerLink="/rent-car">Découvrir</span>
-            </div>
-        </div>
-    </div>
+   <app-home-cars></app-home-cars>
 
     <div class="tourism-bloc">
         <div class="content my-container">
@@ -296,3 +175,4 @@
     </div>
 
 </div>
+

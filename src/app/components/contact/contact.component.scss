@@ -35,6 +35,7 @@ $fontColor: #525252;
                 left:50%;
                 color: white;
                 transform: translate(-50%,-50%);
+                white-space: nowrap;
             }
         }
 
@@ -75,8 +76,8 @@ $fontColor: #525252;
                 width: 100%;
                 justify-content: space-between;
 
-
                 .agence{
+
                     display: flex;
                     flex-direction: column;
                     color: $colorBlue;
@@ -97,10 +98,10 @@ $fontColor: #525252;
                     }
 
                     .mail, .phone, .adress{
+
                         display: flex;
                         align-items: baseline;
 
-                       
                     }
                 }
 
@@ -233,8 +234,6 @@ $fontColor: #525252;
                     padding: 0 20px;
                     outline: none;
                 }
-
-            
 
                 #name-input:not(:placeholder-shown) + .label-id,
                 #objet-input:not(:placeholder-shown) + .label-id
@@ -391,7 +390,6 @@ $fontColor: #525252;
     }
 }
 
-
 @media all and (max-width: 825px){
 
     .contact{
@@ -399,35 +397,24 @@ $fontColor: #525252;
         .content{
     
             .contact-bloc{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-    
-                .title{
-                    margin-bottom: 1em;
-                }
-    
+
                 .agences{
-                    display: flex;
-                    width: 100%;
+
                     justify-content: center;
                     align-items: center;
                     flex-direction: column;
     
                     .agence{
-                        display: flex;
-                        flex-direction: column;
-                        color: $colorBlue;
-                        flex: 1;
+
+                        align-items: center;
 
                         .name{
                             display: flex;
                             flex-direction: column;
                             align-items: center;
+                            width: 100%;
 
                             fa-icon{
-                                font-size: 2em;
                                 padding: 2px 13px;
                                 border-radius: 50%;
                                 background-color: #11609849;
@@ -435,64 +422,42 @@ $fontColor: #525252;
                             }
     
                             span{
-                                font-size: 1.25em;
-                                font-weight: 540;
-                                font-size: 1.3em;
-                                margin-bottom: 10px;
-                                text-decoration: underline;
+    
+                                margin: 0 0 10px 0;
                             }
-                        }
-    
-                        .mail, .phone, .adress{
-                            display: flex;
-                            align-items: baseline;
-    
-                           
                         }
                     }
     
                     .yaounde{
-                        align-items: center;
+
+                        align-items: flex-start;
                         
                     }
     
                     .douala{
-                        align-items: center;
+                        align-items: flex-start;
                         margin-top: 30px;
                         .name{
                             flex-direction: column-reverse;
                             align-items: center;
                             span{
-                                margin-left: 10px;
+                                margin: 0 0 10px 0;
                             }
                         }
     
                         .mail, .phone, .adress{
+
                             flex-direction: row-reverse;
-                            span{
-                                margin-left: 10px;
-                            }
                            
                         }
                     }
                 }
     
                 .horaires-reseaux{
-                    display: flex;
-                    width: 100%;
-                    margin: 3em 0;
-                    align-items: center;
-                    border-radius: 5px;
-                    border: solid $colorBlue;
-                    position: relative;
-                    padding: 10px 20px;
-                    color:$colorBlue;
-    
+                    
                     .horaires{
     
-                        display: flex;
                         align-items: center;
-                        justify-content: space-around;
                         flex-wrap: wrap;
 
                         .heures{
@@ -500,214 +465,16 @@ $fontColor: #525252;
 
                         }
             
-                        .reseaux{    
+                        .reseaux{  
+
                             margin: 0 5px;
-                            > span {
-                                font-weight: 540; 
-                                margin: 10px 0 0 0;               
-                            }
-            
-                            .reseau{
-                                
-                                img{
-                                    height: 30px;
-                                    width: 30px;
-                                    margin: 5px 5px 0 5px;
-                                    cursor: pointer;
-                                }
-                            }
+
                         }
                     }
     
                 }
             }
-    
-            .form-bloc{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 30px;
-                padding: 40px 7%;
-    
-            form{
-                background-color: #1160984b;
-                border-radius: 10px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-                width: 800px;
-                padding: 30px 40px;
-    
-                .name-bloc, .objet-bloc{
-                    width: 100%;
-                    height: 40px;
-                    position: relative;
-                    margin: 10px 0;
-    
-                    #name-input, #objet-input{
-                        height: 100%;
-                        width: 100%;
-                        border: none;
-                        border-radius: 5px;
-                        padding: 0 20px;
-                        outline: none;
-                    }
-    
-                
-    
-                    #name-input:not(:placeholder-shown) + .label-id,
-                    #objet-input:not(:placeholder-shown) + .label-id
-                    {
-                        transform: translate(0, -50%);
-                        opacity: 1;
-                        color: $colorBlue;
-                    }
-    
-                    .label-id{
-                        left: 20px;
-                        position: absolute;
-                        top: 0;
-                        opacity: 0;
-                        transition: all 0.2s;
-                        font-weight: 540;
-                    }
-                }
-    
-    
-                .email-phone{
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    height: 40px;
-                    width: 100%;
-                    margin: 10px 0;
-    
-                    .email-bloc,.phone-bloc{
-                        width: 45%;
-                        position: relative;
-                        height: 100%;
-    
-                        #email-input, #phone-input{
-                            height: 100%;
-                            width: 100%;
-                            border: none;
-                            border-radius: 5px;
-                            padding: 0 20px;
-                            
-                            outline: none;
-                        }
-    
-                        #phone-input:not(:placeholder-shown) + .label-id,
-                        #email-input:not(:placeholder-shown) + .label-id
-                        {
-                            transform: translate(0, -50%);
-                            opacity: 1;
-                            color: $colorBlue;
-                        }
-    
-                        .label-id{
-                            left: 20px;
-                            position: absolute;
-                            top: 0;
-                            opacity: 0;
-                            transition: all 0.2s;
-                        }
-                    }
-    
-                }
-    
-                .contact-prefere{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-    
-                    > div{
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-    
-                        .radio{
-                            display: flex;
-                            justify-content: baseline;
-                            align-items: center;
-                            margin: 5px 10px;
-                        }
-    
-                        .radio:nth-child(1){
-    
-                            #email{
-                                margin-left: 10px;
-                            }
-                        }
-    
-                        .radio:nth-child(2){
-                            #phone{
-                                margin-right: 10px;
-                            }
-                        }
-                    }
-                }
-    
-                .message-bloc{
-                    width: 100%;
-                    height: 300px;
-                    position: relative;
-                    margin: 10px 0;
-    
-                    #message-area{
-                        height: 100%;
-                        min-height: 300px;
-                        max-height: 300px;
-                        width: 100%;
-                        border: none;
-                        border-radius: 5px;
-                        padding: 10px 20px;
-                        outline: none;
-                    }
-    
-                    #message-area:not(:placeholder-shown) + .label-id
-    
-                    {
-                        transform: translate(0, -50%);
-                        opacity: 1;
-                        color: $colorBlue;
-                    }
-    
-                    .label-id{
-                        left: 20px;
-                        position: absolute;
-                        top: 0;
-                        opacity: 0;
-                        transition: all 0.2s;
-                        font-weight: 540;
-                    }
-                }
-    
-    
-                }
-    
-    
-            
-    
-            button{
-                padding: 3px 15px;
-                border-radius: 100px;
-                border: none;
-                cursor: pointer;
-                font-size: 1em;
-                background-color: white
-    
-            }
-    
-            button:hover{
-                color: white;
-                background-color: #363636 ;
-                transition: all 0.5s ease 0s;
-    
-            }
-            }
+
         }
     }
 }
@@ -723,15 +490,11 @@ $fontColor: #525252;
                 .horaires-reseaux{
     
                     .horaires{
-    
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-around;
-                        flex-wrap: wrap;
+
+                        justify-content: space-between;
 
                         .heures{
-                            margin: 0 5px;
-
+                            
                             margin-bottom: 10px;
 
                         }
@@ -745,186 +508,27 @@ $fontColor: #525252;
                 width: 100%;
                 padding: 0;
                 
-            form{
-                background-color: #1160984b;
-                border-radius: 10px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-                width: 100%;
-                padding: 30px 20px;
-    
-                .name-bloc, .objet-bloc{
+                form{
+
                     width: 100%;
-                    height: 40px;
-                    position: relative;
-                    margin: 10px 0;
-    
-                    #name-input, #objet-input{
-                        height: 100%;
-                        width: 100%;
-                        border: none;
-                        border-radius: 5px;
-                        padding: 0 20px;
-                        outline: none;
-                    }
-    
-                
-    
-                    #name-input:not(:placeholder-shown) + .label-id,
-                    #objet-input:not(:placeholder-shown) + .label-id
-                    {
-                        transform: translate(0, -50%);
-                        opacity: 1;
-                        color: $colorBlue;
-                    }
-    
-                    .label-id{
-                        left: 20px;
-                        position: absolute;
-                        top: 0;
-                        opacity: 0;
-                        transition: all 0.2s;
-                        font-weight: 540;
-                    }
-                }
-    
-    
-                .email-phone{
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    align-items: center;
-                    height: fit-content;
-                    width: 100%;
-                    margin: 0;
-    
-                    .email-bloc,.phone-bloc{
-                        width: 100%;
-                        position: relative;
-                        height: 40px;
-                        margin: 10px 0;
-    
-                        #email-input, #phone-input{
-                            height: 100%;
+        
+                    .email-phone{
+
+                        flex-direction: column;
+                        height: fit-content;
+                        margin: 0;
+        
+                        .email-bloc,.phone-bloc{
+
                             width: 100%;
-                            border: none;
-                            border-radius: 5px;
-                            padding: 0 20px;
-                            
-                            outline: none;
+                            height: 40px;
+                            margin: 10px 0;
+
                         }
-    
-                        #phone-input:not(:placeholder-shown) + .label-id,
-                        #email-input:not(:placeholder-shown) + .label-id
-                        {
-                            transform: translate(0, -50%);
-                            opacity: 1;
-                            color: $colorBlue;
-                        }
-    
-                        .label-id{
-                            left: 20px;
-                            position: absolute;
-                            top: 0;
-                            opacity: 0;
-                            transition: all 0.2s;
-                        }
+        
                     }
-    
+
                 }
-    
-                .contact-prefere{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-    
-                    > div{
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-    
-                        .radio{
-                            display: flex;
-                            justify-content: baseline;
-                            align-items: center;
-                            margin: 5px 10px;
-                        }
-    
-                        .radio:nth-child(1){
-    
-                            #email{
-                                margin-left: 10px;
-                            }
-                        }
-    
-                        .radio:nth-child(2){
-                            #phone{
-                                margin-right: 10px;
-                            }
-                        }
-                    }
-                }
-    
-                .message-bloc{
-                    width: 100%;
-                    height: 300px;
-                    position: relative;
-                    margin: 10px 0;
-    
-                    #message-area{
-                        height: 100%;
-                        min-height: 300px;
-                        max-height: 300px;
-                        width: 100%;
-                        border: none;
-                        border-radius: 5px;
-                        padding: 10px 20px;
-                        outline: none;
-                    }
-    
-                    #message-area:not(:placeholder-shown) + .label-id
-    
-                    {
-                        transform: translate(0, -50%);
-                        opacity: 1;
-                        color: $colorBlue;
-                    }
-    
-                    .label-id{
-                        left: 20px;
-                        position: absolute;
-                        top: 0;
-                        opacity: 0;
-                        transition: all 0.2s;
-                        font-weight: 540;
-                    }
-                }
-    
-    
-                }
-    
-    
-            
-    
-            button{
-                padding: 3px 15px;
-                border-radius: 100px;
-                border: none;
-                cursor: pointer;
-                font-size: 1em;
-                background-color: white
-    
-            }
-    
-            button:hover{
-                color: white;
-                background-color: #363636 ;
-                transition: all 0.5s ease 0s;
-    
-            }
             }
         }
     }
