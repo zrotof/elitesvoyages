@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RoutesService } from '../../services/routes/routes.service';
+
+import { faBed, faHome } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home-hotel-app',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeHotelAppComponent implements OnInit {
 
-  constructor() { }
+  faBed = faBed;
+  faHome = faHome;
+  constructor(  private routesService: RoutesService 
+    ) { }
 
   ngOnInit(): void {
+  }
+
+
+  //redirection to hotl-app component and display app block
+  routeToHotelAppartement(param: string){
+    this.routesService.redirectToHotelAppartementComponent(param);
   }
 
 }

@@ -1,0 +1,120 @@
+$colorBlue: #115F98;
+$fontColor: #525252;
+
+
+    .about{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 80px 0 0 0;
+
+        .content{
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .about-text-image{
+            
+                display: flex;
+                align-items: center;
+                width:100%;
+                margin: 3em 0 0 0;
+                justify-content: space-around;
+    
+                .about-text{
+                    width: 65%;
+                    font-size: 1.05em;
+
+
+    
+                    .about-button{
+                        display: flex;
+                        width: 100%;
+                        margin-top: 30px;
+                        justify-content: center;
+    
+                        span{
+                            padding: 4px 20px;
+                            cursor: pointer;
+                            border-radius: 100px;
+                            margin:0 10px;
+                            text-align: center;
+                            font-size: 0.95em;
+                            font-weight: bold;
+                        }
+    
+                        span:first-child{
+                            border: 2px solid $colorBlue;
+                            color: $colorBlue;
+                            
+                        }
+
+                        span:first-child:hover{
+                            background-color: $colorBlue;
+                            color: white;
+                            font-weight: bold;
+                            transition: all 0.3s ease-in-out;
+                        }
+                    }
+                }
+
+                .about-image{
+                    width: 17em;
+                    display: flex;
+                    height: 12em;
+    
+                    .about-image-1{
+                        background-image: url("../../../assets/img/home/about/home-plane-1.jpg");
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                        width: 8em;
+                        height: 100%;
+                        margin: 0 0.25em;
+                    }
+    
+                    .about-image-2{
+                        background-image: url("../../../assets/img/home/about/about-sea-1.jpeg");
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                        width: 8em;
+                        height: 100%;
+                        margin: 0 0.25em;
+                    }
+    
+                }
+            }
+        }
+    }
+
+
+    @media all and (max-width: 870px){
+
+        .about{
+    
+            .content{
+
+    
+                .about-text-image{
+
+                    flex-direction: column-reverse;
+
+        
+                    .about-text{
+                        width: 100%;
+                        text-align: justify;
+                    }
+    
+                    .about-image{
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+        }
+
+    }

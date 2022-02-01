@@ -1,0 +1,238 @@
+$colorBlue: #115F98;
+$fontColor: #525252;
+
+    .hotel-appaterment-bloc{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+
+        .content{
+            display: flex;
+            flex-direction: column;
+            margin-top: 100px;
+
+            .hotel-bloc, .appartement-bloc{
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center; 
+                margin: 40px 0; 
+            
+
+            .hotel-bloc-text{
+                display: flex;
+                width: 50%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding-right: 50px;
+
+                .hotel-title{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: $colorBlue;
+
+                    fa-icon{
+                        font-size: 1.5em;
+                        margin-right: 10px ;
+                    }
+                }
+
+                
+
+                .hotel-call-to-action{
+                    font-size: 1.1em;
+                    margin-top: 10px;
+                    padding: 3px 20px;
+                    width: fit-content;
+                    color: white;
+                    border-radius:100px;
+                    background-color: $colorBlue;
+                    border: solid $colorBlue;
+                    cursor: pointer;
+                    transition: all 0.3s ease-in;
+                }
+
+                .hotel-call-to-action:hover{
+                    
+                    color: $colorBlue;
+                    font-weight: bold;
+                    background-color: white;
+                }
+            }
+
+
+            .appartement-bloc-text{
+                display: flex;
+                width: 50%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding-left: 50px;
+
+                .appartement-title{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: $colorBlue;
+
+                    fa-icon{
+                        font-size: 1.5em;
+                        margin-right: 10px ;
+                    }
+                }
+
+                
+
+                .appartement-call-to-action{
+                    font-size: 1.1em;
+                    margin-top: 10px;
+                    padding: 3px 20px;
+                    width: fit-content;
+                    color: white;
+                    border-radius:100px;
+                    background-color: $colorBlue;
+                    border: solid $colorBlue;
+                    cursor: pointer;
+                    transition: all 0.3s ease-in;
+                }
+
+                .appartement-call-to-action:hover{
+                    
+                    color: $colorBlue;
+                    font-weight: bold;
+                    background-color: white;
+                }
+            }
+        }
+
+        .hotel-image{
+            background-image: url("../../../assets/img/home/hotel-app/home-hotel.jpg");
+            background-repeat: no-repeat ;
+            background-size: cover;
+            background-position: center;
+            width: 28em;
+            height: 25em;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
+            cursor: pointer;
+        }
+
+        .appartement-image{
+            background-image: url("../../../assets/img/home/hotel-app/home-appartement.jpg");
+            background-repeat: no-repeat ;
+            background-size: cover;
+            background-position: center;
+            width: 28em;
+            height: 25em;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
+            cursor: pointer;
+        }
+
+
+        .hotel-image:hover{
+            box-shadow: $colorBlue 0px 5px 15px;
+        }
+
+        .appartement-image:hover{
+            box-shadow: $colorBlue 0px 5px 15px;
+        }
+
+
+
+    }
+
+    .appartement-bloc-image:before, .hotel-bloc-image:before{
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.295);
+        top: 0;
+        left: 0;
+        border-radius: 5px;
+    }
+
+    }
+
+
+    @media all and (max-width: 1140px){
+
+        .hotel-appaterment-bloc{
+
+            .content{
+    
+                .hotel-bloc, .appartement-bloc{
+                    
+                    margin: 50px 0; 
+    
+                    .appartement-bloc-text{
+                        display: flex;
+                        width: 50%;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        padding-left: 30px;
+    
+                    }
+                }
+    
+                .hotel-image,
+                .appartement-image {
+
+                    width: 20em;
+                    height: 17em;
+                }
+            }
+        }
+
+    }
+
+    @media all and (max-width: 750px){
+
+        .hotel-appaterment-bloc{
+
+            .content{
+    
+                .hotel-bloc{
+                    flex-direction: column-reverse;
+                    margin: 0 0 30px 0; 
+
+                    .hotel-bloc-text{
+                        width: 100%;
+                        padding: 0;
+                        text-align: justify;
+                        margin-top: 40px;
+    
+                    }
+
+                }
+                .appartement-bloc{
+                    flex-direction: column;
+
+                    margin: 60px 0 0 0; 
+    
+                    .appartement-bloc-text{
+                        width: 100%;
+                        padding: 0;
+                        text-align: justify;
+                        margin-top: 40px;
+
+                    }
+                }
+    
+                .hotel-image,
+                .appartement-image {
+
+                    width: 250px;
+                    height: 200px;
+                }
+            }
+        }
+
+    }

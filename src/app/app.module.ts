@@ -35,6 +35,7 @@ import { HomeFilghtsComponent } from './components/home-filghts/home-filghts.com
 import { HomeServicesComponent } from './components/home-services/home-services.component';
 import { HomeHotelAppComponent } from './components/home-hotel-app/home-hotel-app.component';
 import { HomeCarsComponent } from './components/home-cars/home-cars.component';
+import { HomeAboutComponent } from './components/home-about/home-about.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { HomeCarsComponent } from './components/home-cars/home-cars.component';
     HomeFilghtsComponent,
     HomeServicesComponent,
     HomeHotelAppComponent,
-    HomeCarsComponent
+    HomeCarsComponent,
+    HomeAboutComponent
   ],
   imports: [
     BrowserModule,

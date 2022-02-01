@@ -46,24 +46,7 @@
         </div>
     </div>
 
-    <div class="about" style="display: none;">
-        <div class="content my-container">
-            <h1 class="title" >À PROPOS</h1>
-            <div class="about-text-image">
-                <div class="about-text">
-                    <span>Créée en 2009 dans un soucis de faire voyager différemment, Elites Voyages s'est donnée pour vocation de faire de nos clients, des Elites à travers un service à la carte selon les besoins ...</span>
-                    <div class="about-button">
-                        <span routerLink="/about">En Savoir Plus</span>
-                    </div>
-                </div>
-
-                <div class="about-image">
-                    <div class="about-image-1"></div>
-                    <div class="about-image-2"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <app-home-about></app-home-about>
 
     <div class="services-bloc">
 
@@ -90,68 +73,11 @@
 
     <app-home-filghts></app-home-filghts>
 
+    <app-home-hotel-app></app-home-hotel-app>
 
-    <div class="hotel-appaterment-bloc" style="display: none;">
+    <app-home-visas></app-home-visas>
 
-        
-        <div class="content my-container">
-
-            <div class="hotel-bloc">
-                <div class="hotel-bloc-text">
-                    <span class="hotel-title">
-                        <fa-icon [icon]="faBed"></fa-icon>
-                        <h1>Hôtels</h1>
-                    </span> 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat illo quis aliquid, corrupti vero cupiditate! Perspiciatis, laudantium? Illum earum animi, libero et expedita sunt error blanditiis.</p>
-                    <span class="hotel-call-to-action" (click)="routeToHotelAppartement('hotel')">Voir Hôtels</span>
-                </div>
-                <div class="hotel-image">
-                    
-                </div>
-            </div>
-
-            <div class="appartement-bloc">
-            
-                <div class="appartement-image">
-                    
-                </div>
-            
-                <div class="appartement-bloc-text">
-                    <span class="appartement-title">
-                        <fa-icon [icon]="faHome"></fa-icon>
-                        <h1>Appartements Meublés</h1>
-                    </span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat illo quis aliquid, corrupti vero cupiditate! Perspiciatis, laudantium? Illum earum animi, libero et expedita sunt error blanditiis.</p>
-                    <span class="appartement-call-to-action" (click)="routeToHotelAppartement('appartement')">Voir Appartements</span>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="visas-bloc">
-
-        <div class="content my-container">
-
-            <h1 class="title" >ASSISTANCE VISAS</h1>
-            <div class="visas">
-
-                <div class="visas-content-bloc">
-                        
-                    <div class="visas-text">
-                        <p> Nous accompagnons nos clients dans le processus d’obtention de leur visa pour les Ambassades/Consulats qui acceptent l’intervention d’un tiers.</p>
-                        <p>Nous accompagnons également les clients qui viennent des pays qui n’ont pas une représentation diplomatique au Cameroun dans le processus d’application pour un visa entrée au Cameroun.</p>
-                        <span class="visas-button" routerLink="/visa-dubaî">En savoir plus</span>
-                    </div>
-
-                    <img class="visa-image" src="../../../assets/img/home/visas/globe-countries.png" alt="Round globe with countries flag">
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-   <app-home-cars></app-home-cars>
+    <app-home-cars></app-home-cars>
 
     <div class="tourism-bloc">
         <div class="content my-container">

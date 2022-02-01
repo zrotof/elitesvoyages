@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RoutesService } from '../../services/routes/routes.service';
 import { Services } from '../../models/services';
 import { faPlane, faBed, faCarSide, faHome, faCubes, faChevronLeft, faChevronRight, faGlobeAfrica, faAddressCard } from '@fortawesome/free-solid-svg-icons';
 
+import { Carousel } from 'primeng/carousel';
 
 
 @Component({
@@ -22,8 +22,8 @@ export class HomeComponent implements OnInit {
 
   faPlane = faPlane;
   faBed = faBed;
-  faCarSide = faCarSide;
   faHome = faHome;
+  faCarSide = faCarSide;
   faCubes = faCubes;
   faChevronLeft = faChevronLeft;
   faChevronRight = faChevronRight;
@@ -31,8 +31,13 @@ export class HomeComponent implements OnInit {
   faAddressCard = faAddressCard;
  
 
-  constructor( private routing: RoutesService) {
-   
+  constructor() {
+
+    //Enabling scroll on carousel for mobiles
+    Carousel.prototype.onTouchMove = () => { };
+    //Carousel.prototype.onTouchMove = noop;
+
+
 }
 
 
@@ -42,14 +47,6 @@ export class HomeComponent implements OnInit {
     this.retrieveListOfServices();
 
   }
-
-
-  //redirection to hotl-app component and display app block
-  routeToHotelAppartement(param: string){
-    this.routing.redirectToHotelAppartementComponent(param);
-  }
-
-
 
 
 
@@ -97,8 +94,6 @@ export class HomeComponent implements OnInit {
 
     this.resetTimer();
   }
-
-  
 
   //Show corresponding clicked dot 
   currentSlide(slideNumber: number):any{
