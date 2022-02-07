@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 import { faGlobe,faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import {MenuItem} from 'primeng/api';
@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   visibleSidebarMenu: boolean = false;
 
   isBurgerMenuClicked: boolean = false;
+  isFirstNavigation: boolean = true;
 
   constructor( private router: Router) {
 
@@ -35,13 +36,31 @@ export class HeaderComponent implements OnInit {
   routingEvent(){
     this.router.events.subscribe( event =>{
 
-      if(event instanceof NavigationStart){
-        if(this.isBurgerMenuClicked){
-          let navSmallScreen = <HTMLElement>document.querySelector('.header-right');
-          let inputstatus = <HTMLInputElement>document.querySelector('.burger input');
+      if(this.isFirstNavigation){
+        this.isFirstNavigation = false;
 
-          inputstatus.checked = false;
-          navSmallScreen.classList.toggle("toggle-nav");
+        return ;
+      }
+
+      if(event instanceof NavigationEnd){
+
+        let navSmallScreen = <HTMLElement>document.querySelector('.header-right');
+        let header = <HTMLElement>document.querySelector('header');
+        let inputstatus = <HTMLInputElement>document.querySelector('.burger input');
+
+        if(this.isBurgerMenuClicked ){
+          
+            inputstatus.checked = false;
+            navSmallScreen.classList.toggle("toggle-nav");
+            this.isBurgerMenuClicked = false;            
+
+        }
+
+        else{
+                    
+          if (window.pageYOffset <= header.clientHeight) {
+            header.classList.remove('navbar-background-on-scroll');
+          }
         }
       }
     })
@@ -118,12 +137,11 @@ onWindowScroll() {
     }
   }
 
-
    //Handling click on burger menu
    onBurgerMenu(){
-    var navSmallScreen = <HTMLElement>document.querySelector('.header-right');
-    var inputstatus = <HTMLInputElement>document.querySelector('.burger input');
-    var header = <HTMLElement>document.querySelector('header');
+    let navSmallScreen = <HTMLElement>document.querySelector('.header-right');
+    let inputstatus = <HTMLInputElement>document.querySelector('.burger input');
+    let header = <HTMLElement>document.querySelector('header');
     // À chaque clique sur l'input on vérifie si l'input est cochée
     if(inputstatus.checked === true){
       
@@ -137,6 +155,7 @@ onWindowScroll() {
     }
     else{
       navSmallScreen.classList.toggle("toggle-nav");
+      this.isBurgerMenuClicked = false;
 
       if (window.pageYOffset <= header.clientHeight) {
         header.classList.remove('navbar-background-on-scroll');
