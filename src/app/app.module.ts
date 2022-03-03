@@ -12,6 +12,7 @@ import { FieldsetModule, } from 'primeng/fieldset';
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
+import {ImageModule} from 'primeng/image';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -74,7 +75,8 @@ import { HomeAboutComponent } from './components/home-about/home-about.component
     FieldsetModule,
     CarouselModule,
     ButtonModule,
-    ToastModule
+    ToastModule,
+    ImageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

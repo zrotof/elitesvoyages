@@ -1,156 +1,103 @@
 <div class="visa">
 
     <div class="visa-top-bloc">
-        <h1 class="visa-top-title">VISA DUBAÏ</h1>
+        <h1 class="visa-top-title">ASSISTANCE VISA</h1>
     </div>
 
-    <div class="accordions conteneur-perso">
-        
-        <div class="accordion">
-            <div class="accordion-header dubai">
-                <fa-icon [icon]="faMinus"></fa-icon>
-                <img src="../../../assets/img/visa&Assis/uae-flag.gif">
-                <span>Dubaî - UAE</span>
-            </div>
+    
 
-            <div class="accordion-content active-accordion">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident libero dolor dolorem quidem eos aut quibusdam aspernatur eum laborum, ipsa eius illo? Praesentium nisi dicta placeat doloremque blanditiis odio. Atque.
-                Aliquam tenetur temporibus qui sit tempora non dicta ducimus, dolores iste id omnis, explicabo possimus. Natus dolores soluta ipsam, quasi quisquam corporis eaque mollitia libero suscipit itaque inventore esse sint.
-                Cupiditate ipsa iure laudantium laborum atque pariatur, nesciunt eaque nemo laboriosam labore, amet expedita! Fuga eum voluptatem voluptatum! Commodi unde quas atque molestiae ratione itaque eveniet repudiandae eos ducimus hic?
-                Sit iste corrupti iusto provident vel blanditiis, labore adipisci consequuntur voluptate illo ex quod saepe aspernatur, sed optio laborum quam rerum nostrum dicta! Enim et recusandae, est temporibus ipsa voluptate!
-                Veniam debitis, at sint quam sequi, sunt expedita facilis blanditiis ad dolorum reiciendis laboriosam numquam voluptatibus illo illum? Facere ratione omnis est numquam assumenda. Ipsum possimus iure natus eius exercitationem?
-            
-            </div>
+    <div class="content my-container">
 
+        <div class="intro">
+            <span> 
+                <b>Elites Voyages</b> vous fournit une assistance efficace dans la constitution de votre dossier avant dépôt dans les ambassades.
+            </span>
+
+            <span>
+                Trouvez ci-après une liste non exhaustives de quelques pays pour lesquels nous pouvons vous accompagner dans votre démarche.
+            </span>
         </div>
 
-        <div class="accordion">
-            <div class="accordion-header" (click)="showHideAccordion(0)" (click)="onClicked0()">
-                <span *ngIf="iscliked0"><fa-icon  [icon]="faMinus"></fa-icon></span>
-                <span *ngIf="!iscliked0"><fa-icon [icon]="faPlus"></fa-icon></span>
-                <img src="../../../assets/img/visa&Assis/cmr-flag.gif">
-                <span>Cameroun</span>
-            </div>
+        <div class="visa-menu">
 
-            <div class="accordion-content assistance-visa">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident libero dolor dolorem quidem eos aut quibusdam aspernatur eum laborum, ipsa eius illo? Praesentium nisi dicta placeat doloremque blanditiis odio. Atque.
-                Aliquam tenetur temporibus qui sit tempora non dicta ducimus, dolores iste id omnis, explicabo possimus. Natus dolores soluta ipsam, quasi quisquam corporis eaque mollitia libero suscipit itaque inventore esse sint.
-                Cupiditate ipsa iure laudantium laborum atque pariatur, nesciunt eaque nemo laboriosam labore, amet expedita! Fuga eum voluptatem voluptatum! Commodi unde quas atque molestiae ratione itaque eveniet repudiandae eos ducimus hic?
-                Sit iste corrupti iusto provident vel blanditiis, labore adipisci consequuntur voluptate illo ex quod saepe aspernatur, sed optio laborum quam rerum nostrum dicta! Enim et recusandae, est temporibus ipsa voluptate!
-                Veniam debitis, at sint quam sequi, sunt expedita facilis blanditiis ad dolorum reiciendis laboriosam numquam voluptatibus illo illum? Facere ratione omnis est numquam assumenda. Ipsum possimus iure natus eius exercitationem?
-            
-            </div>
-
+            <ng-template ngFor let-visa [ngForOf]="visasMenuList"; let-index = "index"; let-first="first">
+                <button [ngClass]="first?'active-menu':''" (click)="onVisa(index, visa.name)">{{visa.name}}</button>
+            </ng-template>
+     
         </div>
 
-        <div class="accordion">
-            <div class="accordion-header" (click)="showHideAccordion(1)" (click)="onClicked1()">
-                <span *ngIf="iscliked1"><fa-icon  [icon]="faMinus"></fa-icon></span>
-                <span *ngIf="!iscliked1"><fa-icon [icon]="faPlus"></fa-icon></span>
-                <img src="../../../assets/img/visa&Assis/uae-flag.gif">
+        <ng-template ngFor let-visa [ngForOf]="visasDataList"; let-index = "index"; let-first="first">
 
-                <span>Sénégal</span>
+            <div class="accordion">
+
+                <div [ngClass]="first?'active-accordion-header':''" class="accordion-header" (click)="showHideAccordion(index)">
+
+                    <div class="flag-country">
+                        <img src={{visa.flag}}>
+                        <span> {{visa.country}} </span>
+                    </div>
+
+                    <div class="signs">
+                        <span *ngIf="isClicked"><fa-icon  [icon]="faMinus"></fa-icon></span>
+                        <span *ngIf="!isClicked"><fa-icon [icon]="faPlus"></fa-icon></span>
+                    </div>
+
+                </div>
+
+
+                <div [ngClass]="first?'active-accordion-content':''" class="accordion-content assistance-visa">
+
+                    <div class="images-bloc">
+                        <p-image src="../../../assets/img/dubai.jpeg" alt="Image" width="100%" [preview]="true">
+                        </p-image>
+
+                        <div class="images-middle">
+                            <p-image src="../../../assets/img/dubai.jpeg" alt="Image" width="100%" [preview]="true">
+                            </p-image>
+                            <p-image src="../../../assets/img/dubai.jpeg" alt="Image" width="100%" [preview]="true">
+                            </p-image>
+                        </div>
+                        <div class="images-right">
+                            <p-image src="../../../assets/img/dubai.jpeg" alt="Image" width="100%" [preview]="true">
+                            </p-image>
+                            <p-image src="../../../assets/img/dubai.jpeg" alt="Image" width="100%" [preview]="true">
+                            </p-image>
+                        </div>
+                    </div>
+
+                    <div class="accordion-data">
+                        <h5>Pièces à fournir</h5>
+
+                        <div *ngIf="visa.many" class="general-advice">
+                            <span>Pièces à fournir dans tous les cas</span>
+                            <ul>
+                                <li *ngFor="let general of visa.general">{{general.libelle}}</li>
+                            </ul>
+                        </div>
+
+                        <div class="data-bloc" *ngFor="let typeVisa of visa.visas">
+                            <span class="particular-advice"> {{typeVisa.type}} ( <b>{{typeVisa.delais}}</b> )</span>
+                            <ul>
+                                <li *ngFor="let piece of typeVisa.pieces">{{piece.libelle}}</li>
+                            </ul>
+                            <ng-template ngFor let-price [ngForOf]="typeVisa.frais">
+                                <span> {{price.libelle}} <b>{{price.prix | number}}</b> XAF</span>
+                            </ng-template>
+
+                            <b class="indications"> {{typeVisa.indication}} </b>
+
+                            <button class="buy">Nous contacter</button>
+
+                        </div>
+
+                    </div>
+                    </div>
+
             </div>
 
-            <div class="accordion-content assistance-visa">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident libero dolor dolorem quidem eos aut quibusdam aspernatur eum laborum, ipsa eius illo? Praesentium nisi dicta placeat doloremque blanditiis odio. Atque.
-                Aliquam tenetur temporibus qui sit tempora non dicta ducimus, dolores iste id omnis, explicabo possimus. Natus dolores soluta ipsam, quasi quisquam corporis eaque mollitia libero suscipit itaque inventore esse sint.
-                Cupiditate ipsa iure laudantium laborum atque pariatur, nesciunt eaque nemo laboriosam labore, amet expedita! Fuga eum voluptatem voluptatum! Commodi unde quas atque molestiae ratione itaque eveniet repudiandae eos ducimus hic?
-                Sit iste corrupti iusto provident vel blanditiis, labore adipisci consequuntur voluptate illo ex quod saepe aspernatur, sed optio laborum quam rerum nostrum dicta! Enim et recusandae, est temporibus ipsa voluptate!
-                Veniam debitis, at sint quam sequi, sunt expedita facilis blanditiis ad dolorum reiciendis laboriosam numquam voluptatibus illo illum? Facere ratione omnis est numquam assumenda. Ipsum possimus iure natus eius exercitationem?
+        </ng-template>
             
-            </div>
 
-        </div>
-
-
-        <div class="accordion">
-            <div class="accordion-header" (click)="showHideAccordion(2)" (click)="onClicked2()">
-                <span *ngIf="iscliked2"><fa-icon  [icon]="faMinus"></fa-icon></span>
-                <span *ngIf="!iscliked2"><fa-icon [icon]="faPlus"></fa-icon></span>
-                <img src="../../../assets/img/visa&Assis/uae-flag.gif">
-           
-                <span>Dubaî</span>
-                 </div>
-
-            <div class="accordion-content assistance-visa">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident libero dolor dolorem quidem eos aut quibusdam aspernatur eum laborum, ipsa eius illo? Praesentium nisi dicta placeat doloremque blanditiis odio. Atque.
-                Aliquam tenetur temporibus qui sit tempora non dicta ducimus, dolores iste id omnis, explicabo possimus. Natus dolores soluta ipsam, quasi quisquam corporis eaque mollitia libero suscipit itaque inventore esse sint.
-                Cupiditate ipsa iure laudantium laborum atque pariatur, nesciunt eaque nemo laboriosam labore, amet expedita! Fuga eum voluptatem voluptatum! Commodi unde quas atque molestiae ratione itaque eveniet repudiandae eos ducimus hic?
-                Sit iste corrupti iusto provident vel blanditiis, labore adipisci consequuntur voluptate illo ex quod saepe aspernatur, sed optio laborum quam rerum nostrum dicta! Enim et recusandae, est temporibus ipsa voluptate!
-                Veniam debitis, at sint quam sequi, sunt expedita facilis blanditiis ad dolorum reiciendis laboriosam numquam voluptatibus illo illum? Facere ratione omnis est numquam assumenda. Ipsum possimus iure natus eius exercitationem?
-            
-            </div>
-
-        </div>
-
-
-
-
-        <div class="accordion">
-            <div class="accordion-header" (click)="showHideAccordion(3)" (click)="onClicked3()">
-                <span *ngIf="iscliked3"><fa-icon  [icon]="faMinus"></fa-icon></span>
-                <span *ngIf="!iscliked3"><fa-icon [icon]="faPlus"></fa-icon></span>
-                <img src="../../../assets/img/visa&Assis/uae-flag.gif">
-
-                <span>Dubaî</span>
-            </div>
-
-            <div class="accordion-content assistance-visa">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident libero dolor dolorem quidem eos aut quibusdam aspernatur eum laborum, ipsa eius illo? Praesentium nisi dicta placeat doloremque blanditiis odio. Atque.
-                Aliquam tenetur temporibus qui sit tempora non dicta ducimus, dolores iste id omnis, explicabo possimus. Natus dolores soluta ipsam, quasi quisquam corporis eaque mollitia libero suscipit itaque inventore esse sint.
-                Cupiditate ipsa iure laudantium laborum atque pariatur, nesciunt eaque nemo laboriosam labore, amet expedita! Fuga eum voluptatem voluptatum! Commodi unde quas atque molestiae ratione itaque eveniet repudiandae eos ducimus hic?
-                Sit iste corrupti iusto provident vel blanditiis, labore adipisci consequuntur voluptate illo ex quod saepe aspernatur, sed optio laborum quam rerum nostrum dicta! Enim et recusandae, est temporibus ipsa voluptate!
-                Veniam debitis, at sint quam sequi, sunt expedita facilis blanditiis ad dolorum reiciendis laboriosam numquam voluptatibus illo illum? Facere ratione omnis est numquam assumenda. Ipsum possimus iure natus eius exercitationem?
-            
-            </div>
-
-        </div>
-
-
-
-
-        <div class="accordion">
-            <div class="accordion-header" (click)="showHideAccordion(4)" (click)="onClicked4()">
-                <span *ngIf="iscliked4"><fa-icon  [icon]="faMinus"></fa-icon></span>
-                <span *ngIf="!iscliked4"><fa-icon [icon]="faPlus"></fa-icon></span>
-                <img src="../../../assets/img/visa&Assis/uae-flag.gif">
-
-                <span>Dubaî</span>
-            </div>
-
-            <div class="accordion-content assistance-visa">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident libero dolor dolorem quidem eos aut quibusdam aspernatur eum laborum, ipsa eius illo? Praesentium nisi dicta placeat doloremque blanditiis odio. Atque.
-                Aliquam tenetur temporibus qui sit tempora non dicta ducimus, dolores iste id omnis, explicabo possimus. Natus dolores soluta ipsam, quasi quisquam corporis eaque mollitia libero suscipit itaque inventore esse sint.
-                Cupiditate ipsa iure laudantium laborum atque pariatur, nesciunt eaque nemo laboriosam labore, amet expedita! Fuga eum voluptatem voluptatum! Commodi unde quas atque molestiae ratione itaque eveniet repudiandae eos ducimus hic?
-                Sit iste corrupti iusto provident vel blanditiis, labore adipisci consequuntur voluptate illo ex quod saepe aspernatur, sed optio laborum quam rerum nostrum dicta! Enim et recusandae, est temporibus ipsa voluptate!
-                Veniam debitis, at sint quam sequi, sunt expedita facilis blanditiis ad dolorum reiciendis laboriosam numquam voluptatibus illo illum? Facere ratione omnis est numquam assumenda. Ipsum possimus iure natus eius exercitationem?
-            
-            </div>
-
-        </div>
-
-
-
-        <div class="accordion">
-            <div class="accordion-header" (click)="showHideAccordion(5)" (click)="onClicked5()">
-                <span *ngIf="iscliked5"><fa-icon  [icon]="faMinus"></fa-icon></span>
-                <span *ngIf="!iscliked5"><fa-icon [icon]="faPlus"></fa-icon></span>
-                <img src="../../../assets/img/visa&Assis/uae-flag.gif">
-
-                <span class="">Dubaî</span>
-            </div>
-
-            <div class="accordion-content assistance-visa">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident libero dolor dolorem quidem eos aut quibusdam aspernatur eum laborum, ipsa eius illo? Praesentium nisi dicta placeat doloremque blanditiis odio. Atque.
-                Aliquam tenetur temporibus qui sit tempora non dicta ducimus, dolores iste id omnis, explicabo possimus. Natus dolores soluta ipsam, quasi quisquam corporis eaque mollitia libero suscipit itaque inventore esse sint.
-                Cupiditate ipsa iure laudantium laborum atque pariatur, nesciunt eaque nemo laboriosam labore, amet expedita! Fuga eum voluptatem voluptatum! Commodi unde quas atque molestiae ratione itaque eveniet repudiandae eos ducimus hic?
-                Sit iste corrupti iusto provident vel blanditiis, labore adipisci consequuntur voluptate illo ex quod saepe aspernatur, sed optio laborum quam rerum nostrum dicta! Enim et recusandae, est temporibus ipsa voluptate!
-                Veniam debitis, at sint quam sequi, sunt expedita facilis blanditiis ad dolorum reiciendis laboriosam numquam voluptatibus illo illum? Facere ratione omnis est numquam assumenda. Ipsum possimus iure natus eius exercitationem?
-            
-            </div>
-
-        </div>
     </div>
 
 </div>
