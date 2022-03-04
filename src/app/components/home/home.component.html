@@ -1,49 +1,66 @@
 <div class="home">
 
     <div class="slider">
+        <swiper
 
- 
-        <div class="mySlide fadeHeader slider-one">
-            <div class="slider-text">
-                <h1>Voyagez en toute sérénité</h1>
-                <span>Nous vous garantissons un accompagnement sur mesure dès la planification jusqu'au jour de votre voyage</span>
-                <span routerLink="/flight">Achetez un billet</span>
-            </div>
+            [loop]="true"
+            [effect]="'fade'"
+            [navigation]="true"
+            [pagination]="{
+                clickable: true
+            }"
+
+            class="mySwiper"
+            #swiper
+        >
+
+            <ng-template swiperSlide>
+                <div class="mySlide slide-one">
+                    <div class="slider-text">
+                        <h1>Voyagez en toute sérénité</h1>
+                        <span>Nous vous garantissons un accompagnement sur mesure dès la planification jusqu'au jour de votre voyage</span>
+                        <span routerLink="/flight">Achetez un billet</span>
+                    </div>
+                </div>
+            </ng-template>
+
+            <ng-template swiperSlide>
+                <div class="mySlide slide-two">
+                    <div class="slider-text">
+                        <h1>bla bla bla bla</h1>
+                        <span>Nous vous assistons dans le choix et la réservation de votre hôtel et appartement meublé en fonction de votre budget</span>
+                        <span routerLink="/hostel-apartment">Voir logements</span>
+                    </div>
+                </div>
+            </ng-template>
+
+            <ng-template swiperSlide>
+                <div class="mySlide slide-three">
+                    <div class="slider-text">
+                        <h1>Louer un Véhicule</h1>
+                        <span>Nous mettons à votre disposition un large choix de véhicules pour tous les goûts</span>
+                        <span routerLink="/rent-car">Voir catalogue</span>
+                    </div>
+                </div>
+            </ng-template>
+
+            <ng-template swiperSlide>
+                <div class="mySlide slide-four">
+                    <div class="slider-text">
+                        <h1>À votre écoute 7j/7</h1>
+                        <span>Nos experts répondent à toutes vos préoccupations, n'hésitez donc pas si vous ressentez le besoin de nous joindre</span>
+                        <span routerLink="/contact">Nous contacter</span>
+                    </div>
+                </div>
+            </ng-template>
+
+        </swiper>
+
+        <div class="arrows my-container">
+            <button class="prev" (click)="arrowSlide(-1)"><fa-icon [icon]="faChevronLeft"></fa-icon></button>
+            <button class="next" (click)="arrowSlide(1)"><fa-icon [icon]="faChevronRight"></fa-icon></button>
         </div>
 
-        <div class="mySlide fadeHeader slider-two">
-            <div class="slider-text">
-                <h1>bla bla bla bla</h1>
-                <span>Nous vous assistons dans le choix et la réservation de votre hôtel et appartement meublé en fonction de votre budget</span>
-                <span routerLink="/hostel-apartment">Voir logements</span>
-            </div>
-        </div>
-
-        <div class="mySlide fadeHeader slider-three">
-            <div class="slider-text">
-                <h1>Louer un Véhicule</h1>
-                <span>Nous mettons à votre disposition un large choix de véhicules pour tous les goûts</span>
-                <span routerLink="/rent-car">Voir catalogue</span>
-            </div>
-        </div>
-
-        <div class="mySlide fadeHeader slider-four">
-            <div class="slider-text">
-                <h1>À votre écoute 7j/7</h1>
-                <span>Nos experts répondent à toutes vos préoccupations, n'hésitez donc pas si vous ressentez le besoin de nous joindre</span>
-                <span routerLink="/contact">Nous contacter</span>
-            </div>
-        </div>
-
-        <span class="prev" (click)="clickOnArrow(-1)"><fa-icon [icon]="faChevronLeft"></fa-icon></span>
-        <span class="next" (click)="clickOnArrow(1)"><fa-icon [icon]="faChevronRight"></fa-icon></span>
-
-        <div class="dots">
-            <span class="dot" (click)="currentSlide(1)"></span>
-            <span class="dot" (click)="currentSlide(2)"></span>
-            <span class="dot" (click)="currentSlide(3)"></span>
-            <span class="dot" (click)="currentSlide(4)"></span>
-        </div>
     </div>
 
     <app-home-about></app-home-about>
@@ -98,6 +115,7 @@
                 <span>Découvrez nos circuits</span>
             </div>
         </div>
+
     </div>
 
 </div>

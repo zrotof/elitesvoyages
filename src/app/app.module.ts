@@ -7,13 +7,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-
-import { FieldsetModule, } from 'primeng/fieldset';
+//Prime ng
+import { FieldsetModule } from 'primeng/fieldset';
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
 import {ImageModule} from 'primeng/image';
 
+//Swipper
+import { SwiperModule } from 'swiper/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -76,7 +78,8 @@ import { HomeAboutComponent } from './components/home-about/home-about.component
     CarouselModule,
     ButtonModule,
     ToastModule,
-    ImageModule
+    ImageModule,
+    SwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

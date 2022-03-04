@@ -1,24 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Services } from '../../models/services';
 import { faPlane, faBed, faCarSide, faHome, faCubes, faChevronLeft, faChevronRight, faGlobeAfrica, faAddressCard } from '@fortawesome/free-solid-svg-icons';
 
 import { Carousel } from 'primeng/carousel';
 
+import { SwiperComponent } from 'swiper/angular';
+
+import SwiperCore, { EffectFade, Pagination, Navigation  } from "swiper";
+
+SwiperCore.use([EffectFade, Pagination, Navigation])
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent implements OnInit {
-
-  //List of our services
-  servicesList: Services[] = [];
-
-  //variables for home header slide
-  counter: number = 1;
-  timer: any;
-
+  
+  @ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
 
   faPlane = faPlane;
   faBed = faBed;
@@ -29,6 +29,9 @@ export class HomeComponent implements OnInit {
   faChevronRight = faChevronRight;
   faGlobeAfrica = faGlobeAfrica;
   faAddressCard = faAddressCard;
+
+  //List of our services
+  servicesList: Services[] = [];
  
 
   constructor() {
@@ -43,79 +46,19 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.slideFunction(this.counter);
     this.retrieveListOfServices();
 
   }
 
+  arrowSlide(param: number){
 
-
-  //This block of functions handle my slider.
-
-  //First we click on an arrow on the wiew, this action will call clickOnArrow()
-  //clickOnArrow() function will increment or decrement the number of the current slide and will give that number to function slidFunction()
-  //slidFunction() display the slide correspondong to the current slide and set the corresponding active dot
-  
-  //For sliding we also have the possibility to click on a dot and the slider will this the corresponding slide clicked
-  //When we cliked on a dot this will initialise the position of the slide clicked and give this number to the slideFunction()
-
-
-  clickOnArrow(num: number): any{
-    this.counter += num;
-    this.slideFunction(this.counter);
-    this.resetTimer();
-  }
-
-  slideFunction(slideNumber: number): void{
-    var mySlides = <NodeListOf<HTMLElement>>document.querySelectorAll(".mySlide");
-    var myDots = <NodeListOf<HTMLElement>>document.querySelectorAll(".dot");
-
-    mySlides.forEach(element => {
-      element.style.display = "none";
-    });
-
-    myDots.forEach(element =>{
-      element.classList.remove("active-dot");
-    })
-
-    if(slideNumber > mySlides.length){
-      this.counter = 1;
+    if(param > 0){
+      this.swiper?.swiperRef.slideNext(700);
+      console.log('inside');
     }
-
-    if(slideNumber < 1){
-      this.counter = mySlides.length;
+    else{
+      this.swiper?.swiperRef.slidePrev(700);
     }
-
-    
-
-    mySlides[this.counter - 1].style.display ="block";
-
-    myDots[this.counter - 1].classList.add("active-dot");
-
-    this.resetTimer();
-  }
-
-  //Show corresponding clicked dot 
-  currentSlide(slideNumber: number):any{
-
-    this.counter = slideNumber;
-    this.slideFunction(this.counter);
-    this.resetTimer();
-
-  }
-
-  //autoslide function
-  autoSlide() {
-
-    this.counter += 1;
-    this.slideFunction(this.counter);
-
-  }
-
-  //reset the timer to 0 and relaunch the autoSlide funtion after 8 seconds
-  resetTimer():void{
-    clearInterval(this.timer);
-    this.timer = setInterval(()=>{this.autoSlide()},8000);
   }
 
 
