@@ -1,10 +1,14 @@
 <div class="car">
 
-    <div class="car-top-bloc">
-        <h1 class="car-top-title">LOCATION DE VOITURE</h1>
+    <div class="hero">
+        <div class="hero-content my-container">
+            <h1 class="title">LOCATION DE VOITURE</h1>
+        </div>
     </div>
 
-    <div class="car-content">
+    <div class="car-content my-container">
+
+<!-- filtre
 
         <div class="filter">
             <div class="fourchette">
@@ -115,6 +119,195 @@
         <div class="car-list">
             <div class="list"></div>
         </div>
+-->
+    
+
+
+
+        <div class="intro">
+            <span>Indiquez-nous vos préférences pour les véhicules  et nous reviendrons vers vous rapidement</span>
+            <span>Les champs marqués d'un <span class="red-star">*</span> sont obligatoires</span>
+        
+        </div>
+
+        <form >
+            <div class="reason">
+                <div class="label">
+                    <span>Raison de location </span>
+                    <span class="red-star">*</span>
+                </div>
+                <select class="custom-select" (change)="changeReason($event)" formControlName="reason">
+                    <option *ngFor="let reason of reasons" [ngValue]="reason">{{reason}}</option>
+                </select>
+            </div>
+
+            <div class="town-seats-driver">
+
+                <div class="town">
+                        <div class="label">
+                            <span>Ville </span>
+                            <span class="red-star">*</span>
+                        </div>
+                        <select (change)="changeReason($event)" formControlName="">
+                            <option *ngFor="let town of towns" [ngValue]="town">{{town}}</option>
+                        </select>
+                </div>
+
+                <div class="seats">
+                    <div class="label">
+                        <span>Capacités </span>
+                        <span class="red-star">*</span>
+                    </div>
+                    <select (change)="changeReason($event)" formControlName="">
+                        <option *ngFor="let capacity of capacities" [ngValue]="capacity">{{capacity}}</option>
+                    </select>
+                </div>
+
+                <div class="driver">
+                    <div class="label">
+                        <span>Chauffeurs ? </span>
+                        <span class="red-star">*</span>
+                    </div>
+                    <select (change)="changeReason($event)" formControlName="">
+                        <option *ngFor="let driver of drivers" [ngValue]="driver">{{driver}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="dates">
+
+                <div class="date-start">
+                    <div class="day">
+                        <div class="label">
+                            <span>Début location </span>
+                            <span class="red-star">*</span>
+                        </div>
+                        <p-calendar formControlName="dayStart" dateFormat="mm-dd-yy" inputId="dateformat" placeholder="Jour début"></p-calendar>
+                    </div>
+
+                    <div class="hour">
+                        <div class="label">
+                            <span>Heure début</span>
+                        </div>
+                        <select class="custom-select" (change)="changeReason($event)" formControlName="reason">
+                            <option *ngFor="let hour of hours" [ngValue]="hour">{{hour}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="date-end">
+                    <div class="day">
+                        <div class="label">
+                            <span>fin location </span>
+                            <span class="red-star">*</span>
+                        </div>
+                        <p-calendar formControlName="dayEnd" dateFormat="mm-dd-yy" inputId="dateformat" placeholder="Jour fin"></p-calendar>
+                    </div>
+
+                    <div class="hour">
+                        <div class="label">
+                            <span>Heure fin</span>
+                        </div>
+                        <select (change)="changeReason($event)" formControlName="">
+                            <option *ngFor="let hour of hours" [ngValue]="hour">{{hour}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                
+                
+            </div>
+
+            <div class="extras-bloc">
+                <span>Extras</span>
+
+                <div class="extras">
+                    <div class="extra">
+                        <input type="checkbox" id="clim" name="clim">
+                        <label for="clim">Climatisée</label>
+                    </div>
+
+                    <div class="extra">
+                        <input type="checkbox" id="cd" name="cd">
+                        <label for="cd">Lecteur CD</label>
+                    </div>
+
+                    <div class="extra">
+                        <input type="checkbox" id="mp3" name="mp3">
+                        <label for="mp3">Lecteur MP3</label>
+                    </div>
+
+                    <div class="extra">
+                        <input type="checkbox" id="radio" name="radio">
+                        <label for="radio">Radio</label>
+                    </div>
+
+                    <div class="extra">
+                        <input type="checkbox" id="bluethooth" name="bluethooth">
+                        <label for="bluethooth">Bluethooth</label>
+                    </div>
+                </div>
+                
+
+            </div>
+
+            <div class="name">
+                <div class="label">
+                    <span>Nom </span>
+                    <span class="red-star">*</span>
+                </div>
+                <input type="text" placeholder="Entrez votre nom">
+            </div>
+
+            <div class="email-phone">
+                
+                <div class="email">
+                    <div class="label">
+                        <span>Email </span>
+                        <span class="red-star">*</span>
+                    </div>
+                    <input type="email" placeholder="Email">
+                </div>
+
+                <div class="phone">
+                    <div class="label">
+                        <span>Téléphone </span>
+                    </div>
+                    <input type="text" placeholder="Téléphone">
+                </div>
+            </div>
+
+            <button>Réserver</button>
+
+        </form>
+
+        <div class="procedure">
+            <h1>Comment ça marche ?</h1>
+
+            <div class="process-bloc">
+                <div class="process">
+                    <span>1</span>
+                    <span>Renseignez et envoyez-nous le formulaire ci-avant</span>
+                </div>
+
+
+                <div class="process">
+                    <span>2</span>
+                    <span>Nous revenons vers vous en vous indiquant les prix et possibilités qui s'offrent à vous</span>
+                </div>
+
+                <div class="process">
+                    <span>3</span>
+                    <span>Vous nous indiquez votre choix parmis ceux proposés</span>
+                </div>
+
+                <div class="process">
+                    <span>4</span>
+                    <span>Nous convenons du prix et rendez-vous le jour j pour profiter de votre véhicule</span>
+                </div>
+            </div>
+        </div>
+        
 
     </div>
 </div>

@@ -68,37 +68,53 @@ export class HomeComponent implements OnInit {
       {
         label: "Billet d'Avion",
         icon: this.faPlane,
-        description: "Vente de billets d'avion pour toutes vos destinations"
+        description: "Vente de billets d'avion pour toutes vos destinations",
+        link:"/flight"
       },
 
-      {
-        label: "Hôtel & Appartement meublé",
-        icon: this.faBed,
-        description: "Vente de billets d'avion pour toutes vos destinations"
-      },
 
       {
         label: "Location de Voiture",
         icon: this.faCarSide,
-        description: "Mise à disposition d'un large choix de véhicules selon vos besoins"
+        description: "Mise à disposition d'un large choix de véhicules selon vos besoins",
+        link:"/rent-car"
+      },
+
+      {
+        label: "Hôtel",
+        icon: this.faBed,
+        description: "Vente de billets d'avion pour toutes vos destinations",
+        link:"/hotel"
+
+      },
+
+      {
+        label: "Appartement meublé",
+        icon: this.faHome,
+        description: "Vente de billets d'avion pour toutes vos destinations",
+        link:"/appartement-meuble"
+
       },
 
       {
         label: "Tourisme",
         icon: this.faGlobeAfrica,
-        description: "Planification et organisation de circuits touristiques paradisiaques"
+        description: "Planification et organisation de circuits touristiques paradisiaques",
+        link:"/tourism"
       },
 
       {
-        label: "Fret et DHL",
+        label: "DHL",
         icon: this.faCubes,
-        description: "Expédition de colis et assistance dédouanement"
+        description: "Expédition de tous vos colis à partir du Cameroun",
+        link:"/dhl"
       },
 
       {
         label: "Assistance Visa",
         icon: this.faAddressCard,
-        description: "Vente de billets d'avion pour toutes vos destinations"
+        description: "Assistance dans la constitution de vos dossiers pour les ambassades",
+        link:"/assistance-visa"
       }
 
     ]

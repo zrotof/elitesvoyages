@@ -30,7 +30,7 @@
 
             <div class="accordion">
 
-                <div [ngClass]="first?'active-accordion-header':''" class="accordion-header" (click)="showHideAccordion(index)">
+                <div class="accordion-header" (click)="showHideAccordion(index)">
 
                     <div class="flag-country">
                         <img src={{visa.flag}}>
@@ -45,7 +45,7 @@
                 </div>
 
 
-                <div [ngClass]="first?'active-accordion-content':''" class="accordion-content assistance-visa">
+                <div class="accordion-content assistance-visa">
 
                     <div class="images-bloc">
                         <p-image src="../../../assets/img/dubai.jpeg" alt="Image" width="100%" [preview]="true">

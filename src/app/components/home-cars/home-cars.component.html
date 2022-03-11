@@ -3,6 +3,14 @@
     <div class="content my-container">
         <h1 class="title">NOS VOITURES</h1>
 
+        <div class="intro">
+            <div class="image"></div>
+            <div class="text">
+                <span> Nous mettons à votre disposition un large choix de véhicules pour tous vos besoins.</span>
+                <button routerLink="/rent-car">Réservez maintenant</button>
+            </div>
+        </div>
+
         <p-carousel [value]="popularCars" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true" [responsiveOptions]="carsResponsiveOptions" >
             
             <ng-template let-car pTemplate="item">
@@ -80,8 +88,6 @@
         </p-carousel>
 
         <div class="car-call-to-action">
-            <span>Réservez un véhicule maintenant</span>
-            <span routerLink="/rent-car">Contactez-nous</span>
         </div>
     </div>
 </div>

@@ -4,7 +4,7 @@ $colorGold: #EEC66C;
 $fontColor: #525252;
 
 
-.hotel{
+.app{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,7 +12,7 @@ $fontColor: #525252;
 
     .hero{
 
-        background-image: url("../../../assets/img/hotel.jpeg");
+        background-image: url("../../../assets/img/apartment/hero-bg.jpeg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;

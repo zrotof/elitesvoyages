@@ -1,14 +1,11 @@
 $colorBlue: #115F98;
-
-
-.conteneur-perso{
-    padding: 5em 7% 0 7%;
-}
+$fontColor: #525252;
 
 .deal{
     display: flex;
     flex-direction:column;
     width: 100%;
+    align-items: center;
 
     .deal-top-bloc{
 
@@ -39,54 +36,156 @@ $colorBlue: #115F98;
         background: linear-gradient(180deg, rgba(2,22,47,0.7133228291316527) 0%, rgba(0,0,0,0.23713235294117652) 25%, rgba(0,0,0,0.20632002801120453) 100%);
     }
 
-    .deat-content-bloc{
+    .content{
         display: flex;
         flex-direction: column;
-        height: 60vh;
+        min-height: 60vh;
         width: 100%;
         align-items: center;
         justify-content: center;
+        padding: 60px 0;
 
-        > span{
-            font-size: 1.3em;
-            font-weight: bold;
-            margin: 5px 0;
+        .offers{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+            
+
+            .offer{
+                display: flex;
+                width: 570px;
+                height: 200px;
+                overflow: hidden;
+                border-radius: 10px;
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+                margin-top: 25px;
+
+                img{
+                    height: 200px;
+                    width: 250px;
+                    object-fit: cover;
+                }
+
+                .infos{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    padding: 10px 0;
+
+                    .info{
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        align-items: center;
+
+                        .title{
+                            font-weight: 540;
+                            font-size: 1.1em;
+                            color: $colorBlue;
+                            margin-bottom: 10px;
+                        }
+
+                        .text{
+                            font-size: 0.92em;
+                            text-align: justify;
+                            line-height: 20px;
+                            padding: 0 15px;
+
+                        }
+
+                    }
+
+                    button{
+                        border-radius: 100px;
+                        padding: 3px 15px;
+                        font-size: 0.95em;
+                        border: 2px solid $colorBlue;
+                        background-color: white;
+                        color: $colorBlue;
+                        font-weight: 540;
+                        transition: all 0.3s ease-in;
+                        text-align: center;
+                    }
+
+                    button:hover{
+                        background-color: $colorBlue;
+                        color: white;
+                    }
+                }
+
+            }
         }
 
-        .partner{
+        .partnership{
 
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin: 20px 0;
+            margin: 260px 0 40px 0;
+            background-color: #d4dae5;
+            color: #115F98;
+            padding: 40px 20px;
+            width: 100%;
+            border-radius: 5px;
 
-            .contact-call-to-action {
+            h5{
+                position: relative;
+            }
+            h5::after{
+                content: "";
+                width: 30%;
+                height: 3px;
+                border-radius: 100px;
+                background-color: $colorBlue;
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
 
+
+            }
+
+            .infos{
                 display: flex;
-                font-size: 1.3em;
-                justify-content: center;
-                margin: 40px 0 0 0;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
 
-                span:nth-child(2){
-                    margin-left: 15px;
-                    padding: 5px 15px;
-                    color: white;
-                    background-color: $colorBlue;
-                    border-radius: 100px;
-                    font-size: 0.8em;
-                    cursor: pointer;
+                .text{
+                    margin: 50px 0 20px 0;
+                    font-weight: 400;
                 }
 
-                span:nth-child(2):hover{
-                    margin-left: 15px;
-                    padding: 3px 13px;
-                    border: 2px solid $colorBlue;
-                    color: $colorBlue;
-                    background-color: white
-                    
+                .action-bloc{
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    button{
+                        margin-left: 20px;
+                        padding: 5px 13px;
+                        color: $colorBlue;
+                        background-color: white;
+                        border-radius: 100px;
+                        font-size: 0.95em;
+                        cursor: pointer;
+                        transition: all 0.3s ease-in;
+                        border: none;
+                    }
+    
+                    button:hover{
+                        background-color: $colorBlue;
+                        color: white;
+
+                    }
                 }
             }
+
         }
     }
 }

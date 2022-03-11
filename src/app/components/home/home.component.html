@@ -78,7 +78,7 @@
                     <div class="service-text">
                         <h3>{{service.label}}</h3>
                         <p>{{service.description}}</p>
-                        <span routerLink="/hostel-apartment">En Savoir Plus</span>
+                        <span routerLink={{service.link}}>En Savoir Plus</span>
                     </div>
                 </div>
 
@@ -96,27 +96,7 @@
 
     <app-home-cars></app-home-cars>
 
-    <div class="tourism-bloc">
-        <div class="content my-container">
-            <h1 class="title" >NOS CIRCUITS TOURISTIQUES</h1>
-            
-            <div class="tourism-header">
-                <img src="../../../assets/img/home/tourism/home-tourism.png" alt="tourisme illustration">
-                <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis pariatur illum, laudantium autem earum distinctio veritatis dolore ut porro a itaque sequi tempora beatae Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, recusandae odio nulla enim laboriosam, laborum natus ullam velit earum ab amet, reprehenderit maiores iure quae unde consequatur beatae tempore corporis.</span>
-            </div>
-            
-                    
-            <div class="circuits">
-                <div class="circuit"></div>
-                <div class="circuit"></div>
-            </div>
-                        
-            <div class="tourism-call-to-action">
-                <span>Découvrez nos circuits</span>
-            </div>
-        </div>
-
-    </div>
+    <app-home-tourism></app-home-tourism>
 
 </div>
 

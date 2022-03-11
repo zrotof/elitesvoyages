@@ -133,7 +133,7 @@ $fontColor: #525252;
             }
 
             .slide-four{
-                background-image: url("../../../assets/img/home/sliders/familly.jpeg");
+                background-image: url("../../../assets/img/home/sliders/contact.jpeg");
                 background-position: top center;
                 background-size: cover;
                 background-repeat: no-repeat;
@@ -330,7 +330,8 @@ $fontColor: #525252;
 
                         p{
                             color:#7a7a7a;
-                            font-size: 0.95em;
+                            font-size: 0.9em;
+                            line-height: 18px;
                         }
 
                         span{
@@ -378,106 +379,12 @@ $fontColor: #525252;
     app-home-filghts,
     app-home-hotel-app,
     app-home-visas,
-    app-home-cars{
+    app-home-cars,
+    app-home-tourism{
         width: 100%;
     }
 
-    .tourism-bloc{
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: rgb(216, 216, 216);
-        margin-top: 80px;
-        width: 100%;
-
-        .content{
-
-            display: flex;
-            flex-direction:column;
-            margin: 3em;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-
-            .tourism-header{
-
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                margin: 35px 0;
-                background: #11609834;
-                border-radius: 10px;
-
-                img{
-                    width: 150px;
-                    height: 150px;
-                    margin: 0 20px;
-                }
-
-                span{
-                    font-size: 1.05em;
-                    width: 700px;
-                    margin: 0 20px;
-
-                }
-            }
-            
-
-            .circuits{
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                width: 100%;
-
-                .circuit{
-                    margin: 0 10px;
-                    height: 20em;
-                    width: 30em;
-                    position: relative;
-                    cursor: pointer;
-                    background-color: white;
-                    border-radius: 10px;
-                }
-            }
-
-            .tourism-call-to-action{
-                display:flex;
-                margin: 50px 0;
-                justify-content: center;
-                align-items: center;
-
-                span{
-                    margin-left: 15px;
-                    padding: 5px 15px;
-                    color: $colorBlue;
-                    background-color: white;
-                    border-radius: 100px;
-                    border: 2px solid white;
-                    font-size: 0.8em;
-                    cursor: pointer;
-                    font-weight: bold;
-                }
-
-                span:hover{
-                    color: $colorBlue;
-                    border-radius: 100px;
-                    background-color: rgb(216, 216, 216);
-
-                }
-
-            }
-        }
-    }
-
-}
-
-.anime-caroussel-on-next-element{
-    transform: translateX(-290px);
-    transition: all 0.3s ease-in-out;
-    border: solid red;
 }
 
 @media all and (max-width: 600px){

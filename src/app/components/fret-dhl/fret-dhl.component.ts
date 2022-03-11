@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FretDhlComponent implements OnInit {
 
+  contains: any = [ 
+    "documents uniquement", "documents et autres"
+  ];
+
+  formats: any = [ 
+    "Enveloppe A4", "Je ne connais pas"
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+changeReason(e: any){
+
+}
 }

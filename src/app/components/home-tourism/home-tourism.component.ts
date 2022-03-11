@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Tourism } from 'src/app/models/tourism';
+import { TourismService } from 'src/app/services/tourism/tourism.service';
 
 @Component({
   selector: 'app-home-tourism',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeTourismComponent implements OnInit {
 
-  constructor() { }
+  topTourismList : Tourism[] = []; 
+  constructor(
+    private tourismService : TourismService
+  ) { }
 
   ngOnInit(): void {
+    this.tourismTop();
+  }
+
+  tourismTop(){
+    this.topTourismList = this.tourismService.topTourism();
   }
 
 }

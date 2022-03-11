@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LogementsService } from './../../services/logements/logements.service';
 
 import { faBed, faHome, faMapMarkerAlt, faSwimmer,faWifi, faSmokingBan, faCar, faDumbbell, faCoffee, faUtensils, faConciergeBell } from '@fortawesome/free-solid-svg-icons';
@@ -10,11 +10,15 @@ import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
   selector: 'app-hotel',
   templateUrl: './hotel.component.html',
   styleUrls: ['./hotel.component.scss'],
-  providers: [NgbRatingConfig]
+  providers: [NgbRatingConfig],
+  encapsulation: ViewEncapsulation.None
+
 })
 export class HotelComponent implements OnInit {
 
-
+  civilities: any = [ "Mr", "Mme"];
+  rooms: any = [ "1 chambre", "2 chambres", "3 chambres", "4 chambres"];
+  
   param = "hotel";
 
   faBed = faBed;
@@ -62,6 +66,13 @@ export class HotelComponent implements OnInit {
       this.chooseTab(2, history.state.parameter);
     }
   }
+
+  changeReason(e: any){
+    /* this.typeTrajet.setValue(e.target.value, {
+       onlySelf: true
+     })
+     */
+   }
 
 
 

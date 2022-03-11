@@ -12,6 +12,7 @@ import { HotelComponent } from './components/hotel/hotel.component';
 import { TourismComponent } from './components/tourism/tourism.component';
 import { VisaComponent } from './components/visa/visa.component';
 import { GoodDealComponent } from './components/good-deal/good-deal.component';
+import { ApartmentComponent } from './components/apartment/apartment.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,13 +21,13 @@ const routes: Routes = [
   {path: 'contact', component : ContactComponent},
   {path: 'rent-car', component : CarComponent},
   {path: 'flight', component : FlightComponent},
-  {path: 'fret-dhl', component : FretDhlComponent},
-  {path: 'hostel-apartment', component : HotelComponent},
+  {path: 'dhl', component : FretDhlComponent},
+  {path: 'hotel', component : HotelComponent},
+  {path: 'appartement-meuble', component : ApartmentComponent},
   {path: 'tourism', component : TourismComponent},
-  {path: 'visa-dubaî', component : VisaComponent},
+  {path: 'assistance-visa', component : VisaComponent},
   {path: 'good-deal', component : GoodDealComponent},
-  {path: '**', component : NotFoundComponent},
-
+  {path: '**', component : NotFoundComponent}
 ];
 
 @NgModule({

@@ -1,7 +1,126 @@
 <div class="fret-dhl">
 
-    <div class="fret-dhl-top-bloc">
-        <h1 class="fret-dhl-top-title">FRET - DHL</h1>
+    <div class="hero">
+        <div class="hero-content my-container">
+            <h1 class="title">DHL</h1>
+        </div>
     </div>
 
+    <div class="content my-container">
+
+            <div class="intro">
+                <h2>Obtenir un dévis gratuitement</h2>
+                <p>Grace à notre partenariat avec DHL, Elites Voyages vous permet d'estimer les frais d'envoi de vos colis gratuitement. Recevez votre dévis en quelques minutes seulement.</p>
+                <span class="form-invit">Indiquez-nous les informations relatives à votre envois via le formulaire ci-après.</span>
+                <span class="form-advices">Les champs marqués d'un <span class="red-star">*</span> sont obligatoires</span>
+            </div>
+
+            <form>
+
+                <div class="countries">
+
+                    <div class="country">
+                        <div class="label">
+                            <span>Pays de départ </span>
+                        </div>
+                        <span class="departure">Cameroun</span>
+                    </div>
+
+                    <div class="country">
+                        <div class="label">
+                            <span>Pays d'arrivée </span>
+                            <span class="red-star">*</span>
+                        </div>
+                        <input type="text">
+                    </div>
+
+                </div>
+
+
+                <div class="weight-contains-format">
+
+                    <div class="weight">
+                        <div class="label">
+                            <span>Poids en kg </span>
+                            <span class="red-star">*</span>
+                        </div>
+                        <input type="text">
+                    </div>
+
+                    <div class="contains">
+                        <div class="label">
+                            <span>Que contient le colis </span>
+                            <span class="red-star">*</span>
+                        </div>
+                        <select (change)="changeReason($event)" formControlName="">
+                            <option *ngFor="let contain of contains" [ngValue]="contain">{{contain}}</option>
+                        </select>
+                    </div>
+    
+                    <div class="format">
+                        <div class="label">
+                            <span>Dimensions </span>
+                            <span class="red-star">*</span>
+                        </div>
+                        <select (change)="changeReason($event)" formControlName="">
+                            <option *ngFor="let format of formats" [ngValue]="format">{{format}}</option>
+                        </select>
+                    </div>
+                </div>
+                
+
+
+
+
+                <div class="name">
+                    <div class="label">
+                        <span>Nom </span>
+                        <span class="red-star">*</span>
+                    </div>
+                    <input type="text" placeholder="Entrez votre nom">
+                </div>
+    
+                <div class="email-phone">
+                    
+                    <div class="email">
+                        <div class="label">
+                            <span>Email </span>
+                            <span class="red-star">*</span>
+                        </div>
+                        <input type="email" placeholder="Email">
+                    </div>
+    
+                    <div class="phone">
+                        <div class="label">
+                            <span>Téléphone </span>
+                        </div>
+                        <input type="text" placeholder="Téléphone">
+                    </div>
+                </div>
+    
+                <button type="submit">Obtenir devis</button>
+            </form>
+
+            <div class="procedure">
+                <h1>Comment ça marche ?</h1>
+    
+                <div class="process-bloc">
+                    <div class="process">
+                        <span>1</span>
+                        <span>Renseignez et envoyez-nous le formulaire ci-avant</span>
+                    </div>
+    
+    
+                    <div class="process">
+                        <span>2</span>
+                        <span>Nous vous indiquons en quelques minutes le prix de cette opération</span>
+                    </div>
+
+                    <div class="process">
+                        <span>3</span>
+                        <span>Vous pouvez alors passer en agence effectuer l'envois effectif de votre colis sans surprise</span>
+                    </div>
+                </div>
+            </div>
+    </div>
 </div>

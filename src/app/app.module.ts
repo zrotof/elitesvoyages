@@ -13,6 +13,7 @@ import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
 import {ImageModule} from 'primeng/image';
+import {CalendarModule} from 'primeng/calendar';
 
 //Swipper
 import { SwiperModule } from 'swiper/angular';
@@ -39,6 +40,7 @@ import { HomeServicesComponent } from './components/home-services/home-services.
 import { HomeHotelAppComponent } from './components/home-hotel-app/home-hotel-app.component';
 import { HomeCarsComponent } from './components/home-cars/home-cars.component';
 import { HomeAboutComponent } from './components/home-about/home-about.component';
+import { ApartmentComponent } from './components/apartment/apartment.component';
 
 
 @NgModule({
@@ -63,7 +65,8 @@ import { HomeAboutComponent } from './components/home-about/home-about.component
     HomeServicesComponent,
     HomeHotelAppComponent,
     HomeCarsComponent,
-    HomeAboutComponent
+    HomeAboutComponent,
+    ApartmentComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +82,8 @@ import { HomeAboutComponent } from './components/home-about/home-about.component
     ButtonModule,
     ToastModule,
     ImageModule,
-    SwiperModule
+    SwiperModule,
+    CalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

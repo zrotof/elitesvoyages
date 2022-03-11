@@ -56,6 +56,54 @@ $fontColor: #525252;
             text-align: center;
         }
 
+        .intro{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 70px;
+
+            .image{
+                background-image: url("../../../assets/img/cars/car-keys.jpeg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                border-radius: 5px;
+                width: 300px;
+                height: 200px;
+            }
+
+            .text{
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: fit-content;
+                margin-left: 20px;
+
+
+                button{
+                    margin-top:20px;
+                    padding: 5px 15px;
+                    color: white;
+                    background-color: $colorBlue;
+                    border-radius: 100px;
+                    border: 2px solid $colorBlue;
+                    font-size: 0.95em;
+                    outline: none;
+                    cursor: pointer;
+                }
+    
+                button:hover{
+                    color: $colorBlue;
+                    background-color: white;
+                    transition: all 0.3s ease-in;
+                    font-weight: bold;
+                    
+                }
+                
+            }
+        }
+
 
         .car-item {
 
@@ -232,33 +280,5 @@ $fontColor: #525252;
                 }
         }
 
-        .car-call-to-action {
-            display: flex;
-            font-size: 1.3em;
-            justify-content: center;
-            margin: 20px 0;
-            flex-wrap: wrap;
-            align-items: center;
-
-            span:nth-child(2){
-                margin:0 15px;
-                padding: 5px 15px;
-                color: white;
-                background-color: $colorBlue;
-                border-radius: 100px;
-                border: 2px solid $colorBlue;
-                font-size: 0.8em;
-                cursor: pointer;
-            }
-
-            span:nth-child(2):hover{
-                margin-left: 15px;
-                color: $colorBlue;
-                background-color: white;
-                transition: all 0.3s ease-in;
-                font-weight: bold;
-                
-            }
-        }
     }
 }
