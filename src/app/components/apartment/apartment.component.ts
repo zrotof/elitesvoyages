@@ -17,10 +17,16 @@ export class ApartmentComponent implements OnInit {
     "T2 bis", 
     "T3", 
     "T4"];
+    minDate = new Date();
   
-  constructor() { }
+  constructor() { 
+    
+  }
 
   ngOnInit(): void {
+
+    this.initMinDate();
+
   }
 
   changeReason(e: any){
@@ -28,5 +34,13 @@ export class ApartmentComponent implements OnInit {
        onlySelf: true
      })
      */
+
+   }
+
+   //Initialize the the minimal date of calendar
+   initMinDate(){
+     
+    this.minDate = new Date(this.minDate.setDate((new Date()).getDate()));
+    
    }
 }

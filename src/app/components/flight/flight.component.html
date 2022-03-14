@@ -11,21 +11,33 @@
     <div class="content my-container">
 
         <div class="book-flight-form">
-            <span>Indiquez-nous vos paramètres de voyage et nous reviendrons vers vous rapidement</span>
-            <span>Les champs marqués d'un <span class="red-star">*</span> sont obligatoires</span>
-        
+
+            <div class="infos">
+
+                <span>Indiquez-nous vos paramètres de voyage et nous reviendrons vers vous rapidement</span>
+                <span>Les champs marqués d'un <span class="red-star">*</span> sont obligatoires</span>
+            
+            </div>
+
             <form [formGroup]="bookingForm" (ngSubmit)="onBookingFormSubmit()">
 
                 <div class="trajet-classe">
+
                     <div class="trajet">
-                        <span>Type De Trajet <span class="red-star">*</span></span>
+                        <div class="label">
+                            <span>Type de trajet </span>
+                            <span class="red-star">*</span>
+                        </div>                        
                         <select class="custom-select" (change)="changeTypeVoyage($event)" formControlName="typeTrajet">
                             <option *ngFor="let trajet of trajets" [ngValue]="trajet">{{trajet}}</option>
                         </select>
                     </div>
 
                     <div class="classe">
-                        <span>Choix De Cabine <span class="red-star">*</span></span>
+                        <div class="label">
+                            <span>Type de trajet </span>
+                            <span class="red-star">*</span>
+                        </div>                           
                         <select class="custom-select" (change)="changeTypeCabine($event)" formControlName="typeCabine">
                             <option *ngFor="let cabine of cabines" [ngValue]="cabine">{{cabine}}</option>
                         </select>
@@ -33,85 +45,147 @@
                 </div>
 
                 <div class="info-bloc">
+
                     <div class="info">
-                        <fa-icon [icon]="faPlaneDeparture"></fa-icon>
-                        <input id="depart-input" type="text" placeholder="Départ *">
-                        <label for="depart-input">Départ <span class="red-star">*</span></label>
+
+                        <div class="label">
+                            <span>Départ </span>
+                            <span class="red-star">*</span>
+                        </div>
+
+                        <div class="value">
+                            <fa-icon [icon]="faPlaneDeparture"></fa-icon>
+                            <input class="input-text" id="depart-input" type="text" placeholder="Ville départ">
+                        </div>
+
                     </div>
 
                     <div class="info">
-                        <fa-icon [icon]="faPlaneArrival"></fa-icon>
-                        <input id="aller-input" type="text" placeholder="Arrivée *">
-                        <label for="aller-input">Arrivée <span class="red-star">*</span></label>
-                    </div>
+                        <div class="label">
+                            <span>Arrivée </span>
+                            <span class="red-star">*</span>
+                        </div>
 
-                    <div class="info passenger">
-                        <span>Passager(s)
-                            <span> 0{{nombrePassagerTotal}} </span>
-                        </span>
-                        <fa-icon id="clickPassenger" [icon]="faPlusCircle" (click)="onEditPassenger()"></fa-icon>
-
-                        <div class="passenger-info-bloc-reveal" *ngIf="showEditPassengerView">
-                            <div class="passenger-info">
-                                <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditAdultPassenger(-1)"></fa-icon>
-                                <span> {{nombrePassagerAdulte}} </span>
-                                <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditAdultPassenger(1)"></fa-icon>
-                                <span> Age supérieur à 12 ans</span>
-                            </div>
-
-                            <div class="passenger-info">
-                                <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditChildPassenger(-1)"></fa-icon>
-                                <span> {{nombrePassagerEnfant}} </span>
-                                <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditChildPassenger(1)"></fa-icon>
-                                <span> Age compris entre 2 ans et 12 ans</span>
-                            </div>
-
-                            <div class="passenger-info">
-                                <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditBabyPassenger(-1)"></fa-icon>
-                                <span> {{nombrePassagerBebe}} </span>
-                                <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditBabyPassenger(1)"></fa-icon>
-                                <span>Age inférieur à 2 ans</span>
-                            </div>
+                        <div class="value">
+                            <fa-icon [icon]="faPlaneArrival"></fa-icon>
+                            <input class="input-text" id="depart-input" type="text" placeholder="Ville d'arrivée">
                         </div>
                     </div>
 
                     <div class="info">
-                        <fa-icon [icon]="faCalendarDay"></fa-icon>
-                        <input id="date-depart-input" type="text" placeholder="Date aller *" (click)="d1.toggle()" ngbDatepicker #d1="ngbDatepicker" readonly>
-                        <label for="date-depart-input">Date aller <span class="red-star">*</span></label>
+                        <div class="label">
+                            <span>Date allée </span>
+                            <span class="red-star">*</span>
+                        </div>
+
+                        <div class="value">
+                            <fa-icon [icon]="faCalendarDay"></fa-icon>
+                            <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" placeholder="dd-mm-yy"></p-calendar>
+                        </div>
                     </div>
 
-                    <div class="info" >
-                        <fa-icon [icon]="faCalendarDay"></fa-icon>
-                        <input id="date-retour-input"  type="text" placeholder="Date retour" (click)="d2.toggle()" ngbDatepicker #d2="ngbDatepicker" readonly>
-                        <label for="date-retour-input" >Date retour</label>
+                    <div class="info">
+                        <div class="label">
+                            <span>Date retour </span>
+                            <span class="red-star">*</span>
+                        </div>
+
+                        <div class="value">
+                            <fa-icon [icon]="faCalendarDay"></fa-icon>
+                            <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" placeholder="dd-mm-yy"></p-calendar>                        
+                        </div>
                     </div>
 
-         
+                    <div class="info passenger" (mouseover)="onEditPassenger()" (mouseout)="onEditPassenger()">
+                        <div class="label">
+                            <span>Voyageur(s) </span>
+                            <span class="red-star">*</span>
+                        </div>
+
+                        <div class="value" >
+                            <fa-icon id="clickPassenger" [icon]="faPlusCircle" ></fa-icon>
+                            <span class="span-text">0{{nombrePassagerTotal}} </span>
+                            
+                            <div class="datas-edit">
+                                <div class="passenger-info">
+                                    <div class="controls">
+                                        <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditAdultPassenger(-1)"></fa-icon>
+                                        <span> {{nombrePassagerAdulte}} </span>
+                                        <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditAdultPassenger(1)"></fa-icon>
+                                        
+                                    </div>
+                                    <span> Adulte ( > 12 ans )</span>
+                                </div>
+    
+                                <div class="passenger-info">
+                                    <div class="controls">
+                                        <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditChildPassenger(-1)"></fa-icon>
+                                        <span> {{nombrePassagerEnfant}} </span>
+                                        <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditChildPassenger(1)"></fa-icon>
+                                        
+                                    </div>
+                                    <span> Enfant ( 2 - 11 ans )</span>
+                                </div>
+    
+                                <div class="passenger-info">
+                                    <div class="controls">
+                                        <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditBabyPassenger(-1)"></fa-icon>
+                                        <span> {{nombrePassagerBebe}} </span>
+                                        <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditBabyPassenger(1)"></fa-icon>
+                                        
+                                    </div>
+
+                                    <span> Bébé ( 0 - 23 mois )</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    </div>
                     
                     <div class="info">
-                        <fa-icon [icon]="faUser"></fa-icon>
-                        <input id="name-input" type="text" placeholder="Nom de l'expéditeur *">
-                        <label for="name-input">Nom expéditeur <span class="red-star">*</span></label>
+
+                        <div class="label">
+                            <span>Nom expéditeur </span>
+                            <span class="red-star">*</span>
+                        </div>
+
+                        <div class="value">
+                            <fa-icon [icon]="faUser"></fa-icon>
+                            <input class="input-text" id="depart-input" type="text" placeholder="Nom de l'expéditeur">
+                        </div>
                     </div>
 
                     <div class="info">
-                        <fa-icon [icon]="faEnvelope"></fa-icon>
-                        <input id="email-input" type="text" placeholder="Adresse mail *">
-                        <label for="email-input">Adresse mail <span class="red-star">*</span></label>
+
+                        <div class="label">
+                            <span>Email </span>
+                            <span class="red-star">*</span>
+                        </div>
+
+                        <div class="value">
+                            <fa-icon [icon]="faEnvelope"></fa-icon>
+                            <input class="input-text" id="depart-input" type="text" placeholder="Adresse mail">
+                        </div>
                     </div>
 
                     <div class="info">
-                        <fa-icon [icon]="faPhoneAlt"></fa-icon>
-                        <input id="phone-input" type="text" placeholder="Téléphone">
-                        <label for="phone-input">Téléphone</label>
+
+                        <div class="label">
+                            <span>Téléphone </span>
+                        </div>
+
+                        <div class="value">
+                            <fa-icon [icon]="faPhoneAlt"></fa-icon>
+                            <input class="input-text" id="depart-input" type="text" placeholder="Numéro de téléphone">
+                        </div>
                     </div>
+
 
                 </div>
 
-                <div class="message-bloc">
-                    <textarea id="message-area" type="text" placeholder="Soyez le plus explicite possible, indiquez le nom complet du/des voyageur(s) "></textarea>
-                    <label class="label-id" for="message-area">Message</label>
+                <div class="message">
+                    <textarea id="message-area" type="text" placeholder="Si besoin entrez votre message ici, soyez le plus explicite possible. "></textarea>
                 </div>
               
                 <button type="submit" [disabled]="!flightForm.valid">Envoyer <fa-icon [icon]="faPaperPlane"></fa-icon></button>
@@ -119,7 +193,7 @@
             </form>
         </div>
 
-        <div class="procedure conteneur-perso">
+        <div class="procedure">
             <h1>Comment ça marche ?</h1>
 
             <div class="process-bloc">

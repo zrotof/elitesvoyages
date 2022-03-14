@@ -269,7 +269,7 @@
                         <span>Civilités</span>
                         <span class="red-star">*</span>
                     </div>
-                    <select class="custom-select" (change)="changeReason($event)" formControlName="reason">
+                    <select class="custom-select" (change)="changeReason($event)" >
                         <option *ngFor="let civility of civilities" [ngValue]="civility">{{civility}}</option>
                     </select>
                     
@@ -321,7 +321,7 @@
                         <span>Type</span>
                         <span class="red-star">*</span>
                     </div>
-                    <select class="custom-select" (change)="changeReason($event)" formControlName="reason">
+                    <select class="custom-select" (change)="changeReason($event)" >
                         <option *ngFor="let room of rooms" [ngValue]="room">{{room}}</option>
                     </select>
                     
@@ -332,7 +332,7 @@
                             <span>Jour d'arrivée </span>
                             <span class="red-star">*</span>
                         </div>
-                        <p-calendar formControlName="dayStart" dateFormat="mm-dd-yy" inputId="dateformat" placeholder="Jour début"></p-calendar>
+                        <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" [minDate]="minDate" [readonlyInput]="true" placeholder="Jour début"></p-calendar>
                     </div>
     
                     <div class="date">
@@ -340,7 +340,7 @@
                             <span>Jour de départ </span>
                             <span class="red-star">*</span>
                         </div>
-                        <p-calendar formControlName="dayStart" dateFormat="mm-dd-yy" inputId="dateformat" placeholder="Jour début"></p-calendar>
+                        <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" [minDate]="minDate" [readonlyInput]="true" placeholder="Jour début"></p-calendar>
                     </div>
 
                 

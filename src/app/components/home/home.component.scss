@@ -55,18 +55,21 @@ $fontColor: #525252;
     
                     h1{
                         text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.89);
+                        font-size: 3em;
+                        margin-bottom: 20px;
                     }
     
-                    span:nth-child(2){
+                    span{
                         
-                        font-size: 1.1em;
-                        margin: 10px 0;
+                        font-size: 1.2em;
+                        margin-bottom: 25px;
                         padding: 0 1em;
                         text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.89);
-    
+                        width: 560px;
+                        line-height: 20px;
                     }
     
-                    span:nth-child(3){
+                    button{
                         border: 3.5px solid $colorBlue;
                         color: $colorBlue;
                         border-radius: 100px;
@@ -75,9 +78,11 @@ $fontColor: #525252;
                         font-size: 1.1em;
                         font-weight: 550;
                         cursor: pointer;
+                        outline: none;
+                        transition: all 0.3s ease-in-out;
                     }
     
-                    span:nth-child(3):hover{
+                    button:hover{
                         color: white;
                         background-color: $colorBlue;
                         

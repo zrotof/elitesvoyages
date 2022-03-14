@@ -178,7 +178,7 @@ $fontColor: #525252;
 
 
             form{
-                width: 800px;
+                width: 740px;
                 height: fit-content;
                 padding: 60px ;
                 background-color: #11609846;
@@ -338,7 +338,6 @@ $fontColor: #525252;
                     flex-direction:column;
                     margin-top: 15px;
                     margin-bottom: 20px;
-                    
 
                     span{
                         color: $colorBlue;
@@ -349,9 +348,9 @@ $fontColor: #525252;
                                 display: flex;
                                 flex-wrap: wrap;
                                 align-items: center;
-                                justify-content: space-between;                                
+                                justify-content: space-around;                                
                                 margin-top: 20px;
-                                padding: 0 100px;
+                                width: 100%;
 
                                 .extra{
 

@@ -9,27 +9,21 @@
 
                 <div class="circuit">
 
-                    <div class="image-texts">
                         <img src={{tourism.img}} alt="">
-                        <div class="texts">
+                        <div class="from-price">
                             <span class="from">à partir de</span>
                             <span class="price">
                                 <b> {{tourism.price | number}} XAF</b> / pers
                             </span>
                         </div>
 
-                    </div>
-                    <div class="infos">
+                        <div class="infos">
 
                             <div class="info">
-                                <h5> {{tourism.title}} </h5>
-                                
-                                <span > {{tourism.description}} </span>
-                                
+                                <span> {{tourism.title}} </span>                                
                             </div>
                             <button>Voir l'offre</button>
-                    </div>
-
+                        </div>
                     
                 </div>
             </ng-template>

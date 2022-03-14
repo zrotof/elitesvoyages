@@ -15,91 +15,91 @@
                 <span class="form-advices">Les champs marqués d'un <span class="red-star">*</span> sont obligatoires</span>
             </div>
 
-            <form>
+            <div class="form-bloc">
+                <form>
 
-                <div class="countries">
-
-                    <div class="country">
-                        <div class="label">
-                            <span>Pays de départ </span>
+                    <div class="countries">
+    
+                        <div class="country">
+                            <div class="label">
+                                <span>Pays de départ </span>
+                            </div>
+                            <span class="departure">Cameroun</span>
                         </div>
-                        <span class="departure">Cameroun</span>
-                    </div>
-
-                    <div class="country">
-                        <div class="label">
-                            <span>Pays d'arrivée </span>
-                            <span class="red-star">*</span>
+    
+                        <div class="country">
+                            <div class="label">
+                                <span>Pays d'arrivée </span>
+                                <span class="red-star">*</span>
+                            </div>
+                            <input type="text">
                         </div>
-                        <input type="text">
-                    </div>
-
-                </div>
-
-
-                <div class="weight-contains-format">
-
-                    <div class="weight">
-                        <div class="label">
-                            <span>Poids en kg </span>
-                            <span class="red-star">*</span>
-                        </div>
-                        <input type="text">
-                    </div>
-
-                    <div class="contains">
-                        <div class="label">
-                            <span>Que contient le colis </span>
-                            <span class="red-star">*</span>
-                        </div>
-                        <select (change)="changeReason($event)" formControlName="">
-                            <option *ngFor="let contain of contains" [ngValue]="contain">{{contain}}</option>
-                        </select>
+    
                     </div>
     
-                    <div class="format">
-                        <div class="label">
-                            <span>Dimensions </span>
-                            <span class="red-star">*</span>
-                        </div>
-                        <select (change)="changeReason($event)" formControlName="">
-                            <option *ngFor="let format of formats" [ngValue]="format">{{format}}</option>
-                        </select>
-                    </div>
-                </div>
-                
-
-
-
-
-                <div class="name">
-                    <div class="label">
-                        <span>Nom </span>
-                        <span class="red-star">*</span>
-                    </div>
-                    <input type="text" placeholder="Entrez votre nom">
-                </div>
     
-                <div class="email-phone">
+                    <div class="weight-contains-format">
+    
+                        <div class="weight">
+                            <div class="label">
+                                <span>Poids en kg </span>
+                                <span class="red-star">*</span>
+                            </div>
+                            <input type="text">
+                        </div>
+    
+                        <div class="contains">
+                            <div class="label">
+                                <span>Que contient le colis </span>
+                                <span class="red-star">*</span>
+                            </div>
+                            <select (change)="changeReason($event)" formControlName="">
+                                <option *ngFor="let contain of contains" [ngValue]="contain">{{contain}}</option>
+                            </select>
+                        </div>
+        
+                        <div class="format">
+                            <div class="label">
+                                <span>Dimensions </span>
+                            </div>
+                            <select (change)="changeReason($event)" formControlName="">
+                                <option *ngFor="let format of formats" [ngValue]="format">{{format}}</option>
+                            </select>
+                        </div>
+                    </div>
                     
-                    <div class="email">
+                    <div class="name">
                         <div class="label">
-                            <span>Email </span>
+                            <span>Nom </span>
                             <span class="red-star">*</span>
                         </div>
-                        <input type="email" placeholder="Email">
+                        <input type="text" placeholder="Entrez votre nom">
                     </div>
-    
-                    <div class="phone">
-                        <div class="label">
-                            <span>Téléphone </span>
+        
+                    <div class="email-phone">
+                        
+                        <div class="email">
+                            <div class="label">
+                                <span>Email </span>
+                                <span class="red-star">*</span>
+                            </div>
+                            <input type="email" placeholder="Email">
                         </div>
-                        <input type="text" placeholder="Téléphone">
+        
+                        <div class="phone">
+                            <div class="label">
+                                <span>Téléphone </span>
+                            </div>
+                            <input type="text" placeholder="Téléphone">
+                        </div>
                     </div>
-                </div>
-    
-                <button type="submit">Obtenir devis</button>
-            </form>
+        
+                    <button type="submit">Obtenir devis</button>
+                </form>
+                <img src="../../../assets/img/fret-dhl/guy.jpeg" alt="">
+            </div>
+
+
 
             <div class="procedure">
                 <h1>Comment ça marche ?</h1>

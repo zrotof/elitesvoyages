@@ -113,7 +113,7 @@ export class HomeComponent implements OnInit {
       {
         label: "Assistance Visa",
         icon: this.faAddressCard,
-        description: "Assistance dans la constitution de vos dossiers pour les ambassades",
+        description: "Constitution de vos dossiers pour les ambassades",
         link:"/assistance-visa"
       }
 

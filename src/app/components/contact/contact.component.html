@@ -1,14 +1,14 @@
 <div class="contact">
 
-  <div class="contact-header">
-    <div class="content-header my-container">
-      <h1 class="contact-title">CONTACTEZ-NOUS</h1>
+  <div class="hero">
+    <div class="hero-content my-container">
+      <h1 class="title">CONTACTEZ-NOUS</h1>
     </div>
   </div>
 
   <div class="content my-container">
 
-    <div class="contact-bloc">
+    <div class="infos">
       <h1 class="title">Nos Agences</h1>
 
       <div class="agences">
@@ -90,62 +90,91 @@
       </div>
     </div>
 
-    <div class="form-bloc">
-
     <form [formGroup]="contactForm" (ngSubmit)="onSubmitcontactForm()">
 
-      <div class="name-bloc">
-        <input id="name-input" type="text" formControlName="userName" placeholder="Votre nom *">
-        <label class="label-id" for="name-input">Entrez votre nom </label>
+      <div class="gender-names">
+
+          <div class="gender">
+
+              <div class="label">
+                  <span>Civilités</span>
+                  <span class="red-star">*</span>
+              </div>
+              <select class="custom-select" (change)="changeReason($event)" >
+                  <option *ngFor="let civility of civilities" [ngValue]="civility">{{civility}}</option>
+              </select>
+              
+          </div>
+
+          <div class="firstname">
+              <div class="label">
+                  <span>Nom(s) </span>
+                  <span class="red-star">*</span>
+              </div>
+              <input type="text" placeholder="Entrez votre nom">
+          </div>
+
+          <div class="lastname">
+              <div class="label">
+                  <span>Prénom(s) </span>
+                  <span class="red-star">*</span>
+              </div>
+              <input type="text" placeholder="Entrez votre prénom">
+          </div>
+    
       </div>
 
       <div class="email-phone">
-        <div class="email-bloc">
-          <input id="email-input" type="text" formControlName="userEmail" placeholder="Email *">
-          <label class="label-id" for="email-input">Email</label>
-
+                  
+        <div class="email">
+            <div class="label">
+                <span>Email </span>
+                <span class="red-star">*</span>
+            </div>
+            <input type="email" placeholder="Email">
         </div>
-        <div class="phone-bloc">
-          <input id="phone-input" type="text" formControlName="userPhone" placeholder="Numéro de téléphone">
-          <label class="label-id" for="phone-input">Téléphone</label>
+
+        <div class="phone">
+            <div class="label">
+                <span>Téléphone </span>
+            </div>
+            <input type="text" placeholder="Téléphone">
         </div>
       </div>
 
-
-
-      <div class="objet-bloc">
+      <div class="object">
+        <div class="label">
+            <span>Objet </span>
+            <span class="red-star">*</span>
+        </div>
         <input id="objet-input" type="text" formControlName="userObject" placeholder="Objet du message">
-        <label class="label-id" for="objet-input">Objet</label>
       </div>
 
+      <div class="contact-ways">
+        <span>Vous souhaitez être recontacté(e) par</span>
 
-    <div class="contact-prefere">
-      <span>Vous souhaitez être recontacté(e) par</span>
+        <div class="ways">
+          <div class="way email">
+            <label  for="email">Email</label>
+            <input id="email" type="radio" class="custom-control-input" name="userContact" formControlName="userContact" value="email" checked>
+          </div>
 
-      <div>
-        <div class="radio">
-          <label  for="email">Email</label>
-            <input id="email" type="radio" class="custom-control-input" name="userContact" formControlName="userContact" value="email"
-              checked>
+          <div class="way phone">
+              <input id="phone" type="radio" class="custom-control-input" name="userContact" formControlName="userContact" value="phone">
+              <label class="custom-control-label" for="phone">Téléphone</label>
+          </div>
         </div>
 
-        <div class="radio">
-            <input id="phone" type="radio" class="custom-control-input" name="userContact" formControlName="userContact" value="phone">
-            <label class="custom-control-label" for="phone">Téléphone</label>
-        </div>
       </div>
 
-    </div>
-
-      <div class="message-bloc" >
+      <div class="message" >
         <textarea id="message-area" formControlName="userMessage" type="text" placeholder="Entrez votre message ici, soyez le plus explicite possible ..."></textarea>
-        <label class="label-id" for="message-area">Message</label>
       </div>
 
       <button type="submit" [disabled]="!contactForm.valid">Envoyer <fa-icon [icon]="faPaperPlane"></fa-icon></button>
+    
     </form>
 
-    </div>
   </div>
 
 

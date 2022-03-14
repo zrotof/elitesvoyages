@@ -14,6 +14,8 @@ import { faBuilding, faEnvelope, faPhoneAlt, faMapMarkerAlt, faClock, faPaperPla
 })
 export class ContactComponent implements OnInit {
 
+  civilities: any = [ "Mr", "Mme"];
+
   faBuilding = faBuilding;
   faEnvelope = faEnvelope;
   faPhoneAlt = faPhoneAlt;
@@ -37,6 +39,16 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
+  changeReason(e: any){
+    /* this.typeTrajet.setValue(e.target.value, {
+       onlySelf: true
+     })
+     */
+
+   }
+
 
   onSubmitcontactForm(){
 

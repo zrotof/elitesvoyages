@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 
 
@@ -8,7 +8,9 @@ import { faPlaneDeparture, faPlaneArrival, faCalendarDay, faPlus, faPlusCircle, 
 @Component({
   selector: 'app-flight',
   templateUrl: './flight.component.html',
-  styleUrls: ['./flight.component.scss']
+  styleUrls: ['./flight.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+
 })
 export class FlightComponent implements OnInit {
 
@@ -84,8 +86,9 @@ export class FlightComponent implements OnInit {
 
   onEditPassenger(){
 
-    this.showEditPassengerView = !this.showEditPassengerView ;
+    let datasBloc= <HTMLElement>document.querySelector(".datas-edit");
 
+    datasBloc.classList.toggle("show-datas-edit");
   }
 
   onEditAdultPassenger(param: number){
