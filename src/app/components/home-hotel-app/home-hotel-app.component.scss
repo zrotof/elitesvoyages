@@ -14,136 +14,99 @@ $fontColor: #525252;
             flex-direction: column;
             margin-top: 100px;
 
-            .hotel-bloc, .appartement-bloc{
+            .hotel, .appartement{
                 width: 100%;
                 display: flex;
                 justify-content: space-around;
                 align-items: center; 
                 margin: 40px 0; 
             
+                .text{
 
-            .hotel-bloc-text{
-                display: flex;
-                width: 50%;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding-right: 50px;
-
-                .hotel-title{
                     display: flex;
+                    width: 50%;
+                    flex-direction: column;
                     align-items: center;
                     justify-content: center;
-                    color: $colorBlue;
+                    padding-right: 50px;
 
-                    fa-icon{
-                        font-size: 1.5em;
-                        margin-right: 10px ;
+                    .title{
+                        color: $colorBlue;
+                        position: relative;
+                    }
+            
+                    .title::after{
+                        content: "";
+                        position: absolute;
+                        width: 100px;
+                        height: 5px;
+                        bottom: -15px;
+                        border-radius: 100px;
+                        background-color: $colorBlue;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                    
+                    p{
+                        margin-top: 50px;
+                    }
+    
+                    button{
+                        font-size: 1.1em;
+                        margin-top: 10px;
+                        padding: 3px 20px;
+                        width: fit-content;
+                        color: white;
+                        border-radius:100px;
+                        background-color: $colorBlue;
+                        border: solid $colorBlue;
+                        cursor: pointer;
+                        transition: all 0.3s ease-in;
+                    }
+    
+                    button:hover{
+                        
+                        color: $colorBlue;
+                        font-weight: bold;
+                        background-color: white;
                     }
                 }
-
                 
-
-                .hotel-call-to-action{
-                    font-size: 1.1em;
-                    margin-top: 10px;
-                    padding: 3px 20px;
-                    width: fit-content;
-                    color: white;
-                    border-radius:100px;
-                    background-color: $colorBlue;
-                    border: solid $colorBlue;
+            
+                .hotel-image{
+                    background-image: url("../../../assets/img/home/hotel-app/home-hotel.jpg");
+                    background-repeat: no-repeat ;
+                    background-size: cover;
+                    background-position: center;
+                    width: 28em;
+                    height: 25em;
+                    border-radius: 5px;
+                    box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
                     cursor: pointer;
-                    transition: all 0.3s ease-in;
                 }
-
-                .hotel-call-to-action:hover{
-                    
-                    color: $colorBlue;
-                    font-weight: bold;
-                    background-color: white;
+        
+                .appartement-image{
+                    background-image: url("../../../assets/img/home/hotel-app/home-appartement.jpg");
+                    background-repeat: no-repeat ;
+                    background-size: cover;
+                    background-position: center;
+                    width: 28em;
+                    height: 25em;
+                    border-radius: 5px;
+                    box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
+                    cursor: pointer;
+                }
+        
+        
+                .hotel-image:hover{
+                    box-shadow: $colorBlue 0px 5px 15px;
+                }
+        
+                .appartement-image:hover{
+                    box-shadow: $colorBlue 0px 5px 15px;
                 }
             }
-
-
-            .appartement-bloc-text{
-                display: flex;
-                width: 50%;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding-left: 50px;
-
-                .appartement-title{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: $colorBlue;
-
-                    fa-icon{
-                        font-size: 1.5em;
-                        margin-right: 10px ;
-                    }
-                }
-
-                
-
-                .appartement-call-to-action{
-                    font-size: 1.1em;
-                    margin-top: 10px;
-                    padding: 3px 20px;
-                    width: fit-content;
-                    color: white;
-                    border-radius:100px;
-                    background-color: $colorBlue;
-                    border: solid $colorBlue;
-                    cursor: pointer;
-                    transition: all 0.3s ease-in;
-                }
-
-                .appartement-call-to-action:hover{
-                    
-                    color: $colorBlue;
-                    font-weight: bold;
-                    background-color: white;
-                }
-            }
-        }
-
-        .hotel-image{
-            background-image: url("../../../assets/img/home/hotel-app/home-hotel.jpg");
-            background-repeat: no-repeat ;
-            background-size: cover;
-            background-position: center;
-            width: 28em;
-            height: 25em;
-            border-radius: 5px;
-            box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
-            cursor: pointer;
-        }
-
-        .appartement-image{
-            background-image: url("../../../assets/img/home/hotel-app/home-appartement.jpg");
-            background-repeat: no-repeat ;
-            background-size: cover;
-            background-position: center;
-            width: 28em;
-            height: 25em;
-            border-radius: 5px;
-            box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
-            cursor: pointer;
-        }
-
-
-        .hotel-image:hover{
-            box-shadow: $colorBlue 0px 5px 15px;
-        }
-
-        .appartement-image:hover{
-            box-shadow: $colorBlue 0px 5px 15px;
-        }
-
-
+        
 
     }
 

@@ -281,6 +281,24 @@ $fontColor: #525252;
             justify-content: center;
             width: 100%;
 
+            .title{
+                color: $colorBlue;
+                position: relative;
+            }
+        
+            .title::after{
+                content: "";
+                position: absolute;
+                width: 100px;
+                height: 5px;
+                bottom: -15px;
+                border-radius: 100px;
+                background-color: $colorBlue;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+
             .services{
                 display: flex;
                 width: 100%;

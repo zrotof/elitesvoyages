@@ -8,7 +8,6 @@ $fontColor: #525252;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 80px 0 0 0;
         background-color:#e7e7e7;
         padding: 60px 0;
 
@@ -23,20 +22,36 @@ $fontColor: #525252;
 
             .title{
                 color: $colorBlue;
+                position: relative;
             }
 
+            .title::after{
+                content: "";
+                position: absolute;
+                width: 100px;
+                height: 5px;
+                bottom: -15px;
+                border-radius: 100px;
+                background-color: $colorBlue;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .intro{
+                margin-top: 80px;
+            }
             .circuits{
                 display: inline-flex;
                 width: 100%;
                 overflow-x: scroll; 
-                padding: 100px 0 20px 0;
+                padding: 50px 0 20px 0;
                 justify-content: flex-start;
                 
 
                 .circuit{
                     height: 250px;
                     background-color: white;
-                    margin: 0 20px;
+                    margin: 0 20px 0 0;
                     border-radius: 10px;
                     position: relative;
                     cursor: pointer;

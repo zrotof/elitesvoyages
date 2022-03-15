@@ -31,9 +31,9 @@ export class CarComponent implements OnInit {
 
   // rental reasons
   reasons: any = [
-                    'Je souhaite louer un véhicule pour trajet aéroportuaire',
-                    'Je souhaite louer un véhicule pour des déplacements dans la ville',
-                    'Je souhaite louer un véhicule pour des déplacements hors de la ville'];
+                    'Location pour trajet aéroportuaire',
+                    'Location pour déplacements dans la ville',
+                    'Location pour déplacements hors de la ville'];
 
   hours: any = [ 
                   '00h00', '01h00', '02h00', '03h00', '04h00', '05h00', '06h00',

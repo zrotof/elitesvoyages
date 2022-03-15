@@ -37,248 +37,271 @@ $fontColor: #525252;
 
 .cars-bloc{
     width: 100%;
-    padding-bottom: 2.5em;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: $fontColor;
     background: white;
+    padding: 80px 0;
 
     .content{
         display: flex;
-        flex-direction: column;
-        position: relative;
-        margin-top: 4em;
         width: 100%;
+        align-items: center;
 
-        .title{
-            text-align: center;
+        .image{
+            background-image: url("../../../assets/img/cars/car-keys.jpeg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 500px;
+            height: 500px;
+            position:relative;
         }
 
-        .intro{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 70px;
+        .image::after{
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #05214f33;
+        }
 
-            .image{
-                background-image: url("../../../assets/img/cars/car-keys.jpeg");
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                border-radius: 5px;
-                width: 300px;
-                height: 200px;
+
+        .infos{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            width: 60%;
+
+            .title{
+                text-align: center;
+                margin-bottom: 30px;
+                color: $colorBlue;
+                position: relative;
+            }
+
+            .title::after{
+                content: "";
+                position: absolute;
+                width: 100px;
+                height: 5px;
+                bottom: -15px;
+                border-radius: 100px;
+                background-color: $colorBlue;
+                left: 50%;
+                transform: translateX(-50%);
             }
 
             .text{
 
+                margin-top: 30px;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                width: fit-content;
-                margin-left: 20px;
+                width: 100%;
 
-
-                button{
-                    margin-top:20px;
-                    padding: 5px 15px;
-                    color: white;
-                    background-color: $colorBlue;
-                    border-radius: 100px;
-                    border: 2px solid $colorBlue;
-                    font-size: 0.95em;
-                    outline: none;
-                    cursor: pointer;
-                }
-    
-                button:hover{
-                    color: $colorBlue;
-                    background-color: white;
-                    transition: all 0.3s ease-in;
-                    font-weight: bold;
+                    button{
+                        margin: 0 auto;
+                        margin-top:20px;
+                        padding: 5px 15px;
+                        color: white;
+                        background-color: $colorBlue;
+                        border-radius: 100px;
+                        border: 2px solid $colorBlue;
+                        font-size: 0.95em;
+                        outline: none;
+                        cursor: pointer;
+                        width: fit-content;
+                    }
+        
+                    button:hover{
+                        color: $colorBlue;
+                        background-color: white;
+                        transition: all 0.3s ease-in;
+                        font-weight: bold;
+                        
+                    }
                     
-                }
-                
             }
-        }
 
 
-        .car-item {
+            .car-item {
 
-            margin: 80px 0 50px 0;
-            width: 100%;
+                margin: 80px 0 50px 0;
+                width: 100%;
 
-                .car-item-content{
-                    
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    cursor: pointer;
-                    margin: 0.3rem;
-    
-                    .car-item-contener{
-                        border-radius: 10px;
-                        overflow: hidden;
-                        //box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-                        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-                            .car-item-bloc-image-text{
+                    .car-item-content{
+                        
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        cursor: pointer;
+                        margin: 0.3rem;
+        
+                        .car-item-contener{
+                            border-radius: 10px;
+                            overflow: hidden;
+                            //box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+                            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                                .car-item-bloc-image-text{
 
-                                height: 180px;
-                                width: 250px;
-                                position: relative;
-                                overflow: hidden;
+                                    height: 180px;
+                                    width: 250px;
+                                    position: relative;
+                                    overflow: hidden;
 
-                                .car-item-image{
-                                    height: 100%;
+                                    .car-item-image{
+                                        height: 100%;
+                                        width: 100%;
+
+                                    }
+
+                                    .car-item-text{
+
+                                        position: absolute;
+                                        right: -70%;
+                                        bottom: 5%;
+                                        color:rgba(255, 255, 255, 0.863);
+                                        font-size: 1em;
+                                        font-weight: bold;
+                                    }
+
+
+                                }
+
+                                .car-item-bloc-image-text:before{
+                                    content: "";
                                     width: 100%;
-
+                                    height: 100%;
+                                    position: absolute;
+                                    background: rgba(0, 0, 0, 0.295);
                                 }
 
                                 .car-item-text{
-
-                                    position: absolute;
-                                    right: -70%;
-                                    bottom: 5%;
-                                    color:rgba(255, 255, 255, 0.863);
-                                    font-size: 1em;
-                                    font-weight: bold;
-                                }
-
-
-                            }
-
-                            .car-item-bloc-image-text:before{
-                                content: "";
-                                width: 100%;
-                                height: 100%;
-                                position: absolute;
-                                background: rgba(0, 0, 0, 0.295);
-                            }
-
-                            .car-item-text{
-                                display: flex;
-                                flex-direction: column;
-                                padding: 10px 0;
-                                width: 250px;
-                                color: $fontColor;
-
-
-
-                                .car-item-name{
-                                    font-size: 1.1em;
-                                    font-weight: 580;
-                                    text-align: center;
-                                }
-
-                                .car-item-tools{
-                                    margin: 15px 0 10px 0;
-                                    display: flex;
-                                    
-                                    justify-content: space-between;
-                                    font-size: 0.9em;
-                                    padding: 0 10px;
-
-                                    & div{
-                                        display: flex;
-                                        flex-direction: column-reverse;
-                                        justify-content: center;
-                                        align-items: center;
-
-                                        & span:nth-child(2){
-                                            border-radius: 50%;
-                                            background-color: #11609827;
-                                            color: $colorBlue;
-                                            width: 30px;
-                                            height: 30px;
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center;
-                                        }
-                                    }
-
-                                }
-
-                                .car-item-prices{
-
                                     display: flex;
                                     flex-direction: column;
-                                    width: 100%;
-                                    background: #11609827;
+                                    padding: 10px 0;
+                                    width: 250px;
+                                    color: $fontColor;
 
-                                    & div{
+
+
+                                    .car-item-name{
+                                        font-size: 1.1em;
+                                        font-weight: 580;
+                                        text-align: center;
+                                    }
+
+                                    .car-item-tools{
+                                        margin: 15px 0 10px 0;
                                         display: flex;
+                                        
                                         justify-content: space-between;
-                                        padding: 4px 10px;
-                                        color: $colorBlue;
-                                        font-size: 0.85em;
+                                        font-size: 0.9em;
+                                        padding: 0 10px;
+
+                                        & div{
+                                            display: flex;
+                                            flex-direction: column-reverse;
+                                            justify-content: center;
+                                            align-items: center;
+
+                                            & span:nth-child(2){
+                                                border-radius: 50%;
+                                                background-color: #11609827;
+                                                color: $colorBlue;
+                                                width: 30px;
+                                                height: 30px;
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: center;
+                                            }
+                                        }
+
                                     }
 
-                                    & div~div{
-                                        border-top: 1px solid #52525250;
-                                    }
+                                    .car-item-prices{
 
-                                }
-
-                                .car-item-driver{
-
-                                    display: flex;
-                                    margin: 10px 0;
-                                    justify-content: center;
-                                    align-items: center;
-
-                                    & div{
                                         display: flex;
                                         flex-direction: column;
-                                        align-items: center;
-                                        justify-content: center;
-                                        font-size: 0.85em;
+                                        width: 100%;
+                                        background: #11609827;
 
-                                        & span:nth-child(1){
-                                            font-weight: 530;
+                                        & div{
+                                            display: flex;
+                                            justify-content: space-between;
+                                            padding: 4px 10px;
+                                            color: $colorBlue;
+                                            font-size: 0.85em;
+                                        }
+
+                                        & div~div{
+                                            border-top: 1px solid #52525250;
+                                        }
+
+                                    }
+
+                                    .car-item-driver{
+
+                                        display: flex;
+                                        margin: 10px 0;
+                                        justify-content: center;
+                                        align-items: center;
+
+                                        & div{
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-items: center;
+                                            justify-content: center;
+                                            font-size: 0.85em;
+
+                                            & span:nth-child(1){
+                                                font-weight: 530;
+                                            }
+                                        }
+
+                                        & fa-icon{
+                                            margin: 0 10px;
                                         }
                                     }
 
-                                    & fa-icon{
-                                        margin: 0 10px;
+                                    .reserver{
+                                        padding: 2px 15px;
+                                        border: 2px solid $colorBlue;
+                                        margin: auto;
+                                        width: fit-content;
+                                        border-radius: 50px;
+                                        transition: all 0.3s ease-in;
+                                        font-size: 0.85em;
+                                        color: $colorBlue;
                                     }
+
+                                    .reserver:hover{
+                                        background-color: $colorBlue;
+                                        color: white;
+                                    }
+                                    
                                 }
-
-                                .reserver{
-                                    padding: 2px 15px;
-                                    border: 2px solid $colorBlue;
-                                    margin: auto;
-                                    width: fit-content;
-                                    border-radius: 50px;
-                                    transition: all 0.3s ease-in;
-                                    font-size: 0.85em;
-                                    color: $colorBlue;
-                                }
-
-                                .reserver:hover{
-                                    background-color: $colorBlue;
-                                    color: white;
-                                }
-                                
-                            }
-                    }
-                    .car-item-contener:hover{
-                        box-shadow: 0px 5px 15px $colorBlue;
-                        -webkit-box-shadow: 0px 5px 15px $colorBlue;
-                        -moz-box-shadow: 0px 5px 15px $colorBlue;
-
-                        .car-item-bloc-image-text{
-
-                            .car-item-image{
-                            transform: scale(1.2,1.2);
-                            transition: all 0.3s ease-in-out;
-                            }
                         }
-                    }   
-                    
-                }
-        }
+                        .car-item-contener:hover{
+                            box-shadow: 0px 5px 15px $colorBlue;
+                            -webkit-box-shadow: 0px 5px 15px $colorBlue;
+                            -moz-box-shadow: 0px 5px 15px $colorBlue;
 
+                            .car-item-bloc-image-text{
+
+                                .car-item-image{
+                                transform: scale(1.2,1.2);
+                                transition: all 0.3s ease-in-out;
+                                }
+                            }
+                        }   
+                        
+                    }
+            }
+        }
     }
 }

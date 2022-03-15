@@ -60,6 +60,19 @@ $fontColor: #525252;
 
         .title{
             text-align: center;
+            position: relative;
+        }
+
+        .title::after{
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            bottom: -15px;
+            border-radius: 100px;
+            background-color: white;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .flight-item {

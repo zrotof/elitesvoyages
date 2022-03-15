@@ -7,7 +7,7 @@ $fontColor: #525252;
     width: 100%;
     align-items: center;
 
-    .deal-top-bloc{
+    .hero{
 
         background-image: url("../../../assets/img/good-deals/deal.jpeg");
         background-position: center;
@@ -17,7 +17,7 @@ $fontColor: #525252;
         width: 100%;
         height: 65vh;
 
-        .deal-top-title{
+        .title{
             position: absolute;
             top: 50%;
             left:50%;
@@ -26,7 +26,7 @@ $fontColor: #525252;
         }
     }
 
-    .deal-top-bloc::before{
+    .hero::before{
         content: "";
         top: 0;
         left:0;
@@ -43,7 +43,8 @@ $fontColor: #525252;
         width: 100%;
         align-items: center;
         justify-content: center;
-        padding: 60px 0;
+        padding-top: 60px;
+        padding-bottom: 60px;
 
         .offers{
             display: flex;
