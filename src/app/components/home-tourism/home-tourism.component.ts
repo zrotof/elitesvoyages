@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Tourism } from 'src/app/models/tourism';
+import { TopTour } from 'src/app/models/tourism';
 import { TourismService } from 'src/app/services/tourism/tourism.service';
+
+
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home-tourism',
@@ -9,17 +12,20 @@ import { TourismService } from 'src/app/services/tourism/tourism.service';
 })
 export class HomeTourismComponent implements OnInit {
 
-  topTourismList : Tourism[] = []; 
+  faMapMarkerAlt = faMapMarkerAlt;
+
+  topTourismList : TopTour[] = []; 
+  
   constructor(
-    private tourismService : TourismService
+    private tourService : TourismService
   ) { }
 
   ngOnInit(): void {
-    this.tourismTop();
+    this.getTopTours();
   }
 
-  tourismTop(){
-    this.topTourismList = this.tourismService.topTourism();
+  getTopTours(){
+    this.topTourismList = this.tourService.topTourismList();
   }
 
 }

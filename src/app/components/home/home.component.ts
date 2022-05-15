@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
         label: "Billet d'Avion",
         icon: this.faPlane,
         description: "Vente de billets d'avion pour toutes vos destinations",
-        link:"/flight"
+        link:"/vols"
       },
 
 
@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit {
         label: "Location de Voiture",
         icon: this.faCarSide,
         description: "Mise à disposition d'un large choix de véhicules selon vos besoins",
-        link:"/rent-car"
+        link:"/voitures"
       },
 
       {
@@ -92,7 +92,7 @@ export class HomeComponent implements OnInit {
         label: "Appartement meublé",
         icon: this.faHome,
         description: "Vente de billets d'avion pour toutes vos destinations",
-        link:"/appartement-meuble"
+        link:"/appartements-meubles"
 
       },
 
@@ -100,7 +100,7 @@ export class HomeComponent implements OnInit {
         label: "Tourisme",
         icon: this.faGlobeAfrica,
         description: "Planification et organisation de circuits touristiques paradisiaques",
-        link:"/tourism"
+        link:"/tourisme"
       },
 
       {

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
+import { TourismService } from 'src/app/services/tourism/tourism.service';
+
+import { GeneralTour } from '../../models/tourism';
 @Component({
   selector: 'app-tourism',
   templateUrl: './tourism.component.html',
@@ -7,9 +11,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TourismComponent implements OnInit {
 
-  constructor() { }
+
+  generalTourList: GeneralTour[] = [];
+
+  constructor(
+    private tourService : TourismService,
+    private router: Router
+  ) { }
+
 
   ngOnInit(): void {
+
+    this.getGeneralDataTourismPackages();
+  }
+
+  getGeneralDataTourismPackages(){
+
+    this.generalTourList = this.tourService.generalDataTourList();
+
+  }
+
+  redirectRoute(param : string | undefined){
+  
+    this.router.navigate(['/tourisme/'+param]);
+
   }
 
 }

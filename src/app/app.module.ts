@@ -8,12 +8,18 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 //Prime ng
-import { FieldsetModule } from 'primeng/fieldset';
+import {FieldsetModule} from 'primeng/fieldset';
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
 import {ImageModule} from 'primeng/image';
 import {CalendarModule} from 'primeng/calendar';
+import {GalleriaModule} from 'primeng/galleria';
+import {AccordionModule} from 'primeng/accordion';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {BreadcrumbModule} from 'primeng/breadcrumb';
+import {DialogModule} from 'primeng/dialog';
+import {TooltipModule} from 'primeng/tooltip';
 
 //Swipper
 import { SwiperModule } from 'swiper/angular';
@@ -41,6 +47,10 @@ import { HomeHotelAppComponent } from './components/home-hotel-app/home-hotel-ap
 import { HomeCarsComponent } from './components/home-cars/home-cars.component';
 import { HomeAboutComponent } from './components/home-about/home-about.component';
 import { ApartmentComponent } from './components/apartment/apartment.component';
+import { TourComponent } from './components/tour/tour.component';
+import { AirPurifierComponent } from './components/air-purifier/air-purifier.component';
+import { CarParisComponent } from './components/car-paris/car-paris.component';
+import { TourDetailComponent } from './components/tour-detail/tour-detail.component';
 
 
 @NgModule({
@@ -66,7 +76,11 @@ import { ApartmentComponent } from './components/apartment/apartment.component';
     HomeHotelAppComponent,
     HomeCarsComponent,
     HomeAboutComponent,
-    ApartmentComponent
+    ApartmentComponent,
+    TourComponent,
+    AirPurifierComponent,
+    CarParisComponent,
+    TourDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +97,14 @@ import { ApartmentComponent } from './components/apartment/apartment.component';
     ToastModule,
     ImageModule,
     SwiperModule,
-    CalendarModule
+    CalendarModule,
+    GalleriaModule,
+    AccordionModule,
+    RadioButtonModule,
+    BreadcrumbModule,
+    DialogModule,
+    TooltipModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

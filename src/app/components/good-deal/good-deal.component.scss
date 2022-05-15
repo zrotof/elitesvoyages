@@ -60,11 +60,11 @@ $fontColor: #525252;
                 overflow: hidden;
                 border-radius: 10px;
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-                margin-top: 25px;
+                margin: 25px 5px 5px 5px;
 
                 img{
                     height: 200px;
-                    width: 250px;
+                    width: 190px;
                     object-fit: cover;
                 }
 
@@ -74,7 +74,7 @@ $fontColor: #525252;
                     justify-content: space-between;
                     align-items: center;
                     width: 100%;
-                    padding: 10px 0;
+                    padding: 10px 15px;
 
                     .info{
                         display: flex;
@@ -87,13 +87,15 @@ $fontColor: #525252;
                             font-size: 1.1em;
                             color: $colorBlue;
                             margin-bottom: 10px;
+
                         }
 
                         .text{
-                            font-size: 0.92em;
-                            text-align: justify;
+                            font-size: 0.9em;
+                            text-align: left;
                             line-height: 20px;
-                            padding: 0 15px;
+                            margin-top: 3px;
+                            width: 100%;
 
                         }
 
@@ -167,6 +169,7 @@ $fontColor: #525252;
                     justify-content: center;
                     align-items: center;
 
+
                     button{
                         margin-left: 20px;
                         padding: 5px 13px;
@@ -187,6 +190,232 @@ $fontColor: #525252;
                 }
             }
 
+        }
+    }
+}
+
+
+@media all and (max-width: 1200px){
+
+    .deal{
+        display: flex;
+        flex-direction:column;
+        width: 100%;
+        align-items: center;
+    
+        .hero{
+    
+            background-image: url("../../../assets/img/good-deals/deal.jpeg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            width: 100%;
+            height: 65vh;
+    
+            .title{
+                position: absolute;
+                top: 50%;
+                left:50%;
+                color: white;
+                transform: translate(-50%,-50%);
+            }
+        }
+    
+        .hero::before{
+            content: "";
+            top: 0;
+            left:0;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(180deg, rgba(2,22,47,0.7133228291316527) 0%, rgba(0,0,0,0.23713235294117652) 25%, rgba(0,0,0,0.20632002801120453) 100%);
+        }
+    
+        .content{
+    
+            .offers{
+
+                justify-content: center;
+    
+                .offer{
+                    height: fit-content;
+                    flex-direction: column;
+                    width: 270px;
+
+                    img{
+                        height: 210px;
+                        width: 100%;
+                    }
+        
+                        button{
+                            margin-top: 20px;
+                        }
+
+                    
+    
+                }
+            }
+    
+            .partnership{
+    
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 260px 0 40px 0;
+                background-color: #d4dae5;
+                color: #115F98;
+                padding: 40px 20px;
+                width: 100%;
+                border-radius: 5px;
+    
+                h5{
+                    position: relative;
+                }
+                h5::after{
+                    content: "";
+                    width: 30%;
+                    height: 3px;
+                    border-radius: 100px;
+                    background-color: $colorBlue;
+                    position: absolute;
+                    bottom: -10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+    
+    
+                }
+    
+                .infos{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-direction: column;
+    
+                    .text{
+                        margin: 50px 0 20px 0;
+                        font-weight: 400;
+                    }
+    
+                    .action-bloc{
+    
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+    
+                        button{
+                            margin-left: 20px;
+                            padding: 5px 13px;
+                            color: $colorBlue;
+                            background-color: white;
+                            border-radius: 100px;
+                            font-size: 0.95em;
+                            cursor: pointer;
+                            transition: all 0.3s ease-in;
+                            border: none;
+                        }
+        
+                        button:hover{
+                            background-color: $colorBlue;
+                            color: white;
+    
+                        }
+                    }
+                }
+    
+            }
+        }
+    }
+}
+
+
+
+@media all and (max-width: 383px){
+
+    .deal{
+        display: flex;
+        flex-direction:column;
+        width: 100%;
+        align-items: center;
+    
+        .hero{
+    
+            background-image: url("../../../assets/img/good-deals/deal.jpeg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            width: 100%;
+            height: 65vh;
+    
+            .title{
+                position: absolute;
+                top: 50%;
+                left:50%;
+                color: white;
+                transform: translate(-50%,-50%);
+            }
+        }
+    
+        .hero::before{
+            content: "";
+            top: 0;
+            left:0;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(180deg, rgba(2,22,47,0.7133228291316527) 0%, rgba(0,0,0,0.23713235294117652) 25%, rgba(0,0,0,0.20632002801120453) 100%);
+        }
+    
+        .content{
+
+            .partnership{
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 260px 0 40px 0;
+                background-color: #d4dae5;
+                color: #115F98;
+                padding: 40px 20px;
+                width: 100%;
+                border-radius: 5px;
+            
+
+                h5::after{
+                    
+                    left: 0%;
+                    transform: translateX(0%);
+        
+                }
+            
+                .infos{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-direction: column;
+            
+                    .text{
+                        margin: 50px 0 20px 0;
+                        font-weight: 400;
+                    }
+            
+                    .action-bloc{
+            
+                        flex-direction: column;
+                        
+            
+                        button{
+                            margin: 10px 0 0 0;
+                            
+                        }
+
+                    }
+                }
+            
+            }
         }
     }
 }

@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Validators, FormBuilder } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 
 //importing fontawesome icons
 import { faPlaneDeparture, faPlaneArrival, faCalendarDay, faPlus, faPlusCircle, faUser, faEnvelope, faPhoneAlt, faPaperPlane, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
+import { MailsService } from 'src/app/services/mails/mails.service';
 
 @Component({
   selector: 'app-flight',
@@ -29,33 +30,36 @@ export class FlightComponent implements OnInit {
   trajets: any = ['ALLER - RETOUR', 'ALLER SIMPLE'];
   cabines: any = ['ECONOMY', 'PREMIUM', 'BUSINESS CLASS', 'FIRST CLASS',];
 
-  bookingForm = this.fb.group({
-    typeTrajet: [this.trajets[0],[Validators.required]],
-    typeCabine: [this.cabines[0],[Validators.required]]
-  })
-
   nombrePassagerTotal = 1;
   nombrePassagerAdulte = 1;
   nombrePassagerEnfant = 0;
   nombrePassagerBebe = 0;
-     //contact form declaration
-     flightForm = this.fb.group({
-      typeTraje: ["", [Validators.required]],
-      typeCabine: ["", Validators.required],
-      userPhone:["", [Validators.pattern('^[0-9]+$')]],
-      userContact: ["email"],
-      userObject:[""],
-      userMessage: ["", Validators.required]
-  });
 
+  //contact form declaration
+  flightForm : FormGroup;
+
+  isFlightFormSubmitted = false;
 
   //Boolean value according to whom we will display view of edit number of passenger(s)
   showEditPassengerView = false;
 
-  constructor(private fb :FormBuilder) { 
+  constructor(private fb :FormBuilder, private mailService: MailsService) { 
    
- 
-
+    this.flightForm = this.fb.group({
+      way: [null, [Validators.required]],
+      cabine: [null, Validators.required],
+      departure: ['', Validators.required],
+      arrival: ['', Validators.required],
+      dateDep: ['', Validators.required],
+      dateRet: [''],
+      adult: [1],
+      child: [0],
+      infant: [0],
+      lastname:["", [Validators.required]],
+      email: ["", Validators.required],
+      phone:[""],
+      message: [""]
+  });
 
 
 
@@ -65,25 +69,53 @@ export class FlightComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  changeTypeVoyage(e: any){
-    /* this.typeTrajet.setValue(e.target.value, {
-       onlySelf: true
-     })
-     */
-   }
+  // convenient getter for easy access to form fields
+  get f() { return this.flightForm.controls; }
 
-   changeTypeCabine(e: any){
-    /* this.typeTrajet.setValue(e.target.value, {
-       onlySelf: true
-     })
-     */
-   }
+//Resetting the form's value
+onReset() {
+  this.isFlightFormSubmitted = false;
+  this.flightForm.reset();
+}
   
 
-  onBookingFormSubmit(){
+  //Handling submition of flight form
+  onSubmitFlightForm(){
+
+    this.isFlightFormSubmitted = true;
+
+    // stop here if form is invalid
+    if (this.flightForm.invalid) {
+      return;
+    }
+
+    /*
+    if( !this.f.phone.value ){
+      this.f.phone.setValue('0000') ;
+    }
+    */
+
+    this.mailService.sendFlightMail(this.flightForm.value)
+    .subscribe(resp =>{
+        console.log(resp);
+
+      /*
+      if(resp['message'] === "success"){
+        //this.messageService.add({severity:'success', detail: "Message envoyé."});
+        //this.onReset();
+      }
+
+      else{
+
+        //this.messageService.add({severity:'error',detail: "Erreur lors de l'envoi"});
+    
+      }
+*/
+    });
 
   }
 
+  //Show or hide passenger edit panel
   onEditPassenger(){
 
     let datasBloc= <HTMLElement>document.querySelector(".datas-edit");
@@ -91,6 +123,7 @@ export class FlightComponent implements OnInit {
     datasBloc.classList.toggle("show-datas-edit");
   }
 
+  //handling number of adult passenger on edit
   onEditAdultPassenger(param: number){
 
     if(param == 1 && this.nombrePassagerTotal < 9 ){
@@ -98,13 +131,16 @@ export class FlightComponent implements OnInit {
       this.nombrePassagerTotal +=param;
     }
 
-    if(param == -1 && this.nombrePassagerTotal > 1 && this.nombrePassagerAdulte > 1 && this.nombrePassagerBebe < this.nombrePassagerAdulte){
+    if(param == -1 && this.nombrePassagerTotal > 0 && this.nombrePassagerAdulte > 0 && this.nombrePassagerBebe < this.nombrePassagerAdulte){
       this.nombrePassagerAdulte += param;
       this.nombrePassagerTotal +=param;
     }
 
+    this.f.adult.setValue(this.nombrePassagerAdulte);
+
   }
 
+  //handling number of child passenger on edit
   onEditChildPassenger(param: number){
     
     if(param == 1 && this.nombrePassagerTotal < 9 ){
@@ -112,13 +148,15 @@ export class FlightComponent implements OnInit {
       this.nombrePassagerTotal +=param;
     }
 
-    if(param == -1 && this.nombrePassagerTotal > 1 && this.nombrePassagerEnfant > 0){
+    if(param == -1 && this.nombrePassagerTotal > 0 && this.nombrePassagerEnfant > 0){
       this.nombrePassagerEnfant += param;
       this.nombrePassagerTotal +=param;
     }
+    this.f.child.setValue(this.nombrePassagerEnfant);
 
   }
 
+  //handling number of child passenger on edit
   onEditBabyPassenger(param: number){
     
     if(param == 1 && this.nombrePassagerTotal < 9 && this.nombrePassagerAdulte > this.nombrePassagerBebe){
@@ -126,9 +164,13 @@ export class FlightComponent implements OnInit {
       this.nombrePassagerTotal +=param;
     }
 
-    if(param == -1 && this.nombrePassagerTotal > 1 && this.nombrePassagerBebe > 0){
+    if(param == -1 && this.nombrePassagerTotal > 0 && this.nombrePassagerBebe > 0){
       this.nombrePassagerBebe += param;
       this.nombrePassagerTotal +=param;
     }
+
+    this.f.infant.setValue(this.nombrePassagerBebe);
+
   }
+
 }

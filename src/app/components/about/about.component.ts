@@ -32,12 +32,12 @@ export class AboutComponent implements OnInit {
   getEmployees(){
     this.employeesList = [
       {
-        name: "Irène",
+        name: "Irène NGO BALA",
         image: "../../../assets/img/about/pauline.png",
         work: "Responsable d'agence"
       },
       {
-        name: "Esther",
+        name: "Esther KOUMBELECK",
         image: "../../../assets/img/about/esther.png",
         work: "Responsable d'agence"
       },
@@ -62,13 +62,13 @@ export class AboutComponent implements OnInit {
         work: "Poste"
       },
       {
-        name: "Patrick GOUATER",
-        image: "../../../assets/img/about/patrick.png",
-        work: "Stagiaire"
+        name: "Jeanne HAMBO",
+        image: "../../../assets/img/about/about-woman-black.png",
+        work: "Commerciale"
       },
       {
-        name: "Paul",
-        image: "../../../assets/img/about/about-woman-black.png",
+        name: "Pascal PONDI",
+        image: "../../../assets/img/about/pascal.png",
         work: "Poste"
       },
       {

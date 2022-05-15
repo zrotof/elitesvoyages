@@ -42,7 +42,7 @@ $fontColor: #525252;
     align-items: center;
     color: $fontColor;
     background: white;
-    padding: 80px 0;
+    padding: 120px 0;
 
     .content{
         display: flex;
@@ -57,6 +57,9 @@ $fontColor: #525252;
             width: 500px;
             height: 500px;
             position:relative;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
+                    
         }
 
         .image::after{
@@ -74,12 +77,11 @@ $fontColor: #525252;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px;
+            padding: 40px 0 0 40px;
             width: 60%;
 
             .title{
                 text-align: center;
-                margin-bottom: 30px;
                 color: $colorBlue;
                 position: relative;
             }
@@ -98,10 +100,14 @@ $fontColor: #525252;
 
             .text{
 
-                margin-top: 30px;
+                margin-top: 60px;
                 display: flex;
                 flex-direction: column;
                 width: 100%;
+
+                span{
+                    text-align: justify;
+                }
 
                     button{
                         margin: 0 auto;
@@ -220,7 +226,6 @@ $fontColor: #525252;
                                                 justify-content: center;
                                             }
                                         }
-
                                     }
 
                                     .car-item-prices{
@@ -301,6 +306,32 @@ $fontColor: #525252;
                         }   
                         
                     }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 750px){
+
+    .cars-bloc{
+        padding: 60px 0;
+
+        .content{
+
+            flex-direction: column;
+
+            .image{
+                width: 280px;
+                height: 220px;
+            }
+
+            .infos{
+                padding: 60px 0 50px 0;
+                width: 100%;
+
+                .text{
+                    margin-top: 35px;
+                }
             }
         }
     }

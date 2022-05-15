@@ -539,6 +539,12 @@ $fontColor: #525252;
             font-weight: bold;
         }
 
+        .error-feedback {
+            width: fit-content;
+            margin-top: 0.25rem;
+            color: #dc3545;
+        }
+
         .intro{
 
             display: flex;
@@ -561,7 +567,7 @@ $fontColor: #525252;
         }
 
         form{
-            width: 800px;
+            width: 735px;
             height: fit-content;
             padding: 60px ;
             background-color: #11609841;
@@ -573,66 +579,74 @@ $fontColor: #525252;
             .gender-names{
                 display: flex;
                 justify-content: space-between;
+                width: 100%;
+
+                .element{
+                    .gender{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: white;
+                        border: 1px solid $colorBlue;
+                        padding: 5px;
+                        border-radius: 5px;
+                        width: 100px;
+                        height: 57px;
+                        margin-top: 15px;
+    
+    
+                        .label{
+                            font-size: 0.85em;
+                            color: $colorBlue;
+                            padding-left: 5px;
+    
+                        }
+    
+                         select{
+                            border: none;
+                            outline: none;
+                            background-color: unset;
+                            
+                        }
+                    }
+                }
+
+                .element{
+                    width: fit-content;
+                    .firstname, .lastname{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: white;
+                        border: 1px solid $colorBlue;
+                        padding: 5px;
+                        border-radius: 5px;
+                        margin-top: 15px;
+                        position: relative;
+                        height: 57px;
+                        width: 250px;
+    
+                        .label{
+                            font-size: 0.85em;
+                            color: $colorBlue;
+                            padding-left: 5px;
+    
+                        }
+    
+                         input{
+                            border: none;
+                            outline: none;
+                            background-color: unset;
+                            position: absolute;
+                            position: absolute;
+                            bottom: 0;
+                            padding-left: 4px;
+                            width: 100%;
+                            padding-top: 25px;
+                            height: 100%;
+                        }
+                    }
+                }
+
                 
-                .gender{
-                    display: flex;
-                    flex-direction: column;
-                    background-color: white;
-                    border: 1px solid $colorBlue;
-                    padding: 5px;
-                    border-radius: 5px;
-                    width: 100px;
-                    height: 57px;
-                    margin-top: 15px;
-
-
-                    .label{
-                        font-size: 0.85em;
-                        color: $colorBlue;
-                        padding-left: 5px;
-
-                    }
-
-                     select{
-                        border: none;
-                        outline: none;
-                        background-color: unset;
-                        
-                    }
-                }
-
-                .firstname, .lastname{
-                    display: flex;
-                    flex-direction: column;
-                    background-color: white;
-                    border: 1px solid $colorBlue;
-                    padding: 5px;
-                    border-radius: 5px;
-                    margin-top: 15px;
-                    position: relative;
-                    height: 57px;
-                    width: 280px;
-
-                    .label{
-                        font-size: 0.85em;
-                        color: $colorBlue;
-                        padding-left: 5px;
-
-                    }
-
-                     input{
-                        border: none;
-                        outline: none;
-                        background-color: unset;
-                        position: absolute;
-                        position: absolute;
-                        bottom: 0;
-                        padding-left: 4px;
-                        width: 100%;
-                        padding-top: 25px;
-                        height: 100%;
-                    }
-                }
             }
 
             .email-phone{
@@ -640,34 +654,36 @@ $fontColor: #525252;
                 display: flex;
                 justify-content: space-between;
 
-                .email, .phone{
-                    width: 280px;
-                    height: 57px;
-                    margin-top: 15px;
-                    background-color: white;
-                    border: 1px solid $colorBlue;
-                    padding: 5px;
-                    border-radius: 5px;
-                    position: relative;
+                .element{
+                    .email, .phone{
+                        width: 280px;
+                        height: 57px;
+                        margin-top: 15px;
+                        background-color: white;
+                        border: 1px solid $colorBlue;
+                        padding: 5px;
+                        border-radius: 5px;
+                        position: relative;
 
-                    .label{
-                        font-size: 0.85em;
-                        color: $colorBlue;
-                        padding-left: 5px;
+                        .label{
+                            font-size: 0.85em;
+                            color: $colorBlue;
+                            padding-left: 5px;
 
-                    }
+                        }
 
-                     input{
-                        border: none;
-                        outline: none;
-                        background-color: unset;
-                        position: absolute;
-                        position: absolute;
-                        bottom: 0;
-                        padding-left: 4px;
-                        width: 100%;
-                        padding-top: 25px;
-                        height: 100%;
+                        input{
+                            border: none;
+                            outline: none;
+                            background-color: unset;
+                            position: absolute;
+                            position: absolute;
+                            bottom: 0;
+                            padding-left: 4px;
+                            width: 100%;
+                            padding-top: 25px;
+                            height: 100%;
+                        }
                     }
                 }
             }
@@ -677,70 +693,73 @@ $fontColor: #525252;
                 display: flex;
                 justify-content: space-between;
 
-                .room{
-                    display: flex;
-                    flex-direction: column;
-                    background-color: white;
-                    border: 1px solid $colorBlue;
-                    padding: 5px;
-                    border-radius: 5px;
-                    width: 130px;
-                    height: 57px;
-                    margin-top: 15px;
+                .element{
+                    .room{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: white;
+                        border: 1px solid $colorBlue;
+                        padding: 5px;
+                        border-radius: 5px;
+                        width: 130px;
+                        height: 57px;
+                        margin-top: 15px;
 
 
-                    .label{
-                        font-size: 0.85em;
-                        color: $colorBlue;
-                        padding-left: 5px;
+                        .label{
+                            font-size: 0.85em;
+                            color: $colorBlue;
+                            padding-left: 5px;
 
+                        }
+
+                        select{
+                            border: none;
+                            outline: none;
+                            background-color: unset;
+                            
+                        }
                     }
+}
 
-                     select{
-                        border: none;
-                        outline: none;
-                        background-color: unset;
-                        
-                    }
+                .element{
+                    .town{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: white;
+                        border: 1px solid $colorBlue;
+                        padding: 5px;
+                        border-radius: 5px;
+                        margin-top: 15px;
+                        width: 200px;
+                        height: 57px;
+                        position: relative;
+                        overflow: hidden;
+
+
+                        .label{
+                            font-size: 0.85em;
+                            color: $colorBlue;
+                            padding-left: 5px;
+                            z-index: 5;
+                        }
+
+                        input{
+                            border: none;
+                            outline: none;
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            padding-left: 4px;
+                            font-size: 0.95em;
+                            width: 100%;
+                            padding-top: 25px;
+                            padding-left: 10px;
+                            height: 100%;
+                        }
                 }
-
-                .town{
-                    display: flex;
-                    flex-direction: column;
-                    background-color: white;
-                    border: 1px solid $colorBlue;
-                    padding: 5px;
-                    border-radius: 5px;
-                    margin-top: 15px;
-                    width: 200px;
-                    height: 57px;
-                    position: relative;
-                    overflow: hidden;
-
-
-                    .label{
-                        font-size: 0.85em;
-                        color: $colorBlue;
-                        padding-left: 5px;
-                        z-index: 5;
-                    }
-
-                    input{
-                        border: none;
-                        outline: none;
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
-                        padding-left: 4px;
-                        font-size: 0.95em;
-                        width: 100%;
-                        padding-top: 25px;
-                        padding-left: 10px;
-                        height: 100%;
-                    }
-                }
-
-
+}
+                .element{
                     .date{
 
                             position: relative;
@@ -779,13 +798,10 @@ $fontColor: #525252;
                                         box-shadow: none;
                                     }
 
-                                    .p-datepicker{
-                                        left: -6px !important;
-                                        top: -415px !important;
-                                    }
                                 }
                             }
                         }
+                }
                 
             }
 
@@ -839,7 +855,7 @@ $fontColor: #525252;
                                     font-size: 0.8em;
                                     cursor: pointer;
                                     white-space: nowrap;
-                                    width: 122px;
+                                    width: 125px;
                                 }
                 
                                 label:hover{

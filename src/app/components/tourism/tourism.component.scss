@@ -1,23 +1,23 @@
-.conteneur-perso{
-    padding: 5em 7% 0 7%;
-}
+$colorBlue: #115F98;
+$fontColor: #525252;
 
 .tourisme{
     display: flex;
     flex-direction:column;
     width: 100%;
-
-    .tourisme-top-bloc{
+    align-items: center;
+    
+    .hero{
 
         background-image: url("../../../assets/img/tourism.jpeg");
-        background-position: center ;
+        background-position: center right;
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
         width: 100%;
         height: 65vh;
 
-        .tourisme-top-title{
+        .title{
             position: absolute;
             top: 50%;
             left:50%;
@@ -26,7 +26,7 @@
         }
     }
 
-    .tourisme-top-bloc::before{
+    .hero::before{
         content: "";
         top: 0;
         left:0;
@@ -34,5 +34,171 @@
         height: 100%;
         width: 100%;
         background: linear-gradient(180deg, rgba(2,22,47,0.7133228291316527) 0%, rgba(0,0,0,0.23713235294117652) 25%, rgba(0,0,0,0.20632002801120453) 100%);
+    }
+
+    .content{
+        display: flex;
+        flex-direction: column ;
+        align-items: center;
+        justify-content: center;
+        padding-top: 80px;
+        padding-bottom: 80px;
+
+        .packages{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-top: 80px;
+
+            .package{
+                display: flex;
+                width: 90%;
+                border-radius: 10px;
+                overflow: hidden;
+                height: 270px;
+                margin-bottom: 40px;
+                box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+
+                img{
+                    width: 350px;
+                    height: 300px;
+                }
+            
+                .infos{
+            
+                    width: 100%;
+                    padding: 20px;
+                    display: flex;
+                    height: 100%;
+            
+                    .left{
+            
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        height: 100%;
+            
+                        .top{
+            
+                            display: flex;
+                            flex-direction: column;
+                            
+                            .title{
+                            
+                                color: $colorBlue;
+                                font-weight: bold;
+                                margin-bottom: 3px;
+                                height: fit-content;
+                            
+                            }
+                            
+                            .country{
+                
+                                font-size: 0.9em;
+                                color: #115F98;
+                                font-weight: 400;
+                                margin-bottom: 15px;
+                                height: fit-content;
+
+                            }
+            
+                        }
+            
+                        .tags{
+                                display: flex;
+                                
+                                .tag{
+                                    display: flex;
+                                    flex-direction: column;
+                                    margin-right: 25px;
+                                    align-items: center;
+                                    width: fit-content;
+                                    white-space: nowrap;
+
+                                    .icon{
+
+                                        border-radius: 50%;
+                                        background: #115f9847;
+                                        height: 35px;
+                                        width: 35px;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+
+                                        fa-icon{
+                                            color: $colorBlue;
+                                            font-size: 1.2em;
+                                        }
+                                    }   
+
+                                     span{
+                                         font-size: 0.9em;
+                                         white-space: nowrap;
+                                     }
+                                }
+
+
+                        }
+            
+                    }
+            
+                    .right{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        height: 100%;
+                        margin-left: 40px;
+                        width: fit-content;
+
+                        .price-bloc{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-end;
+                            line-height: 20px;
+                            width: 122px;
+
+                            .text{
+                                font-size: 0.85em;
+                                font-weight: 300;
+                                width: fit-content;
+
+                            }
+
+                            .price{
+                                color: $colorBlue;
+                                font-weight: bold;
+                                font-size: 1.2em;
+                                white-space: nowrap;
+                            }
+                        }
+                        button{
+                            padding: 4px 20px;
+                            cursor: pointer;
+                            border-radius: 100px;
+                            text-align: center;
+                            background-color: $colorBlue;
+                            color: white;
+                            font-weight: bold;
+                            transition: all 0.3s ease;
+                            margin-top: 30px;
+                            border: 2px solid $colorBlue;      
+                            white-space: nowrap;
+                        }
+        
+                        button:hover{
+                            color: $colorBlue;
+                            background-color: white;
+                        }
+                    }
+
+                    
+                }
+            }
+
+            .package:hover{
+box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;                
+            }
+        }
     }
 }

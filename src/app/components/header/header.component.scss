@@ -7,7 +7,7 @@ header{
     justify-content: center;
     width: 100%;
     position: fixed;
-    z-index: 99;
+    z-index: 999;
     height: 5.5em;
     padding-top: 10px ;
     padding-bottom: 10px;
@@ -38,7 +38,7 @@ header{
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-right: 70px;
+            //margin-right: 70px;
 
             ul{
                 display: flex;
@@ -53,7 +53,7 @@ header{
 
                     a{
                         text-decoration: none;
-                        padding: 5px 10px;
+                        padding: 5px 15px;
                         color: white;
                     }
 
@@ -81,16 +81,17 @@ header{
                         display: flex;
                         align-items: center;
                         justify-content: center;
+                        padding: 5px 13px;
+
 
                         span{
                             margin: 0;
                             height: 100%;
                             width: 100%;
-                            padding: 5px 8px;
                         }
 
-                        .pi-caret-down{
-                            background-color: white;
+                        fa-icon{
+                            margin-left: 5px;
                         }
 
                     }
@@ -128,6 +129,8 @@ header{
             height: 100%;
             cursor: pointer;
             position: relative;
+
+            display: none;
 
             .languages-top{
 
@@ -313,17 +316,19 @@ header{
                 position: relative;
                 z-index: 10;
                 user-select: none;
-                height: 40px;            
-                color: $colorBlue;
+                height: 40px;  
+                width: 40px;    
+                padding: 5px;      
                 font-size: 2em;
                 font-weight: bold;
-            
+                border-radius: 50%;
+
                 input{
                     display: block;
-                    width: 40px;
-                    height: 40px;
+                    width: 30px;
+                    height: 30px;
                     position: absolute;
-                    top: 0;
+                    top: 5px;
                     cursor: pointer;
                     opacity: 0; /* hide this */
                     z-index: 2; /* and place it over the hamburger */
@@ -339,11 +344,11 @@ header{
     
                 span{
                     display: block;
-                    width: 40px;
-                    height: 3px;
+                    width: 30px;
+                    height: 2px;
                     position: relative;
                     
-                    background: $colorBlue;
+                    background: white;
                     border-radius: 3px;
                     
                     z-index: 1;
@@ -352,19 +357,16 @@ header{
                     
                     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
                                 opacity 0.55s ease;
-                    }
+                }
     
                  
     
                     input:checked ~ span{
-                        opacity: 1;
-                        background: white;
-    
+                        opacity: 1;        
                     }
     
                     input:checked ~ span:nth-last-child(1){
                         transform: rotate(-45deg) translate(3.5px, 3.5px);
-    
                     }
         
                     input:checked ~ span:nth-last-child(2)
@@ -378,6 +380,7 @@ header{
     
                     }
             }
+            
         }
         
     }

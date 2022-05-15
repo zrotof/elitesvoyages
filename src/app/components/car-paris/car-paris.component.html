@@ -1,0 +1,129 @@
+<div class="car-paris">
+    <div class="hero">
+        <h1 class="title">Chauffeur VTC sur Paris</h1>
+    </div>
+
+    <div class="content my-container">
+
+        <p-breadcrumb styleClass="breadcrumb" [model]="items"></p-breadcrumb>
+        
+        <div class="header">
+
+            <div class="infos">
+
+                <div class="texts">
+                    <h2>VOS TRAJETS SUR PARIS À DES PRIX AVANTAGEUX</h2>
+                    <span>Elites Voyages vous propose des moyens de transport privés pour vos déplacements dans la ville de paris. Nous regroupons des chauffeurs professionnels et expérimentés dont nous bloquons le planning spécialement pour votre prise en charge.</span>
+                    <span>Pour un prix fixe et sans surprise, effectuez gratuitement une demande de réservation.</span> 
+                </div>
+
+                 <div class="images">
+
+                 </div>
+            </div>
+
+            <form [formGroup]="carParisForm" (ngSubmit)="onSubmitCarParisForm()">
+
+
+                <div class="element">
+                    <div class="label">
+                        <span>Adresse de départ </span>
+                        <span class="red-star">*</span>
+                    </div>
+
+                    <div class="value">
+                        <fa-icon [icon]="faMapMarkerAlt"></fa-icon>
+                        <input type="text" class="input-text" placeholder="exemple: aéroport de Roissy">
+                    </div>                       
+                </div>
+
+                <div class="element">
+                    <div class="label">
+                        <span>Adresse d'arrivée </span>
+                        <span class="red-star">*</span>
+                    </div>
+
+                    <div class="value">
+                        <fa-icon [icon]="faMapMarkerAlt"></fa-icon>
+                        <input type="text" class="input-text" placeholder="exemple: 19 Avenue sous martre, argenteuil">
+                    </div>
+                    
+                </div>
+
+                <div class="date">
+                    <div class="label">
+                        <span>Date prise en charge </span>
+                        <span class="red-star">*</span>
+                    </div>
+
+                    <fa-icon [icon]="faCalendarDay"></fa-icon>
+                    <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" placeholder="dd-mm-yy"></p-calendar>                        
+                </div>
+
+                <div class="date">
+                    <div class="label">
+                        <span>Heure prise en charge </span>
+                        <span class="red-star">*</span>
+                    </div>
+
+                    <fa-icon [icon]="faCalendarDay"></fa-icon>
+                    <p-calendar [timeOnly]="true"  inputId="timeonly" placeholder="hh:mm"></p-calendar>
+                </div>
+
+
+                <div class="gender-names">
+
+                    <div class="gender">
+          
+                        <div class="label">
+                            <span>Civilités</span>
+                            <span class="red-star">*</span>
+                        </div>
+                        <select class="custom-select">
+                            <option *ngFor="let civility of civilities" [ngValue]="civility">{{civility}}</option>
+                        </select>
+                        
+                    </div>
+    
+                    <div class="firstname">
+                        <div class="label">
+                            <span>Nom</span>
+                            <span class="red-star">*</span>
+                        </div>
+                        <input type="text" placeholder="Entrez votre nom">
+                    </div>
+
+                    <div class="lastname">
+                        <div class="label">
+                            <span>Prénom</span>
+                        </div>
+                        <input type="text" placeholder="Entrez votre prénom">
+                    </div>
+
+                    <div class="email">
+                        <div class="label">
+                            <span>Email</span>
+                            <span class="red-star">*</span>
+                        </div>
+                        <input type="email" placeholder="Email de contact">
+                    </div>
+                    
+                </div>
+
+                <button type="button" (click)="showModalDialog()" pButton label="Réservez"></button>
+
+                <p-dialog header="Tarif personalisé" 
+                    [(visible)]="displayModal" 
+                    [modal]="true" 
+                    [style]="{width: '50vw'}"
+                    [draggable]="false" [resizable]="false">
+                        <span>Nous avons bien reçu votre demande .</span>
+                        <span>Nous vous recontacterons car il est possible de peaufiner votre voyage afin de vous proposer tarifpersonalisé au regard des informations que vous nous avez envoyées .</span>
+                </p-dialog>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>

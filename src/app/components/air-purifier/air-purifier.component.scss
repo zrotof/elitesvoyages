@@ -1,0 +1,292 @@
+$colorBlue: #115F98;
+$fontColor: #525252;
+
+.air-purifier{
+    display: flex;
+    flex-direction:column;
+    width: 100%;
+    align-items: center;
+    
+    .hero{
+
+        background-image: url("../../../assets/img/air-purifier/air-purifier-bg.png");
+        background-position: center right;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        width: 100%;
+        height: 65vh;
+
+        .title{
+                
+            color: white;
+            position: absolute;
+            top: 50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+
+    }
+
+    .hero::before{
+        content: "";
+        top: 0;
+        left:0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(180deg, rgba(2, 22, 47, 0.7133228291) -90%, rgba(0, 0, 0, 0.2371323529) 100%, rgba(0, 0, 0, 0.3) 100%)
+    }
+
+
+    .content{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 40px;
+        padding-bottom: 150px;
+        width: 100%;
+
+        p-breadcrumb{
+            width: 100%;
+
+            .breadcrumb{
+
+                ul{
+                    li{
+                        a{
+                            background: none;
+                            border: none;
+                        }
+                    }
+                }
+            }
+        }
+        
+        .header{
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+            flex-direction: column;
+
+            .texts{
+
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                h2{
+                    color: $colorBlue;
+                    font-weight: 500;
+                }
+
+                span{
+                    margin-top: 10px;
+
+                }
+
+            }
+
+        }
+
+        .products{
+            display:flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 95%;
+            margin-top: 120px;
+
+            .product{
+
+                width: 220px;
+                background: linear-gradient(0deg, rgba(231,231,231,1) 0%, rgba(223,233,250,1) 100%);
+                margin: 70px 10px;
+                padding: 110px 20px 20px 20px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+                border-radius: 5px;
+
+                img{
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 100px;
+                    height: 200px;
+                    top: -110px;
+                }
+
+                .name{
+                    font-size: 1.2em;
+                    color: #115F98;
+                    font-weight: 550;
+                    text-align: center;
+                }
+
+                .price{
+                    font-weight: 500;
+                    font-size: 0.95em;
+                }
+
+            }
+
+            .product-mini{
+                width: 220px;
+                background: linear-gradient(0deg, rgba(231,231,231,1) 0%, rgba(223,233,250,1) 100%);
+                margin: 70px 10px;
+                padding: 80px 20px 20px 20px;
+                height: fit-content;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+                border-radius: 5px;
+             
+                img{
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 185px;
+                    top: -30px;
+                }
+
+                .name{
+                    font-size: 1.25em;
+                    color: #115F98;
+                    font-weight: 550;
+                    text-align: center;
+                }
+
+                .price{
+                    font-weight: 500;
+                    font-size: 0.95em;
+                }
+
+            }
+        
+        }
+        a{
+            padding: 4px 20px;
+            cursor: pointer;
+            border-radius: 100px;
+            text-align: center;
+            background-color: $colorBlue;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 50px;
+            border: 2px solid $colorBlue;      
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        a:hover{
+            color: $colorBlue;
+            background-color: white;
+        }
+    }
+}
+
+@media all and (max-width: 570px){
+
+    .air-purifier{
+
+        .content{
+        
+            p-breadcrumb{
+                width: 100%;
+
+                .breadcrumb{
+                    padding: 0.5em;
+
+                    ul{
+                        li{
+                            a{
+                                padding: 4px 10px 4px 0;
+                                background: none;
+                                border: none;
+                                font-size: 12px;
+                                font-weight: 450;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .products{
+
+                .product{
+
+                    margin: 70px 10px;
+                    padding: 100px 20px 20px 20px;
+                    width: 180px;
+
+                    img{
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 75px;
+                        height: 160px;
+                        top: -70px;
+                    }
+
+                    .name{
+                        font-size: 1em;
+                        color: #115F98;
+                        font-weight: 550;
+                        text-align: center;
+                    }
+
+                    .price{
+                        font-weight: 450;
+                        font-size: 0.95em;
+                    }
+
+                }
+
+                .product-mini{
+                    width: 180px;
+                    background: linear-gradient(0deg, rgba(231,231,231,1) 0%, rgba(223,233,250,1) 100%);
+                    margin: 70px 10px;
+                    padding: 80px 20px 20px 20px;
+                    height: fit-content;
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-end;
+                    border-radius: 5px;
+                
+                    img{
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 160px;
+                        top: -30px;
+                    }
+
+                    .name{
+                        font-size: 1.25em;
+                        color: #115F98;
+                        font-weight: 550;
+                        text-align: center;
+                    }
+
+                    .price{
+                        font-weight: 500;
+                        font-size: 0.95em;
+                    }
+
+                }
+            
+            }
+        }
+    }
+}

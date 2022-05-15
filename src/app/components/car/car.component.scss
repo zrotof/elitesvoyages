@@ -161,6 +161,12 @@ $fontColor: #525252;
                 font-weight: bold;
             }
 
+            .error-feedback {
+                width: fit-content;
+                margin-top: 0.25rem;
+                color: #dc3545;
+            }
+
             .intro{
 
                 display: flex;
@@ -218,7 +224,7 @@ $fontColor: #525252;
                     .date-start, .date-end{
                         display: flex;
                         height: 100%;
-                        align-items: flex-end;
+                        align-items: flex-start;
                         margin-top: 15px;
 
                         .day{
@@ -272,6 +278,8 @@ $fontColor: #525252;
                             height: fit-content;
                             margin-left: 5px;
                             width: 75px;
+                            height: 57px;
+                            justify-content: flex-end;
 
                             .label{
                                 font-size: 0.85em;
@@ -307,13 +315,13 @@ $fontColor: #525252;
                 
                     .town, .seats, .driver{
                         display: flex;
-                    flex-direction: column;
-                    background-color: white;
-                    border: 1px solid $colorBlue;
-                    padding: 5px;
-                    border-radius: 5px;
-                    margin-top: 15px;
-                    width: 200px;
+                        flex-direction: column;
+                        background-color: white;
+                        border: 1px solid $colorBlue;
+                        padding: 5px;
+                        border-radius: 5px;
+                        margin-top: 15px;
+                        width: 200px;
 
 
                     .label{
@@ -398,36 +406,77 @@ $fontColor: #525252;
                     
                 }
 
-                .name{
+                .gender-names{
                     display: flex;
-                    flex-direction: column;
-                    background-color: white;
-                    border: 1px solid $colorBlue;
-                    padding: 5px;
-                    border-radius: 5px;
-                    margin-top: 15px;
-                    position: relative;
-                    height: 57px;
-
-                    .label{
-                        font-size: 0.85em;
-                        color: $colorBlue;
-                        padding-left: 5px;
-
+                    justify-content: space-between;
+                    width: 100%;
+    
+                    .element{
+                        .gender{
+                            display: flex;
+                            flex-direction: column;
+                            background-color: white;
+                            border: 1px solid $colorBlue;
+                            padding: 5px;
+                            border-radius: 5px;
+                            width: 100px;
+                            height: 57px;
+                            margin-top: 15px;
+        
+        
+                            .label{
+                                font-size: 0.85em;
+                                color: $colorBlue;
+                                padding-left: 5px;
+        
+                            }
+        
+                             select{
+                                border: none;
+                                outline: none;
+                                background-color: unset;
+                                
+                            }
+                        }
                     }
-
-                     input{
-                        border: none;
-                        outline: none;
-                        background-color: unset;
-                        position: absolute;
-                        position: absolute;
-                        bottom: 0;
-                        padding-left: 4px;
-                        width: 100%;
-                        padding-top: 25px;
-                        height: 100%;
+    
+                    .element{
+                        width: fit-content;
+                        .firstname, .lastname{
+                            display: flex;
+                            flex-direction: column;
+                            background-color: white;
+                            border: 1px solid $colorBlue;
+                            padding: 5px;
+                            border-radius: 5px;
+                            margin-top: 15px;
+                            position: relative;
+                            height: 57px;
+                            width: 250px;
+        
+                            .label{
+                                font-size: 0.85em;
+                                color: $colorBlue;
+                                padding-left: 5px;
+        
+                            }
+        
+                             input{
+                                border: none;
+                                outline: none;
+                                background-color: unset;
+                                position: absolute;
+                                position: absolute;
+                                bottom: 0;
+                                padding-left: 4px;
+                                width: 100%;
+                                padding-top: 25px;
+                                height: 100%;
+                            }
+                        }
                     }
+    
+                    
                 }
 
                 .email-phone{

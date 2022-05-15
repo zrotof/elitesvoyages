@@ -5,6 +5,7 @@ import { Options, LabelType } from '@angular-slider/ngx-slider';
 
 
 import { faBuilding, faEnvelope, faPhoneAlt, faMapMarkerAlt, faClock, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import { MailsService } from 'src/app/services/mails/mails.service';
 
 @Component({
   selector: 'app-car',
@@ -24,10 +25,7 @@ export class CarComponent implements OnInit {
   faPaperPlane = faPaperPlane;
 
 
-  //Setting variables for the range slider
-  value: number = 30000;
-  highValue: number = 170000;
-
+  civilities: any = [ "Mr", "Mme"];
 
   // rental reasons
   reasons: any = [
@@ -53,10 +51,11 @@ drivers: any = [
                 ]
 
 
-  //Renting form
+  
 
-  carRentingForm: FormGroup;
-
+  //Setting variables for the range slider
+  value: number = 30000;
+  highValue: number = 170000;
   options: Options = {
     floor: 30000,
     ceil: 170000,
@@ -73,23 +72,68 @@ drivers: any = [
     }
   };
 
+//Renting car form
+
+carForm: FormGroup;
+isCarFormSubmitted = false;
 
 
-  constructor(private fb :FormBuilder) {
+constructor(private fb: FormBuilder, private mailService: MailsService) { 
 
-    this.carRentingForm = this.fb.group({
+    this.carForm = this.fb.group({
       reason: ['',[Validators.required]],
-      town: ['',[Validators.required]]
+      town: [null,[Validators.required]],
+      capacity: [null,[Validators.required]],
+      driver: [null,[Validators.required]],
+      dateDeb: [null,[Validators.required]],
+      dateFin: [null,[Validators.required]],
+      heureDeb: [''],
+      heureFin: [''],
+      clim: [''],
+      lcd: [''],
+      lmp3: [''],
+      radio: [''],
+      bluetooth: [''],
+      civility: [null, Validators.required],
+      firstname: ["", Validators.required],
+      lastname:["", Validators.required],
+      email: ["", [Validators.required, Validators.email]],
+      phone: [""],
     })
    }
 
   ngOnInit(): void {
   }
 
-  changeReason(e: any){
-    /* this.typeTrajet.setValue(e.target.value, {
-       onlySelf: true
-     })
-     */
-   }
+  // convenient getter for easy access to form fields
+  get f() { return this.carForm.controls; }
+
+
+  //Resetting the form's value
+  onReset() {
+    this.isCarFormSubmitted = false;
+    this.carForm.reset();
+  }
+
+  //Handling submition of contact form
+  onSubmitCarForm(){
+    console.log("il ya bel et bien action")
+
+    this.isCarFormSubmitted = true;
+
+    // stop here if form is invalid
+    if (this.carForm.invalid) {
+      return;
+    }
+
+    return ;
+
+    console.log("il ya bel et bien action")
+
+    this.mailService.sendCarMail(this.carForm.value)
+
+    .subscribe(resp =>{
+        console.log(resp);
+    });
+  }
 }

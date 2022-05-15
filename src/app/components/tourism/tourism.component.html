@@ -1,7 +1,70 @@
 <div class="tourisme">
 
-    <div class="tourisme-top-bloc">
-        <h1 class="tourisme-top-title">Tourisme</h1>
+    <div class="hero">
+        <h1 class="title">Tourisme</h1>
+    </div>
+
+    <div class="content my-container">
+
+        <div class="intro">
+            <span>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur eaque distinctio fugit ab ducimus, corporis mollitia dignissimos explicabo ipsa dolores, doloribus vitae esse consequuntur aut exercitationem porro labore sapiente iusto.
+            </span>
+        </div>
+
+        <div class="packages">
+
+            <ng-template ngFor let-package [ngForOf]="generalTourList">
+
+                <div class="package" *ngIf="package">
+                    <img src={{package.image}}>
+                    <div class="infos">
+
+                        <div class="left">
+
+                            <div class="top">
+                                <h4 class="title">{{package.title}}</h4>
+                                <h6 class="country">{{package.country}}</h6>
+                                <span>{{package.description}}</span>
+                
+                            </div>
+                            
+                            <div class="tags">
+
+                                <ng-template ngFor let-tag [ngForOf]="package.tags">
+
+                                    <div class="tag">
+
+                                            <span class="icon">
+                                                <fa-icon [icon]=tag.icon></fa-icon>
+                                            </span>
+                                            <span>{{tag.label}}</span>
+                                        
+                                    </div>
+
+                                </ng-template>
+
+                            </div>
+            
+                        </div>
+
+                        <div class="right">
+                            <div class="price-bloc">
+                                <span class="text">à partir de</span>
+                                <span class="price"> {{package.price | number}} XAF</span>
+                                <span class="text"> par personne</span>
+                            </div>
+
+                            <button (click)="redirectRoute(package?.id)"> Voir l'offre</button>
+                        </div>
+                    
+                    </div>
+                    
+                </div>
+            </ng-template>
+
+        </div>
+
     </div>
 
 </div>

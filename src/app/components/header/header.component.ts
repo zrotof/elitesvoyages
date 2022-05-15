@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
   constructor( private router: Router) {
 
    
-   }
+  }
 
   ngOnInit(): void {
     this.routingEvent();
@@ -49,20 +49,34 @@ export class HeaderComponent implements OnInit {
         let inputstatus = <HTMLInputElement>document.querySelector('.burger input');
 
         if(this.isBurgerMenuClicked ){
+          inputstatus.checked = false;
+          navSmallScreen.classList.toggle("toggle-nav");
+          this.isBurgerMenuClicked = false;  
           
-            inputstatus.checked = false;
-            navSmallScreen.classList.toggle("toggle-nav");
-            this.isBurgerMenuClicked = false;            
+          if(window.pageYOffset <= header.clientHeight) {
+            header.classList.remove('navbar-background-on-scroll');
+          }
 
         }
 
         else{
-                    
+          
           if (window.pageYOffset <= header.clientHeight) {
-            header.classList.remove('navbar-background-on-scroll');
+
+            if(this.router.url.includes('tourisme/')){
+              header.classList.add('navbar-background-on-scroll');
+            }
+            
+            else{
+              header.classList.remove('navbar-background-on-scroll');
+            }
           }
         }
+
+        
       }
+
+
     })
   }
 
@@ -128,12 +142,22 @@ export class HeaderComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
 
-onWindowScroll() {
+  onWindowScroll() {
     let header = <HTMLElement>document.querySelector('header');
-    if (window.pageYOffset > header.clientHeight) {
+    if(this.router.url.includes('tourisme/')){
       header.classList.add('navbar-background-on-scroll');
-    } else {
-      header.classList.remove('navbar-background-on-scroll');
+    }
+    else{
+
+      if(!this.isBurgerMenuClicked){
+        if (window.pageYOffset > header.clientHeight) {
+          header.classList.add('navbar-background-on-scroll');
+        }
+        else {
+          header.classList.remove('navbar-background-on-scroll');
+        }
+      }
+      
     }
   }
 
@@ -142,6 +166,7 @@ onWindowScroll() {
     let navSmallScreen = <HTMLElement>document.querySelector('.header-right');
     let inputstatus = <HTMLInputElement>document.querySelector('.burger input');
     let header = <HTMLElement>document.querySelector('header');
+
     // À chaque clique sur l'input on vérifie si l'input est cochée
     if(inputstatus.checked === true){
       
@@ -157,8 +182,10 @@ onWindowScroll() {
       navSmallScreen.classList.toggle("toggle-nav");
       this.isBurgerMenuClicked = false;
 
-      if (window.pageYOffset <= header.clientHeight) {
-        header.classList.remove('navbar-background-on-scroll');
+      if(!this.router.url.includes('tourisme/')){
+        if(window.pageYOffset <= header.clientHeight) {
+          header.classList.remove('navbar-background-on-scroll');
+        }
       }
 
     }

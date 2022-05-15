@@ -59,12 +59,19 @@ $fontColor: #525252;
         flex-direction: column;
         align-items: center;
         width: 100%;
-        padding: 60px 0;
+        padding-top: 60px;
+        padding-bottom: 60px;
 
         .red-star{
             color: red;
             font-size: 1.1em;
             font-weight: bold;
+        }
+
+        .error-feedback {
+            width: fit-content;
+            margin-top: 0.25rem;
+            color: #dc3545;
         }
 
         .infos{
@@ -90,6 +97,7 @@ $fontColor: #525252;
                     flex: 1;
 
                     .name{
+
                         fa-icon{
                             font-size: 2em;
                         }
@@ -107,11 +115,17 @@ $fontColor: #525252;
 
                         display: flex;
                         align-items: baseline;
+                        width: 345px;
 
+                        .number{
+                            font-size: 0.93em;
+                        }
                     }
+
                 }
 
                 .yaounde{
+                    
                 
                     .name{
                         span{
@@ -136,6 +150,7 @@ $fontColor: #525252;
                     }
 
                     .mail, .phone, .adress{
+                        justify-content: flex-end;
                         span{
                             margin-right: 10px;
                         }
@@ -225,65 +240,75 @@ $fontColor: #525252;
                 justify-content: space-between;
                 width: 100%;
 
-                .gender{
-                    display: flex;
-                    flex-direction: column;
-                    background-color: white;
-                    border: 1px solid $colorBlue;
-                    padding: 5px;
-                    border-radius: 5px;
-                    width: 100px;
-                    height: 57px;
-                    margin-top: 15px;
-
-
-                    .label{
-                        font-size: 0.85em;
-                        color: $colorBlue;
-                        padding-left: 5px;
-
+                .element{
+                    .gender{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: white;
+                        border: 1px solid $colorBlue;
+                        padding: 5px;
+                        border-radius: 5px;
+                        width: 100px;
+                        height: 57px;
+                        margin-top: 15px;
+                        position: relative;
+    
+    
+                        .label{
+                            font-size: 0.85em;
+                            color: $colorBlue;
+                            padding-left: 5px;
+    
+                        }
+    
+                         select{
+                            border: none;
+                            outline: none;
+                            background-color: unset;
+                            
+                        }
                     }
+                }
 
-                     select{
-                        border: none;
-                        outline: none;
-                        background-color: unset;
-                        
+                .element{
+
+                    width: fit-content;
+
+                    .firstname, .lastname{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: white;
+                        border: 1px solid $colorBlue;
+                        padding: 5px;
+                        border-radius: 5px;
+                        margin-top: 15px;
+                        position: relative;
+                        height: 57px;
+                        width: 280px;
+    
+                        .label{
+                            font-size: 0.85em;
+                            color: $colorBlue;
+                            padding-left: 5px;
+    
+                        }
+    
+                         input{
+                            border: none;
+                            outline: none;
+                            background-color: unset;
+                            position: absolute;
+                            position: absolute;
+                            bottom: 0;
+                            padding-left: 4px;
+                            width: 100%;
+                            padding-top: 25px;
+                            height: 100%;
+                        }
                     }
                 }
 
-                .firstname, .lastname{
-                    display: flex;
-                    flex-direction: column;
-                    background-color: white;
-                    border: 1px solid $colorBlue;
-                    padding: 5px;
-                    border-radius: 5px;
-                    margin-top: 15px;
-                    position: relative;
-                    height: 57px;
-                    width: 280px;
-
-                    .label{
-                        font-size: 0.85em;
-                        color: $colorBlue;
-                        padding-left: 5px;
-
-                    }
-
-                     input{
-                        border: none;
-                        outline: none;
-                        background-color: unset;
-                        position: absolute;
-                        position: absolute;
-                        bottom: 0;
-                        padding-left: 4px;
-                        width: 100%;
-                        padding-top: 25px;
-                        height: 100%;
-                    }
-                }
+                
             }
 
             .email-phone{
@@ -292,15 +317,54 @@ $fontColor: #525252;
                 justify-content: space-between;
                 width: 100%;
 
-                .email, .phone{
-                    width: 280px;
-                    height: 57px;
-                    margin-top: 15px;
+                .element{
+                    width: fit-content;
+                    .email, .phone{
+                        width: 280px;
+                        height: 57px;
+                        margin-top: 15px;
+                        background-color: white;
+                        border: 1px solid $colorBlue;
+                        padding: 5px;
+                        border-radius: 5px;
+                        position: relative;
+
+                        .label{
+                            font-size: 0.85em;
+                            color: $colorBlue;
+                            padding-left: 5px;
+
+                        }
+
+                        input{
+                            border: none;
+                            outline: none;
+                            background-color: unset;
+                            position: absolute;
+                            position: absolute;
+                            bottom: 0;
+                            padding-left: 4px;
+                            width: 100%;
+                            padding-top: 25px;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+
+            .element{
+                width: 100%;
+                .object{
+                    display: flex;
+                    flex-direction: column;
                     background-color: white;
                     border: 1px solid $colorBlue;
                     padding: 5px;
                     border-radius: 5px;
+                    margin-top: 15px;
                     position: relative;
+                    height: 57px;
+                    width: 100%;
 
                     .label{
                         font-size: 0.85em;
@@ -309,7 +373,7 @@ $fontColor: #525252;
 
                     }
 
-                     input{
+                    input{
                         border: none;
                         outline: none;
                         background-color: unset;
@@ -321,39 +385,6 @@ $fontColor: #525252;
                         padding-top: 25px;
                         height: 100%;
                     }
-                }
-            }
-
-            .object{
-                display: flex;
-                flex-direction: column;
-                background-color: white;
-                border: 1px solid $colorBlue;
-                padding: 5px;
-                border-radius: 5px;
-                margin-top: 15px;
-                position: relative;
-                height: 57px;
-                width: 100%;
-
-                .label{
-                    font-size: 0.85em;
-                    color: $colorBlue;
-                    padding-left: 5px;
-
-                }
-
-                 input{
-                    border: none;
-                    outline: none;
-                    background-color: unset;
-                    position: absolute;
-                    position: absolute;
-                    bottom: 0;
-                    padding-left: 4px;
-                    width: 100%;
-                    padding-top: 25px;
-                    height: 100%;
                 }
             }
 
@@ -396,26 +427,30 @@ $fontColor: #525252;
                 }
             }
 
-            .message{
+            .element{
                 width: 100%;
-                height: 300px;
-                position: relative;
-                margin: 10px 0;
-                background-color: white;
-                border: 1px solid $colorBlue;
-                overflow: hidden;
-                border-radius: 5px;
 
-                #message-area{
-                    height: 100%;
-                    min-height: 300px;
-                    max-height: 300px;
+                .message{
                     width: 100%;
-                    border: none;
-                    padding: 10px 8px;
-                    outline: none;
-                }
+                    height: 300px;
+                    position: relative;
+                    margin: 10px 0;
+                    background-color: white;
+                    border: 1px solid $colorBlue;
+                    overflow: hidden;
+                    border-radius: 5px;
 
+                    #message-area{
+                        height: 100%;
+                        min-height: 300px;
+                        max-height: 300px;
+                        width: 100%;
+                        border: none;
+                        padding: 10px 8px;
+                        outline: none;
+                    }
+
+                }
             }
 
             button{
@@ -437,8 +472,7 @@ $fontColor: #525252;
                 background-color: $colorBlue;
             }
         }
-
-        
+ 
     }
 }
 
@@ -448,7 +482,7 @@ $fontColor: #525252;
     
         .content{
     
-            .contact-bloc{
+            .infos{
 
                 .agences{
 
@@ -493,7 +527,7 @@ $fontColor: #525252;
                             flex-direction: column-reverse;
                             align-items: center;
                             span{
-                                margin: 0 0 10px 0;
+                                margin: 0 0 10px 0 !important;
                             }
                         }
     
@@ -501,6 +535,9 @@ $fontColor: #525252;
 
                             flex-direction: row-reverse;
                            
+                            span{
+                                margin: 0 0 0 10px;
+                            }
                         }
                     }
                 }
@@ -527,6 +564,60 @@ $fontColor: #525252;
                 }
             }
 
+            form{
+                width: 100%;
+
+                .gender-names{
+
+                    .element{
+                        .lastname, .firstname{
+                            width: 210px;
+                        }
+                    }
+                }
+
+                .email-phone{
+                    .element{
+                        .email, .phone{
+                            width: 210px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 680px){
+
+    .contact{
+    
+        .content{
+
+            form{
+                width: 100%;
+                padding: 30px 20px;
+
+                .gender-names{
+
+                    flex-direction: column;
+
+                    .element{
+                        width: 100%;
+                        .lastname, .firstname{
+                            width: 100% ;
+                        }
+                    }
+                }
+
+                .email-phone{
+                    .element{
+                        .email, .phone{
+                            width: 210px;
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -537,51 +628,91 @@ $fontColor: #525252;
     
         .content{
     
-            .contact-bloc{
+            .infos{
+
+                .agences{
+                    .agence{
+
+                        .name{
+
+                            fa-icon{
+                                font-size: 1.7em;
+                            }
+    
+                            span{
+                                font-size: 1.2em;
+                            }
+                        }
+
+                        .mail, .phone, .adress{
+
+                            display: flex;
+                            align-items: baseline;
+                            width: fit-content;
+
+                            span{
+                                font-size: 0.95em;
+
+                            }
+    
+                            .number{
+                                font-size: 0.85em;
+                            }
+                        }
+                    }
+                }
 
                 .horaires-reseaux{
-    
+                    padding: 20px 10px;
+                    
                     .horaires{
+    
+                        flex-direction: column;
 
-                        justify-content: space-between;
-
+    
                         .heures{
                             
-                            margin-bottom: 10px;
+                            margin-bottom: 20px;
 
+                            span{
+                                font-size: 1.2em;
+                            }
+
+                            ul{
+                                font-size: 0.95em;
+                            }
+    
                         }
+
             
                     }
     
                 }
             }
+            
     
-            .form-bloc{
+            form{
+
                 width: 100%;
-                padding: 0;
-                
-                form{
+                padding: 30px 10px;
+                    
+                .email-phone{
 
-                    width: 100%;
-        
-                    .email-phone{
+                    flex-direction: column;
 
-                        flex-direction: column;
-                        height: fit-content;
-                        margin: 0;
-        
-                        .email-bloc,.phone-bloc{
+                    .element{
+                        width: 100%;
 
+                        .email, .phone{
                             width: 100%;
-                            height: 40px;
-                            margin: 10px 0;
 
                         }
-        
                     }
-
+        
                 }
+
             }
+            
         }
     }
 }

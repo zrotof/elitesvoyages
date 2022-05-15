@@ -2,31 +2,31 @@
 <header (scroll)="onWindowScroll()">
 
     <div class="content my-container">
-        <img routerLink="/home" src="../../../assets/img/header/logo.png" alt="Logo of Elites Voyages">
+        <img routerLink="/accueil" src="../../../assets/img/header/logo.png" alt="Logo of Elites Voyages">
 
         <div class="header-right">
 
             <nav>
                 <ul>
-                    <li><a routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" routerLink="/home">Home</a></li>
+                    <li><a routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" routerLink="/accueil">Accueil</a></li>
                     <li class="services-bloc" (mouseover)="showHideServices()" (mouseout)="showHideServices()">
                             <div class="services">
                                 <span>Services</span> 
                                 <fa-icon [icon]="faCaretDown"></fa-icon>
                             </div>
                             <ul>
-                                <li><a routerLinkActive="active-link" routerLink="/flight">Billets d'Avion</a></li>
-                                <li><a routerLinkActive="active-link" routerLink="/hotel">Hôtels</a></li>
-                                <li><a routerLinkActive="active-link" routerLink="/appartement-meuble">Appartements Meublés</a></li>
-                                <li><a routerLinkActive="active-link" routerLink="/rent-car">Location Voitures</a></li>
-                                <li><a routerLinkActive="active-link" routerLink="/tourism">Tourisme</a></li>
+                                <li><a routerLinkActive="active-link" routerLink="/vols">Billets d'Avion</a></li>
+                                <li><a routerLinkActive="active-link" routerLink="/hotels">Hôtels</a></li>
+                                <li><a routerLinkActive="active-link" routerLink="/appartements-meubles">Appartements Meublés</a></li>
+                                <li><a routerLinkActive="active-link" routerLink="/voitures">Location Voitures</a></li>
+                                <li><a routerLinkActive="active-link" routerLink="/tourisme">Tourisme</a></li>
                                 <li><a routerLinkActive="active-link" routerLink="/dhl">DHL</a></li>
                                 <li><a routerLinkActive="active-link" routerLink="/assistance-visa">Assistance Visas</a></li>
                             </ul>
                     </li>
-                    <li><a routerLinkActive="active-link" routerLink="/about">About</a></li>
-                    <li><a routerLinkActive="active-link" routerLink="/good-deal">Good Deals</a></li>
-                    <li><a routerLinkActive="active-link" routerLink="/contact">Contact</a></li>
+                    <li><a routerLinkActive="active-link" routerLink="/a-propos">À propos</a></li>
+                    <li><a routerLinkActive="active-link" routerLink="/bons-plans">Bons plans</a></li>
+                    <li><a routerLinkActive="active-link" routerLink="/contact">Contactez-nous</a></li>
                 </ul>
             </nav>
 
@@ -52,7 +52,6 @@
             </div>
         </div>
 
-        
         <div class="burger" (click)="onBurgerMenu()">
             <input type="checkbox" />
         

@@ -1,0 +1,606 @@
+$colorBlue: #115F98;
+$fontColor: #525252;
+
+.car-paris{
+    display: flex;
+    flex-direction:column;
+    width: 100%;
+    align-items: center;
+    
+    .hero{
+
+        background-image: url("../../../assets/img/car-vtc/vtc-bg.png");
+        background-position: center right;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        width: 100%;
+        height: 65vh;
+
+        
+        .title{
+                
+            color: white;
+            position: absolute;
+            top: 50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+
+        
+        
+    }
+
+    .hero::before{
+        content: "";
+        top: 0;
+        left:0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(180deg, rgba(2, 22, 47, 0.7133228291) -90%, rgba(0, 0, 0, 0.2371323529) 100%, rgba(0, 0, 0, 0.3) 100%)
+    }
+
+
+    .content{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 40px;
+        padding-bottom: 160px;
+        width: 100%;
+
+        p-breadcrumb{
+            width: 100%;
+
+            .breadcrumb{
+
+                ul{
+                    li{
+                        a{
+                            background: none;
+                            border: none;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+
+        .header{
+            
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-top: 40px;
+            width: 100%;
+
+            .infos{
+                display: flex;
+                flex-direction: column;
+
+                .texts{
+
+                    display: flex;
+                    flex-direction: column;
+                    width: 750px;
+    
+                    h2{
+                        color: $colorBlue;
+                        font-weight: 500;
+                        margin-bottom: 15px;
+                    }
+    
+                    span{
+                        margin-bottom: 8px;
+                    }
+    
+                }
+
+                .images{
+                    margin-top: 10px;
+                    background-image: url("../../../assets/img/car-vtc/car-vtc.jpeg");
+                    height: 20em;
+                    width: 100%;
+                    background-position: bottom right;
+                    background-size: cover;
+                }
+
+
+            }
+
+            
+
+            form{
+                width: 400px;
+                border-radius: 5px;
+                box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+                padding: 20px 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .red-star{
+                    color: red;
+                    font-size: 1.1em;
+                    font-weight: bold;
+                }
+
+
+        
+                .element{
+                    display: flex;
+                    flex-direction: column;
+                    background-color: white;
+                    width: 100%;
+                    height: 57px;
+                    position: relative;
+                    padding: 10px 20px;
+
+                    margin-top: 15px;
+                    border-top: 1px solid $colorBlue;
+                    
+                    .label{
+                        font-size: 0.85em;
+
+                        span:first-child{
+                        color: $colorBlue;
+                        z-index: 2;
+                        width: fit-content;
+                        }
+                    }
+
+                    .input-text {
+                            
+                        height: 100%;
+                        width: 81%;
+                        border: none;
+                        padding-left: 0px;
+                        padding-top: 36px;
+                        outline: none;
+                        background-color: unset;
+                        left: 41px;
+                        top: 0;
+                        position: absolute;
+                        font-size: 0.9em;
+                    }
+
+                }
+
+                .element:first-child{
+                    border: none;
+                }
+
+                .date{
+                    display: flex;
+                    flex-direction: column;
+                    background-color: white;
+                    padding: 10px 20px;
+                    width: 100%;
+                    height: 57px;
+                    position: relative;
+                    margin-top: 15px;
+                    border-top: 1px solid $colorBlue;
+                    
+                    .label{
+                        font-size: 0.85em;
+                        color: $colorBlue;
+                        z-index: 2;
+                        width: fit-content;
+                    }
+
+                    fa-icon{
+                        font-size: 1.05em;
+                        z-index: 2;
+                    }
+
+                    
+
+                    
+
+                        p-calendar{
+                            height: 100%;
+                            width: 100%;
+                            border: none;
+                            padding-left: 40px;
+                            padding-top: 24px;
+                            outline: none;
+                            border-radius: 5px;
+                            background-color: unset;
+                            left: 0;
+                            top: 0;
+                            z-index: 5;
+                            position: absolute;
+
+                            .p-calendar{
+
+                                height: 100%;
+                                width: 100%;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                font-size: 0.95em;
+
+                                .p-inputtext {
+                                    background: none;
+                                    padding-top: 33px;
+                                    padding-left: 42px;
+                                    font-size: 0.95em;
+                                    border: none !important;
+                                    box-shadow: none;
+                                    width: 100%;
+                                    height: 100%;
+                                    width: 100%;
+                                    padding-top: 44px;
+                                    color: red;
+                                    outline: none;
+                                }
+
+                                
+                            }
+                        }
+                    
+
+                }
+
+
+                .gender-names{
+                    display: flex;
+                    flex-direction: column;
+                    padding: 10px 20px;
+                    width: 100%;
+                    border-top: 1px solid $colorBlue;
+                    margin-top: 15px;
+                    
+
+                    .gender{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: white;
+                        width: 100%;
+                        height: 50px;
+                        border-bottom: 1px solid $colorBlue;
+    
+                        .label{
+                            font-size: 0.85em;
+                            color: $colorBlue;
+                            padding-left: 5px;
+                        }
+    
+                         select{
+                            border: none;
+                            outline: none;
+                            background-color: unset;
+                            font-size: 0.9em;
+                        }
+                    }
+    
+                    .firstname, .lastname, .email{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: white;
+                        border-bottom: 1px solid $colorBlue;
+                        position: relative;
+                        height: 50px;
+                        width: 100%;
+                        padding-top: 5px;
+    
+                        .label{
+                            font-size: 0.85em;
+                            color: $colorBlue;
+                            padding-left: 5px;
+                        }
+    
+                         input{
+                            border: none;
+                            outline: none;
+                            background-color: unset;
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: -webkit-fill-available;
+                            padding-top: 25px;
+                            padding-left: 3px;
+                            height: 100%;
+                            font-size: 0.9em;
+                        }
+                    }
+    
+                }
+
+                button{
+                    outline: none;
+                    border: 2px solid $colorBlue;
+                    border-radius: 100px;
+                    padding: 2px 15px;
+                    background-color: white;
+                    color: $colorBlue;
+                    width: fit-content;
+                    transition: all 0.3s ease-in-out;
+                    margin: 15px 0;
+                }
+
+                button:hover{
+                    background-color: $colorBlue;
+                    color: white;
+                }
+
+            }
+
+        }
+
+    }
+}
+
+
+@media all and (max-width: 1200px){
+
+    .car-paris{
+    
+        .content{
+    
+            .header{
+                
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+    
+                .infos{
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+    
+                    .texts{
+                        width: 100%;
+                    }
+
+                    .images{
+                        
+                        border-radius: 5px;
+                    }
+    
+                }
+    
+                form{
+
+                    margin-top: 60px;
+
+                    .element{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: white;
+                        width: 100%;
+                        height: 57px;
+                        position: relative;
+                        padding: 10px 20px;
+    
+                        margin-top: 15px;
+                        border-top: 1px solid $colorBlue;
+                        
+                        .label{
+                            font-size: 0.85em;
+    
+                            span:first-child{
+                            color: $colorBlue;
+                            z-index: 2;
+                            width: fit-content;
+                            }
+                        }
+    
+                        .input-text {
+                                
+                            height: 100%;
+                            width: 81%;
+                            border: none;
+                            padding-left: 0px;
+                            padding-top: 36px;
+                            outline: none;
+                            background-color: unset;
+                            left: 41px;
+                            top: 0;
+                            position: absolute;
+                            font-size: 0.9em;
+                        }
+    
+                    }
+    
+                    .element:first-child{
+                        border: none;
+                    }
+    
+                    .date{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: white;
+                        padding: 10px 20px;
+                        width: 100%;
+                        height: 57px;
+                        position: relative;
+                        margin-top: 15px;
+                        border-top: 1px solid $colorBlue;
+                        
+                        .label{
+                            font-size: 0.85em;
+                            color: $colorBlue;
+                            z-index: 2;
+                            width: fit-content;
+                        }
+    
+                        fa-icon{
+                            font-size: 1.05em;
+                            z-index: 2;
+                        }
+    
+                        
+    
+                        
+    
+                            p-calendar{
+                                height: 100%;
+                                width: 100%;
+                                border: none;
+                                padding-left: 40px;
+                                padding-top: 24px;
+                                outline: none;
+                                border-radius: 5px;
+                                background-color: unset;
+                                left: 0;
+                                top: 0;
+                                z-index: 5;
+                                position: absolute;
+    
+                                .p-calendar{
+    
+                                    height: 100%;
+                                    width: 100%;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    font-size: 0.95em;
+    
+                                    .p-inputtext {
+                                        background: none;
+                                        padding-top: 33px;
+                                        padding-left: 42px;
+                                        font-size: 0.95em;
+                                        border: none !important;
+                                        box-shadow: none;
+                                        width: 100%;
+                                        height: 100%;
+                                        width: 100%;
+                                        padding-top: 44px;
+                                        color: red;
+                                        outline: none;
+                                    }
+    
+                                    
+                                }
+                            }
+                        
+    
+                    }
+    
+    
+                    .gender-names{
+                        display: flex;
+                        flex-direction: column;
+                        padding: 10px 20px;
+                        width: 100%;
+                        border-top: 1px solid $colorBlue;
+                        margin-top: 15px;
+                        
+    
+                        .gender{
+                            display: flex;
+                            flex-direction: column;
+                            background-color: white;
+                            width: 100%;
+                            height: 50px;
+                            border-bottom: 1px solid $colorBlue;
+        
+                            .label{
+                                font-size: 0.85em;
+                                color: $colorBlue;
+                                padding-left: 5px;
+                            }
+        
+                             select{
+                                border: none;
+                                outline: none;
+                                background-color: unset;
+                                font-size: 0.9em;
+                            }
+                        }
+        
+                        .firstname, .lastname, .email{
+                            display: flex;
+                            flex-direction: column;
+                            background-color: white;
+                            border-bottom: 1px solid $colorBlue;
+                            position: relative;
+                            height: 50px;
+                            width: 100%;
+                            padding-top: 5px;
+        
+                            .label{
+                                font-size: 0.85em;
+                                color: $colorBlue;
+                                padding-left: 5px;
+                            }
+        
+                             input{
+                                border: none;
+                                outline: none;
+                                background-color: unset;
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                width: -webkit-fill-available;
+                                padding-top: 25px;
+                                padding-left: 3px;
+                                height: 100%;
+                                font-size: 0.9em;
+                            }
+                        }
+        
+                    }
+    
+                    button{
+                        outline: none;
+                        border: 2px solid $colorBlue;
+                        border-radius: 100px;
+                        padding: 2px 15px;
+                        background-color: white;
+                        color: $colorBlue;
+                        width: fit-content;
+                        transition: all 0.3s ease-in-out;
+                        margin: 15px 0;
+                    }
+    
+                    button:hover{
+                        background-color: $colorBlue;
+                        color: white;
+                    }
+    
+                }
+    
+            }
+    
+        }
+    }
+}
+
+@media all and (max-width: 570px){
+    .car-paris{
+    
+        .content{
+            p-breadcrumb{
+                width: 100%;
+
+                .breadcrumb{
+                    padding: 0.5em;
+
+                    ul{
+                        li{
+                            a{
+                                padding: 4px 10px 4px 0;
+                                background: none;
+                                border: none;
+                                font-size: 12px;
+                                font-weight: 450;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .header{
+                form{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

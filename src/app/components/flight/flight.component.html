@@ -19,176 +19,236 @@
             
             </div>
 
-            <form [formGroup]="bookingForm" (ngSubmit)="onBookingFormSubmit()">
+            <form [formGroup]="flightForm" (ngSubmit)="onSubmitFlightForm()">
 
                 <div class="trajet-classe">
 
-                    <div class="trajet">
-                        <div class="label">
-                            <span>Type de trajet </span>
-                            <span class="red-star">*</span>
-                        </div>                        
-                        <select class="custom-select" (change)="changeTypeVoyage($event)" formControlName="typeTrajet">
-                            <option *ngFor="let trajet of trajets" [ngValue]="trajet">{{trajet}}</option>
-                        </select>
-                    </div>
+                    <div class="element">
+                        <div class="trajet">
+                            <div class="label">
+                                <span>Type de trajet </span>
+                                <span class="red-star">*</span>
+                            </div>                        
+                            <select class="custom-select" formControlName="way">
+                                <option [ngValue]="null" disabled></option>
+                                <option *ngFor="let trajet of trajets" [ngValue]="trajet">{{trajet}}</option>
+                            </select>
+                        </div>
 
-                    <div class="classe">
-                        <div class="label">
-                            <span>Type de trajet </span>
-                            <span class="red-star">*</span>
-                        </div>                           
-                        <select class="custom-select" (change)="changeTypeCabine($event)" formControlName="typeCabine">
-                            <option *ngFor="let cabine of cabines" [ngValue]="cabine">{{cabine}}</option>
-                        </select>
+                        <div *ngIf="isFlightFormSubmitted && f.way.errors" class="error-feedback">
+                            <small *ngIf="f.way.errors.required">Renseignez le type de trajet</small>
+                        </div>
+
                     </div>
+                    
+                    <div class="element">
+                        <div class="classe">
+                            <div class="label">
+                                <span>Cabine</span>
+                                <span class="red-star">*</span>
+                            </div>                           
+                            <select class="custom-select" formControlName="cabine">
+                                <option [ngValue]="null" disabled></option>
+                                <option *ngFor="let cabine of cabines" [ngValue]="cabine">{{cabine}}</option>
+                            </select>
+                        </div>
+
+                        <div *ngIf="isFlightFormSubmitted && f.cabine.errors" class="error-feedback">
+                            <small *ngIf="f.cabine.errors.required">Renseignez la cabine</small>
+                        </div>
+                    </div>
+                    
                 </div>
 
                 <div class="info-bloc">
 
-                    <div class="info">
+                    <div class="element">
+                        <div class="info">
 
-                        <div class="label">
-                            <span>Départ </span>
-                            <span class="red-star">*</span>
-                        </div>
-
-                        <div class="value">
-                            <fa-icon [icon]="faPlaneDeparture"></fa-icon>
-                            <input class="input-text" id="depart-input" type="text" placeholder="Ville départ">
-                        </div>
-
-                    </div>
-
-                    <div class="info">
-                        <div class="label">
-                            <span>Arrivée </span>
-                            <span class="red-star">*</span>
-                        </div>
-
-                        <div class="value">
-                            <fa-icon [icon]="faPlaneArrival"></fa-icon>
-                            <input class="input-text" id="depart-input" type="text" placeholder="Ville d'arrivée">
-                        </div>
-                    </div>
-
-                    <div class="info">
-                        <div class="label">
-                            <span>Date allée </span>
-                            <span class="red-star">*</span>
-                        </div>
-
-                        <div class="value">
-                            <fa-icon [icon]="faCalendarDay"></fa-icon>
-                            <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" placeholder="dd-mm-yy"></p-calendar>
-                        </div>
-                    </div>
-
-                    <div class="info">
-                        <div class="label">
-                            <span>Date retour </span>
-                            <span class="red-star">*</span>
-                        </div>
-
-                        <div class="value">
-                            <fa-icon [icon]="faCalendarDay"></fa-icon>
-                            <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" placeholder="dd-mm-yy"></p-calendar>                        
-                        </div>
-                    </div>
-
-                    <div class="info passenger" (mouseover)="onEditPassenger()" (mouseout)="onEditPassenger()">
-                        <div class="label">
-                            <span>Voyageur(s) </span>
-                            <span class="red-star">*</span>
-                        </div>
-
-                        <div class="value" >
-                            <fa-icon id="clickPassenger" [icon]="faPlusCircle" ></fa-icon>
-                            <span class="span-text">0{{nombrePassagerTotal}} </span>
-                            
-                            <div class="datas-edit">
-                                <div class="passenger-info">
-                                    <div class="controls">
-                                        <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditAdultPassenger(-1)"></fa-icon>
-                                        <span> {{nombrePassagerAdulte}} </span>
-                                        <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditAdultPassenger(1)"></fa-icon>
-                                        
-                                    </div>
-                                    <span> Adulte ( > 12 ans )</span>
-                                </div>
+                            <div class="label">
+                                <span>Départ </span>
+                                <span class="red-star">*</span>
+                            </div>
     
-                                <div class="passenger-info">
-                                    <div class="controls">
-                                        <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditChildPassenger(-1)"></fa-icon>
-                                        <span> {{nombrePassagerEnfant}} </span>
-                                        <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditChildPassenger(1)"></fa-icon>
-                                        
-                                    </div>
-                                    <span> Enfant ( 2 - 11 ans )</span>
-                                </div>
+                            <div class="value">
+                                <fa-icon [icon]="faPlaneDeparture"></fa-icon>
+                                <input class="input-text" id="departure-input" type="text" placeholder="Ville départ" formControlName="departure">
+                            </div>
+                        </div>
+                        <div *ngIf="isFlightFormSubmitted && f.departure.errors" class="error-feedback">
+                            <small *ngIf="f.departure.errors.required">Renseignez la ville de départ</small>
+                        </div>
+                    </div>
+                    
+                    <div class="element">
+                        <div class="info">
+                            <div class="label">
+                                <span>Arrivée </span>
+                                <span class="red-star">*</span>
+                            </div>
     
-                                <div class="passenger-info">
-                                    <div class="controls">
-                                        <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditBabyPassenger(-1)"></fa-icon>
-                                        <span> {{nombrePassagerBebe}} </span>
-                                        <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditBabyPassenger(1)"></fa-icon>
-                                        
-                                    </div>
+                            <div class="value">
+                                <fa-icon [icon]="faPlaneArrival"></fa-icon>
+                                <input class="input-text" id="arrival-input" type="text" placeholder="Ville d'arrivée" formControlName="arrival">
+                            </div>
+                        </div>
+                        <div *ngIf="isFlightFormSubmitted && f.arrival.errors" class="error-feedback">
+                            <small *ngIf="f.arrival.errors.required">Renseignez la ville d'arrivée</small>
+                        </div>
+                    </div>
+                    
+                    <div class="element">
+                        <div class="info">
+                            <div class="label">
+                                <span>Date allée </span>
+                                <span class="red-star">*</span>
+                            </div>
+    
+                            <div class="value">
+                                <fa-icon [icon]="faCalendarDay"></fa-icon>
+                                <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" placeholder="dd-mm-yy" formControlName="dateDep"></p-calendar>
+                            </div>
+                        </div>
+                        <div *ngIf="isFlightFormSubmitted && f.dateDep.errors" class="error-feedback">
+                            <small *ngIf="f.dateDep.errors.required">Renseignez la date de départ</small>
+                        </div>
+                    </div>
+                    
+                    <div class="element">
+                        <div class="info">
+                            <div class="label">
+                                <span>Date retour </span>
+                                <span class="red-star">*</span>
+                            </div>
+    
+                            <div class="value">
+                                <fa-icon [icon]="faCalendarDay"></fa-icon>
+                                <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" placeholder="dd-mm-yy" formControlName="dateRet"></p-calendar>                        
+                            </div>
+                        </div>
 
-                                    <span> Bébé ( 0 - 23 mois )</span>
+                        <div *ngIf="isFlightFormSubmitted && f.dateRet.errors" class="error-feedback">
+                            <small *ngIf="f.dateRet.errors.required">Renseignez la date d'arrivée</small>
+                        </div>
+                    </div>
+                    
+                    <div class="element">
+
+                        <div class="info passenger" (mouseover)="onEditPassenger()" (mouseout)="onEditPassenger()">
+                            <div class="label">
+                                <span>Voyageur(s) </span>
+                                <span class="red-star">*</span>
+                            </div>
+    
+                            <div class="value" >
+                                <fa-icon id="clickPassenger" [icon]="faPlusCircle" ></fa-icon>
+                                <span class="span-text">0{{nombrePassagerTotal}} </span>
+                                
+                                <div class="datas-edit">
+                                    <div class="passenger-info">
+                                        <div class="controls">
+                                            <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditAdultPassenger(-1)"></fa-icon>
+                                            <span> {{nombrePassagerAdulte}} </span>
+                                            <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditAdultPassenger(1)"></fa-icon>
+                                            
+                                        </div>
+                                        <span> Adulte ( > 12 ans )</span>
+                                    </div>
+        
+                                    <div class="passenger-info">
+                                        <div class="controls">
+                                            <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditChildPassenger(-1)"></fa-icon>
+                                            <span> {{nombrePassagerEnfant}} </span>
+                                            <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditChildPassenger(1)"></fa-icon>
+                                            
+                                        </div>
+                                        <span> Enfant ( 2 - 11 ans )</span>
+                                    </div>
+        
+                                    <div class="passenger-info">
+                                        <div class="controls">
+                                            <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditBabyPassenger(-1)"></fa-icon>
+                                            <span> {{nombrePassagerBebe}} </span>
+                                            <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditBabyPassenger(1)"></fa-icon>
+                                            
+                                        </div>
+    
+                                        <span> Bébé ( 0 - 23 mois )</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        
 
                         
                     </div>
                     
-                    <div class="info">
+                    <div class="element">
+                        <div class="info">
 
-                        <div class="label">
-                            <span>Nom expéditeur </span>
-                            <span class="red-star">*</span>
+                            <div class="label">
+                                <span>Nom expéditeur </span>
+                                <span class="red-star">*</span>
+                            </div>
+    
+                            <div class="value">
+                                <fa-icon [icon]="faUser"></fa-icon>
+                                <input class="input-text" id="depart-input" type="text" placeholder="Nom de l'expéditeur" formControlName="lastname">
+                            </div>
                         </div>
 
-                        <div class="value">
-                            <fa-icon [icon]="faUser"></fa-icon>
-                            <input class="input-text" id="depart-input" type="text" placeholder="Nom de l'expéditeur">
-                        </div>
-                    </div>
-
-                    <div class="info">
-
-                        <div class="label">
-                            <span>Email </span>
-                            <span class="red-star">*</span>
-                        </div>
-
-                        <div class="value">
-                            <fa-icon [icon]="faEnvelope"></fa-icon>
-                            <input class="input-text" id="depart-input" type="text" placeholder="Adresse mail">
+                        <div *ngIf="isFlightFormSubmitted && f.lastname.errors" class="error-feedback">
+                            <small *ngIf="f.lastname.errors.required">Renseignez votre nom</small>
                         </div>
                     </div>
+                    
+                    <div class="element">
+                        <div class="info">
 
-                    <div class="info">
-
-                        <div class="label">
-                            <span>Téléphone </span>
+                            <div class="label">
+                                <span>Email </span>
+                                <span class="red-star">*</span>
+                            </div>
+    
+                            <div class="value">
+                                <fa-icon [icon]="faEnvelope"></fa-icon>
+                                <input class="input-text" id="depart-input" type="text" placeholder="Adresse mail" formControlName="email">
+                            </div>
                         </div>
-
-                        <div class="value">
-                            <fa-icon [icon]="faPhoneAlt"></fa-icon>
-                            <input class="input-text" id="depart-input" type="text" placeholder="Numéro de téléphone">
+                        <div *ngIf="isFlightFormSubmitted && f.email.errors" class="error-feedback">
+                            <small *ngIf="f.email.errors.required">Renseignez votre email</small>
                         </div>
                     </div>
+                    
 
+                    <div class="element">
+                        <div class="info">
+
+                            <div class="label">
+                                <span>Téléphone </span>
+                            </div>
+    
+                            <div class="value">
+                                <fa-icon [icon]="faPhoneAlt"></fa-icon>
+                                <input class="input-text" id="depart-input" type="text" placeholder="Numéro de téléphone" formControlName="phone">
+                            </div>
+                            
+                        </div>
+
+                        <div *ngIf="isFlightFormSubmitted && f.phone.errors" class="error-feedback">
+                            <small *ngIf="f.phone.errors.required">Renseignez votre numéro</small>
+                        </div>
+                    </div>
+                    
 
                 </div>
 
                 <div class="message">
-                    <textarea id="message-area" type="text" placeholder="Si besoin entrez votre message ici, soyez le plus explicite possible. "></textarea>
+                    <textarea id="message-area" type="text" placeholder="Si besoin entrez votre message ici, soyez le plus explicite possible. " formControlName="message"></textarea>
                 </div>
+                
               
-                <button type="submit" [disabled]="!flightForm.valid">Envoyer <fa-icon [icon]="faPaperPlane"></fa-icon></button>
+                <button type="submit" >Envoyer <fa-icon [icon]="faPaperPlane"></fa-icon></button>
                 
             </form>
         </div>

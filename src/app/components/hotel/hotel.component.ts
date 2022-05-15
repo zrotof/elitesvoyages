@@ -5,12 +5,15 @@ import { faBed, faHome, faMapMarkerAlt, faSwimmer,faWifi, faSmokingBan, faCar, f
 import { Logement } from '../../models/logement';
 
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MailsService } from 'src/app/services/mails/mails.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-hotel',
   templateUrl: './hotel.component.html',
   styleUrls: ['./hotel.component.scss'],
-  providers: [NgbRatingConfig],
+  providers: [NgbRatingConfig, MessageService],
   encapsulation: ViewEncapsulation.None
 
 })
@@ -50,14 +53,48 @@ export class HotelComponent implements OnInit {
   apartmentList : Logement[] | undefined ;
   isAppartementTabAlreadyClicked: boolean = false;
 
-  constructor(private getLogementService : LogementsService, config: NgbRatingConfig) { 
+  extras  = [
+    { id: 0, name: 'Climatisation' },
+    { id: 1, name: 'TV' },
+    { id: 2, name: 'Penderie' },
+    { id: 3, name: 'Eau Chaude' },
+    { id: 4, name: 'Fer à repasser' },
+    { id: 5, name: 'Chambre avec balcon' }
+  ];
+
+  minDate = new Date();
+
+  hostelForm: FormGroup;
+  isHostelFormSubmitted = false;
+
+  constructor(
+    private fb :FormBuilder, 
+    private getLogementService : LogementsService, 
+    config: NgbRatingConfig, 
+    private mailService: MailsService,  
+    private messageService: MessageService,
+    ) { 
     // customize default values of ratings used by this component tree
     config.max = 5;
     config.readonly = true;
+
+    this.hostelForm = this.fb.group({
+      town: [null,[Validators.required]],
+      dateDeb: ['',[Validators.required]],
+      dateFin: ['',[Validators.required]],
+      nbr: [null,[Validators.required]],
+      extras: new FormArray([]),
+      civility: [null, Validators.required],
+      firstname: ["", Validators.required],
+      lastname:["", Validators.required],
+      email: ["", [Validators.required, Validators.email]],
+      phone: [""],
+      hotels: ['']
+    });
   }
 
   ngOnInit(): void {
-
+/*
     if(history.state.parameter === 'hotel' || !history.state.parameter){
       this.chooseTab(1, 'hotel');
     }
@@ -65,14 +102,8 @@ export class HotelComponent implements OnInit {
     else{
       this.chooseTab(2, history.state.parameter);
     }
+*/
   }
-
-  changeReason(e: any){
-    /* this.typeTrajet.setValue(e.target.value, {
-       onlySelf: true
-     })
-     */
-   }
 
 
 
@@ -82,6 +113,7 @@ export class HotelComponent implements OnInit {
     }
   }
 
+  /*
   //Handling click on tabs
   chooseTab(tabNumber: number, clickedParam:any){
 
@@ -116,8 +148,65 @@ export class HotelComponent implements OnInit {
 
   }
 
+  
+
   getTabData(param:any){
     return this.getLogementService.getLogementList(param);
   }
+
+  */
+
+    // convenient getter for easy access to form fields
+    get f() { return this.hostelForm.controls; }
+
+
+    //Resetting the form's value
+   onReset() {
+     this.isHostelFormSubmitted = false;
+     this.hostelForm.reset();
+   }
+
+  onSubmitHostelForm(){
+    this.isHostelFormSubmitted = true;
+
+    // stop here if form is invalid
+    if (this.hostelForm.invalid) {
+      return;
+    }
+
+   
+
+    this.mailService.sendHostelMail(this.hostelForm.value)
+
+    .subscribe(resp =>{
+
+      if(resp){
+        this.messageService.add({severity:'success', detail: "Message envoyé."});
+      }
+      else{
+        this.messageService.add({severity:'error',detail: "Erreur lors de l'envoi"});
+      }
+    });
+  }
+
+
+  onChangeCheckox(name: string, e: any){
+
+    const extras = (this.f.extras as FormArray);
+
+    if (e.target.checked) {
+      extras.push(new FormControl(name));
+    } else {
+      const index = extras.controls.findIndex(x => x.value === name);
+      extras.removeAt(index);
+    }
+  }
+
+  //Initialize the the minimal date of calendar
+  initMinDate(){
+     
+    this.minDate = new Date(this.minDate.setDate((new Date()).getDate()));
+    
+   }
 
 }

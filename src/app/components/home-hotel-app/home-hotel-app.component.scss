@@ -8,7 +8,6 @@ $fontColor: #525252;
         justify-content: center;
         width: 100%;
 
-
         .content{
             display: flex;
             flex-direction: column;
@@ -28,7 +27,6 @@ $fontColor: #525252;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
-                    padding-right: 50px;
 
                     .title{
                         color: $colorBlue;
@@ -65,14 +63,12 @@ $fontColor: #525252;
                     }
     
                     button:hover{
-                        
                         color: $colorBlue;
                         font-weight: bold;
                         background-color: white;
                     }
                 }
-                
-            
+
                 .hotel-image{
                     background-image: url("../../../assets/img/home/hotel-app/home-hotel.jpg");
                     background-repeat: no-repeat ;
@@ -83,6 +79,7 @@ $fontColor: #525252;
                     border-radius: 5px;
                     box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
                     cursor: pointer;
+                    margin-left: 50px;
                 }
         
                 .appartement-image{
@@ -95,32 +92,17 @@ $fontColor: #525252;
                     border-radius: 5px;
                     box-shadow: rgba(0, 0, 0, 0.849) 0px 5px 15px;
                     cursor: pointer;
+                    margin-right: 50px;
+
                 }
         
-        
-                .hotel-image:hover{
+                .hotel-image:hover,.appartement-image:hover{
                     box-shadow: $colorBlue 0px 5px 15px;
                 }
-        
-                .appartement-image:hover{
-                    box-shadow: $colorBlue 0px 5px 15px;
-                }
+
+                
             }
-        
-
-    }
-
-    .appartement-bloc-image:before, .hotel-bloc-image:before{
-        content: "";
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        background: rgba(0, 0, 0, 0.295);
-        top: 0;
-        left: 0;
-        border-radius: 5px;
-    }
-
+        }
     }
 
 
@@ -130,27 +112,33 @@ $fontColor: #525252;
 
             .content{
     
-                .hotel-bloc, .appartement-bloc{
+                margin-top: 85px;
+
+                .hotel, .appartement{
                     
-                    margin: 50px 0; 
-    
-                    .appartement-bloc-text{
+                    margin: 70px 0; 
+
+                    .hotel-image,
+                    .appartement-image {
+
+                        width: 20em;
+                        height: 17em;
+                    }
+                }
+
+                .appartement{
+                    
+                    .text{
                         display: flex;
                         width: 50%;
                         flex-direction: column;
                         align-items: center;
                         justify-content: center;
                         padding-left: 30px;
-    
                     }
                 }
     
-                .hotel-image,
-                .appartement-image {
-
-                    width: 20em;
-                    height: 17em;
-                }
+                
             }
         }
 
@@ -162,39 +150,52 @@ $fontColor: #525252;
 
             .content{
     
-                .hotel-bloc{
+                .hotel{
                     flex-direction: column-reverse;
                     margin: 0 0 30px 0; 
 
-                    .hotel-bloc-text{
+                    .text{
                         width: 100%;
                         padding: 0;
                         text-align: justify;
-                        margin-top: 40px;
+                        margin: 40px 0 0 0;
+
+                    }
+
+                    .hotel-image{
     
+                        width: 250px;
+                        height: 200px;
+                        margin: 0;
+
                     }
 
                 }
-                .appartement-bloc{
+
+                .appartement{
                     flex-direction: column;
 
-                    margin: 60px 0 0 0; 
+                    margin: 80px 0 30px 0; 
     
-                    .appartement-bloc-text{
+                    .text{
                         width: 100%;
                         padding: 0;
                         text-align: justify;
-                        margin-top: 40px;
+                        margin: 40px 0 0 0;
 
                     }
-                }
-    
-                .hotel-image,
-                .appartement-image {
 
-                    width: 250px;
-                    height: 200px;
+                    .appartement-image {
+    
+                        width: 250px;
+                        height: 200px;
+                        margin: 0;
+                    }
                 }
+
+                
+    
+
             }
         }
 

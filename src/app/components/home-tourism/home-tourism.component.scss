@@ -38,142 +38,97 @@ $fontColor: #525252;
             }
 
             .intro{
-                margin-top: 80px;
+                margin-top: 100px;
             }
+
             .circuits{
-                display: inline-flex;
+
+                display: -webkit-box;
                 width: 100%;
                 overflow-x: scroll; 
-                padding: 50px 0 20px 0;
+                padding: 55px 0 20px 0;
                 justify-content: flex-start;
-                
 
                 .circuit{
-                    height: 250px;
                     background-color: white;
-                    margin: 0 20px 0 0;
+                    margin: 0 30px 0 0;
                     border-radius: 10px;
-                    position: relative;
                     cursor: pointer;
-                    transition: all 0.3s ease-in-out;
+                    transition: all 0.1s ease-in-out;
+                    overflow: hidden;
+                    width: 310px;
+                    display: flex;
+                    flex-direction: column;
+
+                    .image{
+                        width: 100%;
+                        height: 230px;
+                        position: relative;
 
                         img{
-                            width: 330px;
+                            width: 100%;
                             height: 100%;
                             object-fit: cover;
-                            border-radius: 5px;
-                            box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;                        
-                        
                         }
-                        
-                        .from-price{
-                            display: flex;
-                            flex-direction: column;
-                            position: absolute;
-                            bottom: 0;
-                            color: white;
-                            z-index: 2;
-                            padding: 0 0 7px 10px;
-                            width: fit-content;
+                    }
+    
 
-                            .from{
+                    .infos{
+                        padding: 20px 10px;
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                                
+                            .header{
                                 width: 100%;
-                                text-align: left;
-                                font-size: 0.87em;
-                                font-weight: 345;
+                                font-weight: 500;
+                                color: $colorBlue;
                             }
-
-                            .price{
-                                width: 100%;
-                                text-align: left;
-                                font-size: 1em;
-                            }
-                        
-                        }
-
-                        .infos{
-                                position: absolute;
-                                top: 0;
-                                padding: 20px;
+                            .location{
                                 display: flex;
-                                justify-content: space-between;
                                 align-items: center;
-                                flex-direction: column;
-                                width: 100%;
-                                z-index: 2;
-                                color: white;
+                                font-size: 0.9em;
+                                
+                                span{
+                                    margin-left: 5px;
+                                }
+                            }
 
-                                .info{
-                                    display: flex;
-                                    flex-direction: column;
+                            .from-price{
+                                display: flex;
+                                flex-direction: column;
+                                z-index: 2;
+                                margin-top: 10px;
+                                width: fit-content;
+
+                                .from{
                                     width: 100%;
-        
-                                    span{
-                                        width: 100%;
-                                        margin-bottom: 20px;
-                                        text-align: center;
-                                        font-weight: 400;
-                                    }
-        
-                        
+                                    text-align: left;
+                                    font-size: 0.87em;
+                                    font-weight: 345;
                                 }
-        
-                                button{
-                                    color: white;
-                                    padding: 3px 15px;
-                                    border-radius: 100px;
-                                    font-size: 0.9em;
-                                    transition: all 0.3s ease-in;
-                                    border: 2px solid $colorBlue;
-                                    background-color: $colorBlue;
-                                    font-weight: 400;
-                                    display: none;
+
+                                .price{
+                                    width: 100%;
+                                    text-align: left;
+                                    font-size: 1em;
                                 }
-        
-                                button:hover{
-                                    color: $colorBlue;
-                                    border: 2px solid $colorBlue;
-                                    background-color: white;
-        
-                                }
+                                          
+                            }        
+
                         }
 
                 }
 
                 .circuit:hover{
-
-                    .infos{
-
-                        button{
-  
-                            display: block;
-                        }
-                    }
-                }
-
-                .circuit::after{
-                    content: "";
-                    background-color: #01235b52;                    
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    position: absolute;
-                    border-radius: 5px;
-
-                }
-
-                .circuit:hover::after{
-                    
-                    background-color: #000000a1;
-
+                    box-shadow: $colorBlue 0px 5px 15px;
                 }
                 
             }
 
             .circuits::-webkit-scrollbar {
                 display: none;
-              }
+            }
 
             button{
                 border: 2px solid $colorBlue;
@@ -190,6 +145,53 @@ $fontColor: #525252;
                 border: 2px solid $colorBlue;
                 background-color: $colorBlue;
                 color: white;
+            }
+        }
+    }
+
+    @media all and (max-width: 430px){
+
+        .tourism{
+
+
+            .content{
+
+    
+   
+                .intro{
+                    margin-top: 70px;
+                    text-align: justify;
+                }
+    
+                .circuits{
+    
+                    display: -webkit-box;
+                    width: 100%;
+                    overflow-x: scroll; 
+                    padding: 55px 0 20px 0;
+                    justify-content: flex-start;
+    
+                    .circuit{
+                    
+                        width: 250px;
+    
+                        .image{
+                            height: 170px;
+
+                        }
+        
+
+    
+                    }
+
+                    
+                }
+    
+                button{
+
+                    margin-top: 30px;
+                }
+    
             }
         }
     }
