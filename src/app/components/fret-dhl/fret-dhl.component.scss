@@ -89,8 +89,9 @@ $fontColor: #525252;
 
             display: flex;
             align-items: center;
-            justify-content: space-around;
+            justify-content: space-between;
             width: 100%;
+            margin: 40px 0;
 
             form{
                 width: 615px;
@@ -359,7 +360,7 @@ $fontColor: #525252;
 
             img{
                 width: 480px;
-                height: 380px;
+                height: 360px;
                 border-radius: 5px;
             }
         }
@@ -397,6 +398,119 @@ $fontColor: #525252;
                         font-size: 1.1em;
                         margin-bottom: 5px;
                     }
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1160px){
+
+    .fret-dhl{
+        
+    
+        .content{
+        
+            .form-bloc{
+
+                flex-direction: column-reverse;
+                justify-content: center;
+
+                
+
+                img{
+                    margin: 10px 0 70px 0;
+                }
+
+            }
+        }
+
+    }
+
+}
+
+@media all and (max-width: 675px){
+
+    .fret-dhl{
+        
+        .content{
+        
+            .form-bloc{
+                form{
+                    width: 90%;
+
+                    .countries{
+                        flex-direction: column;
+                        .element{
+                                .country{
+                                    width: 100%;
+                                    margin-top: 15px;
+                                }
+                            }
+                    }
+
+                    .weight-contains-format{
+
+                        flex-direction: column;
+                        .element{
+                            .weight, .contains, .format{
+                            
+                            width: 100%;
+
+                            }
+                        }
+                    }
+
+                    .gender-names{
+                        flex-direction: column;
+
+                        .element{
+                            width: 100%;
+
+                            .firstname, .lastname{
+        
+                                width: 100%;
+
+                            }
+                        }
+
+                        
+                    }
+
+                    .email-phone{
+
+                        flex-direction: column;
+
+                        .email, .phone{
+
+                            width: 100%;
+
+                        }
+                    }
+                }
+
+                img{
+                    width: 420px;
+                    height: 330px;
+                }
+            }
+        }
+    }
+}
+
+
+
+@media all and (max-width: 500px){
+
+    .fret-dhl{
+        
+        .content{
+        
+            .form-bloc{
+
+                img{
+                    width: 280px;
+                    height: 230px;
                 }
             }
         }

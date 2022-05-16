@@ -7,7 +7,7 @@ $fontColor: #525252;
     align-items: center;
     width: 100%;
 
-    .contact-header{
+    .hero{
         background-image: url("../../../assets/img/flights/voyages.jpeg");
         background-position: top;
         background-repeat: no-repeat;
@@ -19,10 +19,10 @@ $fontColor: #525252;
         align-items: center;
         justify-content: center;
 
-        .content-header{
+        .hero-content{
             height: 65vh;
 
-            .vol-title{
+            .title{
                 position: absolute;
                 top: 50%;
                 left:50%;
@@ -32,7 +32,7 @@ $fontColor: #525252;
         }
     }
 
-    .contact-header::before{
+    .hero::before{
         content: "";
         top: 0;
         left:0;
@@ -53,8 +53,8 @@ $fontColor: #525252;
         .book-flight-form{
             display: flex;
             flex-direction: column;
-            width: 70%;
             justify-content: space-between;
+            align-items: center;
 
             .red-star{
                 color: red;
@@ -83,18 +83,25 @@ $fontColor: #525252;
             }
 
             form{
+
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                width: 100%;
+                justify-content: center;
                 margin: 40px 0;
+                width: 850px;
 
                 .trajet-classe{
                     display: flex;
                     justify-content: space-between;
                     width: 100%;
+                    flex-wrap: wrap;
+                    align-items: center;
 
                     .element{
+                        display: flex;
+                            justify-content: center;
+                            align-items: center;
                         .trajet, .classe{
                             display: flex;
                             flex-direction: column;
@@ -102,7 +109,7 @@ $fontColor: #525252;
                             border: 1px solid $colorBlue;
                             padding: 5px;
                             border-radius: 5px;
-                            margin-top: 15px;
+                            margin: 15px 5px 5px 5px;
                             width: 200px;
                             height: 57px;
 
@@ -110,7 +117,6 @@ $fontColor: #525252;
                                 font-size: 0.85em;
                                 color: $colorBlue;
                                 padding-left: 5px;
-
                             }
 
                             select{
@@ -131,6 +137,9 @@ $fontColor: #525252;
                     justify-content: space-between;
 
                     .element{
+                        display: flex;
+                            justify-content: center;
+                            align-items: center;
                         .info{
                             display: flex;
                             flex-direction: column;
@@ -138,7 +147,7 @@ $fontColor: #525252;
                             border: 1px solid $colorBlue;
                             padding: 5px;
                             border-radius: 5px;
-                            margin-top: 15px;
+                            margin: 15px 5px 5px 5px;
                             width: 200px;
                             height: 57px;
                             position: relative;
@@ -241,7 +250,7 @@ $fontColor: #525252;
                         padding: 5px;
                         position: relative;
                         z-index: 3;
-
+                        margin: 15px 5px 5px 5px;
                         .passenger-info-bloc-hide{
                             display: none;
                         }
@@ -321,7 +330,7 @@ $fontColor: #525252;
                     .message{
                         width: 100%;
                         height: 350px;
-                        margin-top: 15px;
+                        margin: 15px 5px 5px 5px;
                         border: 1px solid $colorBlue;
                         overflow: hidden;
                         border-radius: 5px;
@@ -398,3 +407,84 @@ $fontColor: #525252;
     }
 
 }
+
+@media all and (max-width: 870px){
+
+    .vol{
+
+        .content{
+
+    
+            .book-flight-form{
+    
+                form{
+    
+                    width: 90%;
+                }
+            }
+    
+
+        }
+    
+    }
+}
+
+@media all and (max-width: 486px){
+
+    .vol{
+
+        .content{
+
+    
+            .book-flight-form{
+    
+                form{
+
+                    width: 100%;
+                    padding: 10px;
+
+        
+                    .trajet-classe{
+
+                        width: 100%;
+                        
+                        .element{
+                            width: 100%;                            
+
+                            .trajet, .classe{
+ 
+                                width: 100%;
+
+                            }
+                        }
+                        
+                    }
+    
+                    .info-bloc{
+
+                        .element{
+                            width: 100%;
+
+                            .info{
+
+                                width: 100%;
+  
+                            }
+                        }
+    
+                        .passenger{
+                            width: 100%;
+     
+                            }
+                        }
+                    }
+    
+                        .message{
+                            width: 100%;
+                        }
+                }
+            }
+    
+        }
+    
+    }
