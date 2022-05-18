@@ -94,15 +94,7 @@ export class HotelComponent implements OnInit {
   }
 
   ngOnInit(): void {
-/*
-    if(history.state.parameter === 'hotel' || !history.state.parameter){
-      this.chooseTab(1, 'hotel');
-    }
 
-    else{
-      this.chooseTab(2, history.state.parameter);
-    }
-*/
   }
 
 
@@ -113,58 +105,15 @@ export class HotelComponent implements OnInit {
     }
   }
 
-  /*
-  //Handling click on tabs
-  chooseTab(tabNumber: number, clickedParam:any){
-
-    var myTabMenus = <NodeListOf<HTMLElement>>document.querySelectorAll(".tab-menu");
-    var myTabPages = <NodeListOf<HTMLElement>>document.querySelectorAll(".tab-page");
-
-    myTabMenus.forEach(element =>{
-      element.classList.remove("active-tab-menu");
-    })
-
-    myTabPages.forEach(element =>{
-      element.classList.remove("active-tab-page");
-    })
-
-    myTabMenus[tabNumber - 1].classList.add("active-tab-menu");
-    myTabPages[tabNumber - 1].classList.add("active-tab-page");
-
-    //setting variable of hostel list or apartments list depending on the clickedParam
-
-    if(clickedParam === 'hotel' && !this.isHotelTabAlreadyClicked){
-      this.hostelList = this.getTabData(clickedParam);
-      this.isHotelTabAlreadyClicked = true;
-      this.logementSize = this.hostelList.length;
-
-    }
-
-    if(clickedParam === 'appartement' && !this.isAppartementTabAlreadyClicked){
-      this.apartmentList = this.getTabData(clickedParam);
-      this.isAppartementTabAlreadyClicked = true;
-      this.logementSize = this.apartmentList.length;
-    }
-
-  }
-
-  
-
-  getTabData(param:any){
-    return this.getLogementService.getLogementList(param);
-  }
-
-  */
-
-    // convenient getter for easy access to form fields
-    get f() { return this.hostelForm.controls; }
+  // convenient getter for easy access to form fields
+  get f() { return this.hostelForm.controls; }
 
 
     //Resetting the form's value
-   onReset() {
-     this.isHostelFormSubmitted = false;
-     this.hostelForm.reset();
-   }
+  onReset() {
+    this.isHostelFormSubmitted = false;
+    this.hostelForm.reset();
+  }
 
   onSubmitHostelForm(){
     this.isHostelFormSubmitted = true;
@@ -173,8 +122,6 @@ export class HotelComponent implements OnInit {
     if (this.hostelForm.invalid) {
       return;
     }
-
-   
 
     this.mailService.sendHostelMail(this.hostelForm.value)
 
@@ -207,6 +154,6 @@ export class HotelComponent implements OnInit {
      
     this.minDate = new Date(this.minDate.setDate((new Date()).getDate()));
     
-   }
+  }
 
 }

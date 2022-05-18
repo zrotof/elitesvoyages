@@ -25,6 +25,8 @@ export class TourismComponent implements OnInit {
     this.getGeneralDataTourismPackages();
   }
 
+
+  //Général data of all our packages 
   getGeneralDataTourismPackages(){
 
     this.generalTourList = this.tourService.generalDataTourList();

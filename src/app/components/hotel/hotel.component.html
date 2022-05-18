@@ -261,6 +261,87 @@
         
         <form [formGroup]="hostelForm" (ngSubmit)="onSubmitHostelForm()">
 
+            <div class="room-town-date">
+
+                <div class="element">
+                    <div class="room">
+
+                        <div class="label">
+                            <span>Chambre(s)</span>
+                            <span class="red-star">*</span>
+                        </div>
+                        <select class="custom-select" formControlName="nbr">
+                            <option *ngFor="let room of rooms" [ngValue]="room">{{room}}</option>
+                        </select>
+                        
+                    </div>
+                    <div *ngIf="isHostelFormSubmitted && f.nbr.errors" class="error-feedback">
+                        <small *ngIf="f.nbr.errors.required">Date de fin</small>
+                      </div>
+                </div>
+
+                <div class="element">
+                    <div class="date">
+                        <div class="label">
+                            <span>Jour d'arrivée </span>
+                            <span class="red-star">*</span>
+                        </div>
+                        <p-calendar formControlName="dayStart" dateFormat="mm-dd-yy" inputId="dateformat" placeholder="Jour début" formControlName="dateDeb"></p-calendar>
+                    </div>
+                    <div *ngIf="isHostelFormSubmitted && f.dateFin.errors" class="error-feedback">
+                        <small *ngIf="f.dateFin.errors.required">Date de fin</small>
+                      </div>
+                </div>
+
+                <div class="element">
+                    <div class="date">
+                        <div class="label">
+                            <span>Jour de départ </span>
+                            <span class="red-star">*</span>
+                        </div>
+                        <p-calendar formControlName="dayStart" dateFormat="mm-dd-yy" inputId="dateformat" placeholder="Jour début" formControlName="dateFin"></p-calendar>
+                    </div>
+                    <div *ngIf="isHostelFormSubmitted && f.dateFin.errors" class="error-feedback">
+                        <small *ngIf="f.dateFin.errors.required">Date de fin</small>
+                      </div>
+                </div>
+
+                <div class="element">
+                    <div class="town">
+                        <div class="label">
+                            <span>Ville </span>
+                            <span class="red-star">*</span>
+                        </div>
+                        <input type="text" formControlName="town">
+                    </div>
+                    <div *ngIf="isHostelFormSubmitted && f.town.errors" class="error-feedback">
+                        <small *ngIf="f.town.errors.required">Date de fin</small>
+                      </div>
+                </div>
+                
+            </div>
+
+            <div class="extras-bloc">
+                <span>Extras</span>
+
+                <div class="extras">
+                    <ng-template ngFor let-extra [ngForOf]="extras">
+                        <div class="extra">
+                            <input type="checkbox" id="{{extra.id}}" (change)="onChangeCheckox(extra.name, $event)">
+                            <label for="{{extra.id}}">{{extra.name}}</label>
+                        </div>
+                    </ng-template>
+                </div>
+                
+            </div>
+
+            <div class="hotels">
+                <div class="label">
+                    <span>hotel(s) </span>
+                </div>
+                <input type="text" placeholder="Avez-vous des hotels en tête?" formControlName="hotels">
+            </div>
+
             <div class="gender-names">
 
                 <div class="element">
@@ -341,87 +422,6 @@
                 </div>
               </div>
 
-            <div class="room-town-date">
-
-                <div class="element">
-                    <div class="room">
-
-                        <div class="label">
-                            <span>Chambre(s)</span>
-                            <span class="red-star">*</span>
-                        </div>
-                        <select class="custom-select" formControlName="nbr">
-                            <option *ngFor="let room of rooms" [ngValue]="room">{{room}}</option>
-                        </select>
-                        
-                    </div>
-                    <div *ngIf="isHostelFormSubmitted && f.nbr.errors" class="error-feedback">
-                        <small *ngIf="f.nbr.errors.required">Date de fin</small>
-                      </div>
-                </div>
-
-                <div class="element">
-                    <div class="date">
-                        <div class="label">
-                            <span>Jour d'arrivée </span>
-                            <span class="red-star">*</span>
-                        </div>
-                        <p-calendar formControlName="dayStart" dateFormat="mm-dd-yy" inputId="dateformat" placeholder="Jour début" formControlName="dateDeb"></p-calendar>
-                    </div>
-                    <div *ngIf="isHostelFormSubmitted && f.dateFin.errors" class="error-feedback">
-                        <small *ngIf="f.dateFin.errors.required">Date de fin</small>
-                      </div>
-                </div>
-
-                <div class="element">
-                    <div class="date">
-                        <div class="label">
-                            <span>Jour de départ </span>
-                            <span class="red-star">*</span>
-                        </div>
-                        <p-calendar formControlName="dayStart" dateFormat="mm-dd-yy" inputId="dateformat" placeholder="Jour début" formControlName="dateFin"></p-calendar>
-                    </div>
-                    <div *ngIf="isHostelFormSubmitted && f.dateFin.errors" class="error-feedback">
-                        <small *ngIf="f.dateFin.errors.required">Date de fin</small>
-                      </div>
-                </div>
-
-                <div class="element">
-                    <div class="town">
-                        <div class="label">
-                            <span>Ville </span>
-                            <span class="red-star">*</span>
-                        </div>
-                        <input type="text" formControlName="town">
-                    </div>
-                    <div *ngIf="isHostelFormSubmitted && f.town.errors" class="error-feedback">
-                        <small *ngIf="f.town.errors.required">Date de fin</small>
-                      </div>
-                </div>
-                
-            </div>
-
-            <div class="extras-bloc">
-                <span>Extras</span>
-
-                <div class="extras">
-                    <ng-template ngFor let-extra [ngForOf]="extras">
-                        <div class="extra">
-                            <input type="checkbox" id="{{extra.id}}" (change)="onChangeCheckox(extra.name, $event)">
-                            <label for="{{extra.id}}">{{extra.name}}</label>
-                        </div>
-                    </ng-template>
-                </div>
-                
-            </div>
-
-            <div class="hotels">
-                <div class="label">
-                    <span>hotel(s) </span>
-                </div>
-                <input type="text" placeholder="Avez-vous des hotels en tête? Listez-les ici" formControlName="hotels">
-            </div>
-
             <button>Réservez</button>
 
         </form>
@@ -454,8 +454,6 @@
             </div>
         </div>
         
-
-
     </div>
 
     <p-toast [breakpoints]="{'920px': {width: '100%', right: '0', left: '0', backgroung:'red'}}"></p-toast>

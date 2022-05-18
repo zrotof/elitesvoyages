@@ -17,49 +17,47 @@
             <ng-template ngFor let-package [ngForOf]="generalTourList">
 
                 <div class="package" *ngIf="package">
+                    
                     <img src={{package.image}}>
-                    <div class="infos">
 
-                        <div class="left">
+                    <div class="left">
 
-                            <div class="top">
-                                <h4 class="title">{{package.title}}</h4>
-                                <h6 class="country">{{package.country}}</h6>
-                                <span>{{package.description}}</span>
-                
-                            </div>
-                            
-                            <div class="tags">
-
-                                <ng-template ngFor let-tag [ngForOf]="package.tags">
-
-                                    <div class="tag">
-
-                                            <span class="icon">
-                                                <fa-icon [icon]=tag.icon></fa-icon>
-                                            </span>
-                                            <span>{{tag.label}}</span>
-                                        
-                                    </div>
-
-                                </ng-template>
-
-                            </div>
+                        <div class="top">
+                            <h4 class="title">{{package.title}}</h4>
+                            <h6 class="country">{{package.country}}</h6>
+                            <span class="description">{{package.description}}</span>
             
                         </div>
+                        
+                        <div class="tags">
 
-                        <div class="right">
-                            <div class="price-bloc">
-                                <span class="text">à partir de</span>
-                                <span class="price"> {{package.price | number}} XAF</span>
-                                <span class="text"> par personne</span>
-                            </div>
+                            <ng-template ngFor let-tag [ngForOf]="package.tags">
 
-                            <button (click)="redirectRoute(package?.id)"> Voir l'offre</button>
+                                <div class="tag">
+
+                                        <span class="icon">
+                                            <fa-icon [icon]=tag.icon></fa-icon>
+                                        </span>
+                                        <span>{{tag.label}}</span>
+                                    
+                                </div>
+
+                            </ng-template>
+
                         </div>
-                    
+        
                     </div>
-                    
+
+                    <div class="right">
+                        <div class="price-bloc">
+                            <span class="text">à partir de</span>
+                            <span class="price"> {{package.price | number}} XAF</span>
+                            <span class="text"> par personne</span>
+                        </div>
+
+                        <button (click)="redirectRoute(package?.id)"> Voir l'offre</button>
+                    </div>
+
                 </div>
             </ng-template>
 

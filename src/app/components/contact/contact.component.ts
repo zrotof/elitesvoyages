@@ -5,12 +5,16 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 //importing fontawesome icons
 import { faBuilding, faEnvelope, faPhoneAlt, faMapMarkerAlt, faClock, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import { MailsService } from 'src/app/services/mails/mails.service';
-
+import { MessageService, PrimeNGConfig } from 'primeng/api';
+import {DialogService} from 'primeng/dynamicdialog';
+import {DynamicDialogRef} from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
+  providers:[MessageService, DialogService]
+
 })
 export class ContactComponent implements OnInit {
 
@@ -28,7 +32,13 @@ export class ContactComponent implements OnInit {
   contactForm : FormGroup;
   isContactFormSubmitted = false;
 
-  constructor(private fb: FormBuilder, private mailService: MailsService) { 
+  constructor(
+    private fb: FormBuilder, 
+    private mailService: MailsService,
+    private messageService: MessageService,
+    private primengConfig: PrimeNGConfig,
+    public dialogService: DialogService
+    ) { 
 
     this.contactForm= this.fb.group({
       civility: [null, Validators.required],
@@ -61,40 +71,43 @@ export class ContactComponent implements OnInit {
 
     this.isContactFormSubmitted = true;
 
+    console.log(JSON.stringify(this.contactForm.value))
+
+    //Handling error selecting to be shared by phone but not enter phone number
+    if( this.f.preference.value === "phone"){
+      if(!this.f.phone.value){
+        //If the value is not set we assign an error to this field
+        this.f.phone.setValidators([Validators.required])
+        this.f.phone.updateValueAndValidity();
+      }
+    }
+    else{
+      this.f.phone.clearValidators();
+      this.f.phone.updateValueAndValidity();
+    }
+
     // stop here if form is invalid
     if (this.contactForm.invalid) {
       return;
     }
 
-    //Selecting to be shared by phone but not enter phone number
-    /*if( this.f.preference.value === "phone"){
-      if(!this.f.phone.value){
 
-      }
-    }
-    */
-
-
-    if( !this.f.phone.value ){
-      this.f.phone.setValue('0000') ;
-    }
-
-    this.mailService.sendContactMail(this.contactForm.value)
+    this.mailService.sendContactMail(JSON.stringify(this.contactForm.value))
     .subscribe(resp =>{
-        console.log(resp);
-
+      console.log(resp);
       /*
-      if(resp['message'] === "success"){
-        //this.messageService.add({severity:'success', detail: "Message envoyé."});
-        //this.onReset();
+      if(resp.message === "success"){
+        this.messageService.add({severity:'success', detail: "Message envoyé."});
+        this.onReset();
       }
 
       else{
 
-        //this.messageService.add({severity:'error',detail: "Erreur lors de l'envoi"});
+        this.messageService.add({severity:'error',detail: "Erreur lors de l'envoi"});
     
       }
-*/
+      */
+
     });
   }
 

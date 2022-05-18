@@ -1,6 +1,6 @@
 <div class="tour">
     <div class="content my-container">
-        <p-breadcrumb [model]="items"></p-breadcrumb>
+        <p-breadcrumb styleClass="breadcrumb" [model]="items"></p-breadcrumb>
         <div class="datas">
             <div class="data">
                 <h2>{{tour.title}}</h2>
@@ -36,9 +36,9 @@
 
                 </div>
                 
-                <p-galleria [value]="tour.images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '800px'}" [numVisible]="7"> 
+                <p-galleria [value]="tour.images" [responsiveOptions]="responsiveOptions" [numVisible]="7"> 
                     <ng-template pTemplate="item" let-item>
-                        <img [src]="item.previewImageSrc" style="width: 100%; height: 400px; display: block;"/>
+                        <img [src]="item.previewImageSrc"/>
                     </ng-template>
                     <ng-template pTemplate="thumbnail" let-item>
                         <div class="grid grid-nogutter justify-content-center">
@@ -113,157 +113,168 @@
 
 
 
+            <div class="booking">
 
-            <form  [formGroup]="tourForm" class="booking">
-                <div class="header">
-                    <span>Tarif</span>
-                    <span class="final-price">{{price | number}} XAF</span>
+                <div class="teaser">
+                    <img src="../../../assets/img/home-tourism.png">
+                    <span>Le monde devient petit village avec </span>
+                    <b>Elites Voyages</b>
                 </div>
-                <div class="date">
-                    <div class="label">
-                        <span>Date du voyage </span>
-                        <span class="red-star">*</span>
-                    </div>
-
-                    <fa-icon [icon]="faCalendarDay"></fa-icon>
-                    <div class="not-editable" *ngIf="tour.date.editable == false ; else editable">
-                        <span>{{tour.date.value}}</span>
-                    </div>
-                    <ng-template #editable>
-                        <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" placeholder="dd-mm-yy"></p-calendar>                        
-                    </ng-template>
-                </div>
-
-                <div class="rooms">
-
-                    <ng-template ngFor let-room [ngForOf]="tour.bedrooms">
-                        <div class="room" (click)="choosePrice(room.price)">
-                            <p-radioButton [inputId]="room.key" [value]="room" formControlName="selectedRoom"></p-radioButton>
-                            <label [for]="room.key">{{room.name}}</label>
-                            <fa-icon [icon]="faQuestionCircle" pTooltip={{room.explain}} tooltipPosition="bottom"></fa-icon>
-                        </div>
-                    </ng-template>
-                </div>
-
-                <div class="travellers">
-
-                    <div class="info">
-                        <div class="label">
-                            <span>Adulte(s) </span>
-                            <span>Age 18+</span>
-                        </div>
-    
-                        <div class="value" >                            
-                            <div class="datas-edit">
-                                <div class="passenger-info">
-                                    <div class="controls">
-                                        <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditAdultPassenger(-1)"></fa-icon>
-                                        <span> {{nombrePassagerAdulte}} </span>
-                                        <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditAdultPassenger(1)"></fa-icon>
-                                    </div>
-                                </div>
-    
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="info">
-                        <div class="label">
-                            <span>Enfants </span>
-                            <span>Age 6 - 17</span>
-                        </div>
-    
-                        <div class="value" >                            
-                            <div class="datas-edit">
-                                <div class="passenger-info">
-                                    <div class="controls">
-                                        <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditChildPassenger(-1)"></fa-icon>
-                                        <span> {{nombrePassagerEnfant}} </span>
-                                        <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditChildPassenger(1)"></fa-icon>
-                                        
-                                    </div>
-                                </div>
-    
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="info">
-                        <div class="label">
-                            <span>Bébés </span>
-                            <span>Age 0 - 5</span>
-                        </div>
-    
-                        <div class="value" >                            
-                            <div class="datas-edit">
-                                <div class="passenger-info">
-                                    <div class="controls">
-                                        <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditBabyPassenger(-1)"></fa-icon>
-                                        <span> {{nombrePassagerBebe}} </span>
-                                        <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditBabyPassenger(1)"></fa-icon>
-                                        
-                                    </div>
-                                </div>
-    
-                            </div>
-                        </div>
-                    </div>
-
-                    
-
-                </div>
-
                 
-      
+                <form  [formGroup]="tourForm">
 
-                <div class="gender-names">
+                    <div class="header">
+                        <span>Tarif</span>
+                        <span class="final-price">{{price | number}} XAF</span>
+                    </div>
 
-                    <div class="gender">
-          
+                    <div class="date">
                         <div class="label">
-                            <span>Civilités</span>
+                            <span>Date du voyage </span>
                             <span class="red-star">*</span>
                         </div>
-                        <select class="custom-select" (change)="changeReason($event)" >
-                            <option *ngFor="let civility of civilities" [ngValue]="civility">{{civility}}</option>
-                        </select>
+    
+                        <fa-icon [icon]="faCalendarDay"></fa-icon>
+                        <div class="not-editable" *ngIf="tour.date.editable == false ; else editable">
+                            <span>{{tour.date.value}}</span>
+                        </div>
+                        <ng-template #editable>
+                            <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" placeholder="dd-mm-yy"></p-calendar>                        
+                        </ng-template>
+                    </div>
+    
+                    <div class="rooms">
+    
+                        <ng-template ngFor let-room [ngForOf]="tour.bedrooms">
+                            <div class="room" (click)="choosePrice(room.price)">
+                                <p-radioButton [inputId]="room.key" [value]="room" formControlName="selectedRoom"></p-radioButton>
+                                <label [for]="room.key">{{room.name}}</label>
+                                <fa-icon [icon]="faQuestionCircle" pTooltip={{room.explain}} tooltipPosition="bottom"></fa-icon>
+                            </div>
+                        </ng-template>
+                    </div>
+    
+                    <div class="travellers">
+    
+                        <div class="info">
+                            <div class="label">
+                                <span>Adulte(s) </span>
+                                <span>Age 18+</span>
+                            </div>
+        
+                            <div class="value" >                            
+                                <div class="datas-edit">
+                                    <div class="passenger-info">
+                                        <div class="controls">
+                                            <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditAdultPassenger(-1)"></fa-icon>
+                                            <span> {{nombrePassagerAdulte}} </span>
+                                            <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditAdultPassenger(1)"></fa-icon>
+                                        </div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="info">
+                            <div class="label">
+                                <span>Enfants </span>
+                                <span>Age 6 - 17</span>
+                            </div>
+        
+                            <div class="value" >                            
+                                <div class="datas-edit">
+                                    <div class="passenger-info">
+                                        <div class="controls">
+                                            <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditChildPassenger(-1)"></fa-icon>
+                                            <span> {{nombrePassagerEnfant}} </span>
+                                            <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditChildPassenger(1)"></fa-icon>
+                                            
+                                        </div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="info">
+                            <div class="label">
+                                <span>Bébés </span>
+                                <span>Age 0 - 5</span>
+                            </div>
+        
+                            <div class="value" >                            
+                                <div class="datas-edit">
+                                    <div class="passenger-info">
+                                        <div class="controls">
+                                            <fa-icon class="minus" [icon]="faMinusCircle" (click)="onEditBabyPassenger(-1)"></fa-icon>
+                                            <span> {{nombrePassagerBebe}} </span>
+                                            <fa-icon class="plus" [icon]="faPlusCircle" (click)="onEditBabyPassenger(1)"></fa-icon>
+                                            
+                                        </div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+    
+                        
+    
+                    </div>
+    
+                    
+          
+    
+                    <div class="gender-names">
+    
+                        <div class="gender">
+              
+                            <div class="label">
+                                <span>Civilités</span>
+                                <span class="red-star">*</span>
+                            </div>
+                            <select class="custom-select" (change)="changeReason($event)" >
+                                <option *ngFor="let civility of civilities" [ngValue]="civility">{{civility}}</option>
+                            </select>
+                            
+                        </div>
+        
+                        <div class="firstname">
+                            <div class="label">
+                                <span>Nom</span>
+                                <span class="red-star">*</span>
+                            </div>
+                            <input type="text" placeholder="Entrez votre nom">
+                        </div>
+    
+                        <div class="lastname">
+                            <div class="label">
+                                <span>Prénom</span>
+                            </div>
+                            <input type="text" placeholder="Entrez votre prénom">
+                        </div>
+    
+                        <div class="email">
+                            <div class="label">
+                                <span>Email</span>
+                                <span class="red-star">*</span>
+                            </div>
+                            <input type="email" placeholder="Email de contact">
+                        </div>
                         
                     </div>
     
-                    <div class="firstname">
-                        <div class="label">
-                            <span>Nom</span>
-                            <span class="red-star">*</span>
-                        </div>
-                        <input type="text" placeholder="Entrez votre nom">
-                    </div>
-
-                    <div class="lastname">
-                        <div class="label">
-                            <span>Prénom</span>
-                        </div>
-                        <input type="text" placeholder="Entrez votre prénom">
-                    </div>
-
-                    <div class="email">
-                        <div class="label">
-                            <span>Email</span>
-                            <span class="red-star">*</span>
-                        </div>
-                        <input type="email" placeholder="Email de contact">
-                    </div>
-                    
-                </div>
-
-                <button type="button" (click)="showModalDialog()" pButton label="Réservez"></button>
-
-                <p-dialog header="Tarif personalisé" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
-                    [draggable]="false" [resizable]="false">
-                        <span>Nous avons bien reçu votre demande .</span>
-                        <span>vous recontacterons car il est possible de peaufiner votre voyage afin de vous proposer tarifpersonalisé au regard des informations que vous nous avez envoyées .</span>
-
-                </p-dialog>
-            </form>
+                    <button type="button" (click)="showModalDialog()" pButton label="Réservez"></button>
+    
+                    <p-dialog header="Tarif personalisé" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+                        [draggable]="false" [resizable]="false">
+                            <span>Nous avons bien reçu votre demande .</span>
+                            <span>vous recontacterons car il est possible de peaufiner votre voyage afin de vous proposer tarifpersonalisé au regard des informations que vous nous avez envoyées .</span>
+    
+                    </p-dialog>
+                </form>
+            </div>
+            
         </div>
     </div>
 </div>

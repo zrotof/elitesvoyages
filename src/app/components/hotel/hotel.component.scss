@@ -42,487 +42,7 @@ $fontColor: #525252;
         width: 100%;
         background: linear-gradient(180deg, rgba(2,22,47,0.7133228291316527) 0%, rgba(0,0,0,0.23713235294117652) 25%, rgba(0,0,0,0.20632002801120453) 100%);
     }
-
-/*
-.hotel-appartement-tabs{
-
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-
-            .hotel-appartement-headers{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                .tab-menu{
-                    height: 60px;
-                    width: fit-content;
-                    padding: 0 15px;
-                    cursor: pointer;
-                    border-radius: 5px;
-                    margin: 0 5px;
-                    background-color: #d4e2e7;
-                    color: #001f34;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    fa-icon{
-                        font-size: 2em;
-                        margin-right: 10px;
-                    }
-
-                    >span{
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: center;
-                    }
-                }
-                
-                .active-tab-menu{
-                    background-color: #0A0034;
-                    color: white;
-                    border-radius: 0;
-                    padding: 35px 15px;
-
-
-                }
-
-            }
-
-                .tabs-pages-conteneur{
-
-                    height: 100%;
-                    width: 100%;
-                    display: flex;
-                    align-items: center;
-                    flex-direction: column;
-
-                    .tab-page{
-                        
-                        width: 100%;
-                        display: none;
-
-                    }
-
-                    .tab-page-hotel{
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        align-items: flex-start;
-                        justify-content: space-between;
-
-
-                        .hotel-filter-bloc{
-
-                            width: 300px;
-                            background-color: #ffffff;
-                            border-radius: 5px;
-                            display: flex;
-                            flex-direction: column;
-                            padding: 10px;
-
-                            .search{
-                                flex-direction: column;
-                                    padding: 15px 0 10px 0;
-                                    border-top: 2px solid rgb(180, 180, 180);
-
-                                span{
-                                    color: $colorBlue;
-                                    font-weight: 540;
-                                }
-                                > div {
-                                    display: flex;
-                                    align-items: center;
-                                    margin: 5px 0 0 0;
-                                    width: fit-content;
-                                    
-                                    input{
-                                    height: 17px;
-                                    width: 17px;
-                                    margin-right: 10px;
-                                    border-radius: 50%;
-                                    }
-                                }
-
-                 > div:hover {
-                    font-weight: bold;
-                    color: $colorBlue;
-                }
-                            }
-
-                        }
-
-                        .logement-pagination-bloc{
-
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: space-between;
-                            align-items: center;
-                            height: 100vh;
-
-                            .logement-hotel-bloc{
-
-                                display: flex;
-                                flex-direction: column;
-                                
-    
-                                .logement-hotel{
-                                    display: flex;
-                                    align-items: flex-start;
-                                    justify-content: center;
-                                    margin: 10px 0;
-                                    border-radius: 10px;
-                                    overflow: hidden;
-                                    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;                            height: 200px;
-                                    cursor: pointer;
-                                    background-color: white;
-
-                                    .item-image{
-                                        position: relative;
-        
-                                        height: 100%;
-                                        width: 220px;
-        
-                                        img{
-                                            height: 100%;
-                                            width: 100%;
-                                        }
-                                        
-                                        span{
-                                            position: absolute;
-                                            left: 5%;
-                                            bottom: 5%;
-                                            color: white;
-                                            font-weight: bold;
-                                            z-index: 1;
-                                        }
-                                    }
-        
-                                    .item-image::after{
-                                        position: absolute;
-                                        content: "";
-                                        top: 0;
-                                        left:0;
-                                        width: 100%;
-                                        height: 100%;
-                                        background-color: rgba(22, 5, 172, 0.158);
-                                    }
-        
-                                    .item-info{
-                                        display: flex;
-                                        justify-content: space-between;
-                                        padding: 10px 20px;
-                                        width: 530px;
-                                        height: 100%;
-        
-                                        .item-summary{
-        
-                                            display: flex;
-                                            flex-direction: column;
-                                            width: 350px;
-        
-                                            span:nth-child(1){
-                                                font-size: 1.5em;
-                                                font-weight: 545;
-                                            }
-        
-                                            span:nth-child(2){
-                                                font-size: 0.9em;
-        
-                                                fa-icon{
-                                                    margin-right: 3px;
-                                                }
-                                            }
-        
-                                            ngb-rating {
-                                                color: $colorGold;
-                                            }
-        
-                                            span:nth-child(4){
-                                                margin-top: 10px;
-                                                font-size: 0.9em;
-                                            }
-                                        }
-        
-                                        .item-detail{
-        
-                                            display: flex;
-                                            flex-direction: column;
-                                            width: 180px;
-                                            justify-content: space-between;
-                                            align-items: center;
-        
-                                            .options-top{
-        
-                                                display: flex;
-                                                flex-direction: column;
-                                                width: 100%;
-        
-                                                span:nth-child(1){
-                                                    font-size: 0.8em;
-                                                }
-        
-                                                span:nth-child(2){
-                                                    font-size: 1.3em;
-                                                    font-weight: bold;
-
-                                                    span{
-                                                        font-weight: normal;
-                                                    }
-                                                }
-                                            }
-        
-                                            .options-middle{
-                                                height: 5.3em;
-                                                overflow-y: scroll;
-                                                background:#11609818;
-                                                border-radius: 5px;
-                                                padding: 5px 12px;
-                                                width: 100%;
-        
-                                                .options{
-                                                    display: flex;
-                                                    flex-direction: column;
-        
-                                                    span{
-                                                        font-size: 0.8em;
-            
-                                                        fa-icon{
-                                                            margin-right: 5px;
-                                                        }
-                                                    }
-                                                }
-                                            }
-        
-                                            .options-bottom{
-                                                background-color: $colorBlue;
-                                                color: white;
-                                                border-radius: 5px;
-                                                text-align: center;
-                                                padding: 2px 10px;
-                                                width: fit-content;
-                                                transform: all 3s ease-in;
-                                                cursor: pointer;
-                                                width: 100%;
-        
-                                            }
-        
-                                            .options-bottom:hover{
-        
-                                                border: 2px solid $colorBlue;
-                                                padding: 0 10px;
-                                                background: none;
-                                                color: $colorBlue;
-                                                font-weight: bold;
-                                                
-                                            }
-                                            
-                                        }
-                                    }
-                                }
-
-                                .logement-hotel:hover{
-
-                                    box-shadow: $colorBlue 0px 0px 15px;
-
-                                }
-
-                            }
-
-                        }
-
-                    }
-
-                    .tab-page-appart{
-
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: flex-start;
-
-                        .logement-pagination-bloc{
-
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-
-                            .logement-appart-bloc{
-
-                                display: flex;
-                                flex-wrap: wrap;
-                                justify-content: space-between;
-                                align-items: flex-start;
-                                width: 100%;
-
-                                .logement-appart{
-
-                                    background: white;
-                                    width: 250px;
-                                    margin: 10px;
-                                    border-radius: 10px;
-                                    overflow: hidden;
-                                    box-shadow: rgba(61, 61, 61, 0.555) 0px 2px 8px 0px;
-                                    cursor: pointer;
-
-
-                                    .item-image{
-
-                                        width:100%;
-                                        height: 200px;
-                                        position: relative;
-
-                                        img{
-                                            height: 100%;
-                                            width:100%;
-                                        }
-
-                                        span{
-                                            position: absolute;
-                                            left: 5%;
-                                            bottom: 5%;
-                                            color: white;
-                                            font-weight: bold;
-                                            z-index: 1;
-                                            position: absolute;
-                                        }
-                                    
-                                    }
-
-                                    .item-image::after{
-                                        position: absolute;
-                                        content: "";
-                                        top: 0;
-                                        left:0;
-                                        width: 100%;
-                                        height: 100%;
-                                        background-color: rgba(22, 5, 172, 0.158);
-                                    }
-
-                                    .item-info{
-
-                                        display: flex;
-                                        flex-direction: column;
-                                        padding: 10px;
-
-                                        .item-summary{
-
-                                            display: flex;
-                                            flex-direction: column;
-                                            font-size: 0.9em;
-
-                                            .item-name{
-
-                                                font-size: 1.5em;
-                                                font-weight: 545;
-
-                                            }
-
-                                            .item-type{
-
-                                                margin: 5px 0;
-
-                                                span:nth-child(1){
-
-                                                    margin-right: 5px;
-
-                                                }
-
-                                                span:nth-child(2){
-
-                                                    font-size: 0.85em;
-
-                                                }
-
-                                            }
-
-                                        }
-
-
-                                        .options-top{
-
-                                            display: flex;
-                                            flex-direction: column;
-                                            width: 100%;
-                                            margin: 10px 0;
-    
-                                            span:nth-child(1){
-
-                                                font-size: 0.8em;
-                                                
-                                            }
-    
-                                            span:nth-child(2){
-
-                                                font-size: 1.1em;
-                                                font-weight: bold;
-
-                                                span{
-
-                                                    font-weight: normal;
-
-                                                }
-
-                                            }
-
-                                        }
-
-                                        .options-bottom{
-
-                                            background-color: $colorBlue;
-                                            color: white;
-                                            border-radius: 5px;
-                                            text-align: center;
-                                            width: fit-content;
-                                            transform: all 3s ease-in;
-                                            cursor: pointer;
-                                            font-size: 0.9em;
-                                            margin: 0 auto;
-                                            width: 100%;
-                                            padding: 2px 0;
-                                        }
-    
-                                        .options-bottom:hover{
-    
-                                            border: 2px solid $colorBlue;
-                                            background: none;
-                                            color: $colorBlue;
-                                            font-weight: bold;
-                                            padding:0;
-                                        }
-
-                                    }
-
-                                }
-
-                                .logement-appart:hover{
-                                    box-shadow: $colorBlue 0px 0px 15px;
-
-                                }
-
-                            }
-                            
-                        }
-                    
-                    }
-
-                    .active-tab-page{
-                        display: flex;
-                        padding: 20px;
-                        background-color: #f5f5f5;
-                        border-radius: 5px;
-                    }
-
-                }
-            
-        }
-*/
-       
+ 
 
     .content{
             
@@ -576,176 +96,81 @@ $fontColor: #525252;
             display: flex;
             flex-direction: column;
 
-            .gender-names{
-                display: flex;
-                justify-content: space-between;
-                
-                .gender{
-                    display: flex;
-                    flex-direction: column;
-                    background-color: white;
-                    border: 1px solid $colorBlue;
-                    padding: 5px;
-                    border-radius: 5px;
-                    width: 100px;
-                    height: 57px;
-                    margin-top: 15px;
-
-
-                    .label{
-                        font-size: 0.85em;
-                        color: $colorBlue;
-                        padding-left: 5px;
-
-                    }
-
-                     select{
-                        border: none;
-                        outline: none;
-                        background-color: unset;
-                        
-                    }
-                }
-
-                .firstname, .lastname{
-                    display: flex;
-                    flex-direction: column;
-                    background-color: white;
-                    border: 1px solid $colorBlue;
-                    padding: 5px;
-                    border-radius: 5px;
-                    margin-top: 15px;
-                    position: relative;
-                    height: 57px;
-                    width: 250px;
-
-                    .label{
-                        font-size: 0.85em;
-                        color: $colorBlue;
-                        padding-left: 5px;
-
-                    }
-
-                     input{
-                        border: none;
-                        outline: none;
-                        background-color: unset;
-                        position: absolute;
-                        position: absolute;
-                        bottom: 0;
-                        padding-left: 4px;
-                        width: 100%;
-                        padding-top: 25px;
-                        height: 100%;
-                    }
-                }
-            }
-
-            .email-phone{
-
-                display: flex;
-                justify-content: space-between;
-
-                .email, .phone{
-                    width: 280px;
-                    height: 57px;
-                    margin-top: 15px;
-                    background-color: white;
-                    border: 1px solid $colorBlue;
-                    padding: 5px;
-                    border-radius: 5px;
-                    position: relative;
-
-                    .label{
-                        font-size: 0.85em;
-                        color: $colorBlue;
-                        padding-left: 5px;
-
-                    }
-
-                     input{
-                        border: none;
-                        outline: none;
-                        background-color: unset;
-                        position: absolute;
-                        position: absolute;
-                        bottom: 0;
-                        padding-left: 4px;
-                        width: 100%;
-                        padding-top: 25px;
-                        height: 100%;
-                    }
-                }
-            }
+  
 
             .room-town-date{
 
                 display: flex;
                 justify-content: space-between;
 
-                .room{
+                .element{
                     display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
                     flex-direction: column;
-                    background-color: white;
-                    border: 1px solid $colorBlue;
-                    padding: 5px;
-                    border-radius: 5px;
-                    width: 130px;
-                    height: 57px;
-                    margin-top: 15px;
+
+                    .room{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: white;
+                        border: 1px solid $colorBlue;
+                        padding: 5px;
+                        border-radius: 5px;
+                        width: 130px;
+                        height: 57px;
+                        margin-top: 15px;
 
 
-                    .label{
-                        font-size: 0.85em;
-                        color: $colorBlue;
-                        padding-left: 5px;
+                        .label{
+                            font-size: 0.85em;
+                            color: $colorBlue;
+                            padding-left: 5px;
 
+                        }
+
+                        select{
+                            border: none;
+                            outline: none;
+                            background-color: unset;
+                            
+                        }
                     }
 
-                     select{
-                        border: none;
-                        outline: none;
-                        background-color: unset;
-                        
+                    .town{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: white;
+                        border: 1px solid $colorBlue;
+                        padding: 5px;
+                        border-radius: 5px;
+                        margin-top: 15px;
+                        width: 200px;
+                        height: 57px;
+                        position: relative;
+                        overflow: hidden;
+
+
+                        .label{
+                            font-size: 0.85em;
+                            color: $colorBlue;
+                            padding-left: 5px;
+                            z-index: 5;
+                        }
+
+                        input{
+                            border: none;
+                            outline: none;
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            padding-left: 4px;
+                            font-size: 0.95em;
+                            width: 100%;
+                            padding-top: 25px;
+                            padding-left: 10px;
+                            height: 100%;
+                        }
                     }
-                }
-
-                .town{
-                    display: flex;
-                    flex-direction: column;
-                    background-color: white;
-                    border: 1px solid $colorBlue;
-                    padding: 5px;
-                    border-radius: 5px;
-                    margin-top: 15px;
-                    width: 200px;
-                    height: 57px;
-                    position: relative;
-                    overflow: hidden;
-
-
-                    .label{
-                        font-size: 0.85em;
-                        color: $colorBlue;
-                        padding-left: 5px;
-                        z-index: 5;
-                    }
-
-                    input{
-                        border: none;
-                        outline: none;
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
-                        padding-left: 4px;
-                        font-size: 0.95em;
-                        width: 100%;
-                        padding-top: 25px;
-                        padding-left: 10px;
-                        height: 100%;
-                    }
-                }
-
 
                     .date{
 
@@ -791,8 +216,8 @@ $fontColor: #525252;
                                     }
                                 }
                             }
-                        }
-                
+                    }
+                }
             }
 
             .extras-bloc{
@@ -897,6 +322,114 @@ $fontColor: #525252;
                 }
             }
 
+            .gender-names{
+                display: flex;
+                justify-content: space-between;
+                
+                .element{
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    flex-direction: column;
+
+                    .gender{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: white;
+                        border: 1px solid $colorBlue;
+                        padding: 5px;
+                        border-radius: 5px;
+                        width: 100px;
+                        height: 57px;
+                        margin-top: 15px;
+
+                        .label{
+                            font-size: 0.85em;
+                            color: $colorBlue;
+                            padding-left: 5px;
+
+                        }
+
+                        select{
+                            border: none;
+                            outline: none;
+                            background-color: unset;
+                            
+                        }
+                    }
+
+                    .firstname, .lastname{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: white;
+                        border: 1px solid $colorBlue;
+                        padding: 5px;
+                        border-radius: 5px;
+                        margin-top: 15px;
+                        position: relative;
+                        height: 57px;
+                        width: 250px;
+
+                        .label{
+                            font-size: 0.85em;
+                            color: $colorBlue;
+                            padding-left: 5px;
+
+                        }
+
+                        input{
+                            border: none;
+                            outline: none;
+                            background-color: unset;
+                            position: absolute;
+                            position: absolute;
+                            bottom: 0;
+                            padding-left: 4px;
+                            width: 100%;
+                            padding-top: 25px;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+
+            .email-phone{
+
+                display: flex;
+                justify-content: space-between;
+
+                .email, .phone{
+                    width: 280px;
+                    height: 57px;
+                    margin-top: 15px;
+                    background-color: white;
+                    border: 1px solid $colorBlue;
+                    padding: 5px;
+                    border-radius: 5px;
+                    position: relative;
+
+                    .label{
+                        font-size: 0.85em;
+                        color: $colorBlue;
+                        padding-left: 5px;
+
+                    }
+
+                     input{
+                        border: none;
+                        outline: none;
+                        background-color: unset;
+                        position: absolute;
+                        position: absolute;
+                        bottom: 0;
+                        padding-left: 4px;
+                        width: 100%;
+                        padding-top: 25px;
+                        height: 100%;
+                    }
+                }
+            }
+
             button{
                 outline: none;
                 border: none;
@@ -949,6 +482,208 @@ $fontColor: #525252;
                     }
                 }
             }
+        }
+    }
+}
+
+@media all and (max-width: 820px){
+
+    .hotel{ 
+    
+        .content{
+    
+            form{
+                width: 100%;
+                padding: 60px 20px ;
+            }
+
+        }
+    }
+}
+
+@media all and (max-width: 715px){
+
+    .hotel{ 
+    
+        .content{
+    
+            form{
+                padding: 60px 10px ;
+  
+  
+                .room-town-date{
+    
+                    flex-direction: column;
+                    
+                    .element{
+                        width: 100%;
+                        
+                        .room{
+                            width: 100%;
+                        }
+        
+                        .town{
+                            width: 100%;
+                        }
+        
+                        .date{
+    
+                            width: 100%;
+                        }
+                    }
+                }
+    
+                .extras-bloc{
+    
+                    display: flex;
+                    flex-direction:column;
+                    margin-top: 15px;
+                    margin-bottom: 20px;
+                    
+    
+                    span{
+                        color: $colorBlue;
+                        font-weight: 540;
+                    }
+    
+                            .extras{
+                                display: flex;
+                                flex-wrap: wrap;
+                                align-items: center;
+                                justify-content: space-between;                                
+                                margin-top: 20px;
+                                padding: 0 10px;
+    
+                                .extra{
+    
+                                    display: flex;
+                                    align-items: center;
+                                    margin-top: 5px;
+    
+                                    input{
+                                        height: 17px;
+                                        width: 17px;
+                                        background-color: white;
+                                        border-radius: 50%;
+                                        vertical-align: middle;
+                                        appearance: none;
+                                        -webkit-appearance: none;
+                                        outline: none;
+                                        cursor: pointer;
+                                        border: 2px solid white;
+                    
+                                    }
+                    
+                                    input:checked {
+                                        background-color: red;
+                                    }
+                    
+                                    label{
+                                        margin-left: 7px;
+                                        font-size: 0.8em;
+                                        cursor: pointer;
+                                        width: 122px;
+                                    }
+                    
+                                    label:hover{
+                                        font-weight: bold;
+                    
+                                    }
+                                
+                            }
+    
+                                
+                
+                                
+                            }
+    
+                      
+                    
+                }
+    
+                .hotels{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: white;
+                        border: 1px solid $colorBlue;
+                        padding: 5px;
+                        border-radius: 5px;
+                        margin-top: 15px;
+                        position: relative;
+                        height: 57px;
+                        width: 100%;
+    
+                        .label{
+                            font-size: 0.85em;
+                            color: $colorBlue;
+                            padding-left: 5px;
+    
+                        }
+    
+                         input{
+                            border: none;
+                            outline: none;
+                            background-color: unset;
+                            position: absolute;
+                            position: absolute;
+                            bottom: 0;
+                            padding-left: 4px;
+                            width: 100%;
+                            padding-top: 25px;
+                            height: 100%;
+                        
+                    }
+                }
+    
+                .gender-names{
+                    flex-direction: column;
+                    .element{
+                        width: 100%;
+                        .gender{
+                            display: flex;
+                            flex-direction: column;
+                            background-color: white;
+                            border: 1px solid $colorBlue;
+                            padding: 5px;
+                            border-radius: 5px;
+                            width: 100px;
+                            height: 57px;
+                            margin-top: 15px;
+        
+        
+                            .label{
+                                font-size: 0.85em;
+                                color: $colorBlue;
+                                padding-left: 5px;
+        
+                            }
+        
+                            select{
+                                border: none;
+                                outline: none;
+                                background-color: unset;
+                                
+                            }
+                        }
+        
+                        .firstname, .lastname{
+                            width: 100%;
+                        }
+                    }
+                }
+    
+                .email-phone{
+    
+                    flex-direction: column;
+                    .element{
+                        width: 100%;
+                        .email, .phone{
+                            width: 100%;
+                        }
+                    }    
+                }
+            }
+
         }
     }
 }

@@ -19,6 +19,19 @@ $fontColor: #525252;
 
         p-breadcrumb{
             width: 100%;
+
+            .breadcrumb{
+
+                ul{
+                    li{
+                        a{
+                            background: none;
+                            border: none;
+                            color: red;
+                        }
+                    }
+                }
+            }
         }
 
         .datas{
@@ -29,7 +42,7 @@ $fontColor: #525252;
 
                 display: flex;
                 flex-direction: column;
-                flex: 3;
+                width: calc(100% - 290px);
                 margin-right: 20px;
 
                 h2{
@@ -41,11 +54,11 @@ $fontColor: #525252;
                     display: flex;
                     justify-content: space-between;
                     width: 100%;
+                    padding-bottom: 10px;
 
                     .tour-info{
                         display: flex;
                         align-items: center;
-                        margin-bottom: 10px;
                         fa-icon{
                             margin-right: 7px;
                         }
@@ -56,8 +69,38 @@ $fontColor: #525252;
                         }
                     }
                 }
-                .p-component, .p-component {
-                    max-width: 100% !important;
+                .p-element{
+                    max-width: 100%;
+
+                    .p-component {
+                        max-width: 100%;
+
+                        .p-galleria-content{
+                            
+                            p-galleriaitem{
+                                
+                                .p-galleria-item-wrapper{
+                                    
+                                    img{
+                                        width: 100%; 
+                                        height: 480px; 
+                                    }
+                                }
+                                
+                            }
+
+                            p-galleriathumbnails{
+                                .p-galleria-thumbnail-wrapper{
+                                    img{
+                                        width: 60px; 
+                                        height: 60px; 
+                                    }
+                                }
+                            }
+
+
+                        }
+                    }
                 }
 
                 .description-title{
@@ -85,12 +128,13 @@ $fontColor: #525252;
                         display: flex;
                         padding-top: 5px;
                         flex-wrap: wrap;
+                        justify-content: center;
 
                         .tag{
                             display: flex;
                             margin-right: 25px;
                             align-items: center;
-                            margin: 10px 20px 0 0 ;
+                            margin: 10px 5px 0 5px ;
                             padding: 10px;
                             border: 1px solid $colorBlue;
                             width: 190px;
@@ -133,12 +177,32 @@ $fontColor: #525252;
                     .p-element{
 
                         .p-accordion{
+
                             .p-accordion-tab{
 
                                 .p-accordion-header{
-                                    color: red;
+                                    
+                                    .p-accordion-header-link{
+                                        color: $fontColor;
+                                    }
+
+                                    .p-accordion-header-link:hover{
+                                        background-color: #11609824;
+                                        color: $colorBlue;
+
+                                    }
 
                                 }
+
+                                .p-accordion-header:not(.p-disabled){
+
+                                    .p-accordion-header-link:focus{
+                                        box-shadow: none;
+                            
+                                    }
+
+                                }
+
 
                                 .p-toggleable-content{
 
@@ -156,6 +220,15 @@ $fontColor: #525252;
 
                             }
 
+                            .p-accordion-tab-active{
+                                .p-accordion-header{
+                                    
+                                    .p-accordion-header-link{
+                                        background-color: #11609824;
+                                    }
+                                }
+                            }
+
                         }
 
                         
@@ -163,19 +236,44 @@ $fontColor: #525252;
                     
                 }
 
-
             }
-            .booking{
-                margin-left: 50px;
-                flex: 1;
+        }
+
+        .booking{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 50px;
+            width: 290px;
+
+            .teaser{
+
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                height: fit-content;
+
+                img{
+                    width: 180px;
+                }
+
+                b{
+                    color: $colorBlue;
+                    font-size: 1.2em;
+                }
+            }
+
+            form{
+                width: 100%;
                 border-radius: 5px;
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-
                 height: fit-content;
                 display: flex;
                 flex-direction: column;
                 align-items:center;
                 position: sticky;
+                margin-top: 45px;
                 top: 100px;
                 
                 .header{
@@ -188,8 +286,6 @@ $fontColor: #525252;
                     color: white;
                     width: 100%;
                     padding: 10px 20px;
-
-
 
                     .final-price{
                         font-size: 1.4em;
@@ -505,6 +601,396 @@ $fontColor: #525252;
                     color: white;
                 }
 
+        }
+        }
+    }
+}
+
+
+
+@media all and (max-width: 1170px){
+    .tour{
+
+        .content{
+
+            .datas{
+
+                flex-direction: column;
+                align-items: center;
+                .data{
+
+                    width: 80%;
+                    margin-right: 0px;
+
+                    .tags-bloc{
+                    
+                        margin-top: 35px ;
+    
+                        .tag-title{
+                            color: $colorBlue;
+                            font-size: 1.2em;
+                            font-weight: bold;
+                        }
+    
+                        .tags{
+    
+                            .tag{
+
+                                width: 175px;
+                                height: 54px;
+
+                                fa-icon{
+                                    font-size: 1.2em;
+                                }
+    
+                                span{
+                                    font-size: 0.95em;
+                                }
+                            }
+                        }
+                    }
+
+                    .program{
+    
+                        .p-element{
+    
+                            .p-accordion{
+                                .p-accordion-tab{
+    
+                                    .p-accordion-header{
+                                        
+                                        .p-accordion-header-link{
+                                            font-weight: 500;
+                                        }
+    
+                                    }
+    
+                                    .p-toggleable-content{
+    
+                                        .p-accordion-content{
+                    
+                                            .program-text{
+                                                margin-top: 6px;
+                                            }
+                                        }
+                                        
+                                    }
+    
+                                }
+    
+                            }
+    
+                            
+                        }
+                        
+                    }
+                }
+
+                .booking{
+                    width: 80%;
+                    margin-left: 0px;
+                    margin-top: 60px;
+
+                    flex-direction: row;
+                    justify-content: space-around;
+
+                    .teaser{
+                        
+                        width: fit-content;
+
+                        img{
+                            width: 275px;
+                        }
+                    }
+
+                    form{
+                        width: 290px;
+                        margin-top: 0;
+                    }
+
+           
+                }
+                
+            }
+        }
+    }
+}
+
+
+@media all and (max-width: 980px){
+    .tour{
+
+        .content{
+
+            .datas{
+
+                .data{
+
+                    width: 90%;
+                }
+
+                .booking{
+
+                    width: 90%;
+                    justify-content: space-between;
+
+                    .teaser{
+                        img{
+                            width: 230px;
+                        }
+                    }
+                }
+
+                
+            }
+        }
+    }
+}
+
+
+@media all and (max-width: 780px){
+    .tour{
+
+        .content{
+
+            .datas{
+
+                .data{
+
+                    width: 100%;
+
+                    .p-element{
+    
+                        .p-component {
+    
+                            .p-galleria-content{
+                                
+                                p-galleriaitem{
+                                    
+                                    .p-galleria-item-wrapper{
+                                        
+                                        img{
+                                            width: 100%; 
+                                            height: 400px; 
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .booking{
+
+                    width: 100%;
+
+                    .teaser{
+                        img{
+                            width: 190px;
+                        }
+                    }
+                }
+
+                
+            }
+        }
+    }
+}
+
+
+@media all and (max-width: 650px){
+    .tour{
+
+        .content{
+
+            .datas{
+
+                .booking{
+
+                    justify-content: center;
+
+                    .teaser{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 570px){
+
+    .tour{
+
+        .content{
+        
+            p-breadcrumb{
+                width: 100%;
+
+                .breadcrumb{
+                    padding: 0.5em;
+
+                    ul{
+                        li{
+                            a{
+                                padding: 4px 10px 4px 0;
+                                background: none;
+                                border: none;
+                                font-size: 12px;
+                                font-weight: 450;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 510px){
+    .tour{
+
+        .content{
+
+            .datas{
+
+                .data{
+
+                    .p-element{
+    
+                        .p-component {
+    
+                            .p-galleria-content{
+                                
+                                p-galleriaitem{
+                                    
+                                    .p-galleria-item-wrapper{
+                                        
+                                        img{
+                                            width: 100%; 
+                                            height: 360px;
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .booking{
+
+                    justify-content: center;
+
+                    .teaser{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media all and (max-width: 425px){
+    .tour{
+
+        .content{
+
+            .datas{
+
+                .data{
+
+                    .tour-infos{
+                        flex-direction: column;
+    
+                        .tour-info{
+                            display: flex;
+                            align-items: center;
+                            fa-icon{
+
+                                background-color: #1160982b;
+                                padding: 6px 10px;
+                                font-size: 0.8em;
+                                border-radius: 50%;
+                                /* margin-right: 7px; */
+                                margin-bottom: 8px;
+                            }
+    
+                            span{
+                                font-size: 0.87em;
+    
+                            }
+                        }
+                    }
+
+                    .p-element{
+    
+                        .p-component {
+    
+                            .p-galleria-content{
+                                
+                                p-galleriaitem{
+                                    
+                                    .p-galleria-item-wrapper{
+                                        
+                                        img{
+                                            width: 100%; 
+                                            height: 300px;
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .booking{
+
+                    justify-content: center;
+
+                    .teaser{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media all and (max-width: 375px){
+    .tour{
+
+        .content{
+
+            .datas{
+
+                .data{
+
+                    .p-element{
+    
+                        .p-component {
+    
+                            .p-galleria-content{
+                                
+                                p-galleriaitem{
+                                    
+                                    .p-galleria-item-wrapper{
+                                        
+                                        img{
+                                            width: 100%; 
+                                            height: 270px;
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

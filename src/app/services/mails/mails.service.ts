@@ -10,15 +10,15 @@ export class MailsService {
 
   sendContactMail(data: any){
 
-    /*
+    
     let headers = {
       headers : new HttpHeaders({
         'Content-Type':"application/json"
       })
     };
-    */
+    
     //return this.http.post("https://sam-man-portfolio-backend.herokuapp.com/mail", mailInfo, headers); 
-    return this.http.post("http://localhost:3000/mail/contact", data); 
+    return this.http.post("http://localhost:3000/mail/contact", data, headers); 
   }
 
   sendFlightMail(data: any){
