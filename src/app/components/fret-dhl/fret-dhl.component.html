@@ -69,6 +69,7 @@
                                     <span class="red-star">*</span>
                                 </div>
                                 <select  formControlName="contains">
+                                    <option [ngValue]="null" disabled></option>
                                     <option *ngFor="let contain of contains" [ngValue]="contain">{{contain}}</option>
                                 </select>
                             </div>
@@ -84,6 +85,7 @@
                                     <span>Dimensions </span>
                                 </div>
                                 <select formControlName="dimensions">
+                                    <option [ngValue]="null" disabled></option>
                                     <option *ngFor="let format of formats" [ngValue]="format">{{format}}</option>
                                 </select>
                             </div>
@@ -168,8 +170,14 @@
                         </div>
                     </div>
         
-                    <button type="submit">Obtenir devis</button>
+                    <button type="submit">
+                        <ng-container *ngIf="isDhlFormSubmittedAndNotErrorOnClientSide; else defaultText">
+                            <p-progressSpinner [style]="{width: '20px', height: '20px'}" strokeWidth="8"></p-progressSpinner>
+                        </ng-container>
+                    </button>
                 </form>
+                <ng-template #defaultText>Obtenir dévis</ng-template>
+
                 <img src="../../../assets/img/fret-dhl/guy.jpeg" alt="">
             </div>
 
@@ -197,4 +205,6 @@
                 </div>
             </div>
     </div>
+    <p-toast [breakpoints]="{'920px': {width: '100%', right: '0', left: '0', backgroung:'red'}}"></p-toast>
+
 </div>

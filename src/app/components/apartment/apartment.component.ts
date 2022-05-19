@@ -1,12 +1,16 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MailsService } from 'src/app/services/mails/mails.service';
+import {MenuItem, MessageService, PrimeNGConfig} from 'primeng/api';
+import { DialogService } from 'primeng/dynamicdialog';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-apartment',
   templateUrl: './apartment.component.html',
   styleUrls: ['./apartment.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  providers:[MessageService, DialogService]
 
 })
 export class ApartmentComponent implements OnInit {
@@ -35,7 +39,14 @@ export class ApartmentComponent implements OnInit {
     apartForm: FormGroup;
     isApartFormSubmitted = false;
 
-    constructor(private fb :FormBuilder, private mailService: MailsService) { 
+    isApartFormSubmittedAndNotErrorOnClientSide = false;
+
+    constructor(
+      private fb :FormBuilder, 
+      private mailService: MailsService,
+      private messageService: MessageService,
+      private primengConfig: PrimeNGConfig,
+      public dialogService: DialogService) { 
    
       this.apartForm = this.fb.group({
         town: ['',[Validators.required]],
@@ -86,16 +97,23 @@ export class ApartmentComponent implements OnInit {
       return;
     }
 
-   
+   console.log(this.apartForm);
 
-    this.mailService.sendApartMail(this.apartForm.value)
+    this.mailService.sendApartMail(JSON.stringify(this.apartForm.value)).pipe(finalize(() => this.isApartFormSubmittedAndNotErrorOnClientSide = false),
+    ).subscribe((resp: any) =>{
+      
+      if(resp['message'] === "success"){
+        this.messageService.add({severity:'success', detail: "Demande de location effectuée avec succès."});
+        this.onReset();
+      }
 
-    .subscribe(resp =>{
-        console.log(resp);
+      else{
+        this.messageService.add({severity:'error',detail: "Erreur lors de l'envoi, re-essayez plus tard."});
+      }
     });
   }
 
-  onChangeCheckox(name: string, e: any){
+  onChangeApartExtras(name: string, e: any){
 
     const extras = (this.f.extras as FormArray);
 
@@ -105,5 +123,8 @@ export class ApartmentComponent implements OnInit {
       const index = extras.controls.findIndex(x => x.value === name);
       extras.removeAt(index);
     }
+
+    extras.updateValueAndValidity();
+
   }
 }

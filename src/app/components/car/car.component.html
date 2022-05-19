@@ -92,7 +92,7 @@
                                 <span>Début location </span>
                                 <span class="red-star">*</span>
                             </div>
-                            <p-calendar formControlName="dayStart" dateFormat="mm-dd-yy" inputId="dateformat" placeholder="Jour début" formControlName="dateDeb"></p-calendar>
+                            <p-calendar formControlName="dayStart" dateFormat="mm-dd-yy" inputId="dateformat" [minDate]="minDate" [readonlyInput]="true" placeholder="Jour début" formControlName="dateDeb"></p-calendar>
                         </div>
 
                         <div *ngIf="isCarFormSubmitted && f.dateDeb.errors" class="error-feedback">
@@ -120,7 +120,7 @@
                                 <span>fin location </span>
                                 <span class="red-star">*</span>
                             </div>
-                            <p-calendar formControlName="dayEnd" dateFormat="mm-dd-yy" inputId="dateformat" placeholder="Jour fin" formControlName="dateFin"></p-calendar>
+                            <p-calendar formControlName="dayEnd" dateFormat="mm-dd-yy" inputId="dateformat" [minDate]="minDate" [readonlyInput]="true" placeholder="Jour fin" formControlName="dateFin"></p-calendar>
                         </div>
 
                         <div *ngIf="isCarFormSubmitted && f.dateFin.errors" class="error-feedback">
@@ -140,38 +140,18 @@
                     
                 </div>
 
-                
-                
             </div>
 
             <div class="extras-bloc">
                 <span>Extras</span>
 
                 <div class="extras">
-                    <div class="extra">
-                        <input type="checkbox" id="clim" name="clim" formControlName="clim">
-                        <label for="clim">Climatisée</label>
-                    </div>
-
-                    <div class="extra">
-                        <input type="checkbox" id="cd" name="lcd" formControlName="lcd" >
-                        <label for="cd">Lecteur CD</label>
-                    </div>
-
-                    <div class="extra">
-                        <input type="checkbox" id="mp3" name="lmp3" formControlName="lmp3">
-                        <label for="mp3">Lecteur MP3</label>
-                    </div>
-
-                    <div class="extra">
-                        <input type="checkbox" id="radio" name="radio" formControlName="radio">
-                        <label for="radio">Radio</label>
-                    </div>
-
-                    <div class="extra">
-                        <input type="checkbox" id="bluetooth" name="bluetooth" formControlName="bluetooth">
-                        <label for="bluetooth">Bluetooth</label>
-                    </div>
+                    <ng-template ngFor let-extra [ngForOf]="extras">
+                        <div class="extra">
+                            <input type="checkbox" id="{{extra.id}}" (change)="onChangeCarExtras(extra.name, $event)">
+                            <label for="{{extra.id}}">{{extra.name}}</label>
+                        </div>
+                    </ng-template>
                 </div>
                 
 
@@ -255,9 +235,15 @@
                 </div>
             </div>
 
-            <button type="submit">Réserver</button>
+            <button type="submit">
+                <ng-container *ngIf="isCarFormSubmittedAndNotErrorOnClientSide; else defaultText">
+                    <p-progressSpinner [style]="{width: '20px', height: '20px'}" strokeWidth="8"></p-progressSpinner>
+                </ng-container>
+            </button>
 
         </form>
+        <ng-template #defaultText>Réserver</ng-template>
+
 
         <div class="procedure">
             <h1>Comment ça marche ?</h1>
@@ -287,4 +273,7 @@
         </div>
 
     </div>
+
+        <p-toast [breakpoints]="{'920px': {width: '100%', right: '0', left: '0', backgroung:'red'}}"></p-toast>
+
 </div>

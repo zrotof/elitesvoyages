@@ -5,252 +5,6 @@
             <h1 class="title">Appartements meublés</h1>
         </div>
     </div>
-<!--
-    <div class="content">
-
-        <div class="hotel-appartement-tabs">
-
-            <div class="hotel-appartement-headers">
-                <span (click)="chooseTab(1,'hotel')" class="tab-menu active-tab-menu" data-aos="fade-right">
-                    <fa-icon [icon]="faBed"></fa-icon>
-                    <span>Hôtels</span>
-                </span>
-                <span (click)="chooseTab(2,'appartement')" class="tab-menu" data-aos="fade-right">
-                    <fa-icon [icon]="faHome"></fa-icon>
-
-                    <span>
-                        <span>Appartements</span>
-                        <span>Meublés</span>
-                    </span>
-                </span>
-            </div>
-
-            
-                <div class="tabs-pages-conteneur">
-
-                    <div class="tab-page active-tab-page">
-
-                        <div class="tab-page-hotel">
-
-                            <div class="hotel-filter-bloc">
-                                <span>Affinez votre recherche</span>
-
-                                <div class="search ">
-                                    <span>Choisir Ville </span>
-                                    <div>
-                                        <input type="checkbox" id="douala" name="douala">
-                                        <label for="douala">Douala</label>
-                                    </div>
-                    
-                                    <div>
-                                        <input type="checkbox" id="yaounde" name="yaounde">
-                                        <label for="yaounde">Yaoundé</label>
-                                    </div>
-                                        
-                                </div>
-
-                                <div class="search ">
-                                    <span>Nombre d'étoiles(s) </span>
-                                    <div>
-                                        <input type="checkbox" id="one-star" name="one-star">
-                                        <label for="one-star">1 étoile</label>
-                                    </div>
-                    
-                                    <div>
-                                        <input type="checkbox" id="two-stars" name="two-stars">
-                                        <label for="two-stars">2 étoiles</label>
-                                    </div>
-                    
-                                    <div>
-                                        <input type="checkbox" id="three-stars" name="three-stars">
-                                        <label for="three-stars">3 étoiles</label>
-                                    </div>
-                    
-                                    <div>
-                                        <input type="checkbox" id="four-stars" name="four-stars">
-                                        <label for="four-stars">4 étoiles</label>
-                                    </div>
-                    
-                                    <div>
-                                        <input type="checkbox" id="five-stars" name="five-stars">
-                                        <label for="five-stars">5 étoiles</label>
-                                    </div>
-                                        
-                                </div>
-
-                                <div class="search ">
-                                    <span>Les petits plus </span>
-                                    <div>
-                                        <input type="checkbox" id="piscine" name="piscine">
-                                        <label for="piscine">Piscine</label>
-                                    </div>
-                    
-                                    <div>
-                                        <input type="checkbox" id="sport" name="sport">
-                                        <label for="sport">Salle de sport</label>
-                                    </div>
-                    
-                                    <div>
-                                        <input type="checkbox" id="restaurant" name="restaurant">
-                                        <label for="restaurant">Restaurant</label>
-                                    </div>
-                    
-                                    <div>
-                                        <input type="checkbox" id="clim" name="clim">
-                                        <label for="clim">Climatisation</label>
-                                    </div>
-                    
-                                    <div>
-                                        <input type="checkbox" id="ascenseur" name="ascenseur">
-                                        <label for="ascenseur">Ascenseur</label>
-                                    </div>
-
-                                    <div>
-                                        <input type="checkbox" id="airport" name="airport">
-                                        <label for="airport">Navette aéroport</label>
-                                    </div>
-                    
-                                    <div>
-                                        <input type="checkbox" id="wifi" name="wifi">
-                                        <label for="wifi">Wifi gratuit</label>
-                                    </div>
-
-                                    <div>
-                                        <input type="checkbox" id="service" name="service">
-                                        <label for="service">Service d'étage</label>
-                                    </div>
-
-                                    <div>
-                                        <input type="checkbox" id="camera" name="camera">
-                                        <label for="camera">Camera de surveillance</label>
-                                    </div>
-
-                                    <div>
-                                        <input type="checkbox" id="electric" name="electric">
-                                        <label for="electric">Groupe électrogène</label>
-                                    </div>
-                                        
-                                </div>
-                            </div>
-
-                            <div class="logement-pagination-bloc">
-
-                                <div class="logement-hotel-bloc">
-
-
-                                    <div class="logement-hotel" *ngFor="let item of hostelList | slice: (page-1) * pageSize : page * pageSize">
-
-                                        <div class="item-image">
-                                            <img src={{item.imgLogement}} alt="{{item.nomLogement}} {{item.villeLogement}}">
-                                            <span>{{item.villeLogement}}</span>
-                                        </div>
-
-                                        <div class="item-info">
-
-                                            <div class="item-summary">
-
-                                                    <span>{{item.nomLogement}}</span>
-                                                    <span><fa-icon [icon]=faBed></fa-icon> Hôtel {{item.nbrEtoileLogement}} étoiles</span>
-                                                    <ngb-rating *ngIf="item.nbrEtoileLogement" [rate]= 'item.nbrEtoileLogement' ></ngb-rating>
-                                                    <span> <fa-icon [icon]="faMapMarkerAlt"></fa-icon> {{item.locationLogement}} </span>
-                                            </div>
-
-                                            <div class="item-detail">
-
-
-                                                <div class="options-top">
-                                                    <span>à partir de</span>
-                                                    <span>{{item.priceLogement}} {{item.currencyLogement}} <span> / nuit</span></span>
-                                                    
-                                                </div>
-
-                                                <div class="options-middle">
-                                                    <div class="options" *ngFor="let option of item.optionLogement">
-                                                        <span> <fa-icon [icon]="faBed"></fa-icon> {{option.libelleOption}} </span>
-                                                    </div>
-                                                </div>
-
-                                                <span class="options-bottom">
-                                                    Voir plus
-                                                </span>
-                                            </div>
-
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <ngb-pagination [pageSize] = "pageSize" [collectionSize]="logementSize" [(page)]="page"></ngb-pagination>  
-
-                            </div>
-
-                        </div>
-                        
-                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-                    <div class="tab-page">
-                        <div class="tab-page-appart">
-
-                            <div class="logement-pagination-bloc">
-
-                                <div class="logement-appart-bloc">
-
-
-                                    <div class="logement-appart" *ngFor="let item of apartmentList">
-
-                                        <div class="item-image">
-                                            <img src={{item.imgLogement}} alt="{{item.nomLogement}} {{item.villeLogement}}">
-                                            <span>{{item.villeLogement}}</span>
-                                        </div>
-
-                                        <div class="item-info">
-
-                                            <div class="item-summary">
-
-                                                    <span class="item-name">{{item.nomLogement}}</span>
-                                                    <span class="item-type"><span>Type de chambre:</span>  <span>T1, T2</span></span>
-                                            
-                                            </div>
-
-                                            <div class="options-top">
-                                                <span>à partir de</span>
-                                                <span>{{item.priceLogement}} {{item.currencyLogement}} <span> / nuit</span></span>
-                                            </div>
-                                                <div class="options-middle">
-                                                    <div class="options" *ngFor="let option of item.optionLogement">
-                                                        <span> <fa-icon [icon]="faBed"></fa-icon> {{option.libelleOption}} </span>
-                                                    </div>
-                                                </div>
-                                            <span class="options-bottom">
-                                                    Voir plus
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-        </div>
--->
 
     <div class="content my-container">
 
@@ -331,7 +85,7 @@
                 <div class="extras">
                     <ng-template ngFor let-extra [ngForOf]="extras">
                         <div class="extra">
-                            <input type="checkbox" id="{{extra.id}}" (change)="onChangeCheckox(extra.name, $event)">
+                            <input type="checkbox" id="{{extra.id}}" (change)="onChangeApartExtras(extra.name, $event)">
                             <label for="{{extra.id}}">{{extra.name}}</label>
                         </div>
                     </ng-template>
@@ -418,9 +172,15 @@
                 
             </div>
 
-            <button type="submit">Réservez</button>
+            <button type="submit">
+                <ng-container *ngIf="isApartFormSubmittedAndNotErrorOnClientSide; else defaultText">
+                    <p-progressSpinner [style]="{width: '20px', height: '20px'}" strokeWidth="8"></p-progressSpinner>
+                </ng-container>
+            </button>
 
         </form>
+
+        <ng-template #defaultText>Réserver</ng-template>
 
 
         <div class="procedure">
@@ -453,4 +213,7 @@
 
 
     </div>
+
+    <p-toast [breakpoints]="{'920px': {width: '100%', right: '0', left: '0', backgroung:'red'}}"></p-toast>
+
 </div>

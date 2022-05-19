@@ -1,17 +1,19 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 
 import { Options, LabelType } from '@angular-slider/ngx-slider';
-
-
+import {MenuItem, MessageService, PrimeNGConfig} from 'primeng/api';
 import { faBuilding, faEnvelope, faPhoneAlt, faMapMarkerAlt, faClock, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import { MailsService } from 'src/app/services/mails/mails.service';
+import { DialogService } from 'primeng/dynamicdialog';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-car',
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  providers:[MessageService, DialogService]
 
 })
 export class CarComponent implements OnInit {
@@ -50,50 +52,38 @@ drivers: any = [
                   "Avec chauffeur", "Sans chauffeur"
                 ]
 
-
-  
-
-  //Setting variables for the range slider
-  value: number = 30000;
-  highValue: number = 170000;
-  options: Options = {
-    floor: 30000,
-    ceil: 170000,
-    step:500,
-    translate: (value: number, label: LabelType): string => {
-      switch (label) {
-        case LabelType.Low:
-          return value + " XAF" ;
-        case LabelType.High:
-          return value + " XAF";
-        default:
-          return  "";
-      }
-    }
-  };
+                extras  = [
+                  { id: 0, name: 'Climatisation' },
+                  { id: 1, name: 'Lecteur CD' },
+                  { id: 2, name: 'Lecteur MP3' },
+                  { id: 3, name: 'Radio' },
+                  { id: 4, name: 'Bluetooth' },
+                ];
 
 //Renting car form
-
 carForm: FormGroup;
 isCarFormSubmitted = false;
+isCarFormSubmittedAndNotErrorOnClientSide = false;
 
+minDate = new Date();
 
-constructor(private fb: FormBuilder, private mailService: MailsService) { 
+constructor(
+  private fb: FormBuilder, 
+  private mailService: MailsService,
+  private messageService: MessageService,
+  private primengConfig: PrimeNGConfig,
+  public dialogService: DialogService) { 
 
     this.carForm = this.fb.group({
       reason: ['',[Validators.required]],
-      town: [null,[Validators.required]],
-      capacity: [null,[Validators.required]],
-      driver: [null,[Validators.required]],
-      dateDeb: [null,[Validators.required]],
-      dateFin: [null,[Validators.required]],
+      town: ["",[Validators.required]],
+      capacity: ['',[Validators.required]],
+      driver: ["",[Validators.required]],
+      dateDeb: ["",[Validators.required]],
+      dateFin: ["",[Validators.required]],
       heureDeb: [''],
       heureFin: [''],
-      clim: [''],
-      lcd: [''],
-      lmp3: [''],
-      radio: [''],
-      bluetooth: [''],
+      extras: new FormArray([]),
       civility: [null, Validators.required],
       firstname: ["", Validators.required],
       lastname:["", Validators.required],
@@ -103,7 +93,16 @@ constructor(private fb: FormBuilder, private mailService: MailsService) {
    }
 
   ngOnInit(): void {
+    this.initMinDate();
   }
+
+  //Initialize the the minimal date of calendar
+  initMinDate(){
+     
+    this.minDate = new Date(this.minDate.setDate((new Date()).getDate()));
+    
+   }
+
 
   // convenient getter for easy access to form fields
   get f() { return this.carForm.controls; }
@@ -117,7 +116,6 @@ constructor(private fb: FormBuilder, private mailService: MailsService) {
 
   //Handling submition of contact form
   onSubmitCarForm(){
-    console.log("il ya bel et bien action")
 
     this.isCarFormSubmitted = true;
 
@@ -126,14 +124,35 @@ constructor(private fb: FormBuilder, private mailService: MailsService) {
       return;
     }
 
-    return ;
 
-    console.log("il ya bel et bien action")
+    this.mailService.sendCarMail(JSON.stringify(this.carForm.value)).pipe(finalize(() => this.isCarFormSubmittedAndNotErrorOnClientSide = false),
+    ).subscribe((resp: any) =>{
+      
+      if(resp['message'] === "success"){
+        this.messageService.add({severity:'success', detail: "Demande de location effectuée avec succès."});
+        this.onReset();
+      }
 
-    this.mailService.sendCarMail(this.carForm.value)
-
-    .subscribe(resp =>{
-        console.log(resp);
+      else{
+        this.messageService.add({severity:'error',detail: "Erreur lors de l'envoi, re-essayez plus tard."});
+      }
     });
+  }
+
+
+  onChangeCarExtras(name: string, e: any){
+
+    const extras = (this.f.extras as FormArray);
+
+    if (e.target.checked) {
+      extras.push(new FormControl(name));
+    } else {
+      const index = extras.controls.findIndex(x => x.value === name);
+      extras.removeAt(index);
+    }
+
+    extras.updateValueAndValidity();
+
+
   }
 }

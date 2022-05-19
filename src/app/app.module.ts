@@ -20,6 +20,7 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {DialogModule} from 'primeng/dialog';
 import {TooltipModule} from 'primeng/tooltip';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 //Swipper
 import { SwiperModule } from 'swiper/angular';
@@ -82,6 +83,7 @@ import { TourDetailComponent } from './components/tour-detail/tour-detail.compon
     CarParisComponent,
     TourDetailComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -103,8 +105,8 @@ import { TourDetailComponent } from './components/tour-detail/tour-detail.compon
     RadioButtonModule,
     BreadcrumbModule,
     DialogModule,
-    TooltipModule
-
+    TooltipModule,
+    ProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

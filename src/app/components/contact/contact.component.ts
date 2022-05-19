@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { finalize } from 'rxjs/operators';
 
 //importing fontawesome icons
 import { faBuilding, faEnvelope, faPhoneAlt, faMapMarkerAlt, faClock, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
@@ -31,6 +32,7 @@ export class ContactComponent implements OnInit {
   //contact form declaration
   contactForm : FormGroup;
   isContactFormSubmitted = false;
+  isContactFormSubmittedAndNotErrorOnClientSide = false;
 
   constructor(
     private fb: FormBuilder, 
@@ -67,7 +69,7 @@ export class ContactComponent implements OnInit {
 
 
   //Handling submition of contact form
-  onSubmitcontactForm(){
+  onSubmitContactForm(){
 
     this.isContactFormSubmitted = true;
 
@@ -91,23 +93,21 @@ export class ContactComponent implements OnInit {
       return;
     }
 
+    this.isContactFormSubmittedAndNotErrorOnClientSide = true;
 
-    this.mailService.sendContactMail(JSON.stringify(this.contactForm.value))
-    .subscribe(resp =>{
+    this.mailService.sendContactMail(JSON.stringify(this.contactForm.value)).pipe(finalize(() => this.isContactFormSubmittedAndNotErrorOnClientSide = false),
+    ).subscribe((resp: any) =>{
       console.log(resp);
-      /*
-      if(resp.message === "success"){
-        this.messageService.add({severity:'success', detail: "Message envoyé."});
+      
+      if(resp['message'] === "success"){
+        this.messageService.add({severity:'success', detail: "Message envoyé avec succès."});
         this.onReset();
       }
 
       else{
-
-        this.messageService.add({severity:'error',detail: "Erreur lors de l'envoi"});
-    
+        this.messageService.add({severity:'error',detail: "Erreur lors de l'envoi, re-essayez plus tard."});
       }
-      */
-
+      
     });
   }
 

@@ -91,7 +91,7 @@
       </div>
     </div>
 
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmitcontactForm()">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmitContactForm()">
 
       <div class="gender-names">
 
@@ -213,11 +213,16 @@
       </div>
     
 
-      <button type="submit" >Envoyer <fa-icon [icon]="faPaperPlane"></fa-icon></button>
-    
-    </form>
+      <button type="submit" >
+        <ng-container *ngIf="isContactFormSubmittedAndNotErrorOnClientSide; else defaultText">
+          <p-progressSpinner [style]="{width: '20px', height: '20px'}" strokeWidth="8"></p-progressSpinner>
+        </ng-container>
+      </button>
 
+    </form>
+    <ng-template #defaultText>Envoyer <fa-icon [icon]="faPaperPlane"></fa-icon></ng-template>
   </div>
+  <p-toast [breakpoints]="{'920px': {width: '100%', right: '0', left: '0', backgroung:'red'}}"></p-toast>
 
 
 

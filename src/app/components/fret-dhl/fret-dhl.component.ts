@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { finalize } from 'rxjs/operators';
 import { MailsService } from 'src/app/services/mails/mails.service';
+import { DialogService } from 'primeng/dynamicdialog';
+import {MessageService, PrimeNGConfig} from 'primeng/api';
 
 @Component({
   selector: 'app-fret-dhl',
   templateUrl: './fret-dhl.component.html',
-  styleUrls: ['./fret-dhl.component.scss']
+  styleUrls: ['./fret-dhl.component.scss'],
+  providers:[MessageService, DialogService]
 })
 export class FretDhlComponent implements OnInit {
 
@@ -22,16 +26,22 @@ export class FretDhlComponent implements OnInit {
   //contact form declaration
   dhlForm : FormGroup;
   isDhlFormSubmitted = false ;
+  isDhlFormSubmittedAndNotErrorOnClientSide = false;
 
-    constructor (private fb :FormBuilder, private mailService: MailsService) { 
+
+    constructor (
+      private fb :FormBuilder, 
+      private mailService: MailsService,
+      private messageService: MessageService,
+      private primengConfig: PrimeNGConfig,) { 
    
  
       this.dhlForm = this.fb.group({
 
-        civility: [null, Validators.required],
+        civility: ["", Validators.required],
         country: ["", Validators.required],
         weight: ["", Validators.required],
-        contains: [null, Validators.required],
+        contains: ["", Validators.required],
         dimensions: [""],
         firstname: ["", Validators.required],
         lastname:["", [Validators.required]],
@@ -64,9 +74,18 @@ export class FretDhlComponent implements OnInit {
       return;
     }
 
-    this.mailService.sendDhlMail(this.dhlForm.value)
-    .subscribe(resp =>{
+    this.mailService.sendDhlMail(JSON.stringify(this.dhlForm.value)).pipe(finalize(() => this.isDhlFormSubmittedAndNotErrorOnClientSide = false),
+    ).subscribe(resp =>{
         console.log(resp);
+
+        if(resp['message'] === "success"){
+          this.messageService.add({severity:'success', detail: "Demande de dévis effectuée avec succès."});
+          this.onReset();
+        }
+  
+        else{
+          this.messageService.add({severity:'error',detail: "Erreur lors de l'envoi, re-essayez plus tard."});
+        }
     });
   }
 

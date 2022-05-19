@@ -1,43 +1,47 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MailsService {
 
+  headers = {
+    headers : new HttpHeaders({
+      'Content-Type':"application/json"
+    })
+  };
+
   constructor(private http: HttpClient) { }
 
-  sendContactMail(data: any){
-
-    
-    let headers = {
-      headers : new HttpHeaders({
-        'Content-Type':"application/json"
-      })
-    };
-    
-    //return this.http.post("https://sam-man-portfolio-backend.herokuapp.com/mail", mailInfo, headers); 
-    return this.http.post("http://localhost:3000/mail/contact", data, headers); 
+  sendContactMail(data: any ) : Observable<any>{
+    return this.http.post("https://www.api.elites-voyages.com/mail/contact", data, this.headers); 
   }
 
-  sendFlightMail(data: any){
-    return this.http.post("http://localhost:3000/mail/flight", data); 
+  sendFlightMail(data: any) : Observable<any>{
+    return this.http.post("https://www.api.elites-voyages.com/mail/flight", data); 
   }
 
-  sendDhlMail(data: any){
-    return this.http.post("http://localhost:3000/mail/dhl", data)
+  sendDhlMail(data: any) : Observable<any>{
+    return this.http.post("https://www.api.elites-voyages.com/mail/dhl", data, this.headers)
   }
 
-  sendCarMail(data: any){
-    return this.http.post("http://localhost:3000/mail/car", data)
+  sendCarMail(data: any) : Observable<any>{
+    return this.http.post("https://www.api.elites-voyages.com/mail/car", data, this.headers)
   }
 
-  sendApartMail(data: any){
-    return this.http.post("http://localhost:3000/mail/apart", data)
+  sendApartMail(data: any) : Observable<any>{
+    return this.http.post("https://www.api.elites-voyages.com/mail/apart", data, this.headers)
   }
 
-  sendHostelMail(data: any){
-    return this.http.post("http://localhost:3000/mail/hostel", data)
+  sendHostelMail(data: any) : Observable<any>{
+    return this.http.post("https://www.api.elites-voyages.com/mail/hostel", data , this.headers)
+  }
+
+
+  //Function use for booking a car in paris
+  sendCarParisMail(data: any) : Observable<any>{
+    return this.http.post("https://www.api.elites-voyages.com/mail/car-paris", data, this.headers)
   }
 }

@@ -8,6 +8,7 @@ import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MailsService } from 'src/app/services/mails/mails.service';
 import { MessageService } from 'primeng/api';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-hotel',
@@ -66,6 +67,7 @@ export class HotelComponent implements OnInit {
 
   hostelForm: FormGroup;
   isHostelFormSubmitted = false;
+  isHostelFormSubmittedAndNotErrorOnClientSide = false;
 
   constructor(
     private fb :FormBuilder, 
@@ -82,9 +84,9 @@ export class HotelComponent implements OnInit {
       town: [null,[Validators.required]],
       dateDeb: ['',[Validators.required]],
       dateFin: ['',[Validators.required]],
-      nbr: [null,[Validators.required]],
+      nbr: ["",[Validators.required]],
       extras: new FormArray([]),
-      civility: [null, Validators.required],
+      civility: [, Validators.required],
       firstname: ["", Validators.required],
       lastname:["", Validators.required],
       email: ["", [Validators.required, Validators.email]],
@@ -123,21 +125,22 @@ export class HotelComponent implements OnInit {
       return;
     }
 
-    this.mailService.sendHostelMail(this.hostelForm.value)
-
-    .subscribe(resp =>{
-
-      if(resp){
-        this.messageService.add({severity:'success', detail: "Message envoyé."});
+    this.mailService.sendHostelMail(JSON.stringify(this.hostelForm.value)).pipe(finalize(() => this.isHostelFormSubmittedAndNotErrorOnClientSide = false),
+    ).subscribe((resp: any) =>{
+      
+      if(resp['message'] === "success"){
+        this.messageService.add({severity:'success', detail: "Demande de location effectuée avec succès."});
+        this.onReset();
       }
+
       else{
-        this.messageService.add({severity:'error',detail: "Erreur lors de l'envoi"});
+        this.messageService.add({severity:'error',detail: "Erreur lors de l'envoi, re-essayez plus tard."});
       }
     });
   }
 
 
-  onChangeCheckox(name: string, e: any){
+  onChangeHostelExtras(name: string, e: any){
 
     const extras = (this.f.extras as FormArray);
 
@@ -147,6 +150,8 @@ export class HotelComponent implements OnInit {
       const index = extras.controls.findIndex(x => x.value === name);
       extras.removeAt(index);
     }
+    extras.updateValueAndValidity();
+
   }
 
   //Initialize the the minimal date of calendar

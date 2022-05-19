@@ -233,6 +233,7 @@ $fontColor: #525252;
                                 .label{
                                     font-size: 0.85em;
                                     color: $colorBlue;
+                                    white-space: nowrap;
                                 }
     
                                 select{
