@@ -231,6 +231,6 @@ export class TourismService {
 
   getTourById(id: string){
     //return this.http.get("https://www.api.elites-voyages.com/tourisme/"+id);
-    return this.http.get("http://localhost:3000/tourisme/"+id);
+    return this.http.get("https://www.api.elites-voyages.com/tourisme/"+id);
   }
 }
