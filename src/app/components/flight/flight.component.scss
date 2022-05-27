@@ -100,8 +100,10 @@ $fontColor: #525252;
 
                     .element{
                         display: flex;
-                            justify-content: center;
-                            align-items: center;
+                        justify-content: center;
+                        align-items: flex-start;
+                        flex-direction: column;
+                    
                         .trajet, .classe{
                             display: flex;
                             flex-direction: column;
@@ -109,7 +111,7 @@ $fontColor: #525252;
                             border: 1px solid $colorBlue;
                             padding: 5px;
                             border-radius: 5px;
-                            margin: 15px 5px 5px 5px;
+                            margin: 15px 5px 5px 0px;
                             width: 200px;
                             height: 57px;
 
@@ -136,10 +138,30 @@ $fontColor: #525252;
                     align-items: flex-start;
                     justify-content: space-between;
 
+                    
                     .element{
                         display: flex;
-                            justify-content: center;
-                            align-items: center;
+                        justify-content: center;
+                        align-items: flex-start;
+                        flex-direction: column;
+
+                        .returning-css{
+                            pointer-events: none;
+                            background-color: #0a225b42 !important;
+                            color: gray !important;
+
+                            .label{
+                                color: gray !important;
+                            }
+
+                            .red-star{
+                                color: gray !important;
+                            }
+
+                            border: 1px solid #0a225b42 !important;
+
+                        }
+
                         .info{
                             display: flex;
                             flex-direction: column;
@@ -147,7 +169,7 @@ $fontColor: #525252;
                             border: 1px solid $colorBlue;
                             padding: 5px;
                             border-radius: 5px;
-                            margin: 15px 5px 5px 5px;
+                            margin: 15px 5px 5px 0;
                             width: 200px;
                             height: 57px;
                             position: relative;
@@ -243,6 +265,8 @@ $fontColor: #525252;
                             }
 
                         }
+
+
                     }
 
                     .passenger{
@@ -429,6 +453,25 @@ $fontColor: #525252;
     }
 }
 
+@media all and (max-width: 599px){
+    .vol{
+        .content{
+            .procedure{
+
+                .process-bloc{
+        
+                    .process{
+        
+                        width: 100%;
+        
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 @media all and (max-width: 486px){
 
     .vol{
@@ -487,4 +530,4 @@ $fontColor: #525252;
     
         }
     
-    }
+}

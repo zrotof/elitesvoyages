@@ -10,6 +10,7 @@ $fontColor: #525252;
         align-items: center;
         background-color:#e7e7e7;
         padding: 60px 0;
+        margin-top: 80px;
 
         .content{
 
@@ -23,6 +24,7 @@ $fontColor: #525252;
             .title{
                 color: $colorBlue;
                 position: relative;
+                text-align: center;
             }
 
             .title::after{

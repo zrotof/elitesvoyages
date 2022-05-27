@@ -81,7 +81,7 @@ export class HotelComponent implements OnInit {
     config.readonly = true;
 
     this.hostelForm = this.fb.group({
-      town: [null,[Validators.required]],
+      town: ["",[Validators.required]],
       dateDeb: ['',[Validators.required]],
       dateFin: ['',[Validators.required]],
       nbr: ["",[Validators.required]],
@@ -96,6 +96,8 @@ export class HotelComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.initMinDate();
 
   }
 
@@ -124,6 +126,8 @@ export class HotelComponent implements OnInit {
     if (this.hostelForm.invalid) {
       return;
     }
+
+    this.isHostelFormSubmittedAndNotErrorOnClientSide = true;
 
     this.mailService.sendHostelMail(JSON.stringify(this.hostelForm.value)).pipe(finalize(() => this.isHostelFormSubmittedAndNotErrorOnClientSide = false),
     ).subscribe((resp: any) =>{

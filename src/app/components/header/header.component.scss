@@ -267,7 +267,7 @@ header{
 
                         li{
                             margin: 20px 0 0 0;
-                           
+                            font-size: 1.25em;
                         }    
 
                         .services-bloc{
@@ -275,6 +275,10 @@ header{
 
                             .services{
                                 flex-direction: row-reverse;
+
+                                fa-icon{
+                                    margin: 0 7px 0 0;
+                                }
                             }
 
                             .show-services-bottom{

@@ -73,8 +73,6 @@ export class ContactComponent implements OnInit {
 
     this.isContactFormSubmitted = true;
 
-    console.log(JSON.stringify(this.contactForm.value))
-
     //Handling error selecting to be shared by phone but not enter phone number
     if( this.f.preference.value === "phone"){
       if(!this.f.phone.value){
@@ -97,7 +95,6 @@ export class ContactComponent implements OnInit {
 
     this.mailService.sendContactMail(JSON.stringify(this.contactForm.value)).pipe(finalize(() => this.isContactFormSubmittedAndNotErrorOnClientSide = false),
     ).subscribe((resp: any) =>{
-      console.log(resp);
       
       if(resp['message'] === "success"){
         this.messageService.add({severity:'success', detail: "Message envoyé avec succès."});

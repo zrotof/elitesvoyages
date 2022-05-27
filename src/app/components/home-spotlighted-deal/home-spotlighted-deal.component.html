@@ -1,0 +1,37 @@
+<div class="spotlighted-deal">
+    <div class="content my-container">
+        <h1 class="title">ACTUELLEMENT À LA UNE</h1>
+        <div class="deals">
+            <div class="deal" routerLink="/tourisme/israel-egypte">
+                <div class="img-bloc">
+                    <img src="../../../assets/img//home/spotlighted-deals/israel-egypte.jpeg">
+                    <span class="tag israel-egypte">
+                        <fa-icon [icon]="faUsers"></fa-icon>
+                        Places limitées
+                    </span>
+                </div>
+                <span class="sub-title">Pèlerinage en terre sainte : Israêl et Egypte</span>
+                <div class="price-bloc">
+                    <span class="label">à partir de</span>
+                    <span class="price">{{2300000 | number}} XAF / personne</span>
+                </div>
+            </div>
+
+            <div class="deal" routerLink="/tourisme/kribi">
+                <div class="img-bloc">
+                    <img src="../../../assets/img//home/spotlighted-deals/kribi-couple.jpeg">
+                    <span class="tag kribi">
+                        <fa-icon [icon]="faHeart"></fa-icon>
+                        Idéal pour couple
+                    </span>
+                </div>
+                <span class="sub-title">Weekend détente en amoureux à Kribi</span>
+                <div class="price-bloc">
+                    <span class="label">à partir de</span>
+                    <span class="price">{{130000 | number}} XAF / couple</span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

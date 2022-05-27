@@ -702,6 +702,24 @@ $fontColor: #525252;
     }
 }
 
+@media all and (max-width: 599px){
+    .car{
+        .content{
+            .procedure{
+
+                .process-bloc{
+        
+                    .process{
+        
+                        width: 100%;
+        
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 @media all and (max-width: 467px){
 

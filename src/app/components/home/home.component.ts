@@ -108,7 +108,9 @@ export class HomeComponent implements OnInit {
         icon: this.faCubes,
         description: "Expédition de tous vos colis à partir du Cameroun",
         link:"/dhl"
-      },
+      }
+      
+/*      ,
 
       {
         label: "Assistance Visa",
@@ -116,7 +118,7 @@ export class HomeComponent implements OnInit {
         description: "Constitution de vos dossiers pour les ambassades",
         link:"/assistance-visa"
       }
-
+*/
     ]
   }
 

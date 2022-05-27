@@ -1,10 +1,8 @@
 <div class="vol">
 
-
     <div class="hero">
         <div class="hero-content my-container">
-    
-          <h1 class="title">Billet d'Avion</h1>
+            <h1 class="title">Billet d'Avion</h1>
         </div>
     </div>
 
@@ -106,7 +104,7 @@
     
                             <div class="value">
                                 <fa-icon [icon]="faCalendarDay"></fa-icon>
-                                <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" placeholder="dd-mm-yy" formControlName="dateDep"></p-calendar>
+                                <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" [minDate]="minDate" [readonlyInput]="true" placeholder="dd-mm-yy" formControlName="dateDep"></p-calendar>
                             </div>
                         </div>
                         <div *ngIf="isFlightFormSubmitted && f.dateDep.errors" class="error-feedback">
@@ -115,7 +113,7 @@
                     </div>
                     
                     <div class="element">
-                        <div class="info">
+                        <div class="info ">
                             <div class="label">
                                 <span>Date retour </span>
                                 <span class="red-star">*</span>
@@ -123,12 +121,12 @@
     
                             <div class="value">
                                 <fa-icon [icon]="faCalendarDay"></fa-icon>
-                                <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" placeholder="dd-mm-yy" formControlName="dateRet"></p-calendar>                        
+                                <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" [minDate]="minDate" [readonlyInput]="true" placeholder="dd-mm-yy" formControlName="dateRet"></p-calendar>                        
                             </div>
                         </div>
 
                         <div *ngIf="isFlightFormSubmitted && f.dateRet.errors" class="error-feedback">
-                            <small *ngIf="f.dateRet.errors.required">Renseignez la date d'arrivée</small>
+                            <small *ngIf="f.dateRet.errors.required">Renseignez la date de retour</small>
                         </div>
                     </div>
                     
@@ -248,9 +246,15 @@
                 </div>
                 
               
-                <button type="submit" >Envoyer <fa-icon [icon]="faPaperPlane"></fa-icon></button>
-                
+                <button type="submit">
+                    <ng-container *ngIf="isFlightFormSubmittedAndNotErrorOnClientSide; else defaultText">
+                        <p-progressSpinner [style]="{width: '20px', height: '20px'}" strokeWidth="8"></p-progressSpinner>
+                    </ng-container>
+                </button>
+    
             </form>
+            <ng-template #defaultText>Réserver</ng-template>
+    
         </div>
 
         <div class="procedure">

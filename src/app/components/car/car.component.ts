@@ -124,6 +124,7 @@ constructor(
       return;
     }
 
+    this.isCarFormSubmittedAndNotErrorOnClientSide = true;
 
     this.mailService.sendCarMail(JSON.stringify(this.carForm.value)).pipe(finalize(() => this.isCarFormSubmittedAndNotErrorOnClientSide = false),
     ).subscribe((resp: any) =>{

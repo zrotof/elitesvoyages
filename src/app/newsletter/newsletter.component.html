@@ -1,0 +1,24 @@
+<div class="newsletter">
+    <div class="content my-container">
+        <span>Inscrivez-vous à notre newsletter pour ne rater aucune de nos offres</span>
+        <form  [formGroup]="newsletterForm" (ngSubmit)="onSubmitNewsletterForm()">
+
+            <div class="element">
+                <div class="email">
+                    <input type="text" placeholder="Entrez adresse mail" formControlName="email">
+                    <button type="submit">
+                        <ng-container *ngIf="isnewsletterFormSubmittedAndNotErrorOnClientSide; else defaultText">
+                            <p-progressSpinner [style]="{width: '20px', height: '20px'}" strokeWidth="8"></p-progressSpinner>
+                        </ng-container>
+                    </button>
+                </div>
+                <div *ngIf="isNewsletterFormSubmitted && f.email.errors" class="error-feedback">
+                    <small *ngIf="f.email.errors.required">Renseignez votre email</small>
+                </div>
+            </div>
+        </form>
+        <ng-template #defaultText>M'inscrire</ng-template>
+
+    </div>
+    <p-toast [breakpoints]="{'920px': {width: '100%', right: '0', left: '0', backgroung:'red'}}"></p-toast>
+</div>

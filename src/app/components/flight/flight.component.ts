@@ -1,16 +1,19 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-
+import { DialogService } from 'primeng/dynamicdialog';
+import {MenuItem, MessageService, PrimeNGConfig} from 'primeng/api';
 
 //importing fontawesome icons
 import { faPlaneDeparture, faPlaneArrival, faCalendarDay, faPlus, faPlusCircle, faUser, faEnvelope, faPhoneAlt, faPaperPlane, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 import { MailsService } from 'src/app/services/mails/mails.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-flight',
   templateUrl: './flight.component.html',
   styleUrls: ['./flight.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  providers:[MessageService, DialogService]
 
 })
 export class FlightComponent implements OnInit {
@@ -37,21 +40,28 @@ export class FlightComponent implements OnInit {
 
   //contact form declaration
   flightForm : FormGroup;
-
   isFlightFormSubmitted = false;
+  isFlightFormSubmittedAndNotErrorOnClientSide = false;
 
   //Boolean value according to whom we will display view of edit number of passenger(s)
   showEditPassengerView = false;
 
-  constructor(private fb :FormBuilder, private mailService: MailsService) { 
+  minDate = new Date();
+
+  constructor(
+    private fb :FormBuilder, 
+    private mailService: MailsService,
+    private messageService: MessageService,
+    private primengConfig: PrimeNGConfig,
+    public dialogService: DialogService) { 
    
     this.flightForm = this.fb.group({
-      way: [null, [Validators.required]],
-      cabine: [null, Validators.required],
+      way: ["", [Validators.required]],
+      cabine: ["", Validators.required],
       departure: ['', Validators.required],
       arrival: ['', Validators.required],
       dateDep: ['', Validators.required],
-      dateRet: [''],
+      dateRet: ['', Validators.required],
       adult: [1],
       child: [0],
       infant: [0],
@@ -67,7 +77,19 @@ export class FlightComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.initMinDate();
+
+    this.listeningOnWays();
+
   }
+
+  //Initialize the the minimal date of calendar
+  initMinDate(){
+     
+    this.minDate = new Date(this.minDate.setDate((new Date()).getDate()));
+    
+   }
 
   // convenient getter for easy access to form fields
   get f() { return this.flightForm.controls; }
@@ -79,6 +101,29 @@ onReset() {
 }
   
 
+//Listening on change on fligh way
+//if the way choosed is one way we disable the return date input
+listeningOnWays(){
+  this.f.way.valueChanges.subscribe(
+    e =>{
+      let returning = <HTMLElement> document.querySelector(".element:nth-child(4) .info");
+
+      if(e === "ALLER SIMPLE"){
+        returning.classList.add('returning-css');
+
+        this.f.dateRet.clearValidators();
+        this.f.dateRet.updateValueAndValidity();
+      }
+      else{
+        returning.classList.remove('returning-css');
+
+        this.f.dateRet.setValidators([Validators.required])
+        this.f.dateRet.updateValueAndValidity();
+      }
+    }
+  );
+}
+
   //Handling submition of flight form
   onSubmitFlightForm(){
 
@@ -89,30 +134,20 @@ onReset() {
       return;
     }
 
-    /*
-    if( !this.f.phone.value ){
-      this.f.phone.setValue('0000') ;
-    }
-    */
+    this.isFlightFormSubmittedAndNotErrorOnClientSide = true;
 
-    this.mailService.sendFlightMail(this.flightForm.value)
-    .subscribe(resp =>{
-        console.log(resp);
+    this.mailService.sendFlightMail(JSON.stringify(this.flightForm.value)).pipe(finalize(() => this.isFlightFormSubmittedAndNotErrorOnClientSide = false),
+    ).subscribe((resp: any) =>{
 
-      /*
       if(resp['message'] === "success"){
-        //this.messageService.add({severity:'success', detail: "Message envoyé."});
-        //this.onReset();
+        this.messageService.add({severity:'success', detail: "Demande de réservation envoyée."});
+        this.onReset();
       }
 
       else{
-
-        //this.messageService.add({severity:'error',detail: "Erreur lors de l'envoi"});
-    
+        this.messageService.add({severity:'error',detail: "Erreur lors de l'envoi"});
       }
-*/
     });
-
   }
 
   //Show or hide passenger edit panel

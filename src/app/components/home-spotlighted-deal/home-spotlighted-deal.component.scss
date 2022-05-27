@@ -1,0 +1,289 @@
+$colorBlue: #115F98;
+$fontColor: #525252;
+$colorGold: #EEC66C;
+
+.spotlighted-deal{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    .content{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        padding-top:130px;
+        padding-bottom:50px;
+        
+        .title{
+                color: $colorBlue;
+                position: relative;
+                text-align: center;
+                width: 100%;
+        }
+
+        .title::after{
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            bottom: -15px;
+            border-radius: 100px;
+            background-color: $colorBlue;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .deals{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            margin-top: 80px;
+            .deal{
+                width:48%;
+                display: flex;
+                flex-direction: column;   
+                cursor: pointer;  
+                padding-bottom: 15px;  
+                border-radius: 10px;         
+
+                .img-bloc{
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                    position: relative;
+                    overflow: hidden;
+                    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+                    img{
+                        width: 100%;
+                        object-fit: cover;
+                        height: 325px;
+                    }
+
+                    .tag{
+                        position: absolute;
+                        right: 0;
+                        background-color: rgb(255, 255, 255);
+                        color: $colorBlue;
+                        padding: 10px 20px;
+                        font-weight: 500;
+                        border-bottom-left-radius: 10px;
+                        
+                        z-index: 2;
+
+                        fa-icon{
+                            margin-right: 10px;
+                        }
+
+                        
+                    }
+
+                    .israel-egypte{
+                        fa-icon{
+                            color: $colorGold;
+                        }
+                        
+                    }
+
+                    .kribi{
+                        fa-icon{
+                            color: red;
+                        }
+
+                    }
+                }
+
+                .img-bloc::after{
+                    position:absolute;
+                    content: "";
+                    width: 100%;
+                    height:100%;
+                    top: 0;
+                    left:0;
+                    background-color: #2a3ea347;
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                }
+
+                .sub-title{
+                    font-size: 1.2em;
+                    color: $colorBlue;
+                    margin-top: 10px;
+                    font-weight: 550;
+                    padding: 0 10px;
+                }
+
+                .price-bloc{
+                    margin-top: 5px;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0 10px;
+
+                    .label{
+                        font-size:0.85em;
+                        font-weight:350;
+                    }
+                    .price{
+                        font-size: 1.3em;
+                        font-weight: bold;
+                        color: $colorBlue;
+                    }
+                }
+                
+            }
+
+            .deal:hover{
+                background-color: #115f9826;
+                box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            }
+
+            
+        }
+    }
+}
+
+@media all and (max-width: 880px){
+
+    .spotlighted-deal{
+
+    
+        .content{
+
+            padding-top:110px;
+            padding-bottom:0px;
+            
+            .deals{
+
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 0px;
+                .deal{
+                    width:65%;
+                    margin-top: 80px;
+                    margin-bottom: 10px;
+
+                    .img-bloc{
+                        border-top-left-radius: 10px;
+                        border-top-right-radius: 10px;
+                        position: relative;
+                        overflow: hidden;
+                        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    
+                        img{
+                            width: 100%;
+                            object-fit: cover;
+                            height: 325px;
+                        }
+    
+                        .tag{
+                            position: absolute;
+                            right: 0;
+                            background-color: rgb(255, 255, 255);
+                            color: $colorBlue;
+                            padding: 10px 20px;
+                            font-weight: 500;
+                            border-bottom-left-radius: 10px;
+                            
+                            z-index: 2;
+    
+                            fa-icon{
+                                margin-right: 10px;
+                            }
+    
+                            
+                        }
+    
+                        .israel-egypte{
+                            fa-icon{
+                                color: $colorGold;
+                            }
+                            
+                        }
+    
+                        .kribi{
+                            fa-icon{
+                                color: red;
+                            }
+    
+                        }
+                    }
+    
+                    .sub-title{
+                        font-size: 1.1em;
+                        padding: 0 5px;
+                    }
+    
+                    .price-bloc{
+
+                        padding: 0 5px;
+    
+                        .label{
+                            font-size:0.85em;
+                            font-weight:350;
+                        }
+                        .price{
+                            font-size: 1.2em;
+                            font-weight: bold;
+                            color: $colorBlue;
+                        }
+                    }
+                    
+                }
+                
+            }
+        }
+    }
+}
+
+
+@media all and (max-width: 720px){
+
+    .spotlighted-deal{
+
+    
+        .content{
+
+            padding-top:110px;
+            padding-bottom:0px;
+            
+            .deals{
+
+                .deal{
+                    width:75%;
+                    margin-bottom: 0px;
+                }
+                
+            }
+        }
+    }
+}
+
+
+@media all and (max-width: 515px){
+
+    .spotlighted-deal{
+
+    
+        .content{
+
+            padding-top:110px;
+            padding-bottom:0px;
+            
+            .deals{
+
+                .deal{
+                    width:100%;
+                    margin-top: 70px;
+
+                    .img-bloc{
+
+                        img{
+                            height: 260px;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}

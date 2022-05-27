@@ -693,4 +693,23 @@ $fontColor: #525252;
     }
 }
 
+@media all and (max-width: 599px){
+    .app{
+        .content{
+            .procedure{
+
+                .process-bloc{
+        
+                    .process{
+        
+                        width: 100%;
+        
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 

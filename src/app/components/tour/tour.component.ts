@@ -5,11 +5,13 @@ import { TopTour, GeneralTour } from '../../models/tourism';
 
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
-import { faClock, faPlusCircle, faMinusCircle, faCalendarDay, faShuttleVan, faBed, faPlaneDeparture, faPassport, faMugHot, faMountain, faUsers, faUser, faEdit, faQuestionCircle  } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faCar, faHeart, faPlusCircle, faMinusCircle, faCalendarDay, faShuttleVan, faBed, faPlaneDeparture, faPassport, faMugHot, faMountain, faUsers, faUser, faEdit, faQuestionCircle  } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { MenuItem, MessageService } from 'primeng/api';
 import { TourDetailComponent } from '../tour-detail/tour-detail.component';
+import { finalize } from 'rxjs/operators';
+import { MailsService } from 'src/app/services/mails/mails.service';
 
 @Component({
   selector: 'app-tour',
@@ -63,6 +65,8 @@ faUsers = faUsers;
 faUser = faUser;
 faEdit = faEdit;
 faQuestionCircle = faQuestionCircle;
+faHeart = faHeart;
+faCar = faCar;
 
 nombrePassagerTotal = 1;
 nombrePassagerAdulte = 1;
@@ -70,8 +74,11 @@ nombrePassagerEnfant = 0;
 nombrePassagerBebe = 0;
 
 tourForm : FormGroup ;
+isTourFormSubmitted = false;
+isTourFormSubmittedAndNotErrorOnClientSide = false;
 
 price: any;
+basePrice:any;
 
 tour: any = [];
 
@@ -86,19 +93,24 @@ textDetail: any;
 
   items!: MenuItem[];
 
+  minDate = new Date();
 
   constructor(
     private router:  Router,
     private route: ActivatedRoute,
     private tourService: TourismService,
     private fb: FormBuilder,
-    private dialogService: DialogService, 
+    private dialogService: DialogService,
+    private mailService: MailsService, 
     public messageService: MessageService
-  ) { 
+  ){
+
     this.tourForm = this.fb.group({
+      date: ['', Validators.required],
       selectedRoom: [],
-      civility: [null, Validators.required],
+      civility: ['', Validators.required],
       lastname:["", Validators.required],
+      firstname:["", Validators.required],
       email: ["", [Validators.required, Validators.email]],
     });
 
@@ -106,21 +118,10 @@ textDetail: any;
 
   ngOnInit(): void {
 
-    this.route.params.subscribe(
-      params =>{
-        if(params['tourid']){
-          this.tourService.getTourById(params['tourid']).
-          subscribe(resp =>{
-            this.tour = resp ;
-            this.f.selectedRoom.setValue(this.tour.bedrooms[0]);
-            this.price = this.tour.bedrooms[0].price; 
+    this.initMinDate();
 
-            this.initBreadcum(params['tourid']);           
-          });
-        }
+    this.loadTourData();
 
-      }
-    )
   }
 
   initBreadcum(param: any){
@@ -131,99 +132,240 @@ textDetail: any;
     ];
   }
 
+  //Initialize the the minimal date of calendar
+  initMinDate(){
+     
+    this.minDate = new Date(this.minDate.setDate((new Date()).getDate()));
+    
+   }
 
-  choosePrice(price: any){
-    this.price = price;
-  }
+   loadTourData(){
+    this.route.params.subscribe(
+      params =>{
+        if(params['tourid']){
+          this.tourService.getTourById(params['tourid']).
+          subscribe(resp =>{
 
- // convenient getter for easy access to form fields
- get f() { return this.tourForm.controls; }
-
-
-
-
-
-/*
-  getGeneralTourById(tourid: string){
-      this.tourService.getTour(tourid).subscribe(
-        result => {
-          this.tour = result.message;
-          //Here we set colors array
-  
-  
-  
-          //Here setting the array of images displayed on gallery
-          this.tour?.images.forEach((element: string)=>{
-            this.tourImagesUrl.push(element)
-          })
-  
-          this.tourImagesUrl.unshift(this.tour.imageVitrine)
+            this.tour = resp ;
+            this.f.selectedRoom.setValue(this.tour.bedrooms[0]);
+            this.price = this.f.selectedRoom.value.price * this.nombrePassagerAdulte; 
+            this.initBreadcum(params['tourid']);           
+          });
         }
-      )
-  }
-*/
+      }
+    )
+   }
 
-//handling number of adult passenger on edit
+  choosePrice(param: any){
+    
+
+    if(this.basePrice != param){
+
+      this.basePrice == param;
+
+      if( this.nombrePassagerTotal < 5 ){ 
+        
+        if((this.nombrePassagerEnfant + this.nombrePassagerBebe) < 2) {
+          console.log(this.nombrePassagerTotal, this.nombrePassagerEnfant, this.nombrePassagerBebe)
+          this.price = this.nombrePassagerAdulte * param;
+          return ;
+        }
+
+      }
+
+        this.price = param;
+    }
+  }
+
+  // convenient getter for easy access to form fields
+  get f() { return this.tourForm.controls; }
+
+  //handling number of adult passenger on edit
   onEditAdultPassenger(param: number){
 
+    let customPrice = <HTMLElement>document.querySelector('.custom-price');
+    
     if(param == 1 && this.nombrePassagerTotal < 19 ){
+      
       this.nombrePassagerAdulte += param;
       this.nombrePassagerTotal +=param;
+
+      if(this.nombrePassagerTotal > 4 || ((this.nombrePassagerBebe + this.nombrePassagerEnfant) > 1)){
+        this.price = this.f.selectedRoom.value.price;
+        customPrice.style.display='initial';
+        return ;
+      }
+      
+      this.price = this.nombrePassagerAdulte * this.f.selectedRoom.value.price;
+      
     }
 
-    if(param == -1 && this.nombrePassagerTotal > 0 && this.nombrePassagerAdulte > 0 && this.nombrePassagerBebe < this.nombrePassagerAdulte){
-      this.nombrePassagerAdulte += param;
-      this.nombrePassagerTotal +=param;
-    }
+    if(param == -1){
+      
+      if(this.nombrePassagerAdulte == 1 ){
+        return ;
+      }
+      
+      else{
 
-    this.f.adult.setValue(this.nombrePassagerAdulte);
+        this.nombrePassagerAdulte += param;
+        this.nombrePassagerTotal +=param;
+
+        if(this.nombrePassagerTotal > 4 || ((this.nombrePassagerBebe + this.nombrePassagerEnfant) > 1)){
+                    
+          this.price = this.f.selectedRoom.value.price;
+          return ;
+        }
+
+        this.price = this.nombrePassagerAdulte * this.f.selectedRoom.value.price;
+        customPrice.style.display='none';
+
+      }
+    }
 
   }
 
   //handling number of child passenger on edit
   onEditChildPassenger(param: number){
     
-    if(param == 1 && this.nombrePassagerTotal < 19 ){
-      this.nombrePassagerEnfant += param;
-      this.nombrePassagerTotal +=param;
+    let customPrice = <HTMLElement>document.querySelector('.custom-price');
+
+    if(param == 1){
+
+      if(this.nombrePassagerTotal < 19){
+
+        this.nombrePassagerEnfant += param;
+        this.nombrePassagerTotal += param;
+
+        if(this.nombrePassagerTotal > 4 || ((this.nombrePassagerEnfant + this.nombrePassagerBebe ) > 1) ){
+    
+          this.price = this.f.selectedRoom.value.price;
+          customPrice.style.display='initial';
+
+          return ;
+        }
+
+        this.price = this.nombrePassagerAdulte * this.f.selectedRoom.value.price;
+
+      }  
     }
 
-    if(param == -1 && this.nombrePassagerTotal > 0 && this.nombrePassagerEnfant > 0){
-      this.nombrePassagerEnfant += param;
-      this.nombrePassagerTotal +=param;
-    }
-    this.f.child.setValue(this.nombrePassagerEnfant);
+    if(param == -1){
 
+      if(this.nombrePassagerEnfant > 0){
+
+        this.nombrePassagerEnfant += param;
+        this.nombrePassagerTotal +=param;
+
+
+        if(this.nombrePassagerTotal > 4 || ((this.nombrePassagerEnfant + this.nombrePassagerBebe ) > 1)){
+          
+          this.price = this.f.selectedRoom.value.price;
+            return ;
+        }
+
+        this.price = this.nombrePassagerAdulte * this.f.selectedRoom.value.price;
+        customPrice.style.display='none';
+
+      }
+    }
   }
 
   //handling number of child passenger on edit
   onEditBabyPassenger(param: number){
+
+    let customPrice = <HTMLElement>document.querySelector('.custom-price');
     
-    if(param == 1 && this.nombrePassagerTotal < 19 && this.nombrePassagerAdulte > this.nombrePassagerBebe){
-      this.nombrePassagerBebe += param;
-      this.nombrePassagerTotal +=param;
+    if(param == 1){
+
+      if(this.nombrePassagerTotal < 19){
+
+        this.nombrePassagerBebe += param;
+        this.nombrePassagerTotal += param;
+
+        if(this.nombrePassagerTotal > 4 || ((this.nombrePassagerEnfant + this.nombrePassagerBebe ) > 1) ){
+    
+          this.price = this.f.selectedRoom.value.price;
+          customPrice.style.display='initial';
+
+          return ;
+        }
+
+        this.price = this.nombrePassagerAdulte * this.f.selectedRoom.value.price;
+
+      }  
     }
 
-    if(param == -1 && this.nombrePassagerTotal > 0 && this.nombrePassagerBebe > 0){
-      this.nombrePassagerBebe += param;
-      this.nombrePassagerTotal +=param;
+    if(param == -1){
+
+      if(this.nombrePassagerBebe > 0){
+
+        this.nombrePassagerBebe += param;
+        this.nombrePassagerTotal +=param;
+
+
+        if(this.nombrePassagerTotal > 4 || ((this.nombrePassagerEnfant + this.nombrePassagerBebe ) > 1)){
+          
+          this.price = this.f.selectedRoom.value.price;
+            return ;
+        }
+
+        this.price = this.nombrePassagerAdulte * this.f.selectedRoom.value.price;
+        customPrice.style.display='none';
+
+      }
     }
-
-    this.f.infant.setValue(this.nombrePassagerBebe);
-
   }
 
-changeReason(e: any){
-  /* this.typeTrajet.setValue(e.target.value, {
-     onlySelf: true
-   })
-   */
+  onSubmitTourForm(){
 
- }
+    this.isTourFormSubmitted = true;
 
 
-  showModalDialog() {
-    this.displayModal = true;
+    //We verify if tour date is editable
+    //if no, we disable the required validator
+    if(!this.tour.date.editable){
+      this.f.date.clearValidators();
+      this.f.date.updateValueAndValidity();
+
+    }
+
+    // stop here if form is invalid
+    if (this.tourForm.invalid) {
+      return;
+    }
+
+    this.isTourFormSubmittedAndNotErrorOnClientSide = true;
+
+    this.mailService.sendTourMail(JSON.stringify({
+      circuit: this.tour.title,
+      date: this.tour.date.editable?this.f.date.value:this.tour.date.value,
+      logement: this.f.selectedRoom.value.name,
+      civility: this.f.civility.value,
+      lastname: this.f.lastname.value,
+      firstname: this.f.firstname.value,
+      email: this.f.email.value,
+      price: this.price,
+      nombrePassagerAdult: this.tour.couple? (2*this.nombrePassagerAdulte):this.nombrePassagerAdulte,
+      nombrePassagerEnfant: this.nombrePassagerEnfant,
+      nombrePassagerBebe: this.nombrePassagerBebe})).pipe(finalize(() => this.isTourFormSubmittedAndNotErrorOnClientSide = false),
+    ).subscribe((resp: any) =>{
+      
+      if(resp['message'] === "success"){
+        this.displayModal = true;
+        this.onReset();
+      }
+
+      else{
+        this.messageService.add({severity:'error',detail: "Erreur lors de l'envoi, re-essayez plus tard."});
+      }
+    });
+  }
+
+  //Resetting the form's value
+  onReset(){
+    this.isTourFormSubmitted = false;
+    this.tourForm.reset();
   }
 
   ngOnDestroy() {

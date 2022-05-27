@@ -1,6 +1,6 @@
 $colorBlue: #115F98;
 $fontColor: #525252;
-
+$colorYellow: #FFCC00;
 
 :host ::ng-deep .p-dialog .p-button {
     min-width: 6rem;
@@ -244,7 +244,7 @@ $fontColor: #525252;
             flex-direction: column;
             align-items: center;
             margin-left: 50px;
-            width: 290px;
+            width: 300px;
 
             .teaser{
 
@@ -287,6 +287,16 @@ $fontColor: #525252;
                     width: 100%;
                     padding: 10px 20px;
 
+                    span{
+
+                        .custom-price{
+                            margin-left: 10px;
+                            color: $colorYellow;
+                            font-weight: bold;
+                            display: none;
+                        }
+                    }
+
                     .final-price{
                         font-size: 1.4em;
                         font-weight: 550;
@@ -299,13 +309,19 @@ $fontColor: #525252;
                     font-weight: bold;
                 }
 
+                .error-feedback {
+                    width: fit-content;
+                    margin-top: 0.25rem;
+                    color: #dc3545;
+                }
+
                 .date{
                     display: flex;
                     flex-direction: column;
                     background-color: white;
                     padding: 10px 20px;
                     width: 100%;
-                    height: 57px;
+                    min-height: 57px;
                     position: relative;
 
                     .label{
@@ -365,7 +381,7 @@ $fontColor: #525252;
                         }
 
                         p-calendar{
-                            height: 100%;
+                            height: 57px;
                             width: 100%;
                             border: none;
                             padding-left: 40px;
@@ -403,9 +419,6 @@ $fontColor: #525252;
                                 
                             }
                         }
-
-                    
-                    
 
                 }
 

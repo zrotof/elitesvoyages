@@ -41,7 +41,7 @@
                             <span>Jour d'arrivée </span>
                             <span class="red-star">*</span>
                         </div>
-                        <p-calendar formControlName="dayStart" dateFormat="mm-dd-yy" inputId="dateformat" placeholder="Jour début" formControlName="dateDeb"></p-calendar>
+                        <p-calendar formControlName="dayStart" dateFormat="mm-dd-yy" inputId="dateformat" [minDate]="minDate" [readonlyInput]="true" placeholder="Jour début" formControlName="dateDeb"></p-calendar>
                     </div>
                     <div *ngIf="isHostelFormSubmitted && f.dateFin.errors" class="error-feedback">
                         <small *ngIf="f.dateFin.errors.required">Date de fin</small>
@@ -54,7 +54,7 @@
                             <span>Jour de départ </span>
                             <span class="red-star">*</span>
                         </div>
-                        <p-calendar formControlName="dayStart" dateFormat="mm-dd-yy" inputId="dateformat" placeholder="Jour début" formControlName="dateFin"></p-calendar>
+                        <p-calendar formControlName="dayStart" dateFormat="mm-dd-yy" inputId="dateformat" [minDate]="minDate" [readonlyInput]="true" placeholder="Jour début" formControlName="dateFin"></p-calendar>
                     </div>
                     <div *ngIf="isHostelFormSubmitted && f.dateFin.errors" class="error-feedback">
                         <small *ngIf="f.dateFin.errors.required">Date de fin</small>

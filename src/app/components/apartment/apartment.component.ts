@@ -38,7 +38,6 @@ export class ApartmentComponent implements OnInit {
 
     apartForm: FormGroup;
     isApartFormSubmitted = false;
-
     isApartFormSubmittedAndNotErrorOnClientSide = false;
 
     constructor(
@@ -97,7 +96,7 @@ export class ApartmentComponent implements OnInit {
       return;
     }
 
-   console.log(this.apartForm);
+    this.isApartFormSubmittedAndNotErrorOnClientSide = true;
 
     this.mailService.sendApartMail(JSON.stringify(this.apartForm.value)).pipe(finalize(() => this.isApartFormSubmittedAndNotErrorOnClientSide = false),
     ).subscribe((resp: any) =>{

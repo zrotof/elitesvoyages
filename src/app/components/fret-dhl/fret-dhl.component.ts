@@ -74,6 +74,8 @@ export class FretDhlComponent implements OnInit {
       return;
     }
 
+    this.isDhlFormSubmittedAndNotErrorOnClientSide = true;
+
     this.mailService.sendDhlMail(JSON.stringify(this.dhlForm.value)).pipe(finalize(() => this.isDhlFormSubmittedAndNotErrorOnClientSide = false),
     ).subscribe(resp =>{
         console.log(resp);

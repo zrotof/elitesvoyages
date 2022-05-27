@@ -26,6 +26,11 @@
                             <fa-icon [icon]= faClock > </fa-icon>
                             <span> {{tag.text}} </span>
                         </div>
+                        
+                        <div *ngIf="tag.icon == 'faHeart'" class="tour-info">
+                            <fa-icon [icon]= faHeart > </fa-icon>
+                            <span> {{tag.text}} </span>
+                        </div>
 
                         <div *ngIf="tag.icon == 'faUsers'" class="tour-info">
                             <fa-icon [icon]= faUsers > </fa-icon>
@@ -77,6 +82,11 @@
                                 <span>{{tag.text}}</span>
                             </div>
 
+                            <div *ngIf="tag.icon == 'faCar'" class="tag">
+                                <fa-icon [icon]="faCar"></fa-icon>
+                                <span>{{tag.text}}</span>
+                            </div>
+
                             <div *ngIf="tag.icon == 'faMugHot'" class="tag">
                                 <fa-icon [icon]="faMugHot"></fa-icon>
                                 <span>{{tag.text}}</span>
@@ -117,14 +127,14 @@
 
                 <div class="teaser">
                     <img src="../../../assets/img/home-tourism.png">
-                    <span>Le monde devient petit village avec </span>
+                    <span>Le monde devient un petit village avec </span>
                     <b>Elites Voyages</b>
                 </div>
                 
-                <form  [formGroup]="tourForm">
+                <form  [formGroup]="tourForm" (ngSubmit)="onSubmitTourForm()">
 
                     <div class="header">
-                        <span>Tarif</span>
+                        <span>Tarif<span class="custom-price">à personnaliser *</span></span>
                         <span class="final-price">{{price | number}} XAF</span>
                     </div>
 
@@ -135,11 +145,14 @@
                         </div>
     
                         <fa-icon [icon]="faCalendarDay"></fa-icon>
-                        <div class="not-editable" *ngIf="tour.date.editable == false ; else editable">
+                        <div class="not-editable" *ngIf="tour.date?.editable === false ; else editable">
                             <span>{{tour.date.value}}</span>
                         </div>
                         <ng-template #editable>
-                            <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" placeholder="dd-mm-yy"></p-calendar>                        
+                            <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" [minDate]="minDate" [readonlyInput]="true" placeholder="dd-mm-yy" formControlName="date"></p-calendar>                     
+                            <div *ngIf="isTourFormSubmitted && f.date.errors" class="error-feedback">
+                                <small *ngIf="f.date.errors.required">Renseignez la date</small>
+                            </div>   
                         </ng-template>
                     </div>
     
@@ -159,7 +172,8 @@
                         <div class="info">
                             <div class="label">
                                 <span>Adulte(s) </span>
-                                <span>Age 18+</span>
+                                <span *ngIf="tour.couple;else not_couple">Couple(s)</span>
+                                <ng-template #not_couple>Age 18+</ng-template>
                             </div>
         
                             <div class="value" >                            
@@ -227,45 +241,71 @@
     
                     <div class="gender-names">
     
-                        <div class="gender">
-              
-                            <div class="label">
-                                <span>Civilités</span>
-                                <span class="red-star">*</span>
+                        <div class="elememnt">
+                            <div class="gender">
+                                <div class="label">
+                                    <span>Civilités</span>
+                                    <span class="red-star">*</span>
+                                </div>
+                                <select class="custom-select" formControlName="civility">
+                                    <option [ngValue]="null" disabled></option>
+                                    <option *ngFor="let civility of civilities" [ngValue]="civility">{{civility}}</option>
+                                </select>
                             </div>
-                            <select class="custom-select" (change)="changeReason($event)" >
-                                <option *ngFor="let civility of civilities" [ngValue]="civility">{{civility}}</option>
-                            </select>
-                            
+                            <div *ngIf="isTourFormSubmitted && f.civility.errors" class="error-feedback">
+                                <small *ngIf="f.civility.errors.required">Type de pièce</small>
+                            </div>
                         </div>
-        
-                        <div class="firstname">
-                            <div class="label">
-                                <span>Nom</span>
-                                <span class="red-star">*</span>
+                        
+                        <div class="elememnt">
+
+                            <div class="firstname">
+                                <div class="label">
+                                    <span>Nom</span>
+                                    <span class="red-star">*</span>
+                                </div>
+                                <input type="text" placeholder="Entrez votre nom" formControlName="firstname">
                             </div>
-                            <input type="text" placeholder="Entrez votre nom">
+                            <div *ngIf="isTourFormSubmitted && f.firstname.errors" class="error-feedback">
+                                <small *ngIf="f.firstname.errors.required">Nom manquant</small>
+                            </div>
+
+                        </div>
+
+                        <div class="element">
+                            <div class="lastname">
+                                <div class="label">
+                                    <span>Prénom</span>
+                                    <span class="red-star">*</span>
+                                </div>
+                                <input type="text" placeholder="Entrez votre prénom" formControlName="lastname">
+                            </div>
+                            <div *ngIf="isTourFormSubmitted && f.lastname.errors" class="error-feedback">
+                                <small *ngIf="f.lastname.errors.required">Prénom manquant</small>
+                            </div>
                         </div>
     
-                        <div class="lastname">
-                            <div class="label">
-                                <span>Prénom</span>
+                        <div class="element">
+                            <div class="email">
+                                <div class="label">
+                                    <span>Email</span>
+                                    <span class="red-star">*</span>
+                                </div>
+                                <input type="email" placeholder="Email de contact" formControlName="email">
                             </div>
-                            <input type="text" placeholder="Entrez votre prénom">
-                        </div>
-    
-                        <div class="email">
-                            <div class="label">
-                                <span>Email</span>
-                                <span class="red-star">*</span>
+                            <div *ngIf="isTourFormSubmitted && f.email.errors" class="error-feedback">
+                                <small *ngIf="f.email.errors.required">Email manquant</small>
                             </div>
-                            <input type="email" placeholder="Email de contact">
                         </div>
                         
                     </div>
     
-                    <button type="button" (click)="showModalDialog()" pButton label="Réservez"></button>
-    
+                    <button type="submit" >
+                        <ng-container *ngIf="isTourFormSubmittedAndNotErrorOnClientSide; else defaultText">
+                          <p-progressSpinner [style]="{width: '20px', height: '20px'}" strokeWidth="8"></p-progressSpinner>
+                        </ng-container>
+                      </button>
+
                     <p-dialog header="Tarif personalisé" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
                         [draggable]="false" [resizable]="false">
                             <span>Nous avons bien reçu votre demande .</span>
@@ -273,6 +313,8 @@
     
                     </p-dialog>
                 </form>
+                <ng-template #defaultText>Envoyer</ng-template>
+
             </div>
             
         </div>
