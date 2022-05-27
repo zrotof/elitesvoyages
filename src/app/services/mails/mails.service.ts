@@ -46,7 +46,7 @@ export class MailsService {
 
   //Function use for booking a car in paris
   sendTourMail(data: any) : Observable<any>{
-    return this.http.post("http://localhost:3000/mail/tour", data, this.headers)
+    return this.http.post("https://www.api.elites-voyages.com/mail/tour", data, this.headers)
   }
 
   addCustomerToNewsletter(data: any) : Observable<any>{
