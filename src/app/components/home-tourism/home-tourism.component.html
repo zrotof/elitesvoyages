@@ -25,7 +25,7 @@
                         <div class="from-price">
                             <span class="from">à partir de</span>
                             <span class="price">
-                                <b> {{tour.price | number}} XAF</b> / pers
+                                <b> {{tour.price | currency:currentCurrency?.convertRate | number}} {{currentCurrency?.symbol}}</b> / pers
                             </span>
                         </div>
                     </div>

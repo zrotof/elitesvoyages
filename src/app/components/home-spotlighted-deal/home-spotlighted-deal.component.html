@@ -13,7 +13,7 @@
                 <span class="sub-title">Pèlerinage en terre sainte : Israêl et Egypte</span>
                 <div class="price-bloc">
                     <span class="label">à partir de</span>
-                    <span class="price">{{2300000 | number}} XAF / personne</span>
+                    <span class="price">{{2300000 | currency:currentCurrency?.convertRate | number}} {{currentCurrency?.symbol}} / personne</span>
                 </div>
             </div>
 
@@ -28,7 +28,7 @@
                 <span class="sub-title">Weekend détente en amoureux à Kribi</span>
                 <div class="price-bloc">
                     <span class="label">à partir de</span>
-                    <span class="price">{{130000 | number}} XAF / couple</span>
+                    <span class="price">{{130000 | currency:currentCurrency?.convertRate | number}} {{currentCurrency?.symbol}} / couple</span>
                 </div>
             </div>
             

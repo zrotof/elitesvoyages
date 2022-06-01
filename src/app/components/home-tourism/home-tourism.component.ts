@@ -4,6 +4,7 @@ import { TourismService } from 'src/app/services/tourism/tourism.service';
 
 
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { CurrenciesService } from 'src/app/services/currencies/currencies.service';
 
 @Component({
   selector: 'app-home-tourism',
@@ -15,9 +16,12 @@ export class HomeTourismComponent implements OnInit {
   faMapMarkerAlt = faMapMarkerAlt;
 
   topTourismList : TopTour[] = []; 
-  
+
+  currentCurrency: any;
+
   constructor(
-    private tourService : TourismService
+    private tourService : TourismService,
+    private currencyService: CurrenciesService
   ) { }
 
   ngOnInit(): void {
@@ -25,7 +29,15 @@ export class HomeTourismComponent implements OnInit {
   }
 
   getTopTours(){
-    this.topTourismList = this.tourService.topTourismList();
+    this.tourService.showcasedTopTours()
+    .subscribe(resp =>{
+      console.log(resp)
+      this.topTourismList = resp;
+    });
+
+    this.currencyService.currency$.subscribe( currency =>{
+      this.currentCurrency = currency;
+    })
   }
 
 }

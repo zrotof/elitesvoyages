@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Flight } from 'src/app/models/flight';
+import { CurrenciesService } from 'src/app/services/currencies/currencies.service';
 import { FlightService } from 'src/app/services/flights/flight.service';
 
 @Component({
@@ -15,7 +16,11 @@ export class HomeFilghtsComponent implements OnInit {
   //variables for popular fights caroussel
   flightsResponsiveOptions : any;
 
-  constructor(private flightService: FlightService) {
+  currentCurrency: any;
+
+  constructor(
+    private flightService: FlightService,
+    private currencyService: CurrenciesService) {
 
     this.flightsResponsiveOptions = [
       {
@@ -39,6 +44,9 @@ export class HomeFilghtsComponent implements OnInit {
   ngOnInit(): void {
 
     this.getPopularFlights();
+    this.currencyService.currency$.subscribe( currency =>{
+      this.currentCurrency = currency;
+    })
   }
 
   //get data for flights caroussel

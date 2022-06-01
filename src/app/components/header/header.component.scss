@@ -1,4 +1,5 @@
 $colorBlue: #115F98;
+$fontColor: #525252;
 
 
 header{
@@ -14,181 +15,251 @@ header{
 
 
     .content{
+
         display: flex;
-        justify-content: space-between ;
+        justify-content: space-between;
         align-items: center;
         height: 100%;
         width: 100%;
-
         
         img{
             height: 95%;
             cursor: pointer;
         }
-
+        
         .header-right{
+
             display: flex;
             align-items: center;
             color: white;
             font-weight: 480;
             justify-content: center;
     
-        nav{
+            nav{
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            //margin-right: 70px;
-
-            ul{
                 display: flex;
-                list-style: none;
                 justify-content: center;
                 align-items: center;
-                margin: 0;
-            
-                li{
-                    margin-left: 15px;
-                    cursor: pointer;
 
-                    a{
-                        text-decoration: none;
-                        padding: 5px 15px;
-                        color: white;
-                    }
-
-                    a:hover{
-                        background-color: $colorBlue;
-                        border-radius: 5px;
-                        transition: all 0.3s ease-in-out;
-
-                    }
-
-                    .active-link{
-                        background-color: $colorBlue;
-                        border-radius: 5px;
-                    }
-
-                }
-                
-
-                .services-bloc{
+                ul{
                     display: flex;
-                    flex-direction: column;
-                    position: relative;
-                    
-                    .services{    
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        padding: 5px 13px;
-
-
-                        span{
-                            margin: 0;
-                            height: 100%;
-                            width: 100%;
-                        }
-
-                        fa-icon{
-                            margin-left: 5px;
-                        }
-
-                    }
-
-                    ul{
-                        display: none;
-                    }
-
-                    .show-services-bottom{
-                        display: flex;            
-
-                        flex-direction: column;
-                        position: absolute;
-                        top: 35px;
-                        background-color: black;
-                        padding: 10px;
-                        left: 50%;
-                        transform: translateX(-50%);
-
-                        li{
-                            margin: 10px 0;
-                            white-space: nowrap;
-                            font-weight: 450;
-                            font-size: 0.9em;
-                        }
-
-                    }
-                }
-            }
-        }
-
-        .languages{
-            display: flex;
-            align-items:center;
-            height: 100%;
-            cursor: pointer;
-            position: relative;
-
-            display: none;
-
-            .languages-top{
-
-                padding: 5px 8px;
-
-                fa-icon{
-                    font-size: 1.2em;
-                    font-weight: 100;
-                    margin: 0 8px;        
-                }
-            }
-
-            .languages-bottom{
-                display: none;
-            }
-
-            .show-language-bottom{
-                position: absolute;
-                top: 35px;
-                left: 50%;
-                transform: translateX(-50%);
-                padding: 5px 10px;
-                background-color: black;
-
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                    list-style: none;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0;
                 
-                
-                div{
-                    position: relative;
-                    font-weight: 100;
-                    margin: 10px 0;
-
-                    input{
-                        position: absolute;
-                        width: 100%;
-                        opacity: 0;
+                    li{
+                        margin-left: 15px;
                         cursor: pointer;
 
+                        a{
+                            text-decoration: none;
+                            padding: 5px 15px;
+                            color: white;
+                        }
+
+                        a:hover{
+                            background-color: $colorBlue;
+                            border-radius: 5px;
+                            transition: all 0.3s ease-in-out;
+
+                        }
+
+                        .active-link{
+                            background-color: $colorBlue;
+                            border-radius: 5px;
+                        }
+
                     }
+                    
 
-                    span{
+                    .services-bloc{
                         display: flex;
-                        justify-content: center;
-                        align-items: center;
+                        flex-direction: column;
+                        position: relative;
+                        
+                        .services{    
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 5px 13px;
 
-                        img{
-                            height: 13px;
-                            width: 19px;
-                            margin-left: 7px;
+
+                            span{
+                                margin: 0;
+                                height: 100%;
+                                width: 100%;
+                            }
+
+                            fa-icon{
+                                margin-left: 5px;
+                            }
+
+                        }
+
+                        ul{
+                            display: none;
+                        }
+
+                        .show-services-bottom{
+                            display: flex;            
+
+                            flex-direction: column;
+                            position: absolute;
+                            top: 35px;
+                            background-color: black;
+                            padding: 10px;
+                            left: 50%;
+                            transform: translateX(-50%);
+
+                            li{
+                                margin: 10px 0;
+                                white-space: nowrap;
+                                font-weight: 450;
+                                font-size: 0.9em;
+                            }
+
                         }
                     }
                 }
+
+
+            }
+
+            .currencies{
+                
+                position: relative;
+                color: $colorBlue;
+
+                .currencies-top{
+
+                    background-color: white;
+                    padding: 3px 10px;
+                    width: 70px;
+                    border-radius: 5px;
+                    margin-left: 15px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    span{
+                        font-weight: 1;
+                        font-size: 0.9em;
+                    }
+
+                    fa-icon{
+                        color: $fontColor;
+                    }
+
+                }
+
+                .currencies-bottom{
+                    display: none;
+                }
+
+                .show-currencies-bottom{
+
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    position: absolute;
+                    right: 0;
+                    top: 35px;
+                    background-color: #fdfdfd;
+                    color: black;
+                    padding: 10px 15px;
+                    width: 150px;
+                    height: fit-content;
+                    border-radius: 5px;
+
+                    div{
+                        display: flex;
+                        justify-content: space-between;
+                        cursor: pointer;
+                        font-size: 0.95em;
+                    }
+
+                    div:hover{
+                        color: $colorBlue;
+                        font-weight: bold;
+                    }
+
+                    .value{
+                        color:$colorBlue;
+                    }
+                }
+
+
+            }
+
+            .languages{
+                display: flex;
+                align-items:center;
+                height: 100%;
+                cursor: pointer;
+                position: relative;
+
+                display: none;
+
+                .languages-top{
+
+                    padding: 5px 8px;
+
+                    fa-icon{
+                        font-size: 1.2em;
+                        font-weight: 100;
+                        margin: 0 8px;        
+                    }
+                }
+
+                .languages-bottom{
+                    display: none;
+                }
+
+                .show-language-bottom{
+                    position: absolute;
+                    top: 35px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    padding: 5px 10px;
+                    background-color: black;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    
+                    div{
+                        position: relative;
+                        font-weight: 100;
+                        margin: 10px 0;
+
+                        input{
+                            position: absolute;
+                            width: 100%;
+                            opacity: 0;
+                            cursor: pointer;
+
+                        }
+
+                        span{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            img{
+                                height: 13px;
+                                width: 19px;
+                                margin-left: 7px;
+                            }
+                        }
+                    }
+                }
+                
             }
             
-        }
         }
 
         .burger{
@@ -204,7 +275,7 @@ header{
 }
 
 
-@media all and (max-width: 950px){
+@media all and (max-width: 960px){
 
     header{
         height: 4.5em;
@@ -298,6 +369,11 @@ header{
                             }
                         }
                     }
+                }
+
+                .currencies{
+                    margin: 20px 0 0 0;
+                    font-size: 1.1em;
                 }
 
                 .languages{

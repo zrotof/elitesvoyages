@@ -135,7 +135,7 @@
 
                     <div class="header">
                         <span>Tarif<span class="custom-price">à personnaliser *</span></span>
-                        <span class="final-price">{{price | number}} XAF</span>
+                        <span class="final-price">{{price | currency:currentCurrency?.convertRate | number}} {{currentCurrency?.symbol}}</span>
                     </div>
 
                     <div class="date">

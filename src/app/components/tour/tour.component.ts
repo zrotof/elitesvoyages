@@ -12,6 +12,7 @@ import { MenuItem, MessageService } from 'primeng/api';
 import { TourDetailComponent } from '../tour-detail/tour-detail.component';
 import { finalize } from 'rxjs/operators';
 import { MailsService } from 'src/app/services/mails/mails.service';
+import { CurrenciesService } from 'src/app/services/currencies/currencies.service';
 
 @Component({
   selector: 'app-tour',
@@ -95,6 +96,8 @@ textDetail: any;
 
   minDate = new Date();
 
+currentCurrency: any;
+
   constructor(
     private router:  Router,
     private route: ActivatedRoute,
@@ -102,7 +105,8 @@ textDetail: any;
     private fb: FormBuilder,
     private dialogService: DialogService,
     private mailService: MailsService, 
-    public messageService: MessageService
+    public messageService: MessageService,
+    private currencyService: CurrenciesService
   ){
 
     this.tourForm = this.fb.group({
@@ -121,6 +125,10 @@ textDetail: any;
     this.initMinDate();
 
     this.loadTourData();
+
+    this.currencyService.currency$.subscribe( currency =>{
+      this.currentCurrency = currency;
+    })
 
   }
 
@@ -373,5 +381,7 @@ textDetail: any;
           this.ref.close();
       }
   }
+
+  
   
 }

@@ -28,15 +28,44 @@
                     <li><a routerLinkActive="active-link" routerLink="/bons-plans">Bons plans</a></li>
                     <li><a routerLinkActive="active-link" routerLink="/contact">Contactez-nous</a></li>
                 </ul>
+
             </nav>
 
-            <div class="languages" (mouseover)="showHideLanguages()" (mouseout)="showHideLanguages()">
-            <div class="languages-top">
-                    <fa-icon [icon]="faGlobe"></fa-icon>
-                    <span>{{selectedLanguage}}</span>
+            <div class="currencies">
+
+                <div class="currencies-top" (click)="showHideCurrencies()">
+                    <span> {{currentCurrency?.symbol}} </span>
                     <fa-icon [icon]="faCaretDown"></fa-icon>
                 </div>
-                <div class="languages-bottom">
+
+                <div class="currencies-bottom">
+
+                    <ng-template ngFor let-currency [ngForOf]="currencies">
+   
+                        <div class="value" *ngIf="currentCurrency?.symbol === currency.symbol; else normal">
+                            <span>{{currency?.symbol}}</span>
+                            <span> {{currency?.label}}</span>
+                        </div>
+                        <ng-template #normal>
+                            <div (click)="chooseCurrency(currency.symbol)">
+                                <span>{{currency.symbol}}</span>
+                                <span>{{currency.label}}</span>
+                            </div>
+                        </ng-template>
+                        
+                    </ng-template>
+
+                </div>
+
+            </div>
+
+            <div class="languages" (mouseover)="showHideLanguages()" (mouseout)="showHideLanguages()">
+                <div class="languages-top">
+                        <fa-icon [icon]="faGlobe"></fa-icon>
+                        <span>{{selectedLanguage}}</span>
+                        <fa-icon [icon]="faCaretDown"></fa-icon>
+                </div>
+            <div class="languages-bottom">
 
                     <div (click)="chooseEnglish()">
                         <input class="en" type="checkbox" checked>

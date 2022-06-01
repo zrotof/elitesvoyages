@@ -22,7 +22,7 @@
                                 <span class="flight-element-text-third-bloc"> 
                                     <span class="flight-element-text-third-bloc-first-child"> {{flight.codeAirportDep}} <img class="icon-two-ways" src="../../../assets/img/home/flights/icon-two-ways.png"> {{flight.codeAirportArr}} </span>
                         
-                                    <span class="flight-element-text-third-bloc-second-child">{{flight.price | number}} {{flight.currency}}</span>
+                                    <span class="flight-element-text-third-bloc-second-child">{{flight.price | currency:currentCurrency?.convertRate | number}} {{currentCurrency?.symbol}}</span>
                                 </span>
                             </div>
 

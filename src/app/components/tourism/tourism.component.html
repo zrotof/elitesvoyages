@@ -8,7 +8,7 @@
 
         <div class="intro">
             <span>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur eaque distinctio fugit ab ducimus, corporis mollitia dignissimos explicabo ipsa dolores, doloribus vitae esse consequuntur aut exercitationem porro labore sapiente iusto.
+                Envie de vous évader ? Confiez-nous vos projets et nous nous occupons du reste
             </span>
         </div>
 
@@ -51,7 +51,7 @@
                     <div class="right">
                         <div class="price-bloc">
                             <span class="text">à partir de</span>
-                            <span class="price"> {{package.price | number}} XAF</span>
+                            <span class="price"> {{package.price | currency:currentCurrency?.convertRate | number}} {{currentCurrency?.symbol}}</span>
                             <span class="text"> par personne</span>
                         </div>
 

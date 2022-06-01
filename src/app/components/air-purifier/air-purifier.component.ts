@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {MenuItem} from 'primeng/api';
+import { CurrenciesService } from 'src/app/services/currencies/currencies.service';
 
 @Component({
   selector: 'app-air-purifier',
@@ -10,8 +11,9 @@ import {MenuItem} from 'primeng/api';
 export class AirPurifierComponent implements OnInit {
   
   items: MenuItem[];
+  currentCurrency: any;
 
-  constructor() { 
+  constructor(private currencyService: CurrenciesService) { 
     this.items = [
       {label: 'Accueil', routerLink : '/'},
       {label: 'Bons Plans', routerLink : '/bons-plans'},
@@ -20,7 +22,9 @@ export class AirPurifierComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.currencyService.currency$.subscribe( currency =>{
+      this.currentCurrency = currency;
+    })
   }
 
 }

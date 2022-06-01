@@ -54,6 +54,7 @@ import { CarParisComponent } from './components/car-paris/car-paris.component';
 import { TourDetailComponent } from './components/tour-detail/tour-detail.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { HomeSpotlightedDealComponent } from './components/home-spotlighted-deal/home-spotlighted-deal.component';
+import { CurrencyPipe } from './pipes/currency/currency.pipe';
 
 
 @NgModule({
@@ -85,7 +86,8 @@ import { HomeSpotlightedDealComponent } from './components/home-spotlighted-deal
     CarParisComponent,
     TourDetailComponent,
     NewsletterComponent,
-    HomeSpotlightedDealComponent
+    HomeSpotlightedDealComponent,
+    CurrencyPipe
   ],
 
   imports: [

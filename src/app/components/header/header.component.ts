@@ -1,8 +1,10 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
 import { faGlobe,faCaretDown } from '@fortawesome/free-solid-svg-icons'
-import {MenuItem} from 'primeng/api';
+import { CurrenciesService } from '../../services/currencies/currencies.service';
+
+import { Currency } from '../../models/currency';
 
 @Component({
   selector: 'app-header',
@@ -23,14 +25,28 @@ export class HeaderComponent implements OnInit {
   isBurgerMenuClicked: boolean = false;
   isFirstNavigation: boolean = true;
 
-  constructor( private router: Router) {
+  currencies : any= [{symbol:"XAF", label:"Franc CFA"},
+                {symbol:"EUR", label:"Euro"},
+                {symbol:"USD", label:"Dollar USA"}]
 
+  currentCurrency : any;
+
+  constructor( private router: Router, private currencyService: CurrenciesService) {
+    
    
   }
 
-  ngOnInit(): void {
+   ngOnInit(): void {
     this.routingEvent();
+    
+    this.currencyService.initCurrencyLocalStorage();
+
+    this.currencyService.currency$.subscribe( currency =>{
+      this.currentCurrency = currency;
+    });
+
   }
+
 
   //On routing event we, if we are on small screen, we toggle the menu to disapear from the screen after we click on a link
   routingEvent(){
@@ -80,22 +96,27 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-
-
-//Function used to hide or show services bloc when mouse overing the bloc
+  //Function used to hide or show services bloc when mouse overing the bloc
   showHideServices(): void{
-
     var serviceBottom = <HTMLElement>document.querySelector(".services-bloc ul");
-
     serviceBottom.classList.toggle("show-services-bottom");
+  }
+
+  //Function used to hide or show currencies bloc when mouse overing the bloc
+  showHideCurrencies(): void{
+    var currenciesBottom = <HTMLElement>document.querySelector(".currencies-bottom");
+    currenciesBottom.classList.toggle("show-currencies-bottom");
+  }
+
+  chooseCurrency(param: any){
+    this.showHideCurrencies();
+    this.currencyService.setCurrency(param);
   }
 
   //Function used to hide or show languages bloc when mouse overing the bloc
   showHideLanguages(): void{
-
     var languageBottom= <HTMLElement>document.querySelector(".languages-bottom");
-
-      languageBottom.classList.toggle("show-language-bottom");
+    languageBottom.classList.toggle("show-language-bottom");
   }
 
   chooseEnglish(){
@@ -109,7 +130,7 @@ export class HeaderComponent implements OnInit {
 
       this.isEnglishChoose = true;
       this.isFrenchChoose = false;
-      this.selectedLanguage= "En"
+      this.selectedLanguage= "En";
       this.showHideLanguages();
 
     }
@@ -161,8 +182,8 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-   //Handling click on burger menu
-   onBurgerMenu(){
+  //Handling click on burger menu
+  onBurgerMenu(){
     let navSmallScreen = <HTMLElement>document.querySelector('.header-right');
     let inputstatus = <HTMLInputElement>document.querySelector('.burger input');
     let header = <HTMLElement>document.querySelector('header');

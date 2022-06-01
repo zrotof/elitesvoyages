@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { faShuttleVan, faBed, faPlaneDeparture, faPassport, faMugHot } from '@fortawesome/free-solid-svg-icons';
+import { Observable } from 'rxjs';
 
 import { GeneralTour, TopTour } from '../../models/tourism';
 @Injectable({
@@ -17,63 +18,8 @@ export class TourismService {
 
   constructor(private http: HttpClient) { }
 
-  topTourismList() : TopTour[]{
-    return [
-
-      {
-        title: "7 Nuits Et 8 Jours À Dubaî",
-        currency: "XAF",
-        price: 800000,
-        image:"../../../assets/img/home/tourism/dubai.jpeg",
-        link: "dubai",
-        place: "Dubaî"
-      }
-
-      ,
-
-      {
-        title: "Vers Les Hauts Lieux De La Chrétienté",
-        currency: "XAF",
-        price: 2300000,
-        image: "../../../assets/img/home/tourism/isra-egyp.png",
-        link:"israel-egypte",
-        place: "Israel - Egypte"
-
-      }
-
-      ,
-
-      {
-        title: "Pélérinage En Terre Sainte",
-        currency: "XAF",
-        price: 780000,
-        image: "../../../assets/img/home/tourism/israel.jpeg",
-        link:"israel",
-        place: "Israel"
-
-      },
-
-      {
-        title: "3 Nuits Et 4 Jours Au Caire",
-        currency: "XAF",
-        price: 450000,
-        image:"../../../assets/img/home/tourism/caire.jpeg",
-        link: "caire",
-        place: "Caire"
-
-      },
-      
-      {
-        title: "Weekend Détente En Amoureux",
-        currency: "XAF",
-        price: 150000,
-        image:"../../../assets/img/home/tourism/kribi.jpeg",
-        link: "kribi",
-        place: "Kribi"
-
-      }
-      
-    ];
+  showcasedTopTours() : Observable<TopTour[]>{
+    return this.http.get<TopTour[]>("https://www.api.elites-voyages.com/tourisme/showcased");
   }
 
   generalDataTourList(): GeneralTour[]{
@@ -82,7 +28,7 @@ export class TourismService {
         image:"../../../assets/img/tourism/dubai.jpeg",
         title: "7 Jours et 8 Nuits à Dubaî",
         country: "Emirates Arabes Unis",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque earum reiciendis ullam, esse cumque doloremque eum quisquam. Saepe, eligendi ipsa. Culpa doloremque eaque obcaecati iste autem ab quisquam, beatae ipsa!",
+        description: "La destination la plus prisée du monde n'attend plus que vous pour satisfaire votre curiosité et vous donner des émotions au delà de vos attentes. 7 jours juste pour vous ! ",
         price: 800000,
         id: "dubai",
         tags: [
