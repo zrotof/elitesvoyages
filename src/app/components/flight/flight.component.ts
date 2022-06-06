@@ -33,10 +33,10 @@ export class FlightComponent implements OnInit {
   trajets: any = ['ALLER - RETOUR', 'ALLER SIMPLE'];
   cabines: any = ['ECONOMY', 'PREMIUM', 'BUSINESS CLASS', 'FIRST CLASS',];
 
-  nombrePassagerTotal = 1;
-  nombrePassagerAdulte = 1;
-  nombrePassagerEnfant = 0;
-  nombrePassagerBebe = 0;
+  nombrePassagerTotal : any;
+  nombrePassagerAdulte : any;
+  nombrePassagerEnfant : any;
+  nombrePassagerBebe : any;
 
   //contact form declaration
   flightForm : FormGroup;
@@ -81,6 +81,7 @@ export class FlightComponent implements OnInit {
     this.initMinDate();
 
     this.listeningOnWays();
+    this.initPassengerData();
 
   }
 
@@ -91,14 +92,32 @@ export class FlightComponent implements OnInit {
     
    }
 
+   initPassengerData(){
+     this.nombrePassagerAdulte = 1;
+     this.nombrePassagerEnfant = 0;
+     this.nombrePassagerBebe = 0;
+
+     this.f.adult.setValue(1);
+     this.f.child.setValue(0);
+     this.f.infant.setValue(0);
+
+     this.f.adult.updateValueAndValidity();
+     this.f.child.updateValueAndValidity();
+     this.f.infant.updateValueAndValidity();
+
+     this.nombrePassagerTotal = this.nombrePassagerAdulte + this.nombrePassagerEnfant + this.nombrePassagerBebe;
+
+   }
+
   // convenient getter for easy access to form fields
   get f() { return this.flightForm.controls; }
 
-//Resetting the form's value
-onReset() {
-  this.isFlightFormSubmitted = false;
-  this.flightForm.reset();
-}
+  //Resetting the form's value
+  onReset() {
+    this.isFlightFormSubmitted = false;
+    this.flightForm.reset();
+    this.initPassengerData();
+  }
   
 
 //Listening on change on fligh way

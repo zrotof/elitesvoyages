@@ -16,40 +16,40 @@ export class MailsService {
   constructor(private http: HttpClient) { }
 
   sendContactMail(data: any ) : Observable<any>{
-    return this.http.post("https://www.api.elites-voyages.com/mail/contact", data, this.headers); 
+    return this.http.post("https://api.elites-voyages.com/mail/contact", data, this.headers); 
   }
 
   sendFlightMail(data: any) : Observable<any>{
-    return this.http.post("https://www.api.elites-voyages.com/mail/flight", data, this.headers); 
+    return this.http.post("https://api.elites-voyages.com/mail/flight", data, this.headers); 
   }
 
   sendDhlMail(data: any) : Observable<any>{
-    return this.http.post("https://www.api.elites-voyages.com/mail/dhl", data, this.headers)
+    return this.http.post("https://api.elites-voyages.com/mail/dhl", data, this.headers)
   }
 
   sendCarMail(data: any) : Observable<any>{
-    return this.http.post("https://www.api.elites-voyages.com/mail/car", data, this.headers)
+    return this.http.post("https://api.elites-voyages.com/mail/car", data, this.headers)
   }
 
   sendApartMail(data: any) : Observable<any>{
-    return this.http.post("https://www.api.elites-voyages.com/mail/apart", data, this.headers)
+    return this.http.post("https://api.elites-voyages.com/mail/apart", data, this.headers)
   }
 
   sendHostelMail(data: any) : Observable<any>{
-    return this.http.post("https://www.api.elites-voyages.com/mail/hostel", data , this.headers)
+    return this.http.post("https://api.elites-voyages.com/mail/hostel", data , this.headers)
   }
 
   //Function use for booking a car in paris
   sendCarParisMail(data: any) : Observable<any>{
-    return this.http.post("https://www.api.elites-voyages.com/mail/car-paris", data, this.headers)
+    return this.http.post("https://api.elites-voyages.com/mail/car-paris", data, this.headers)
   }
 
   //Function use for booking a car in paris
   sendTourMail(data: any) : Observable<any>{
-    return this.http.post("https://www.api.elites-voyages.com/mail/tour", data, this.headers)
+    return this.http.post("https://api.elites-voyages.com/mail/tour", data, this.headers)
   }
 
   addCustomerToNewsletter(data: any) : Observable<any>{
-    return this.http.post("https://www.api.elites-voyages.com/mail/newsletter", data, this.headers)
+    return this.http.post("https://api.elites-voyages.com/mail/newsletter", data, this.headers)
   }
 }
