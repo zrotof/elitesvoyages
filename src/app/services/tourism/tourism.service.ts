@@ -19,7 +19,10 @@ export class TourismService {
   constructor(private http: HttpClient) { }
 
   showcasedTopTours() : Observable<TopTour[]>{
-    return this.http.get<TopTour[]>("https://api.elites-voyages.com/tourisme/showcased");
+    
+    return this.http.get<TopTour[]>("http://localhost:3000/tourisme/showcased");
+
+    //return this.http.get<TopTour[]>("https://api.elites-voyages.com/tourisme/showcased");
   }
 
   generalDataTourList(): GeneralTour[]{
@@ -176,7 +179,8 @@ export class TourismService {
   }
 
   getTourById(id: string){
-    //return this.http.get("https://www.api.elites-voyages.com/tourisme/"+id);
-    return this.http.get("https://api.elites-voyages.com/tourisme/"+id);
+    return this.http.get("http://localhost:3000/tourisme/"+id);
+
+    //return this.http.get("https://api.elites-voyages.com/tourisme/"+id);
   }
 }

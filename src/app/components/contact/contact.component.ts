@@ -43,7 +43,7 @@ export class ContactComponent implements OnInit {
     ) { 
 
     this.contactForm= this.fb.group({
-      civility: [null, Validators.required],
+      civility: ["", Validators.required],
       firstname: ["", Validators.required],
       lastname:["", Validators.required],
       email: ["", [Validators.required, Validators.email]],
@@ -65,6 +65,8 @@ export class ContactComponent implements OnInit {
   onReset() {
     this.isContactFormSubmitted = false;
     this.contactForm.reset();
+    this.f.preference.setValue("email");
+    this.f.preference.updateValueAndValidity();
   }
 
 

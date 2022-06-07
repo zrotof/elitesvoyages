@@ -9,7 +9,8 @@ export class MailsService {
 
   headers = {
     headers : new HttpHeaders({
-      'Content-Type':"application/json"
+      'Content-Type':"application/json",
+      'Access-Control-Allow-Origi': '*'
     })
   };
 
@@ -22,7 +23,7 @@ export class MailsService {
   sendFlightMail(data: any) : Observable<any>{
     return this.http.post("https://api.elites-voyages.com/mail/flight", data, this.headers); 
   }
-
+  
   sendDhlMail(data: any) : Observable<any>{
     return this.http.post("https://api.elites-voyages.com/mail/dhl", data, this.headers)
   }
