@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://api.elites-voyages.com",
+        "secure": true,
+        "loglLevel": "debug"
+    }
+}
