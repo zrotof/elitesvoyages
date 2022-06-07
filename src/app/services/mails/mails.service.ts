@@ -10,7 +10,7 @@ export class MailsService {
   headers = {
     headers : new HttpHeaders({
       'Content-Type':"application/json",
-      'Access-Control-Allow-Origi': '*'
+      'Access-Control-Allow-Origin': '*'
     })
   };
 
