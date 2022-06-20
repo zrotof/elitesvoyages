@@ -31,6 +31,8 @@ export class HeaderComponent implements OnInit {
 
   currentCurrency : any;
 
+  isNotYetImplemented: boolean = false;
+
   constructor( private router: Router, private currencyService: CurrenciesService) {
     
    
@@ -52,11 +54,15 @@ export class HeaderComponent implements OnInit {
   routingEvent(){
     this.router.events.subscribe( event =>{
 
+
       if(this.isFirstNavigation){
         this.isFirstNavigation = false;
 
         return ;
       }
+
+      console.log(event);
+
 
       if(event instanceof NavigationEnd){
 
@@ -64,31 +70,42 @@ export class HeaderComponent implements OnInit {
         let header = <HTMLElement>document.querySelector('header');
         let inputstatus = <HTMLInputElement>document.querySelector('.burger input');
 
-        if(this.isBurgerMenuClicked ){
-          inputstatus.checked = false;
-          navSmallScreen.classList.toggle("toggle-nav");
-          this.isBurgerMenuClicked = false;  
-          
-          if(window.pageYOffset <= header.clientHeight) {
-            header.classList.remove('navbar-background-on-scroll');
-          }
+        this.isNotYetImplemented = false;
 
+
+        if(event.url == '/recrutements' || event.url == '/confidentialite' || event.url == '/cgu' ){
+
+          this.isNotYetImplemented = true;
+
+          console.log("dedans")
         }
-
         else{
-          
-          if (window.pageYOffset <= header.clientHeight) {
 
-            if(this.router.url.includes('tourisme/')){
-              header.classList.add('navbar-background-on-scroll');
-            }
+          if(this.isBurgerMenuClicked ){
+            inputstatus.checked = false;
+            navSmallScreen.classList.toggle("toggle-nav");
+            this.isBurgerMenuClicked = false;  
             
-            else{
+            if(window.pageYOffset <= header.clientHeight) {
               header.classList.remove('navbar-background-on-scroll');
             }
+  
           }
-        }
-
+  
+          else{
+            
+            if (window.pageYOffset <= header.clientHeight) {
+  
+              if(this.router.url.includes('tourisme/')){
+                header.classList.add('navbar-background-on-scroll');
+              }
+              
+              else{
+                header.classList.remove('navbar-background-on-scroll');
+              }
+            }
+          }
+        }      
         
       }
 

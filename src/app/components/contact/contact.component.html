@@ -22,7 +22,9 @@
 
             <div class="mail">
               <fa-icon [icon]="faEnvelope"></fa-icon>
-              <span>sales-yaounde@elites-voyages.com</span>
+              <span>
+                <a href="mailto:sales-yaounde@elites-voyages.com">sales-yaounde@elites-voyages.com</a>
+              </span>
             </div>
 
             <div class="phone">
@@ -45,7 +47,9 @@
             </div>
 
             <div class="mail">
-              <span>sales-douala@elites-voyages.com</span>
+              <span>
+                <a href="mailto:sales-douala@elites-voyages.com">sales-douala@elites-voyages.com</a>
+              </span>
               <fa-icon [icon]="faEnvelope"></fa-icon>
             </div>
 
@@ -83,8 +87,8 @@
             
             <span>Suivez-nous sur nos réseaux</span>
             <div class="reseau">
-              <img src="../../../assets/img/contact/facebook-icon.png" alt="facebook icon to join Elites Voyages on facebook">
-              <img src="../../../assets/img/contact/Instagram-icon.png" alt="instagram icon to join Elites Voyages on instagram">
+              <img (click)="openNetwork('facebook')" src="../../../assets/img/contact/facebook-icon.png" alt="facebook icon to join Elites Voyages on facebook">
+              <img (click)="openNetwork('instagram')" src="../../../assets/img/contact/Instagram-icon.png" alt="instagram icon to join Elites Voyages on instagram">
             </div>
           </div>
         </div>

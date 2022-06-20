@@ -55,6 +55,7 @@ import { TourDetailComponent } from './components/tour-detail/tour-detail.compon
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { HomeSpotlightedDealComponent } from './components/home-spotlighted-deal/home-spotlighted-deal.component';
 import { CurrencyPipe } from './pipes/currency/currency.pipe';
+import { NotYetImplementedComponent } from './components/not-yet-implemented/not-yet-implemented.component';
 
 
 @NgModule({
@@ -87,7 +88,8 @@ import { CurrencyPipe } from './pipes/currency/currency.pipe';
     TourDetailComponent,
     NewsletterComponent,
     HomeSpotlightedDealComponent,
-    CurrencyPipe
+    CurrencyPipe,
+    NotYetImplementedComponent
   ],
 
   imports: [

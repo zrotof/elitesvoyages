@@ -9,6 +9,7 @@ import { MailsService } from 'src/app/services/mails/mails.service';
 import { MessageService, PrimeNGConfig } from 'primeng/api';
 import {DialogService} from 'primeng/dynamicdialog';
 import {DynamicDialogRef} from 'primeng/dynamicdialog';
+import { UtilsService } from 'src/app/services/utils/utils.service';
 
 @Component({
   selector: 'app-contact',
@@ -39,7 +40,8 @@ export class ContactComponent implements OnInit {
     private mailService: MailsService,
     private messageService: MessageService,
     private primengConfig: PrimeNGConfig,
-    public dialogService: DialogService
+    public dialogService: DialogService,
+    private utilsService: UtilsService
     ) { 
 
     this.contactForm= this.fb.group({
@@ -108,6 +110,13 @@ export class ContactComponent implements OnInit {
       }
       
     });
+  }
+
+  //Function used to redirect to the right network by calling the right function in service utils
+  openNetwork(param: string){
+
+    this.utilsService.openNetwork(param)
+
   }
 
 }

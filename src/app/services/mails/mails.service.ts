@@ -50,6 +50,8 @@ export class MailsService {
   }
 
   addCustomerToNewsletter(data: any) : Observable<any>{
-    return this.http.post("https://api.elites-voyages.com/mail/newsletter", data, this.headers)
+    //return this.http.post("https://api.elites-voyages.com/mail/newsletter", data, this.headers)
+    return this.http.post("http://localhost:3000/mail/newsletter", data, this.headers)
+
   }
 }

@@ -1,5 +1,5 @@
 
-<header (scroll)="onWindowScroll()">
+<header (scroll)="onWindowScroll()" [ngClass]="isNotYetImplemented?'navbar-background':''">
 
     <div class="content my-container">
         <img routerLink="/accueil" src="../../../assets/img/header/logo.png" alt="Logo of Elites Voyages">
@@ -21,7 +21,9 @@
                                 <li><a routerLinkActive="active-link" routerLink="/voitures">Location Voitures</a></li>
                                 <li><a routerLinkActive="active-link" routerLink="/tourisme">Tourisme</a></li>
                                 <li><a routerLinkActive="active-link" routerLink="/dhl">DHL</a></li>
+                            <!--
                                 <li><a routerLinkActive="active-link" routerLink="/assistance-visa">Assistance Visas</a></li>
+                            -->
                             </ul>
                     </li>
                     <li><a routerLinkActive="active-link" routerLink="/a-propos">À propos</a></li>

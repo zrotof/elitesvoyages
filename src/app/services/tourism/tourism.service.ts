@@ -63,7 +63,7 @@ export class TourismService {
         image: "../../../assets/img/home/tourism/isra-egyp.png",
         id:"israel-egypte",
         country: "Israel - Egypte",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque earum reiciendis ullam, esse cumque doloremque eum quisquam. Saepe, eligendi ipsa. Culpa doloremque eaque obcaecati iste autem ab quisquam, beatae ipsa!",
+        description: "Le peuple d'Israël a une histoire qui se distingue de puis Moïse jusqu'à JÉSUS CHRIST. À travers ces deux personnages, la Bible cesse d'être un mythe car la réalité témoigne de la véracité des récritures. 10 jours pour plonger dans les profondeurs de la chrétienté",
         tags: [
           {
             icon: this.faPassport,
@@ -93,7 +93,7 @@ export class TourismService {
         image:"../../../assets/img/tourism/caire.jpeg",
         title: "4 Jours et 3 Nuits au Caire",
         country: "Egypte",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque earum reiciendis ullam, esse cumque doloremque eum quisquam. Saepe, eligendi ipsa. Culpa doloremque eaque obcaecati iste autem ab quisquam, beatae ipsa!",
+        description: "Amoureux de l'histoire, l'Égypte vous appelle à travers ses pyramides, ses sarcophages et toute autre envie de plonger dans l'histoire. C'est aussi un centre attractif des affaires pour commerçants et rencontres importantes.",
         price: 450000,
         id: "caire",
         tags: [
@@ -123,8 +123,8 @@ export class TourismService {
         image:"../../../assets/img/tourism/israel.jpeg",
         title: "Voyage en Terre Sainte",
         country: "Israêl",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque earum reiciendis ullam, esse cumque doloremque eum quisquam. Saepe, eligendi ipsa.",
-        price: 650000,
+        description: "Offrez-vous votre voyage en Terre Sainte à la carte en choisissant ce que vous souhaitez découvrir et défnissez le nombre de jours qui vont convient. Le prix peut varier seon que vous soyez seul ou en groupe. Bible en main nous vous conduisons vers des émotions Saintes",
+        price: 1800000,
         id: "israel",
         tags: [
           {
@@ -154,8 +154,8 @@ export class TourismService {
         image:"../../../assets/img/tourism/kribi.jpeg",
         title: "Weekend en amoureux à Kribi",
         country: "Cameroun",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque earum reiciendis ullam, esse cumque doloremque eum quisquam. Saepe, eligendi ipsa. Culpa doloremque eaque obcaecati iste autem ab quisquam, beatae ipsa!",
-        price: 150000,
+        description: "Kribi la belle, une destination exotique au coeur de l'Afrique en miniature. Nous vous promettons un séjour qui vous bercera et un repos bien mérité tout en profitant de ses plages ydiliques et ses sables fins. Nhésitez-plus et laissez-vous tenter",
+        price: 130000,
         id: "kribi",
         tags: [
 

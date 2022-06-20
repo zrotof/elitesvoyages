@@ -1,6 +1,6 @@
 $colorBlue: #115F98;
 $fontColor: #525252;
-
+$colorYellow: #FFCC00;
 
 header{
     display: flex;
@@ -133,7 +133,7 @@ header{
 
                 .currencies-top{
 
-                    background-color: white;
+                    background-color: $colorYellow;
                     padding: 3px 10px;
                     width: 70px;
                     border-radius: 5px;
@@ -144,7 +144,7 @@ header{
                     justify-content: space-between;
 
                     span{
-                        font-weight: 1;
+                        font-weight: bold;
                         font-size: 0.9em;
                     }
 
@@ -269,9 +269,16 @@ header{
     }
 }
 
+.navbar-background{
+    background: black;
+}
 .navbar-background-on-scroll{
     background-color: black;
     transition: all 0.3s ease-in;
+}
+
+.red{
+    background-color: red;
 }
 
 

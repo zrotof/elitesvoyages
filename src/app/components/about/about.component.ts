@@ -34,46 +34,46 @@ export class AboutComponent implements OnInit {
       {
         name: "Irène NGO BALA",
         image: "../../../assets/img/about/pauline.png",
-        work: "Responsable d'agence"
+        work: "Resp d'agence Douala"
       },
       {
         name: "Esther KOUMBELECK",
         image: "../../../assets/img/about/esther.png",
-        work: "Responsable d'agence"
+        work: "Resp d'agence Yaoundé"
       },
       {
         name: "Horlande BAKOM",
         image: "../../../assets/img/about/horlande.png",
-        work: "Poste"
+        work: "Agent comptoir"
       },
       {
         name: "Carole ABOUANG",
         image: "../../../assets/img/about/carole.png",
-        work: "Poste"
+        work: "Agent comptoir"
       },
       {
-        name: "Christelle",
+        name: "Christelle ONGBALOUEK",
         image: "../../../assets/img/about/christelle.png",
-        work: "Poste"
+        work: "Agent comptoir"
       },
       {
-        name: "Valentin",
+        name: "Valentin ABENG",
         image: "../../../assets/img/about/valentin.png",
-        work: "Poste"
+        work: "Agent comptoir"
       },
       {
-        name: "Jeanne HAMBO",
+        name: "Claire HAMBO",
         image: "../../../assets/img/about/about-woman-black.png",
         work: "Commerciale"
       },
       {
         name: "Pascal PONDI",
         image: "../../../assets/img/about/pascal.png",
-        work: "Poste"
+        work: "Commercial"
       },
       {
         name: "Samuel MANDENG",
-        image: "../../../assets/img/about/about-woman-black.png",
+        image: "../../../assets/img/about/samuel.png",
         work: "PDG"
       }
       

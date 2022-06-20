@@ -30,7 +30,7 @@ export class VisaComponent implements OnInit {
     this.showHideAccordion(0);
 
   }
-
+  
 
   // we remove the active action from every accordion and we only active the selected one
   showHideAccordion(param: number){

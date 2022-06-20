@@ -16,6 +16,7 @@ import { ApartmentComponent } from './components/apartment/apartment.component';
 import { TourComponent } from './components/tour/tour.component';
 import { AirPurifierComponent } from './components/air-purifier/air-purifier.component';
 import { CarParisComponent } from './components/car-paris/car-paris.component';
+import { NotYetImplementedComponent } from './components/not-yet-implemented/not-yet-implemented.component';
 const routes: Routes = [
   {path: '', redirectTo: '/accueil', pathMatch: 'full' },
   {path: 'accueil', component : HomeComponent},
@@ -32,8 +33,12 @@ const routes: Routes = [
   {path: 'bons-plans', component : GoodDealComponent},
   {path: 'bons-plans/voitures-paris', component : CarParisComponent},
   {path: 'bons-plans/purificateurs-dair', component : AirPurifierComponent},
+  {path: 'recrutements', component : NotYetImplementedComponent},
+  {path: 'confidentialite', component : NotYetImplementedComponent},
+  {path: 'cgu', component : NotYetImplementedComponent},
   {path: '**', component : NotFoundComponent}
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
