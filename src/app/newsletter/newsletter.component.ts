@@ -54,6 +54,8 @@ export class NewsletterComponent implements OnInit {
 
     this.mailService.addCustomerToNewsletter(JSON.stringify(this.newsletterForm.value)).pipe(finalize(() => this.isnewsletterFormSubmittedAndNotErrorOnClientSide = false),
     ).subscribe((resp: any) =>{
+
+      console.log(resp);
       
       if(resp['message'] === "success"){
         this.messageService.add({severity:'success', detail: "Nousvous avons bien ajouté à notre newsletter."});

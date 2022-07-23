@@ -77,19 +77,14 @@ export class FlightComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.initMinDate();
-
     this.listeningOnWays();
     this.initPassengerData();
-
   }
 
   //Initialize the the minimal date of calendar
   initMinDate(){
-     
     this.minDate = new Date(this.minDate.setDate((new Date()).getDate()));
-    
    }
 
    initPassengerData(){
@@ -117,6 +112,9 @@ export class FlightComponent implements OnInit {
     this.isFlightFormSubmitted = false;
     this.flightForm.reset();
     this.initPassengerData();
+    this.f.phone.setValue("");
+    this.f.dateRet.setValue("");
+    this.f.message.setValue("");
   }
   
 
@@ -185,7 +183,7 @@ listeningOnWays(){
       this.nombrePassagerTotal +=param;
     }
 
-    if(param == -1 && this.nombrePassagerTotal > 0 && this.nombrePassagerAdulte > 0 && this.nombrePassagerBebe < this.nombrePassagerAdulte){
+    if(param == -1 && this.nombrePassagerTotal > 1 && this.nombrePassagerBebe < this.nombrePassagerAdulte){
       this.nombrePassagerAdulte += param;
       this.nombrePassagerTotal +=param;
     }
@@ -202,7 +200,7 @@ listeningOnWays(){
       this.nombrePassagerTotal +=param;
     }
 
-    if(param == -1 && this.nombrePassagerTotal > 0 && this.nombrePassagerEnfant > 0){
+    if(param == -1 && this.nombrePassagerTotal > 1 && this.nombrePassagerEnfant > 0){
       this.nombrePassagerEnfant += param;
       this.nombrePassagerTotal +=param;
     }

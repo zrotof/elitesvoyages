@@ -138,10 +138,6 @@
                             </div>
                             <input type="text" placeholder="Entrez votre prénom" formControlName="firstname">
                         </div>
-
-                        <div *ngIf="isCarParisFormSubmitted && f.firstname.errors" class="error-feedback">
-                            <small *ngIf="f.firstname.errors.required">Prénom manquant</small>
-                        </div>
                     </div>
                     
                     <div class="element">

@@ -89,6 +89,9 @@
                                     <option *ngFor="let format of formats" [ngValue]="format">{{format}}</option>
                                 </select>
                             </div>
+                            <div *ngIf="isDhlFormSubmitted && f.dimensions.errors" class="error-feedback">
+                                <small *ngIf="f.dimensions.errors.required">Faites un choix de dimensions </small>
+                            </div>
                         </div>
                             
                     </div>

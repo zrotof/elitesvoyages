@@ -3,9 +3,8 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { TourismService } from 'src/app/services/tourism/tourism.service';
 import { TopTour, GeneralTour } from '../../models/tourism';
 
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
-import { faClock, faCar, faHeart, faPlusCircle, faMinusCircle, faCalendarDay, faShuttleVan, faBed, faPlaneDeparture, faPassport, faMugHot, faMountain, faUsers, faUser, faEdit, faQuestionCircle  } from '@fortawesome/free-solid-svg-icons';
+import { faMapMarkerAlt,faClock, faCar, faHeart, faPlusCircle, faMinusCircle, faCalendarDay, faShuttleVan, faBed, faPlaneDeparture, faPassport, faMugHot, faMountain, faUsers, faUser, faEdit, faQuestionCircle  } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { MenuItem, MessageService } from 'primeng/api';
@@ -92,9 +91,9 @@ titleDetail: any;
 civilityDetail: any;
 textDetail: any;
 
-  items!: MenuItem[];
+items!: MenuItem[];
 
-  minDate = new Date();
+minDate = new Date();
 
 currentCurrency: any;
 
@@ -174,7 +173,6 @@ currentCurrency: any;
       if( this.nombrePassagerTotal < 5 ){ 
         
         if((this.nombrePassagerEnfant + this.nombrePassagerBebe) < 2) {
-          console.log(this.nombrePassagerTotal, this.nombrePassagerEnfant, this.nombrePassagerBebe)
           this.price = this.nombrePassagerAdulte * param;
           return ;
         }
@@ -203,9 +201,7 @@ currentCurrency: any;
         customPrice.style.display='initial';
         return ;
       }
-      
       this.price = this.nombrePassagerAdulte * this.f.selectedRoom.value.price;
-      
     }
 
     if(param == -1){
@@ -335,7 +331,6 @@ currentCurrency: any;
     if(!this.tour.date.editable){
       this.f.date.clearValidators();
       this.f.date.updateValueAndValidity();
-
     }
 
     // stop here if form is invalid
@@ -354,7 +349,7 @@ currentCurrency: any;
       firstname: this.f.firstname.value,
       email: this.f.email.value,
       price: this.price,
-      nombrePassagerAdult: this.tour.couple? (2*this.nombrePassagerAdulte):this.nombrePassagerAdulte,
+      nombrePassagerAdult: this.nombrePassagerAdulte,
       nombrePassagerEnfant: this.nombrePassagerEnfant,
       nombrePassagerBebe: this.nombrePassagerBebe})).pipe(finalize(() => this.isTourFormSubmittedAndNotErrorOnClientSide = false),
     ).subscribe((resp: any) =>{
@@ -374,6 +369,13 @@ currentCurrency: any;
   onReset(){
     this.isTourFormSubmitted = false;
     this.tourForm.reset();
+
+    this.nombrePassagerAdulte= 1;
+    this.nombrePassagerEnfant = 0;
+    this.nombrePassagerBebe = 0;
+
+    this.f.selectedRoom.setValue(this.tour.bedrooms[0]);
+    this.price = this.f.selectedRoom.value.price * this.nombrePassagerAdulte; 
   }
 
   ngOnDestroy() {

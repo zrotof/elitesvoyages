@@ -42,7 +42,7 @@ export class MailsService {
   //Function use for booking a car in paris
   sendCarParisMail(data: any) : Observable<any>{
     return this.http.post("https://api.elites-voyages.com/mail/car-paris", data, this.headers)
-  }
+    }
 
   //Function use for booking a car in paris
   sendTourMail(data: any) : Observable<any>{
@@ -50,8 +50,6 @@ export class MailsService {
   }
 
   addCustomerToNewsletter(data: any) : Observable<any>{
-    //return this.http.post("https://api.elites-voyages.com/mail/newsletter", data, this.headers)
-    return this.http.post("http://localhost:3000/mail/newsletter", data, this.headers)
-
+    return this.http.post("https://api.elites-voyages.com/mail/newsletter", data, this.headers)
   }
 }

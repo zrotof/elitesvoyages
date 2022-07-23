@@ -4,7 +4,6 @@ import { LogementsService } from './../../services/logements/logements.service';
 import { faBed, faHome, faMapMarkerAlt, faSwimmer,faWifi, faSmokingBan, faCar, faDumbbell, faCoffee, faUtensils, faConciergeBell } from '@fortawesome/free-solid-svg-icons';
 import { Logement } from '../../models/logement';
 
-import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MailsService } from 'src/app/services/mails/mails.service';
 import { MessageService } from 'primeng/api';
@@ -14,7 +13,7 @@ import { finalize } from 'rxjs/operators';
   selector: 'app-hotel',
   templateUrl: './hotel.component.html',
   styleUrls: ['./hotel.component.scss'],
-  providers: [NgbRatingConfig, MessageService],
+  providers: [MessageService],
   encapsulation: ViewEncapsulation.None
 
 })
@@ -23,8 +22,6 @@ export class HotelComponent implements OnInit {
   civilities: any = [ "Mr", "Mme"];
   rooms: any = [ "1 chambre", "2 chambres", "3 chambres", "4 chambres"];
   
-  param = "hotel";
-
   faBed = faBed;
   faHome = faHome;
   faMapMarkerAlt = faMapMarkerAlt;
@@ -37,22 +34,7 @@ export class HotelComponent implements OnInit {
   faUtensils = faUtensils;
   faConciergeBell = faConciergeBell;
 
-
-  //params for pngbpagination
-  pageSize = 3;
-  page = 1;
-  logementSize = 1;
-
   hostelList : Logement[] | undefined ;
-  isHotelTabAlreadyClicked: boolean = false;
-
-
-  pageSizeApp = 3;
-  pageApp = 1;
-  logementSizeApp = 1;
-
-  apartmentList : Logement[] | undefined ;
-  isAppartementTabAlreadyClicked: boolean = false;
 
   extras  = [
     { id: 0, name: 'Climatisation' },
@@ -72,13 +54,10 @@ export class HotelComponent implements OnInit {
   constructor(
     private fb :FormBuilder, 
     private getLogementService : LogementsService, 
-    config: NgbRatingConfig, 
     private mailService: MailsService,  
     private messageService: MessageService,
     ) { 
-    // customize default values of ratings used by this component tree
-    config.max = 5;
-    config.readonly = true;
+
 
     this.hostelForm = this.fb.group({
       town: ["",[Validators.required]],
@@ -96,29 +75,26 @@ export class HotelComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.initMinDate();
-
   }
 
-
-
-  loadParamValue(){
-    if(history.state.parameter){
-      this.param = history.state.parameter;
-    }
-  }
 
   // convenient getter for easy access to form fields
   get f() { return this.hostelForm.controls; }
 
 
-    //Resetting the form's value
+  //Resetting the form's value
   onReset() {
     this.isHostelFormSubmitted = false;
     this.hostelForm.reset();
+    this.f.extras = new FormArray([]);
+    this.removeExtrasOptionsCheckStatusWhenFormIsValidate();
+    this.f.phone.setValue('');
+    this.f.hotels.setValue('');
   }
 
+  
+  //Handling submition of apart form
   onSubmitHostelForm(){
     this.isHostelFormSubmitted = true;
 
@@ -143,7 +119,7 @@ export class HotelComponent implements OnInit {
     });
   }
 
-
+  //Used to handling the click event on extras
   onChangeHostelExtras(name: string, e: any){
 
     const extras = (this.f.extras as FormArray);
@@ -160,9 +136,20 @@ export class HotelComponent implements OnInit {
 
   //Initialize the the minimal date of calendar
   initMinDate(){
-     
     this.minDate = new Date(this.minDate.setDate((new Date()).getDate()));
-    
+  }
+
+
+  //Used to remove checked Mark on form when we submitted it
+  removeExtrasOptionsCheckStatusWhenFormIsValidate(){
+
+    const extrasList = <NodeListOf<HTMLInputElement>>document.querySelectorAll('.extra > input'); 
+
+    extrasList.forEach(extra =>{
+      if(extra.checked){
+        extra.checked = false;
+      }
+    })
   }
 
 }

@@ -33,16 +33,16 @@ export class FretDhlComponent implements OnInit {
       private fb :FormBuilder, 
       private mailService: MailsService,
       private messageService: MessageService,
-      private primengConfig: PrimeNGConfig,) { 
+      private primengConfig: PrimeNGConfig) { 
    
  
       this.dhlForm = this.fb.group({
 
-        civility: ["", Validators.required],
         country: ["", Validators.required],
         weight: ["", Validators.required],
         contains: ["", Validators.required],
-        dimensions: [""],
+        dimensions: ["", Validators.required],
+        civility: ["", Validators.required],
         firstname: ["", Validators.required],
         lastname:["", [Validators.required]],
         email: ["", Validators.required],
@@ -62,6 +62,7 @@ export class FretDhlComponent implements OnInit {
   onReset() {
     this.isDhlFormSubmitted = false;
     this.dhlForm.reset();
+    this.f.phone.setValue("");
   }
 
   //Handling submition of flight form
@@ -78,7 +79,6 @@ export class FretDhlComponent implements OnInit {
 
     this.mailService.sendDhlMail(JSON.stringify(this.dhlForm.value)).pipe(finalize(() => this.isDhlFormSubmittedAndNotErrorOnClientSide = false),
     ).subscribe(resp =>{
-        console.log(resp);
 
         if(resp['message'] === "success"){
           this.messageService.add({severity:'success', detail: "Demande de dévis effectuée avec succès."});

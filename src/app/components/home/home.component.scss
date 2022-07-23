@@ -68,7 +68,7 @@ $fontColor: #525252;
                         text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.89);
                         max-width: 560px;
                         line-height: 20px;
-                        text-align: justify;
+                        text-align: center;
                         padding: 0 10px;
 
                     }
@@ -367,18 +367,21 @@ $fontColor: #525252;
                             color:#7a7a7a;
                             font-size: 0.9em;
                             line-height: 18px;
+                            text-align:center;
                         }
 
-                        span{
+                        button{
                             padding: 5.4px 20px;
                             background-color: $colorBlue;
                             color: white;
                             border-radius: 100px;
                             width: fit-content;
                             font-size: 0.8em;
+                            border: none;
+                            outline: none;
                         }
 
-                        span:hover{
+                        button:hover{
                             padding: 3.4px 20px;
                             border: 2px solid $colorBlue;
                             background-color: white;

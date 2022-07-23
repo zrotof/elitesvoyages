@@ -52,14 +52,14 @@ export class CarParisComponent implements OnInit {
       civility: ["", Validators.required],
       lastname:["", Validators.required],
       firstname: ["", Validators.required],
-      email: ["", Validators.required]
+      email: ["", Validators.required],
+      phone: [""]
     });
   }
 
 
 
   ngOnInit(): void {
-
     this.initMinDate();
   }
 
@@ -70,13 +70,12 @@ export class CarParisComponent implements OnInit {
   onReset() {
     this.isCarParisFormSubmitted = false;
     this.carParisForm.reset();
+    this.f.phone.setValue("");
   }
 
   //Initialize the the minimal date displayed of calendar
   initMinDate(){
-     
     this.minDate = new Date(this.minDate.setDate((new Date()).getDate()));
-    
    }
 
   onSubmitCarParisForm(){

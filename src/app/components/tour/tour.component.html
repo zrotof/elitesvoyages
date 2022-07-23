@@ -104,7 +104,6 @@
                     
                     <div class="title">
                         <h5>{{tour.program?.title}}</h5>
-                        <span>( {{tour.program?.teaser}} )</span>
                     </div>
 
 
@@ -149,7 +148,7 @@
                             <span>{{tour.date.value}}</span>
                         </div>
                         <ng-template #editable>
-                            <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" [minDate]="minDate" [readonlyInput]="true" placeholder="dd-mm-yy" formControlName="date"></p-calendar>                     
+                            <p-calendar dateFormat="dd-mm-yy" [showTime]="false" inputId="dateformat" [minDate]="minDate" [readonlyInput]="true" placeholder="dd-mm-yy" formControlName="date"></p-calendar>                     
                             <div *ngIf="isTourFormSubmitted && f.date.errors" class="error-feedback">
                                 <small *ngIf="f.date.errors.required">Renseignez la date</small>
                             </div>   
@@ -253,7 +252,7 @@
                                 </select>
                             </div>
                             <div *ngIf="isTourFormSubmitted && f.civility.errors" class="error-feedback">
-                                <small *ngIf="f.civility.errors.required">Type de pièce</small>
+                                <small *ngIf="f.civility.errors.required">Civilités manquantes</small>
                             </div>
                         </div>
                         
@@ -267,7 +266,7 @@
                                 <input type="text" placeholder="Entrez votre nom" formControlName="firstname">
                             </div>
                             <div *ngIf="isTourFormSubmitted && f.firstname.errors" class="error-feedback">
-                                <small *ngIf="f.firstname.errors.required">Nom manquant</small>
+                                <small *ngIf="f.firstname.errors.required">Nom(s) manquant(s)</small>
                             </div>
 
                         </div>
@@ -281,7 +280,7 @@
                                 <input type="text" placeholder="Entrez votre prénom" formControlName="lastname">
                             </div>
                             <div *ngIf="isTourFormSubmitted && f.lastname.errors" class="error-feedback">
-                                <small *ngIf="f.lastname.errors.required">Prénom manquant</small>
+                                <small *ngIf="f.lastname.errors.required">Prénom(s) manquant(s)</small>
                             </div>
                         </div>
     

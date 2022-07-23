@@ -33,6 +33,7 @@ export class HeaderComponent implements OnInit {
 
   isNotYetImplemented: boolean = false;
 
+
   constructor( private router: Router, private currencyService: CurrenciesService) {
     
    
@@ -61,8 +62,6 @@ export class HeaderComponent implements OnInit {
         return ;
       }
 
-      console.log(event);
-
 
       if(event instanceof NavigationEnd){
 
@@ -77,7 +76,6 @@ export class HeaderComponent implements OnInit {
 
           this.isNotYetImplemented = true;
 
-          console.log("dedans")
         }
         else{
 

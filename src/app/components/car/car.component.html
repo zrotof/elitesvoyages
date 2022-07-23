@@ -148,7 +148,7 @@
                 <div class="extras">
                     <ng-template ngFor let-extra [ngForOf]="extras">
                         <div class="extra">
-                            <input type="checkbox" id="{{extra.id}}" (change)="onChangeCarExtras(extra.name, $event)">
+                            <input type="checkbox" id="{{extra.id}}" (change)="onCarExtrasClicked(extra.name, $event)">
                             <label for="{{extra.id}}">{{extra.name}}</label>
                         </div>
                     </ng-template>
@@ -243,7 +243,6 @@
 
         </form>
         <ng-template #defaultText>Réserver</ng-template>
-
 
         <div class="procedure">
             <h1>Comment ça marche ?</h1>

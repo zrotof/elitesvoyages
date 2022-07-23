@@ -31,9 +31,9 @@ export class CarComponent implements OnInit {
 
   // rental reasons
   reasons: any = [
-                    'Location pour trajet aéroportuaire',
-                    'Location pour déplacements dans la ville',
-                    'Location pour déplacements hors de la ville'];
+                    'Trajet aéroportuaire',
+                    'Déplacements dans la ville',
+                    'Déplacements hors de la ville'];
 
   hours: any = [ 
                   '00h00', '01h00', '02h00', '03h00', '04h00', '05h00', '06h00',
@@ -81,10 +81,10 @@ constructor(
       driver: ["",[Validators.required]],
       dateDeb: ["",[Validators.required]],
       dateFin: ["",[Validators.required]],
-      heureDeb: [''],
-      heureFin: [''],
+      heureDeb: [""],
+      heureFin: [""],
       extras: new FormArray([]),
-      civility: [null, Validators.required],
+      civility: ["", Validators.required],
       firstname: ["", Validators.required],
       lastname:["", Validators.required],
       email: ["", [Validators.required, Validators.email]],
@@ -111,14 +111,22 @@ constructor(
   //Resetting the form's value
   onReset() {
     this.isCarFormSubmitted = false;
+
     this.carForm.reset();
+
+    this.f.extras = new FormArray([]);
+    this.removeExtrasOptionsCheckStatusWhenFormIsValidate();
+    this.f.phone.setValue("");
+    this.f.heureDeb.setValue("");
+    this.f.heureFin.setValue("");
+
   }
 
   //Handling submition of contact form
   onSubmitCarForm(){
 
     this.isCarFormSubmitted = true;
-
+    
     // stop here if form is invalid
     if (this.carForm.invalid) {
       return;
@@ -138,10 +146,13 @@ constructor(
         this.messageService.add({severity:'error',detail: "Erreur lors de l'envoi, re-essayez plus tard."});
       }
     });
+
+
   }
 
 
-  onChangeCarExtras(name: string, e: any){
+  //Used to handling the click event on extras
+  onCarExtrasClicked(name: string, e: any){
 
     const extras = (this.f.extras as FormArray);
 
@@ -154,6 +165,17 @@ constructor(
 
     extras.updateValueAndValidity();
 
+  }
 
+  //Used to remove checked Mark on form when we submitted it
+  removeExtrasOptionsCheckStatusWhenFormIsValidate(){
+
+    const extrasList = <NodeListOf<HTMLInputElement>>document.querySelectorAll('.extra > input'); 
+
+    extrasList.forEach(extra =>{
+      if(extra.checked){
+        extra.checked = false;
+      }
+    })
   }
 }

@@ -23,4 +23,6 @@ export class UtilsService {
     window.open(website, "_blank");
 
   }
+
+  
 }

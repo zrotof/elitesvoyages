@@ -92,8 +92,7 @@ $fontColor: #525252;
 
                 .element{
                     display: flex;
-                    justify-content: center;
-                    align-items: flex-start;
+                    justify-content: flex-start;
                     flex-direction: column;
 
                     .reason{
@@ -129,8 +128,7 @@ $fontColor: #525252;
                         
                     .element{
                         display: flex;
-                        justify-content: center;
-                        align-items: flex-start;
+                        justify-content: flex-start;
                         flex-direction: column;
         
                         .town, .seats, .driver{
@@ -170,8 +168,7 @@ $fontColor: #525252;
     
                             .element{
                                 display: flex;
-                                justify-content: center;
-                                align-items: flex-start;
+                                justify-content: flex-start;
                                 flex-direction: column;
             
                                 .day{
@@ -300,7 +297,7 @@ $fontColor: #525252;
                                     }
                     
                                     input:checked {
-                                        background-color: red;
+                                        background-color: $colorBlue;
                                     }
                     
                                     label{
@@ -332,8 +329,7 @@ $fontColor: #525252;
     
                     .element{
                         display: flex;
-                        justify-content: center;
-                        align-items: flex-start;
+                        justify-content: flex-start;
                         flex-direction: column;
 
                         .gender{
@@ -409,6 +405,10 @@ $fontColor: #525252;
                     justify-content: space-between;
 
                     .element{
+                        display: flex;
+                        justify-content: flex-start;
+                        flex-direction: column;
+                        
                         .email, .phone{
                             width: 280px;
                             height: 57px;

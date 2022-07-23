@@ -68,7 +68,7 @@ export class ContactComponent implements OnInit {
     this.isContactFormSubmitted = false;
     this.contactForm.reset();
     this.f.preference.setValue("email");
-    this.f.preference.updateValueAndValidity();
+    this.f.phone.setValue("");
   }
 
 

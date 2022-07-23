@@ -1,7 +1,7 @@
 <div class="tourisme">
 
     <div class="hero">
-        <h1 class="title">Tourisme</h1>
+        <h1 class="title">NOS DESTINATIONS TOURISTIQUES</h1>
     </div>
 
     <div class="content my-container">
@@ -14,7 +14,7 @@
 
         <div class="packages">
 
-            <ng-template ngFor let-package [ngForOf]="generalTourList">
+            <ng-template ngFor let-package [ngForOf]="allSummaryTours">
 
                 <div class="package" *ngIf="package">
                     
@@ -33,13 +33,46 @@
 
                             <ng-template ngFor let-tag [ngForOf]="package.tags">
 
-                                <div class="tag">
+                                <div class="tag" *ngIf="tag.icon == 'faPassport'">
+                                    <span class="icon">
+                                        <fa-icon [icon]= faPassport></fa-icon>
+                                    </span>
+                                    <span>{{tag.label}}</span>
+                                </div>
 
-                                        <span class="icon">
-                                            <fa-icon [icon]=tag.icon></fa-icon>
-                                        </span>
-                                        <span>{{tag.label}}</span>
-                                    
+                                <div class="tag" *ngIf="tag.icon == 'faPlaneDeparture'">
+                                    <span class="icon">
+                                        <fa-icon [icon]= faPlaneDeparture></fa-icon>
+                                    </span>
+                                    <span>{{tag.label}}</span>
+                                </div>
+
+                                <div class="tag" *ngIf="tag.icon == 'faMapMarkerAlt'">
+                                    <span class="icon">
+                                        <fa-icon [icon]= faMapMarkerAlt></fa-icon>
+                                    </span>
+                                    <span>{{tag.label}}</span>
+                                </div>
+
+                                <div class="tag" *ngIf="tag.icon == 'faBed'">
+                                    <span class="icon">
+                                        <fa-icon [icon]= faBed></fa-icon>
+                                    </span>
+                                    <span>{{tag.label}}</span>
+                                </div>
+
+                                <div class="tag" *ngIf="tag.icon == 'faShuttleVan'">
+                                    <span class="icon">
+                                        <fa-icon [icon]= faShuttleVan></fa-icon>
+                                    </span>
+                                    <span>{{tag.label}}</span>
+                                </div>
+
+                                <div class="tag" *ngIf="tag.icon == 'faMugHot'">
+                                    <span class="icon">
+                                        <fa-icon [icon]= faMugHot></fa-icon>
+                                    </span>
+                                    <span>{{tag.label}}</span>
                                 </div>
 
                             </ng-template>

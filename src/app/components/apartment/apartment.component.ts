@@ -51,9 +51,9 @@ export class ApartmentComponent implements OnInit {
         town: ['',[Validators.required]],
         dateDeb: ['',[Validators.required]],
         dateFin: ['',[Validators.required]],
-        type: [null,[Validators.required]],
+        type: ['',[Validators.required]],
         extras: new FormArray([]),
-        civility: [null, Validators.required],
+        civility: ['', Validators.required],
         firstname: ["", Validators.required],
         lastname:["", Validators.required],
         email: ["", [Validators.required, Validators.email]],
@@ -62,18 +62,12 @@ export class ApartmentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.initMinDate();
-
   }
-
-  
 
    //Initialize the the minimal date of calendar
    initMinDate(){
-     
     this.minDate = new Date(this.minDate.setDate((new Date()).getDate()));
-    
    }
 
   // convenient getter for easy access to form fields
@@ -84,9 +78,13 @@ export class ApartmentComponent implements OnInit {
   onReset() {
     this.isApartFormSubmitted = false;
     this.apartForm.reset();
+    this.f.extras = new FormArray([]);
+    this.removeExtrasOptionsCheckStatusWhenFormIsValidate();
+    this.f.phone.setValue("");
+
   }
 
-  //Handling submition of contact form
+  //Handling submition of apart form
   onSubmitApartForm(){
 
     this.isApartFormSubmitted = true;
@@ -112,6 +110,8 @@ export class ApartmentComponent implements OnInit {
     });
   }
 
+  
+  //Used to handling the click event on extras
   onChangeApartExtras(name: string, e: any){
 
     const extras = (this.f.extras as FormArray);
@@ -125,5 +125,18 @@ export class ApartmentComponent implements OnInit {
 
     extras.updateValueAndValidity();
 
+  }
+
+
+  //Used to remove checked Mark on form when we submitted it
+  removeExtrasOptionsCheckStatusWhenFormIsValidate(){
+
+    const extrasList = <NodeListOf<HTMLInputElement>>document.querySelectorAll('.extra > input'); 
+
+    extrasList.forEach(extra =>{
+      if(extra.checked){
+        extra.checked = false;
+      }
+    })
   }
 }
