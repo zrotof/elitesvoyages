@@ -29,12 +29,12 @@ export class TourismService {
   generalDataTourList(): Observable<GeneralTour[]>{
 
     //return this.http.get<GeneralTour[]>("https://api.elites-voyages.com/tourisme/allsummary");
-    return this.http.get<GeneralTour[]>("http://localhost:3001/tourisme/allsummary");
+    return this.http.get<GeneralTour[]>("http://localhost:3000/tourisme/allsummary");
 
   }
 
   getTourById(id: string){
     //return this.http.get("https://api.elites-voyages.com/tourisme/"+id);
-    return this.http.get("http://localhost:3001/tourisme/"+id);
+    return this.http.get("http://localhost:3000/tourisme/"+id);
   }
 }

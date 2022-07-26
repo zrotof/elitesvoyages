@@ -1,0 +1,464 @@
+$colorBlue: #115F98;
+$fontColor: #525252;
+
+.tourisme{
+    display: flex;
+    flex-direction:column;
+    width: 100%;
+    align-items: center;
+    
+    .hero{
+
+        background-image: url("../../../../assets/img/tourism/tourism.jpeg");
+        background-position: center right;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        width: 100%;
+        height: 65vh;
+
+        .title{
+            position: absolute;
+            top: 50%;
+            left:50%;
+            color: white;
+            transform: translate(-50%,-50%);
+            text-align:center;
+        }
+    }
+
+    .hero::before{
+        content: "";
+        top: 0;
+        left:0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(180deg, rgba(2,22,47,0.7133228291316527) 0%, rgba(0,0,0,0.23713235294117652) 25%, rgba(0,0,0,0.20632002801120453) 100%);
+    }
+
+    .content{
+        display: flex;
+        flex-direction: column ;
+        align-items: center;
+        justify-content: center;
+        padding-top: 80px;
+        padding-bottom: 80px;
+
+        .packages{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-top: 80px;
+
+            .package{
+                display: flex;
+                width: 90%;
+                border-radius: 10px;
+                overflow: hidden;
+                margin-bottom: 40px;
+                box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+                height: fit-content;
+
+                img{
+                    width: 350px;
+                    height: 300px;
+                    object-fit: cover;
+
+                }
+
+                .left{
+            
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    height: 300px;
+                    padding: 20px;
+
+                    .top{
+        
+                        display: flex;
+                        flex-direction: column;
+                        
+                        .title{
+                        
+                            color: $colorBlue;
+                            font-weight: bold;
+                            margin-bottom: 3px;
+                            height: fit-content;
+                        
+                        }
+                        
+                        .country{
+                            font-size: 0.9em;
+                            color: #115F98;
+                            font-weight: 400;
+                            margin-bottom: 15px;
+                            height: fit-content;
+                        }
+
+                        .description{
+                            font-size: 0.95em;
+                            line-height: 20px;
+                            color: $fontColor;
+                        }
+        
+                    }
+        
+                    .tags{
+                            display: flex;
+                            
+                            .tag{
+                                display: flex;
+                                flex-direction: column;
+                                margin-right: 25px;
+                                align-items: center;
+                                width: fit-content;
+                                white-space: nowrap;
+
+                                .icon{
+
+                                    border-radius: 50%;
+                                    background: #115f9847;
+                                    height: 35px;
+                                    width: 35px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+
+                                    fa-icon{
+                                        color: $colorBlue;
+                                        font-size: 1.2em;
+                                    }
+                                }   
+
+                                 span{
+                                     font-size: 0.9em;
+                                     white-space: nowrap;
+                                 }
+                            }
+
+
+                    }
+        
+                }
+            
+                .right{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    height: 300px;
+                    width: fit-content;
+                    align-items: flex-end;
+                    padding: 20px 20px 20px 0;
+
+                    .price-bloc{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                        line-height: 20px;
+                        width: 122px;
+
+                        .text{
+                            font-size: 0.85em;
+                            font-weight: 300;
+                            width: fit-content;
+
+                        }
+
+                        .price{
+                            color: $colorBlue;
+                            font-weight: bold;
+                            font-size: 1.2em;
+                            white-space: nowrap;
+                        }
+                    }
+                    button{
+                        padding: 4px 20px;
+                        cursor: pointer;
+                        border-radius: 100px;
+                        text-align: center;
+                        background-color: $colorBlue;
+                        color: white;
+                        font-weight: bold;
+                        transition: all 0.3s ease;
+                        border: 2px solid $colorBlue;      
+                        white-space: nowrap;
+                        width: fit-content;
+                    }
+    
+                    button:hover{
+                        color: $colorBlue;
+                        background-color: white;
+                    }
+                }
+
+            }
+
+            .package:hover{
+box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;                
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1140px){
+
+    .tourisme{
+    
+        .content{
+
+    
+            .packages{
+
+                .package{
+                    width: 100%;
+                }
+
+            }
+        }
+    }
+    
+}
+
+@media all and (max-width: 1000px){
+
+    .tourisme{
+    
+        .content{
+
+            .packages{
+    
+                .package{
+ 
+                    img{
+                        width: 270px;
+                        height: 290px;
+                    }
+                
+
+                    .left{
+                
+                        height: 290px;
+
+                
+                        .tags{
+                               
+                            .tag{
+
+                                margin-right: 17px;
+    
+                                    .icon{
+    
+                                        height: 27px;
+                                        width: 27px;
+                        
+                                        fa-icon{
+                                            font-size: 1em;
+                                        }
+                                    }   
+    
+                                     span{
+                                        font-size: 0.85em;
+                                    }
+                                }
+    
+    
+                            }
+                
+                    }
+                
+                    .right{
+
+                        height: 290px;
+
+                            .price-bloc{
+                                align-items: flex-start;
+
+                                .price{
+
+                                    font-size: 1em;
+                                }
+                            }
+
+                            button{
+                                padding: 2px 15px;
+                                font-size: 0.9em;
+                            }
+                    }
+    
+                }
+    
+            }
+        }
+    }
+    
+}
+
+
+@media all and (max-width: 900px){
+
+    .tourisme{
+    
+        .content{
+
+            .packages{
+    
+                .package{
+ 
+                    flex-wrap: wrap;
+
+                    img{
+                        width: 270px;
+                        height: 290px;
+                    }
+
+                    .left{
+                        width: calc(100% - 270px);
+                    }
+                
+                    .right{
+
+                        align-self: flex-end;
+                        flex-direction: row;
+                        width: 100%;
+                        height: 80px;
+
+                        padding: 10px;
+                        align-items: center;
+                        background-color: #e9e9e9;
+                        .price-bloc{
+    
+                            .price{
+                                font-size: 1em;
+                            }
+                        }
+
+                        button{
+                            padding: 2px 15px;
+                            font-size: 0.9em;
+                            font-weight: 500;
+                        }
+                    }
+
+                }
+    
+            }
+        }
+    }
+    
+}
+
+@media all and (max-width: 670px){
+
+    .tourisme{
+    
+        .content{
+
+            .packages{
+    
+                .package{
+ 
+                    flex-direction: column;
+
+                    img{
+                        width: 100%;
+                        height: 290px;
+                    }
+
+                    .left{
+                        width: 100%;
+                        height: fit-content;
+                        padding: 10px;
+                        .tags{
+                            margin-top: 15px;
+                        }
+                    }
+                
+                    .right{
+
+                        align-self: flex-end;
+                        flex-direction: row;
+                        width: 100%;
+                        height: 80px;
+
+                        padding: 10px;
+                        align-items: center;
+                        background-color: #e9e9e9;
+
+                        .price-bloc{
+    
+                            .price{
+                                font-size: 1em;
+                            }
+                        }
+
+                        button{
+                            padding: 2px 15px;
+                            font-size: 0.9em;
+                            font-weight: 500;
+                        }
+                    }
+
+                }
+    
+            }
+        }
+    }
+    
+}
+
+
+@media all and (max-width: 425px){
+
+    .tourisme{
+    
+        .content{
+
+            .packages{
+    
+                .package{
+ 
+                    width: 93%;
+
+                    img{
+                        height: 210px;
+                    }
+
+                    .left{
+                        width: 100%;
+                    }
+                
+                    .right{
+
+                        align-self: flex-end;
+                        flex-direction: row;
+                        width: 100%;
+                        height: 80px;
+
+                        padding: 10px;
+                        align-items: center;
+                        background-color: #e9e9e9;
+                        
+                        .price-bloc{
+    
+                            .price{
+                                font-size: 1em;
+                            }
+                        }
+
+                        button{
+                            padding: 2px 15px;
+                            font-size: 0.9em;
+                            font-weight: 500;
+                        }
+                    }
+
+                }
+    
+            }
+        }
+    }
+    
+}
