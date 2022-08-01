@@ -6,7 +6,8 @@ export const environment = {
   production: false,
 
   //https://app.exchangerate-api.com/
-  currencyExchangeAPI: "72cdd931a660d1f2ac7f76ae"
+  currencyExchangeAPI: "72cdd931a660d1f2ac7f76ae",
+  MICROANALYTICS_ID : 'ZwSg9rf6GA'
 };
 
 /*

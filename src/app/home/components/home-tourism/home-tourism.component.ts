@@ -25,6 +25,7 @@ export class HomeTourismComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadCurrentCurrency();
     this.getTopTours();
   }
 
@@ -33,7 +34,9 @@ export class HomeTourismComponent implements OnInit {
     .subscribe(resp =>{
       this.topTourismList = resp;
     });
+  }
 
+  loadCurrentCurrency(){
     this.currencyService.currency$.subscribe( currency =>{
       this.currentCurrency = currency;
     })

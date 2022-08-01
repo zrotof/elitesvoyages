@@ -7,6 +7,7 @@ import {MenuItem, MessageService, PrimeNGConfig} from 'primeng/api';
 import { faPlaneDeparture, faPlaneArrival, faCalendarDay, faPlus, faPlusCircle, faUser, faEnvelope, faPhoneAlt, faPaperPlane, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 import { MailsService } from 'src/app/services/mails/mails.service';
 import { finalize } from 'rxjs/operators';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-flight',
@@ -53,7 +54,9 @@ export class FlightComponent implements OnInit {
     private mailService: MailsService,
     private messageService: MessageService,
     private primengConfig: PrimeNGConfig,
-    public dialogService: DialogService) { 
+    public dialogService: DialogService,
+    private title: Title,
+    private meta: Meta) { 
    
     this.flightForm = this.fb.group({
       way: ["", [Validators.required]],
@@ -77,9 +80,27 @@ export class FlightComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.initMetaData();
     this.initMinDate();
     this.listeningOnWays();
     this.initPassengerData();
+  }
+
+  initMetaData(){
+
+    //SEO metadata
+    this.title.setTitle("Réservez un vol");
+    this.meta.addTag({name: 'description', content: "ici sera la méta tag.mais on vera ça plus tard"});
+  
+    // Twitter metadata
+    this.meta.addTag({name: 'twitter:card', content: 'summary'});
+    this.meta.addTag({name: 'twitter:site', content: '@AngularUniv'});
+    this.meta.addTag({name: 'twitter:title', content: ''});
+    this.meta.addTag({name: 'twitter:description', content: 'this.course.description'});
+    this.meta.addTag({name: 'twitter:text:description', content: 'this.course.description'});
+    this.meta.addTag({name: 'twitter:image', content: 'https://avatars3.githubusercontent.com/u/16628445?v=3&s=200'});
+
+  
   }
 
   //Initialize the the minimal date of calendar

@@ -132,8 +132,30 @@ $colorGold: #EEC66C;
             }
 
             .deal:hover{
-                background-color: #115f9826;
+                background-color: rgba(0, 0, 0, 0.899);
                 box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+                color: white !important;
+                transition: all 0.3s ease-in-out;
+
+                .img-bloc{
+                    img{
+                        transform: scale(1.1,1.1);
+                        transition: all 0.3s ease-in-out;
+
+                    }
+                }
+
+                .sub-title{
+                    color: $colorBlue;
+                }
+
+                .price-bloc{
+                    
+                    .price{
+                        color: white;
+                        font-style: italic;
+                    }
+                }
             }
 
             

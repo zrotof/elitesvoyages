@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { faShuttleVan, faBed, faPlaneDeparture, faPassport, faMugHot } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 
-import { GeneralTour, TopTour } from '../../models/tourism';
+import { GeneralTour, TopTour, SpotlightedTour } from '../../models/tourism';
 @Injectable({
   providedIn: 'root'
 })
@@ -27,14 +27,14 @@ export class TourismService {
   }
 
   generalDataTourList(): Observable<GeneralTour[]>{
-
-    //return this.http.get<GeneralTour[]>("https://api.elites-voyages.com/tourisme/allsummary");
-    return this.http.get<GeneralTour[]>("http://localhost:3000/tourisme/allsummary");
-
+    return this.http.get<GeneralTour[]>("https://api.elites-voyages.com/tourisme/allsummary");
   }
 
   getTourById(id: string){
-    //return this.http.get("https://api.elites-voyages.com/tourisme/"+id);
-    return this.http.get("http://localhost:3000/tourisme/"+id);
+    return this.http.get("https://api.elites-voyages.com/tourisme/"+id);
+  }
+
+  getSpotlightedTours(): Observable<SpotlightedTour[]>{
+    return this.http.get<SpotlightedTour[]>("https://api.elites-voyages.com/tourisme/spotlighted");
   }
 }

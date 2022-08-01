@@ -21,7 +21,7 @@ import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {DialogModule} from 'primeng/dialog';
 import {TooltipModule} from 'primeng/tooltip';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
-import { CurrencyPipe } from './pipes/currency/currency.pipe';
+import {CurrencyPipe} from './pipes/currency/currency.pipe';
 
 @NgModule({
   declarations: [
@@ -67,4 +67,8 @@ import { CurrencyPipe } from './pipes/currency/currency.pipe';
     CurrencyPipe
   ]
 })
-export class SharedModule { }
+export class SharedModule { 
+
+
+}
+

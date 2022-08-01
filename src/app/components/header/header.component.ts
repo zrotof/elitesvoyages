@@ -3,9 +3,6 @@ import { NavigationEnd, Router } from '@angular/router';
 
 import { faGlobe,faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { CurrenciesService } from '../../services/currencies/currencies.service';
-
-import { Currency } from '../../models/currency';
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -34,21 +31,22 @@ export class HeaderComponent implements OnInit {
   isNotYetImplemented: boolean = false;
 
 
-  constructor( private router: Router, private currencyService: CurrenciesService) {
+  constructor( 
+    private router: Router, 
+    private currencyService: CurrenciesService
+    ) {
     
    
   }
 
    ngOnInit(): void {
     this.routingEvent();
-    
     this.currencyService.initCurrencyLocalStorage();
-
     this.currencyService.currency$.subscribe( currency =>{
       this.currentCurrency = currency;
     });
-
   }
+
 
 
   //On routing event we, if we are on small screen, we toggle the menu to disapear from the screen after we click on a link
@@ -84,7 +82,7 @@ export class HeaderComponent implements OnInit {
             navSmallScreen.classList.toggle("toggle-nav");
             this.isBurgerMenuClicked = false;  
             
-            if(window.pageYOffset <= header.clientHeight) {
+            if(window.pageYOffset <= header?.clientHeight) {
               header.classList.remove('navbar-background-on-scroll');
             }
   
@@ -92,7 +90,7 @@ export class HeaderComponent implements OnInit {
   
           else{
             
-            if (window.pageYOffset <= header.clientHeight) {
+            if (window.pageYOffset <= header?.clientHeight) {
   
               if(this.router.url.includes('tourisme/')){
                 header.classList.add('navbar-background-on-scroll');
@@ -103,11 +101,8 @@ export class HeaderComponent implements OnInit {
               }
             }
           }
-        }      
-        
+        }       
       }
-
-
     })
   }
 
@@ -186,7 +181,7 @@ export class HeaderComponent implements OnInit {
     else{
 
       if(!this.isBurgerMenuClicked){
-        if (window.pageYOffset > header.clientHeight) {
+        if (window.pageYOffset > header?.clientHeight) {
           header.classList.add('navbar-background-on-scroll');
         }
         else {
@@ -196,6 +191,7 @@ export class HeaderComponent implements OnInit {
       
     }
   }
+
 
   //Handling click on burger menu
   onBurgerMenu(){
@@ -208,7 +204,7 @@ export class HeaderComponent implements OnInit {
       
       navSmallScreen.classList.toggle("toggle-nav")
 
-      if (window.pageYOffset <= header.clientHeight) {
+      if (window.pageYOffset <= header?.clientHeight) {
         header.classList.add('navbar-background-on-scroll');
       }
       this.isBurgerMenuClicked = true;
@@ -219,11 +215,12 @@ export class HeaderComponent implements OnInit {
       this.isBurgerMenuClicked = false;
 
       if(!this.router.url.includes('tourisme/')){
-        if(window.pageYOffset <= header.clientHeight) {
+        if(window.pageYOffset <= header?.clientHeight) {
           header.classList.remove('navbar-background-on-scroll');
         }
       }
 
     }
   }
+
 }

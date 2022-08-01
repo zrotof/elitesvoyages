@@ -2,36 +2,29 @@
     <div class="content my-container">
         <h1 class="title">ACTUELLEMENT À LA UNE</h1>
         <div class="deals">
-            <div class="deal" routerLink="/tourisme/israel-egypte">
-                <div class="img-bloc">
-                    <img src="../../../assets/img//home/spotlighted-deals/israel-egypte.jpeg">
-                    <span class="tag israel-egypte">
-                        <fa-icon [icon]="faUsers"></fa-icon>
-                        Places limitées
-                    </span>
-                </div>
-                <span class="sub-title">Pèlerinage en terre sainte : Israêl et Egypte</span>
-                <div class="price-bloc">
-                    <span class="label">à partir de</span>
-                    <span class="price">{{2300000 | currency:currentCurrency?.convertRate | number}} {{currentCurrency?.symbol}} / personne</span>
-                </div>
-            </div>
 
-            <div class="deal" routerLink="/tourisme/kribi">
-                <div class="img-bloc">
-                    <img src="../../../assets/img//home/spotlighted-deals/kribi-couple.jpeg">
-                    <span class="tag kribi">
-                        <fa-icon [icon]="faHeart"></fa-icon>
-                        Idéal pour couple
-                    </span>
+            <ng-template ngFor let-tour [ngForOf]="topSpotlightedList">
+
+                <div class="deal" routerLink="/tourisme/{{tour.link}}">
+                    <div class="img-bloc">
+                        <img src={{tour.image}}>
+                        <span class="tag" *ngIf="tour.tag.icon == 'faUsers'">
+                            <fa-icon [icon]="faUsers" [ngStyle]="{'color': tour.tag.color}"></fa-icon>
+                            Places limitées
+                        </span>
+                        <span class="tag" *ngIf="tour.tag.icon == 'faHeart'">
+                            <fa-icon [icon]="faHeart" [ngStyle]="{'color': tour.tag.color}"></fa-icon>
+                            Idéal pour couple
+                        </span>
+                    </div>
+                    <span class="sub-title">{{tour.title}}</span>
+                    <div class="price-bloc">
+                        <span class="label">à partir de</span>
+                        <span class="price">{{ tour.price | currency:currentCurrency?.convertRate | number}} {{currentCurrency?.symbol}} / {{tour.formula}}</span>
+                    </div>
                 </div>
-                <span class="sub-title">Weekend détente en amoureux à Kribi</span>
-                <div class="price-bloc">
-                    <span class="label">à partir de</span>
-                    <span class="price">{{130000 | currency:currentCurrency?.convertRate | number}} {{currentCurrency?.symbol}} / couple</span>
-                </div>
-            </div>
-            
+
+            </ng-template>
         </div>
     </div>
 </div>

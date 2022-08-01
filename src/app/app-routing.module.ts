@@ -4,11 +4,14 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NotYetImplementedComponent } from './components/not-yet-implemented/not-yet-implemented.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/accueil', pathMatch: 'full' },
+  {
+    path: '', 
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+  },
   
   {
-    path: 'accueil', 
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+    path: 'accueil', redirectTo: '', pathMatch: 'full' 
+    
   },
   {
     path: 'a-propos', 
@@ -59,8 +62,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    //scrollPositionRestoration: 'top'
-  })],
+    initialNavigation: 'enabled',
+    scrollPositionRestoration: 'enabled'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

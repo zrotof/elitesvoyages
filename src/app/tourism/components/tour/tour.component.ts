@@ -149,11 +149,9 @@ currentCurrency: any;
     this.route.params.subscribe(
       params =>{
 
-        console.log(params)
         if(params['id']){
           this.tourService.getTourById(params['id']).
           subscribe(resp =>{
-
             this.tour = resp ;
             this.f.selectedRoom.setValue(this.tour.bedrooms[0]);
             this.price = this.f.selectedRoom.value.price * this.nombrePassagerAdulte; 

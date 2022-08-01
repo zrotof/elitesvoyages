@@ -9,7 +9,7 @@ $fontColor: #525252;
 
     .hero{
 
-        background-image: url("../../../assets/img/good-deals/deal.jpeg");
+        background-image: url("../../../../assets/img/good-deals/deal.jpeg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -198,40 +198,7 @@ $fontColor: #525252;
 @media all and (max-width: 1200px){
 
     .deal{
-        display: flex;
-        flex-direction:column;
-        width: 100%;
-        align-items: center;
-    
-        .hero{
-    
-            background-image: url("../../../assets/img/good-deals/deal.jpeg");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-            width: 100%;
-            height: 65vh;
-    
-            .title{
-                position: absolute;
-                top: 50%;
-                left:50%;
-                color: white;
-                transform: translate(-50%,-50%);
-            }
-        }
-    
-        .hero::before{
-            content: "";
-            top: 0;
-            left:0;
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            background: linear-gradient(180deg, rgba(2,22,47,0.7133228291316527) 0%, rgba(0,0,0,0.23713235294117652) 25%, rgba(0,0,0,0.20632002801120453) 100%);
-        }
-    
+
         .content{
     
             .offers{
@@ -334,39 +301,6 @@ $fontColor: #525252;
 @media all and (max-width: 383px){
 
     .deal{
-        display: flex;
-        flex-direction:column;
-        width: 100%;
-        align-items: center;
-    
-        .hero{
-    
-            background-image: url("../../../assets/img/good-deals/deal.jpeg");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-            width: 100%;
-            height: 65vh;
-    
-            .title{
-                position: absolute;
-                top: 50%;
-                left:50%;
-                color: white;
-                transform: translate(-50%,-50%);
-            }
-        }
-    
-        .hero::before{
-            content: "";
-            top: 0;
-            left:0;
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            background: linear-gradient(180deg, rgba(2,22,47,0.7133228291316527) 0%, rgba(0,0,0,0.23713235294117652) 25%, rgba(0,0,0,0.20632002801120453) 100%);
-        }
     
         .content{
 

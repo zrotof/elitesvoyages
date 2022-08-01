@@ -2,33 +2,33 @@
 <header (scroll)="onWindowScroll()" [ngClass]="isNotYetImplemented?'navbar-background':''">
 
     <div class="content my-container">
-        <img routerLink="/accueil" src="../../../assets/img/header/logo.png" alt="Logo of Elites Voyages">
+        <img routerLink="" src="../../../assets/img/header/logo.png" alt="Logo of Elites Voyages">
 
         <div class="header-right">
 
             <nav>
                 <ul>
-                    <li><a routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" routerLink="/accueil">Accueil</a></li>
+                    <li><a rel="canonical" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" routerLink="">Accueil</a></li>
                     <li class="services-bloc" (mouseover)="showHideServices()" (mouseout)="showHideServices()">
                             <div class="services">
                                 <span>Services</span> 
                                 <fa-icon [icon]="faCaretDown"></fa-icon>
                             </div>
                             <ul>
-                                <li><a routerLinkActive="active-link" routerLink="/vols">Billets d'Avion</a></li>
-                                <li><a routerLinkActive="active-link" routerLink="/hotels">Hôtels</a></li>
-                                <li><a routerLinkActive="active-link" routerLink="/appartements-meubles">Appartements Meublés</a></li>
-                                <li><a routerLinkActive="active-link" routerLink="/voitures">Location Voitures</a></li>
-                                <li><a routerLinkActive="active-link" routerLink="/tourisme">Tourisme</a></li>
-                                <li><a routerLinkActive="active-link" routerLink="/dhl">DHL</a></li>
+                                <li><a rel="canonical" routerLinkActive="active-link" routerLink="/vols">Billets d'Avion</a></li>
+                                <li><a rel="canonical" routerLinkActive="active-link" routerLink="/hotels">Hôtels</a></li>
+                                <li><a rel="canonical" routerLinkActive="active-link" routerLink="/appartements-meubles">Appartements Meublés</a></li>
+                                <li><a rel="canonical" routerLinkActive="active-link" routerLink="/voitures">Location Voitures</a></li>
+                                <li><a rel="canonical" routerLinkActive="active-link" routerLink="/tourisme">Tourisme</a></li>
+                                <li><a rel="canonical" routerLinkActive="active-link" routerLink="/dhl">DHL</a></li>
                             <!--
-                                <li><a routerLinkActive="active-link" routerLink="/assistance-visa">Assistance Visas</a></li>
+                                <li><a rel="canonical" routerLinkActive="active-link" routerLink="/assistance-visa">Assistance Visas</a></li>
                             -->
                             </ul>
                     </li>
-                    <li><a routerLinkActive="active-link" routerLink="/a-propos">À propos</a></li>
-                    <li><a routerLinkActive="active-link" routerLink="/bons-plans">Bons plans</a></li>
-                    <li><a routerLinkActive="active-link" routerLink="/contact">Contactez-nous</a></li>
+                    <li><a rel="canonical" routerLinkActive="active-link" routerLink="/a-propos">À propos</a></li>
+                    <li><a rel="canonical" routerLinkActive="active-link" routerLink="/bons-plans">Bons plans</a></li>
+                    <li><a rel="canonical" routerLinkActive="active-link" routerLink="/contact">Contactez-nous</a></li>
                 </ul>
 
             </nav>

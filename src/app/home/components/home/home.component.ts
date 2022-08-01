@@ -7,6 +7,8 @@ import { Carousel } from 'primeng/carousel';
 import { SwiperComponent } from 'swiper/angular';
 
 import SwiperCore, { EffectFade, Pagination, Navigation  } from "swiper";
+import { Meta, Title } from '@angular/platform-browser';
+import { AnalyticsService } from 'src/app/services/analytics/analytics.service';
 
 SwiperCore.use([EffectFade, Pagination, Navigation])
 
@@ -34,20 +36,38 @@ export class HomeComponent implements OnInit {
   servicesList: Services[] = [];
  
 
-  constructor() {
+  constructor(
+    private title: Title,
+    private meta: Meta,
+    private readonly analyticsService : AnalyticsService
+  ) {
 
     //Enabling scroll on carousel for mobiles
     Carousel.prototype.onTouchMove = () => { };
     //Carousel.prototype.onTouchMove = noop;
 
-
 }
 
 
   ngOnInit(): void {
-
+    this.initMetaData();
+    this.analyticsService.initialize();
     this.retrieveListOfServices();
+  }
 
+  initMetaData(){
+
+    //SEO metadata
+    this.title.setTitle("Elites Voyages | Agence de voyage et de tourisme");
+    this.meta.addTag({name: 'description', content: "ici sera la méta tag.mais on vera ça plus tard"});
+  
+    // Twitter metadata
+    this.meta.addTag({name: 'twitter:card', content: 'summary'});
+    this.meta.addTag({name: 'twitter:site', content: '@AngularUniv'});
+    this.meta.addTag({name: 'twitter:title', content: ''});
+    this.meta.addTag({name: 'twitter:description', content: 'this.course.description'});
+    this.meta.addTag({name: 'twitter:text:description', content: 'this.course.description'});
+    this.meta.addTag({name: 'twitter:image', content: 'https://avatars3.githubusercontent.com/u/16628445?v=3&s=200'});
   }
 
   arrowSlide(param: number){
@@ -59,7 +79,6 @@ export class HomeComponent implements OnInit {
       this.swiper?.swiperRef.slidePrev(700);
     }
   }
-
 
   retrieveListOfServices(){
 
